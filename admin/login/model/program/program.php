@@ -457,8 +457,8 @@ class ModelProgramProgram extends Model {
 
 	public function addProgram($data) {
 		// $this->event->trigger('pre.admin.category.add', $data);
-		echo "<pre>";print_r($data);exit;
-		$this->db->query("INSERT INTO " . DB_PREFIX . "program_master SET program_name = '" . $data['name'] . "', program_description = '" . $data['description'] . "', status = '" . (int)$data['status'] . "', program_img = '" . $data['image'] . "',program_img_hover = '" . $data['hover_image'] . "', date_modified = NOW(), created_added = NOW()");
+		// echo "<pre>";print_r($data);exit;
+		$this->db->query("INSERT INTO " . DB_PREFIX . "program_master SET program_name = '" . $data['program_description'][1]['name'] . "', program_description = '" . $data['program_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', program_img = '" . $data['image'] . "',program_img_hover = '" . $data['hover_image'] . "', date_modified = NOW(), created_added = NOW()");
 
 		$category_id = $this->db->getLastId();
 
