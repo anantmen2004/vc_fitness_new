@@ -68,6 +68,15 @@ class ControllerCommonMenu extends Controller {
 		$data['text_report_customer_order'] = $this->language->get('text_report_customer_order');
 		$data['text_report_affiliate'] = $this->language->get('text_report_affiliate');
 		$data['text_report_affiliate_activity'] = $this->language->get('text_report_affiliate_activity');
+
+
+
+		$data['text_programs'] = $this->language->get('text_programs');
+		$data['text_trainings'] = $this->language->get('text_trainings');
+
+
+
+
 		$data['text_review'] = $this->language->get('text_review');
 		$data['text_return'] = $this->language->get('text_return');
 		$data['text_return_action'] = $this->language->get('text_return_action');
@@ -206,6 +215,12 @@ class ControllerCommonMenu extends Controller {
 			'amazonus' => $this->config->get('openbay_amazonus_status'),
 			'etsy' => $this->config->get('etsy_status'),
 		);
+
+
+
+
+
+		$data['programs'] = $this->url->link('program/program', 'token=' . $this->session->data['token'], 'SSL');
 
 		return $this->load->view('common/menu.tpl', $data);
 	}

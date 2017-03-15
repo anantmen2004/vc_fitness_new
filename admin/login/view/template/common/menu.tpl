@@ -199,4 +199,13 @@
       </li>
     </ul>
   </li>
+
+
+
+  <li id="programs"><a class="parent" href="<?php echo $programs; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_programs; ?></span></a>
+     
+  </li>
+  <li id="training"><a class="parent"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_trainings; ?></span></a>
+     
+  </li>
 </ul>
