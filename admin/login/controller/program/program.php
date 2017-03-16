@@ -74,7 +74,7 @@ class ControllerProgramProgram extends Controller {
 
 		$results = $this->model_program_program->getPrograms($filter_data);
 
-		// print_r($results[0]['status']);exit;
+		 //print_r($results[0]['status']);exit;
 
 		foreach ($results as $result) {
 			if($result['status'] == '1'){
@@ -221,7 +221,7 @@ class ControllerProgramProgram extends Controller {
 
 
 	protected function getForm() {
-		// print_r($this->request->get['program_id']);exit;
+// 		 print_r($this->request->get['program_id']);exit;
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_form'] = !isset($this->request->get['program_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
@@ -318,94 +318,44 @@ class ControllerProgramProgram extends Controller {
 		$data['cancel'] = $this->url->link('program/program', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
 		if (isset($this->request->get['program_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
-			$category_info = $this->model_program_program->getPrograms($this->request->get['program_id']);
+			$program_info = $this->model_program_program->getProgram($this->request->get['program_id']);
 		}
-
+		
 		$data['token'] = $this->session->data['token'];
 
 		$this->load->model('localisation/language');
 
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 
-		// if (isset($this->request->post['program_description'])) {
-		// 	$data['program_description'] = $this->request->post['program_description'];
-		// } elseif (isset($this->request->get['program_id'])) {
-		// 	$data['program_description'] = $this->model_catalog_category->getCategoryDescriptions($this->request->get['program_id']);
-		// } else {
-		// 	$data['program_description'] = array();
-		// }
+		
+		if (isset($this->request->post['name'])) {
+			$data['name'] = $this->request->post['name'];
+		} elseif (!empty($program_info)) {
+			$data['name'] = $program_info['program_name'];
+		} else {
+			$data['name'] = '';
+		}
 
-		// if (isset($this->request->post['path'])) {
-		// 	$data['path'] = $this->request->post['path'];
-		// } elseif (!empty($category_info)) {
-		// 	$data['path'] = $category_info['path'];
-		// } else {
-		// 	$data['path'] = '';
-		// }
-
-		// if (isset($this->request->post['parent_id'])) {
-		// 	$data['parent_id'] = $this->request->post['parent_id'];
-		// } elseif (!empty($category_info)) {
-		// 	$data['parent_id'] = $category_info['parent_id'];
-		// } else {
-		// 	$data['parent_id'] = 0;
-		// }
-
-		// $this->load->model('catalog/filter');
-
-		// if (isset($this->request->post['category_filter'])) {
-		// 	$filters = $this->request->post['category_filter'];
-		// } elseif (isset($this->request->get['program_id'])) {
-		// 	$filters = $this->model_catalog_category->getCategoryFilters($this->request->get['program_id']);
-		// } else {
-		// 	$filters = array();
-		// }
-
-		// $data['category_filters'] = array();
-
-		// foreach ($filters as $filter_id) {
-		// 	$filter_info = $this->model_catalog_filter->getFilter($filter_id);
-
-		// 	if ($filter_info) {
-		// 		$data['category_filters'][] = array(
-		// 			'filter_id' => $filter_info['filter_id'],
-		// 			'name'      => $filter_info['group'] . ' &gt; ' . $filter_info['name']
-		// 		);
-		// 	}
-		// }
-
-		// $this->load->model('setting/store');
-
-		// $data['stores'] = $this->model_setting_store->getStores();
-
-		// if (isset($this->request->post['category_store'])) {
-		// 	$data['category_store'] = $this->request->post['category_store'];
-		// } elseif (isset($this->request->get['program_id'])) {
-		// 	$data['category_store'] = $this->model_catalog_category->getCategoryStores($this->request->get['program_id']);
-		// } else {
-		// 	$data['category_store'] = array(0);
-		// }
-
-		// if (isset($this->request->post['keyword'])) {
-		// 	$data['keyword'] = $this->request->post['keyword'];
-		// } elseif (!empty($category_info)) {
-		// 	$data['keyword'] = $category_info['keyword'];
-		// } else {
-		// 	$data['keyword'] = '';
-		// }
+		if (isset($this->request->post['description'])) {
+			$data['description'] = $this->request->post['description'];
+		} elseif (!empty($program_info)) {
+			$data['description'] = $program_info['program_description'];
+		} else {
+			$data['description'] = '';
+		}
 
 		if (isset($this->request->post['image'])) {
 			$data['image'] = $this->request->post['image'];
-		} elseif (!empty($category_info)) {
-			$data['image'] = $category_info['image'];
+		} elseif (!empty($program_info)) {
+			$data['image'] = $program_info['program_img'];
 		} else {
 			$data['image'] = '';
 		}
 
 		if (isset($this->request->post['hover_image'])) {
 			$data['hover_image'] = $this->request->post['hover_image'];
-		} elseif (!empty($category_info)) {
-			$data['hover_image'] = $category_info['hover_image'];
+		} elseif (!empty($program_info)) {
+			$data['hover_image'] = $program_info['program_img_hover'];
 		} else {
 			$data['hover_image'] = '';
 		}
@@ -414,70 +364,44 @@ class ControllerProgramProgram extends Controller {
 
 		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
 			$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
-		} elseif (!empty($category_info) && is_file(DIR_IMAGE . $category_info['image'])) {
-			$data['thumb'] = $this->model_tool_image->resize($category_info['image'], 100, 100);
+		} elseif (!empty($program_info) && is_file(DIR_IMAGE . $program_info['program_img'])) {
+			$data['thumb'] = $this->model_tool_image->resize($program_info['program_img'], 100, 100);
 		} else {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
 
 		if (isset($this->request->post['hover_image']) && is_file(DIR_IMAGE . $this->request->post['hover_image'])) {
 			$data['thumb_hover'] = $this->model_tool_image->resize($this->request->post['hover_image'], 100, 100);
-		} elseif (!empty($category_info) && is_file(DIR_IMAGE . $category_info['hover_image'])) {
-			$data['thumb_hover'] = $this->model_tool_image->resize($category_info['hover_image'], 100, 100);
+		} elseif (!empty($program_info) && is_file(DIR_IMAGE . $program_info['program_img_hover'])) {
+			$data['thumb_hover'] = $this->model_tool_image->resize($program_info['program_img_hover'], 100, 100);
 		} else {
 			$data['thumb_hover'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
 
-		// $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		 $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
-		// if (isset($this->request->post['top'])) {
-		// 	$data['top'] = $this->request->post['top'];
-		// } elseif (!empty($category_info)) {
-		// 	$data['top'] = $category_info['top'];
-		// } else {
-		// 	$data['top'] = 0;
-		// }
+		 if (isset($this->request->post['status'])) {
+			$data['status'] = $this->request->post['status'];
+		} elseif (!empty($program_info)) {
+			$data['status'] = $program_info['status'];
+		} else {
+			$data['status'] = true;
+		}
 
-		// if (isset($this->request->post['column'])) {
-		// 	$data['column'] = $this->request->post['column'];
-		// } elseif (!empty($category_info)) {
-		// 	$data['column'] = $category_info['column'];
-		// } else {
-		// 	$data['column'] = 1;
-		// }
-
-		// if (isset($this->request->post['sort_order'])) {
-		// 	$data['sort_order'] = $this->request->post['sort_order'];
-		// } elseif (!empty($category_info)) {
-		// 	$data['sort_order'] = $category_info['sort_order'];
-		// } else {
-		// 	$data['sort_order'] = 0;
-		// }
-
-		// if (isset($this->request->post['status'])) {
-		// 	$data['status'] = $this->request->post['status'];
-		// } elseif (!empty($category_info)) {
-		// 	$data['status'] = $category_info['status'];
-		// } else {
-		// 	$data['status'] = true;
-		// }
-
-		// if (isset($this->request->post['category_layout'])) {
-		// 	$data['category_layout'] = $this->request->post['category_layout'];
-		// } elseif (isset($this->request->get['program_id'])) {
-		// 	$data['category_layout'] = $this->model_catalog_category->getCategoryLayouts($this->request->get['program_id']);
-		// } else {
-		// 	$data['category_layout'] = array();
-		// }
-
-		// $this->load->model('design/layout');
-
-		//$data['layouts'] = $this->model_design_layout->getLayouts();
+		
+		 $data['program_details'][1] = array(
+			'name' => $data['name'],
+			'description' => $data['description'],
+			'image' => $data['image'],
+			'thumb' => $data['thumb'],
+			'thumb_hover' => $data['thumb_hover'], );
+		 $data['program_description'] = $data['program_details'];
+		//echo "<pre>";print_r($data);exit;
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
-
+		//echo "<pre>";print_r($data);exit;
 		$this->response->setOutput($this->load->view('program/program_form.tpl',$data));
 	}
 
@@ -510,8 +434,6 @@ class ControllerProgramProgram extends Controller {
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 			$this->model_program_program->addProgram($this->request->post);
 
-			print_r(111);exit;
-
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			$url = '';
@@ -532,6 +454,49 @@ class ControllerProgramProgram extends Controller {
 		}
 
 		$this->getForm();
+	}
+
+
+	public function delete() {
+		$this->language->load('program/program');
+
+		$this->document->setTitle($this->language->get('heading_title'));
+
+		$this->load->model('program/program');
+
+		if (isset($this->request->post['selected']) && $this->validateDelete()) {
+			foreach ($this->request->post['selected'] as $program_id) {
+				$this->model_catalog_category->deleteCategory($program_id);
+			}
+
+			$this->session->data['success'] = $this->language->get('text_success');
+
+			$url = '';
+
+			if (isset($this->request->get['sort'])) {
+				$url .= '&sort=' . $this->request->get['sort'];
+			}
+
+			if (isset($this->request->get['order'])) {
+				$url .= '&order=' . $this->request->get['order'];
+			}
+
+			if (isset($this->request->get['page'])) {
+				$url .= '&page=' . $this->request->get['page'];
+			}
+
+			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+		}
+
+		$this->getList();
+	}
+
+	protected function validateDelete() {
+		if (!$this->user->hasPermission('modify', 'program/program')) {
+			$this->error['warning'] = $this->language->get('error_permission');
+		}
+
+		return !$this->error;
 	}
 
 

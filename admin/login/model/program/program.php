@@ -343,121 +343,37 @@ class ModelProgramProgram extends Model {
 	}
 
 
-	public function getPrograms($data = array()) {
+	public function getPrograms($data = array()) //multiple programs
+	{
 		$sql = "SELECT * FROM oc_program_master" ;
 
 		$query = $this->db->query($sql);
 
 		return $query->rows;
 	}
+	public function getProgram($program_id)  // single program
+	{
+		$query = $this->db->query("SELECT * FROM oc_program_master WHERE program_id = $program_id AND status = 1");
+
+		return $query->row;
+	}
 
 	public function editProgram($program_id, $data) {
-		print_r($program_id);exit;
-		$this->event->trigger('pre.admin.category.edit', $data);
+		$this->event->trigger('pre.admin.program.edit', $data);
 
-		$this->db->query("UPDATE " . DB_PREFIX . "category SET parent_id = '" . (int)$data['parent_id'] . "', `top` = '" . (isset($data['top']) ? (int)$data['top'] : 0) . "', `column` = '" . (int)$data['column'] . "', sort_order = '" . (int)$data['sort_order'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW() WHERE program_id = '" . (int)$program_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "program_master SET program_name = '" . $data['program_description'][1]['name'] . "', program_description = '" . $data['program_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', program_img = '" . $data['image'] . "',program_img_hover = '" . $data['hover_image'] . "', date_modified = NOW(), created_added = NOW() WHERE program_id = '" . (int)$program_id . "'");
 
-		if (isset($data['image'])) {
-			$this->db->query("UPDATE " . DB_PREFIX . "category SET image = '" . $this->db->escape($data['image']) . "' WHERE program_id = '" . (int)$program_id . "'");
-		}
+		
+		$this->cache->delete('program');
 
-		$this->db->query("DELETE FROM " . DB_PREFIX . "category_description WHERE program_id = '" . (int)$program_id . "'");
-
-		foreach ($data['category_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "category_description SET program_id = '" . (int)$program_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', description = '" . $this->db->escape($value['description']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
-		}
-
-		// MySQL Hierarchical Data Closure Table Pattern
-		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "category_path` WHERE path_id = '" . (int)$program_id . "' ORDER BY level ASC");
-
-		if ($query->rows) {
-			foreach ($query->rows as $category_path) {
-				// Delete the path below the current one
-				$this->db->query("DELETE FROM `" . DB_PREFIX . "category_path` WHERE program_id = '" . (int)$category_path['program_id'] . "' AND level < '" . (int)$category_path['level'] . "'");
-
-				$path = array();
-
-				// Get the nodes new parents
-				$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "category_path` WHERE program_id = '" . (int)$data['parent_id'] . "' ORDER BY level ASC");
-
-				foreach ($query->rows as $result) {
-					$path[] = $result['path_id'];
-				}
-
-				// Get whats left of the nodes current path
-				$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "category_path` WHERE program_id = '" . (int)$category_path['program_id'] . "' ORDER BY level ASC");
-
-				foreach ($query->rows as $result) {
-					$path[] = $result['path_id'];
-				}
-
-				// Combine the paths with a new level
-				$level = 0;
-
-				foreach ($path as $path_id) {
-					$this->db->query("REPLACE INTO `" . DB_PREFIX . "category_path` SET program_id = '" . (int)$category_path['program_id'] . "', `path_id` = '" . (int)$path_id . "', level = '" . (int)$level . "'");
-
-					$level++;
-				}
-			}
-		} else {
-			// Delete the path below the current one
-			$this->db->query("DELETE FROM `" . DB_PREFIX . "category_path` WHERE program_id = '" . (int)$program_id . "'");
-
-			// Fix for records with no paths
-			$level = 0;
-
-			$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "category_path` WHERE program_id = '" . (int)$data['parent_id'] . "' ORDER BY level ASC");
-
-			foreach ($query->rows as $result) {
-				$this->db->query("INSERT INTO `" . DB_PREFIX . "category_path` SET program_id = '" . (int)$program_id . "', `path_id` = '" . (int)$result['path_id'] . "', level = '" . (int)$level . "'");
-
-				$level++;
-			}
-
-			$this->db->query("REPLACE INTO `" . DB_PREFIX . "category_path` SET program_id = '" . (int)$program_id . "', `path_id` = '" . (int)$program_id . "', level = '" . (int)$level . "'");
-		}
-
-		$this->db->query("DELETE FROM " . DB_PREFIX . "category_filter WHERE program_id = '" . (int)$program_id . "'");
-
-		if (isset($data['category_filter'])) {
-			foreach ($data['category_filter'] as $filter_id) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "category_filter SET program_id = '" . (int)$program_id . "', filter_id = '" . (int)$filter_id . "'");
-			}
-		}
-
-		$this->db->query("DELETE FROM " . DB_PREFIX . "category_to_store WHERE program_id = '" . (int)$program_id . "'");
-
-		if (isset($data['category_store'])) {
-			foreach ($data['category_store'] as $store_id) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "category_to_store SET program_id = '" . (int)$program_id . "', store_id = '" . (int)$store_id . "'");
-			}
-		}
-
-		$this->db->query("DELETE FROM " . DB_PREFIX . "category_to_layout WHERE program_id = '" . (int)$program_id . "'");
-
-		if (isset($data['category_layout'])) {
-			foreach ($data['category_layout'] as $store_id => $layout_id) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "category_to_layout SET program_id = '" . (int)$program_id . "', store_id = '" . (int)$store_id . "', layout_id = '" . (int)$layout_id . "'");
-			}
-		}
-
-		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'program_id=" . (int)$program_id . "'");
-
-		if ($data['keyword']) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'program_id=" . (int)$program_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
-		}
-
-		$this->cache->delete('category');
-
-		$this->event->trigger('post.admin.category.edit', $program_id);
+		$this->event->trigger('post.admin.program.edit', $program_id);
 	}
 
 
 
 	public function addProgram($data) {
 		// $this->event->trigger('pre.admin.category.add', $data);
-		// echo "<pre>";print_r($data);exit;
+		//echo "<pre>";print_r($data);exit;
 		$this->db->query("INSERT INTO " . DB_PREFIX . "program_master SET program_name = '" . $data['program_description'][1]['name'] . "', program_description = '" . $data['program_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', program_img = '" . $data['image'] . "',program_img_hover = '" . $data['hover_image'] . "', date_modified = NOW(), created_added = NOW()");
 
 		$category_id = $this->db->getLastId();
@@ -465,6 +381,30 @@ class ModelProgramProgram extends Model {
 		// $this->event->trigger('post.admin.category.add', $category_id);
 
 		return $category_id;
+	}
+
+	public function deleteCategory($category_id) {
+		$this->event->trigger('pre.admin.category.delete', $category_id);
+
+		$this->db->query("DELETE FROM " . DB_PREFIX . "category_path WHERE category_id = '" . (int)$category_id . "'");
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_path WHERE path_id = '" . (int)$category_id . "'");
+
+		foreach ($query->rows as $result) {
+			$this->deleteCategory($result['category_id']);
+		}
+
+		$this->db->query("DELETE FROM " . DB_PREFIX . "category WHERE category_id = '" . (int)$category_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "category_description WHERE category_id = '" . (int)$category_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "category_filter WHERE category_id = '" . (int)$category_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "category_to_store WHERE category_id = '" . (int)$category_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "category_to_layout WHERE category_id = '" . (int)$category_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "product_to_category WHERE category_id = '" . (int)$category_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'category_id=" . (int)$category_id . "'");
+
+		$this->cache->delete('category');
+
+		$this->event->trigger('post.admin.category.delete', $category_id);
 	}
 
 
