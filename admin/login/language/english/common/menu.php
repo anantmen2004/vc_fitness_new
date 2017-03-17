@@ -1,5 +1,5 @@
 <?php
-// Text
+// Text 
 $_['text_analytics']                   = 'Analytics';
 $_['text_affiliate']                   = 'Affiliates';
 $_['text_api']                         = 'API';

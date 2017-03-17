@@ -39,25 +39,30 @@
                     <a  class=""><?php echo $column_name; ?></a>
                     <?php } else { ?>
                     <a ><?php echo $column_name; ?></a>
-                    <?php } ?></td>
+                    <?php } ?>
+                  </td>
+                  <td class="text-left">
+                    <a  class=""><?php echo "Program Name" ?></a>
+                  </td>
                   <td class="text-right">
                     <a  class=""><?php echo "Status" ?></a>
-                    </td>
+                  </td>
                   <td class="text-right"><?php echo $column_action; ?></td>
                 </tr>
               </thead>
               <tbody>
-                <?php if ($programs) { ?>
-                <?php foreach ($programs as $program) { ?>
+                <?php if ($trainings) { ?>
+                <?php foreach ($trainings as $training) { ?>
                 <tr>
-                  <td class="text-center"><?php if (in_array($program['program_id'], $selected)) { ?>
-                    <input type="checkbox" name="selected[]" value="<?php echo $program['program_id']; ?>" checked="checked" />
+                  <td class="text-center"><?php if (in_array($training['training_id'], $selected)) { ?>
+                    <input type="checkbox" name="selected[]" value="<?php echo $training['training_id']; ?>" checked="checked" />
                     <?php } else { ?>
-                    <input type="checkbox" name="selected[]" value="<?php echo $program['program_id']; ?>" />
+                    <input type="checkbox" name="selected[]" value="<?php echo $training['training_id']; ?>" />
                     <?php } ?></td>
-                  <td class="text-left"><?php echo $program['name']; ?></td>
-                  <td class="text-right"><?php echo $program['status']; ?></td>
-                  <td class="text-right"><a href="<?php echo $program['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
+                  <td class="text-left"><?php echo $training['name']; ?></td>
+                  <td class="text-left"><?php echo $training['program_name']; ?></td>
+                  <td class="text-right"><?php echo $training['status']; ?></td>
+                  <td class="text-right"><a href="<?php echo $training['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>
                 <?php } ?>
                 <?php } else { ?>

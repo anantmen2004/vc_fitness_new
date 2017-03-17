@@ -2524,3 +2524,95 @@
 2017-03-16 14:06:53 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
 2017-03-16 14:06:53 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
 2017-03-16 14:06:53 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
+2017-03-17 8:41:04 - PHP Notice:  Undefined index: meta_title in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 61
+2017-03-17 8:41:04 - PHP Notice:  Undefined index: meta_description in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 70
+2017-03-17 8:41:04 - PHP Notice:  Undefined index: meta_keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 76
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: path in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 87
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: parent_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 88
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: category_filters in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 96
+2017-03-17 8:41:04 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 96
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: category_store in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 110
+2017-03-17 8:41:04 - PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 110
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 119
+2017-03-17 8:41:04 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 119
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 138
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: top in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 161
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: column in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 173
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: sort_order in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 179
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: layouts in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
+2017-03-17 8:41:04 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
+2017-03-17 8:41:04 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
+2017-03-17 8:41:04 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
+2017-03-17 8:41:28 - PHP Notice:  Undefined index: meta_title in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 61
+2017-03-17 8:41:28 - PHP Notice:  Undefined index: meta_description in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 70
+2017-03-17 8:41:28 - PHP Notice:  Undefined index: meta_keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 76
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: path in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 87
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: parent_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 88
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: category_filters in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 96
+2017-03-17 8:41:28 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 96
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: category_store in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 110
+2017-03-17 8:41:28 - PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 110
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 119
+2017-03-17 8:41:28 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 119
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 138
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: top in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 161
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: column in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 173
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: sort_order in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 179
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: layouts in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
+2017-03-17 8:41:28 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
+2017-03-17 8:41:28 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
+2017-03-17 8:41:28 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
+2017-03-17 12:17:47 - PHP Notice:  Error: Table 'vc_fitness.oc_training_master' doesn't exist<br />Error No: 1146<br />SELECT * FROM oc_training_master in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
+2017-03-17 12:17:47 - PHP Notice:  Trying to get property of non-object in C:\xampp\htdocs\vc_fitness_new\admin\login\model\training\training.php on line 17
+2017-03-17 12:17:47 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\training\training.php on line 80
+2017-03-17 12:17:47 - PHP Notice:  Undefined variable: programs in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 50
+2017-03-17 12:18:39 - PHP Notice:  Undefined variable: programs in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 50
+2017-03-17 12:23:22 - PHP Notice:  Undefined variable: programs in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 50
+2017-03-17 12:23:22 - PHP Notice:  Undefined variable: programs in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 50
+2017-03-17 12:23:23 - PHP Notice:  Undefined variable: programs in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 50
+2017-03-17 12:23:23 - PHP Notice:  Undefined variable: programs in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 50
+2017-03-17 12:23:23 - PHP Notice:  Undefined variable: programs in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 50
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:31:09 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_list.tpl on line 59
+2017-03-17 12:32:02 - PHP Notice:  Undefined index: training in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\training\training.php on line 173
+2017-03-17 12:41:07 - PHP Notice:  Undefined index: training_description in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\training\training.php on line 402
+2017-03-17 12:41:07 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\training\training.php on line 402
+2017-03-17 12:41:07 - PHP Notice:  Undefined index: training_description in C:\xampp\htdocs\vc_fitness_new\admin\login\model\training\training.php on line 40
+2017-03-17 12:41:07 - PHP Notice:  Undefined index: training_description in C:\xampp\htdocs\vc_fitness_new\admin\login\model\training\training.php on line 40
+2017-03-17 12:41:07 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\model\training\training.php on line 40
+2017-03-17 12:41:07 - PHP Notice:  Error: Unknown column 'training_img' in 'field list'<br />Error No: 1054<br />INSERT INTO oc_training_type SET training_name = '', training_description = '', status = '0', training_img = 'catalog/demo/apple_logo.jpg',training_img_hover = '', date_modified = NOW(), created_added = NOW() in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
+2017-03-17 12:50:12 - PHP Notice:  Undefined variable: program_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 44
+2017-03-17 12:50:12 - PHP Notice:  Undefined variable: program_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 46
+2017-03-17 12:52:23 - PHP Notice:  Undefined variable: program_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 44
+2017-03-17 12:52:23 - PHP Notice:  Undefined variable: program_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 46
+2017-03-17 13:10:38 - PHP Notice:  Undefined variable: filter_data in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\training\training.php on line 323
+2017-03-17 13:10:38 - PHP Notice:  Undefined index: program in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\training\training.php on line 398
+2017-03-17 13:17:55 - PHP Notice:  Undefined variable: program in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 53
+2017-03-17 13:18:44 - PHP Notice:  Undefined index: training_description in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\training\training.php on line 407
+2017-03-17 13:18:44 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\training\training.php on line 407
+2017-03-17 13:18:44 - PHP Notice:  Undefined index: training_description in C:\xampp\htdocs\vc_fitness_new\admin\login\model\training\training.php on line 40
+2017-03-17 13:18:44 - PHP Notice:  Undefined index: training_description in C:\xampp\htdocs\vc_fitness_new\admin\login\model\training\training.php on line 40
+2017-03-17 13:18:44 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\model\training\training.php on line 40
+2017-03-17 13:18:44 - PHP Notice:  Error: Unknown column 'training_img' in 'field list'<br />Error No: 1054<br />INSERT INTO oc_training_type SET training_name = '', training_description = '', status = '0', training_img = '',training_img_hover = '', date_modified = NOW(), created_added = NOW() in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41

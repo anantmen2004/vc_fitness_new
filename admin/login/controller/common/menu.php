@@ -1,4 +1,4 @@
-<?php
+ <?php
 class ControllerCommonMenu extends Controller {
 	public function index() {
 		$this->load->language('common/menu');
@@ -221,6 +221,7 @@ class ControllerCommonMenu extends Controller {
 
 
 		$data['programs'] = $this->url->link('program/program', 'token=' . $this->session->data['token'], 'SSL');
+		$data['trainings'] = $this->url->link('training/training', 'token=' . $this->session->data['token'], 'SSL');
 
 		return $this->load->view('common/menu.tpl', $data);
 	}
