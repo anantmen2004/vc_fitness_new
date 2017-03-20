@@ -100,3 +100,4 @@ $_['text_paypal_manage']               = 'PayPal';
 $_['text_paypal_search']               = 'Search';
 $_['text_programs']               	   = 'Programs';
 $_['text_trainings']               	   = 'Trainings';
+$_['text_packages']               	   = 'Package';

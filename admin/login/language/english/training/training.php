@@ -48,3 +48,4 @@ $_['error_keyword']          = 'SEO keyword already in use!';
 
 $_['program_type']           = 'Program Type';
 $_['program_type']           = 'Program Type';
+$_['entry_content']      = 'Content';

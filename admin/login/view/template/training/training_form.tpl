@@ -42,18 +42,15 @@
                 <div class="tab-pane" id="language<?php echo $language['language_id']; ?>">
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $program_type; ?></label>
-                    <!-- <div class="col-sm-10">
-                      <input type="text" name="program_description[<?php echo $language['language_id']; ?>][name]" value="<?php echo isset($program_description[$language['language_id']]) ? $program_description[$language['language_id']]['name'] : ''; ?>" placeholder="<?php echo $program_type; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
-                      <?php if (isset($error_name[$language['language_id']])) { ?>
-                      <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
-                      <?php } ?>
-                    </div> -->
                     <div class="col-sm-10">
-                      <select name="program_description[<?php echo $language['language_id']; ?>][name]" id="religion" class="form-control">
+                      <select name="training_description[<?php echo $language['language_id']; ?>][program_id]" id="religion" class="form-control">
                       <option value="0">Please Select Program</option>
                       <?php foreach ($programs as $program) { ?>
+                          <?php if(isset($training_description[1][program_id]) && $training_description[1][program_id]== $program['program_id']){ ?>
+                          <option value="<?php echo $program['program_id']?>" selected><?php echo $program['program_name']?></option>
+                      <?php } else {?>
                           <option value="<?php echo $program['program_id']?>"><?php echo $program['program_name']?></option>
-                      <?php } ?>
+                      <?php } }?>
                        </select>
                     </div>
                   </div>
@@ -61,7 +58,7 @@
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_name; ?></label>
                     <div class="col-sm-10">
-                      <input type="text" name="program_description[<?php echo $language['language_id']; ?>][name]" value="<?php echo isset($program_description[$language['language_id']]) ? $program_description[$language['language_id']]['name'] : ''; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
+                      <input type="text" name="training_description[<?php echo $language['language_id']; ?>][name]" value="<?php echo isset($training_description[$language['language_id']]) ? $training_description[$language['language_id']]['name'] : ''; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
                       <?php if (isset($error_name[$language['language_id']])) { ?>
                       <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
                       <?php } ?>
@@ -70,32 +67,33 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>
                     <div class="col-sm-10">
-                      <textarea name="program_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>" class="form-control"><?php echo isset($program_description[$language['language_id']]) ? $program_description[$language['language_id']]['description'] : ''; ?></textarea>
+                      <textarea name="training_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>" class="form-control"><?php echo isset($training_description[$language['language_id']]) ? $training_description[$language['language_id']]['description'] : ''; ?></textarea>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>
+                    <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_content; ?></label>
                     <div class="col-sm-10">
-                      <textarea name="program_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description1<?php echo $language['language_id']; ?>" class="form-control"><?php echo isset($program_description[$language['language_id']]) ? $program_description[$language['language_id']]['description'] : ''; ?></textarea>
+                      <textarea name="training_description[<?php echo $language['language_id']; ?>][content]" placeholder="<?php echo $entry_content; ?>" id="input-description1<?php echo $language['language_id']; ?>" class="form-control"><?php echo isset($training_description[$language['language_id']]) ? $training_description[$language['language_id']]['content'] : ''; ?></textarea>
                     </div>
                   </div>
+                  <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
+                <div class="col-sm-10">
+                  <select name="status" id="input-status" class="form-control">
+                    <?php if ($status) { ?>
+                    <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                    <option value="0"><?php echo $text_disabled; ?></option>
+                    <?php } else { ?>
+                    <option value="1"><?php echo $text_enabled; ?></option>
+                    <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
                 </div>
                 <?php } ?>
               </div>
             </div>
-            <div class="tab-pane" id="tab-data">
-              <div class="form-group">
-                <label class="col-sm-2 control-label"><?php echo $entry_image; ?></label>
-                <div class="col-sm-10"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
-                  <input type="hidden" name="image" value="<?php echo $image; ?>" id="input-image" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label"><?php echo $entry_hover_image; ?></label>
-                <div class="col-sm-10"><a href="" id="thumb-image1" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb_hover; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
-                  <input type="hidden" name="hover_image" value="<?php echo $hover_image; ?>" id="input-image" />
-                </div>
-              </div>
           </div>
         </form>
       </div>

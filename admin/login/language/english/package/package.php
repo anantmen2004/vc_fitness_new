@@ -44,3 +44,12 @@ $_['error_permission']       = 'Warning: You do not have permission to modify Pa
 $_['error_name']             = 'Package Name must be between 2 and 255 characters!';
 $_['error_meta_title']       = 'Meta Title must be greater than 3 and less than 255 characters!';
 $_['error_keyword']          = 'SEO keyword already in use!';
+
+$_['entry_1m_amount']        = 'Package Per Month Amount';
+$_['entry_3m_amount']        = 'Package 3 Month Amount';
+$_['entry_6m_amount']        = 'Package 6 Month Amount';
+$_['entry_1y_amount']        = 'Package per year Amount';
+$_['number_of_video']        = 'Number of video';
+$_['training_type_id']       = 'Training type';
+
+$_['error_amount']             = 'Please enter Package Per month Amount!';

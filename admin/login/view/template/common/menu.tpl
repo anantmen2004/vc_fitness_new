@@ -203,9 +203,15 @@
 
 
   <li id="programs"><a class="parent" href="<?php echo $programs; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_programs; ?></span></a>
-     
   </li>
+
   <li id="trainings"><a class="parent" href="<?php echo $trainings; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_trainings; ?></span></a>
-     
   </li>
+
+  <li id="packages"><a class="parent" href="<?php echo $packages; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_packages; ?></span></a>
+  </li>
+
+
+
+
 </ul>

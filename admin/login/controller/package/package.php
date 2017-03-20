@@ -1,14 +1,13 @@
 <?php
-class ControllerTrainingTraining extends Controller {
+class ControllerPackagePackage extends Controller {
 	private $error = array();
 
 	public function index() {
-		// print_r(123);exit;
-		$this->language->load('training/training');
+		$this->language->load('package/package');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('training/training');
+		$this->load->model('package/package');
 
 		$this->getList();
 	}
@@ -55,14 +54,14 @@ class ControllerTrainingTraining extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('training/training', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
 
-		$data['add'] = $this->url->link('training/training/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
-		$data['delete'] = $this->url->link('training/training/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
-		$data['repair'] = $this->url->link('training/training/repair', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['add'] = $this->url->link('package/package/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['delete'] = $this->url->link('package/package/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['repair'] = $this->url->link('package/package/repair', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
-		$data['trainings'] = array();
+		$data['packages'] = array();
 
 		$filter_data = array(
 			'sort'  => $sort,
@@ -71,9 +70,9 @@ class ControllerTrainingTraining extends Controller {
 			'limit' => $this->config->get('config_limit_admin')
 		);
 
-		$training_total = $this->model_training_training->getTotaltraining();
+		$package_total = $this->model_package_package->getTotalPackage();
 
-		$results = $this->model_training_training->gettrainings($filter_data);
+		$results = $this->model_package_package->getPackages($filter_data);
 
 		 //print_r($results[0]['status']);exit;
 
@@ -84,14 +83,13 @@ class ControllerTrainingTraining extends Controller {
 			else{
 				$status = "Inactive";
 			}
-			$data['trainings'][] = array(
-				'training_id' => $result['training_id'],
-				'name'        => $result['training_name'],
-				'program_name'        => $result['program_name'],
+			$data['packages'][] = array(
+				'package_id' => $result['package_id'],
+				'name'        => $result['package_name'],
 				 'sort_order'  => "ASC",
 				'status'  => $status,
-				'edit'        => $this->url->link('training/training/edit', 'token=' . $this->session->data['token'] . '&training_id=' . $result['training_id'] . $url, 'SSL'),
-				'delete'      => $this->url->link('training/training/delete', 'token=' . $this->session->data['token'] . '&training_id=' . $result['training_id'] . $url, 'SSL')
+				'edit'        => $this->url->link('package/package/edit', 'token=' . $this->session->data['token'] . '&package_id=' . $result['package_id'] . $url, 'SSL'),
+				'delete'      => $this->url->link('package/package/delete', 'token=' . $this->session->data['token'] . '&package_id=' . $result['package_id'] . $url, 'SSL')
 			);
 		}
 
@@ -142,8 +140,8 @@ class ControllerTrainingTraining extends Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
-		$data['sort_name'] = $this->url->link('training/training', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
-		$data['sort_sort_order'] = $this->url->link('training/training', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
+		$data['sort_name'] = $this->url->link('package/package', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
+		$data['sort_sort_order'] = $this->url->link('package/package', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
 
 		$url = '';
 
@@ -156,14 +154,14 @@ class ControllerTrainingTraining extends Controller {
 		}
 
 		$pagination = new Pagination();
-		$pagination->total = $training_total;
+		$pagination->total = $package_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
-		$pagination->url = $this->url->link('training/training', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
+		$pagination->url = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
 
 		$data['pagination'] = $pagination->render();
 
-		$data['results'] = sprintf($this->language->get('text_pagination'), ($training_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($training_total - $this->config->get('config_limit_admin'))) ? $training_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $training_total, ceil($training_total / $this->config->get('config_limit_admin')));
+		$data['results'] = sprintf($this->language->get('text_pagination'), ($package_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($package_total - $this->config->get('config_limit_admin'))) ? $package_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $package_total, ceil($package_total / $this->config->get('config_limit_admin')));
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
@@ -171,21 +169,21 @@ class ControllerTrainingTraining extends Controller {
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
-		//echo "<pre>";print_r($data['trainings']);exit;
-		$this->response->setOutput($this->load->view('training/training_list.tpl', $data));
+
+		$this->response->setOutput($this->load->view('package/package_list.tpl', $data));
 	}
 
 	/**************************************************************/
 
 	public function edit() {
-		$this->language->load('training/training');
+		$this->language->load('package/package');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('training/training');
+		$this->load->model('package/package');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_training_training->editTraining($this->request->get['training_id'], $this->request->post);
+			$this->model_package_package->editPackage($this->request->get['package_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -203,17 +201,17 @@ class ControllerTrainingTraining extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('training/training', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getForm();
 	}
 
 	protected function getForm() {
-// 		 print_r($this->request->get['training_id']);exit;
+// 		 print_r($this->request->get['package_id']);exit;
 		$data['heading_title'] = $this->language->get('heading_title');
 
-		$data['text_form'] = !isset($this->request->get['training_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
+		$data['text_form'] = !isset($this->request->get['package_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 		$data['text_none'] = $this->language->get('text_none');
 		$data['text_default'] = $this->language->get('text_default');
 		$data['text_enabled'] = $this->language->get('text_enabled');
@@ -248,8 +246,11 @@ class ControllerTrainingTraining extends Controller {
 		$data['tab_data'] = $this->language->get('tab_data');
 		$data['tab_design'] = $this->language->get('tab_design');
 
-		$data['program_type'] = $this->language->get('program_type');
-		$data['entry_content'] = $this->language->get('entry_content');
+		$data['entry_1m_amount'] = $this->language->get('entry_1m_amount');
+		$data['entry_3m_amount'] = $this->language->get('entry_3m_amount');
+		$data['entry_6m_amount'] = $this->language->get('entry_6m_amount');
+		$data['entry_1y_amount'] = $this->language->get('entry_1y_amount');
+
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -263,16 +264,16 @@ class ControllerTrainingTraining extends Controller {
 			$data['error_name'] = array();
 		}
 
-		if (isset($this->error['meta_title'])) {
-			$data['error_meta_title'] = $this->error['meta_title'];
+		if (isset($this->error['amount'])) {
+			$data['error_amount'] = $this->error['amount'];
 		} else {
-			$data['error_meta_title'] = array();
+			$data['error_amount'] = array();
 		}
 
-		if (isset($this->error['keyword'])) {
-			$data['error_keyword'] = $this->error['keyword'];
+		if (isset($this->error['3m_amount'])) {
+			$data['error_3m_amount'] = $this->error['3m_amount'];
 		} else {
-			$data['error_keyword'] = '';
+			$data['error_3m_amount'] = '';
 		}
 
 		$url = '';
@@ -298,19 +299,19 @@ class ControllerTrainingTraining extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('training/training', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
 
-		if (!isset($this->request->get['training_id'])) {
-			$data['action'] = $this->url->link('training/training/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		if (!isset($this->request->get['package_id'])) {
+			$data['action'] = $this->url->link('package/package/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
 		} else {
-			$data['action'] = $this->url->link('training/training/edit', 'token=' . $this->session->data['token'] . '&training_id=' . $this->request->get['training_id'] . $url, 'SSL');
+			$data['action'] = $this->url->link('package/package/edit', 'token=' . $this->session->data['token'] . '&package_id=' . $this->request->get['package_id'] . $url, 'SSL');
 		}
 
-		$data['cancel'] = $this->url->link('training/training', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['cancel'] = $this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
-		if (isset($this->request->get['training_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
-			$training_info = $this->model_training_training->getTraining($this->request->get['training_id']);
+		if (isset($this->request->get['package_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
+			$package_info = $this->model_package_package->getPackage($this->request->get['package_id']);
 		}
 		
 		$data['token'] = $this->session->data['token'];
@@ -319,114 +320,133 @@ class ControllerTrainingTraining extends Controller {
 
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 
-		$this->load->model('program/program');
-
-		$data['programs'] = $this->model_program_program->getPrograms();
 		
 		if (isset($this->request->post['name'])) {
 			$data['name'] = $this->request->post['name'];
-		} elseif (!empty($training_info)) {
-			$data['name'] = $training_info['training_name'];
+		} elseif (!empty($package_info)) {
+			$data['name'] = $package_info['package_name'];
 		} else {
 			$data['name'] = '';
 		}
 
+		if (isset($this->request->post['package_amount'])) {
+			$data['package_amount'] = $this->request->post['package_amount'];
+		} elseif (!empty($package_info)) {
+			$data['package_amount'] = $package_info['package_amount'];
+		} else {
+			$data['package_amount'] = '';
+		}
+
+		if (isset($this->request->post['package_3m_amount'])) {
+			$data['package_3m_amount'] = $this->request->post['package_3m_amount'];
+		} elseif (!empty($package_info)) {
+			$data['package_3m_amount'] = $package_info['package_3m_amount'];
+		} else {
+			$data['package_3m_amount'] = '';
+		}
+
+		if (isset($this->request->post['package_6m_amount'])) {
+			$data['package_6m_amount'] = $this->request->post['package_6m_amount'];
+		} elseif (!empty($package_info)) {
+			$data['package_6m_amount'] = $package_info['package_6m_amount'];
+		} else {
+			$data['package_6m_amount'] = '';
+		}
+
+		if (isset($this->request->post['package_1y_amount'])) {
+			$data['package_1y_amount'] = $this->request->post['package_1y_amount'];
+		} elseif (!empty($package_info)) {
+			$data['package_1y_amount'] = $package_info['package_1y_amount'];
+		} else {
+			$data['package_1y_amount'] = '';
+		}
+
 		if (isset($this->request->post['description'])) {
 			$data['description'] = $this->request->post['description'];
-		} elseif (!empty($training_info)) {
-			$data['description'] = $training_info['training_description'];
+		} elseif (!empty($package_info)) {
+			$data['description'] = $package_info['package_description'];
 		} else {
 			$data['description'] = '';
 		}
 
-		// if (isset($this->request->post['image'])) {
-		// 	$data['image'] = $this->request->post['image'];
-		// } elseif (!empty($training_info)) {
-		// 	$data['image'] = $training_info['training_img'];
-		// } else {
-		// 	$data['image'] = '';
-		// }
-
-		// if (isset($this->request->post['hover_image'])) {
-		// 	$data['hover_image'] = $this->request->post['hover_image'];
-		// } elseif (!empty($training_info)) {
-		// 	$data['hover_image'] = $training_info['training_img_hover'];
-		// } else {
-		// 	$data['hover_image'] = '';
-		// }
-
-		// $this->load->model('tool/image');
-
-		// if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
-		// 	$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
-		// } elseif (!empty($training_info) && is_file(DIR_IMAGE . $training_info['training_img'])) {
-		// 	$data['thumb'] = $this->model_tool_image->resize($training_info['training_img'], 100, 100);
-		// } else {
-		// 	$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-		// }
-
-		// if (isset($this->request->post['hover_image']) && is_file(DIR_IMAGE . $this->request->post['hover_image'])) {
-		// 	$data['thumb_hover'] = $this->model_tool_image->resize($this->request->post['hover_image'], 100, 100);
-		// } elseif (!empty($training_info) && is_file(DIR_IMAGE . $training_info['training_img_hover'])) {
-		// 	$data['thumb_hover'] = $this->model_tool_image->resize($training_info['training_img_hover'], 100, 100);
-		// } else {
-		// 	$data['thumb_hover'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-		// }
-
-		//  $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-		if (isset($this->request->post['program_id'])) {
-			$data['program_id'] = $this->request->post['program_id'];
-		} elseif (!empty($training_info)) {
-			$data['program_id'] = $training_info['program_id'];
+		if (isset($this->request->post['image'])) {
+			$data['image'] = $this->request->post['image'];
+		} elseif (!empty($package_info)) {
+			$data['image'] = $package_info['package_img'];
 		} else {
-			$data['program_id'] = " ";
+			$data['image'] = '';
 		}
 
-		if (isset($this->request->post['status'])) {
+		if (isset($this->request->post['hover_image'])) {
+			$data['hover_image'] = $this->request->post['hover_image'];
+		} elseif (!empty($package_info)) {
+			$data['hover_image'] = $package_info['package_img_hover'];
+		} else {
+			$data['hover_image'] = '';
+		}
+
+		$this->load->model('tool/image');
+
+		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
+			$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
+		} elseif (!empty($package_info) && is_file(DIR_IMAGE . $package_info['package_img'])) {
+			$data['thumb'] = $this->model_tool_image->resize($package_info['package_img'], 100, 100);
+		} else {
+			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		}
+
+		if (isset($this->request->post['hover_image']) && is_file(DIR_IMAGE . $this->request->post['hover_image'])) {
+			$data['thumb_hover'] = $this->model_tool_image->resize($this->request->post['hover_image'], 100, 100);
+		} elseif (!empty($package_info) && is_file(DIR_IMAGE . $package_info['package_img_hover'])) {
+			$data['thumb_hover'] = $this->model_tool_image->resize($package_info['package_img_hover'], 100, 100);
+		} else {
+			$data['thumb_hover'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		}
+
+		 $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+
+		 if (isset($this->request->post['status'])) {
 			$data['status'] = $this->request->post['status'];
-		} elseif (!empty($training_info)) {
-			$data['status'] = $training_info['status'];
+		} elseif (!empty($package_info)) {
+			$data['status'] = $package_info['status'];
 		} else {
 			$data['status'] = true;
 		}
 
-		if (isset($this->request->post['content'])) {
-			$data['content'] = $this->request->post['content'];
-		} elseif (!empty($training_info)) {
-			$data['content'] = $training_info['content'];
-		} else {
-			$data['content'] = '';
-		}
-
 		
-		 $data['training_details'][1] = array(
-		 	'program_id' => $data['program_id'],
+		 $data['package_details'][1] = array(
 			'name' => $data['name'],
+			'package_amount' => $data['package_amount'],
+			'package_3m_amount' => $data['package_3m_amount'],
+			'package_6m_amount' => $data['package_6m_amount'],
+			'package_1y_amount' => $data['package_1y_amount'],
 			'description' => $data['description'],
-			'content' => $data['content'],
-			'status' => $data['status'],
-			//'image' => $data['image'],
-			// 'thumb' => $data['thumb'],
-			// 'thumb_hover' => $data['thumb_hover'], 
-			);
-		 $data['training_description'] = $data['training_details'];
+			'image' => $data['image'],
+			'thumb' => $data['thumb'],
+			'thumb_hover' => $data['thumb_hover'], );
+		 $data['package_description'] = $data['package_details'];
 		//echo "<pre>";print_r($data);exit;
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
-		// echo "<pre>";print_r($data['training_description']);exit;
-		$this->response->setOutput($this->load->view('training/training_form.tpl',$data));
+		//echo "<pre>";print_r($data);exit;
+		$this->response->setOutput($this->load->view('package/package_form.tpl',$data));
 	}
 
 	protected function validateForm() {
-		if (!$this->user->hasPermission('modify', 'training/training')) {
+		if (!$this->user->hasPermission('modify', 'package/package')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		foreach ($this->request->post['training_description'] as $language_id => $value) {
+		foreach ($this->request->post['package_description'] as $language_id => $value) {
+			//print_r($value);exit;
 			if ((utf8_strlen($value['name']) < 2) || (utf8_strlen($value['name']) > 255)) {
 				$this->error['name'][$language_id] = $this->language->get('error_name');
+			}
+
+			if ($value['package_amount'] == "")  {
+				$this->error['amount'][$language_id] = $this->language->get('error_amount');
 			}
 
 			
@@ -436,14 +456,14 @@ class ControllerTrainingTraining extends Controller {
 	}
 	/****************************************************/
 	public function add() {
-		$this->language->load('training/training');
+		$this->language->load('package/package');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('training/training');
+		$this->load->model('package/package');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_training_training->addTraining($this->request->post);
+			$this->model_package_package->addPackage($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -461,7 +481,7 @@ class ControllerTrainingTraining extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('training/training', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getForm();
@@ -469,15 +489,15 @@ class ControllerTrainingTraining extends Controller {
 
 
 	public function delete() {
-		$this->language->load('training/training');
+		$this->language->load('package/package');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('training/training');
+		$this->load->model('package/package');
 
 		if (isset($this->request->post['selected']) && $this->validateDelete()) {
-			foreach ($this->request->post['selected'] as $training_id) {
-				$this->model_training_training->deletetraining($training_id);
+			foreach ($this->request->post['selected'] as $package_id) {
+				$this->model_package_package->deletepackage($package_id);
 			}
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -496,14 +516,14 @@ class ControllerTrainingTraining extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('training/training', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getList();
 	}
 
 	protected function validateDelete() {
-		if (!$this->user->hasPermission('modify', 'training/training')) {
+		if (!$this->user->hasPermission('modify', 'package/package')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 

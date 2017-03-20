@@ -26,7 +26,7 @@ class ModelTrainingTraining extends Model {
 	public function editTraining($training_id, $data) {
 		$this->event->trigger('pre.admin.training.edit', $data);
 
-		$this->db->query("UPDATE " . DB_PREFIX . "training_type SET training_name = '" . $data['training_description'][1]['name'] . "', training_description = '" . $data['training_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', training_img = '" . $data['image'] . "',training_img_hover = '" . $data['hover_image'] . "', date_modified = NOW(), created_added = NOW() WHERE training_id = '" . (int)$training_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "training_type SET program_id = '" . $data['training_description'][1]['program_id'] . "', training_name = '" . $data['training_description'][1]['name'] . "', training_description = '" . $data['training_description'][1]['description'] . "', content = '" . $data['training_description'][1]['content'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW(), created_added = NOW() WHERE training_id = '" . (int)$training_id . "'");
 
 		
 		$this->cache->delete('training');
@@ -36,8 +36,12 @@ class ModelTrainingTraining extends Model {
 
 	public function addTraining($data) {
 		// $this->event->trigger('pre.admin.training.add', $data);
-		//echo "<pre>";print_r($data);exit;
-		$this->db->query("INSERT INTO " . DB_PREFIX . "training_type SET training_name = '" . $data['training_description'][1]['name'] . "', training_description = '" . $data['training_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', training_img = '" . $data['image'] . "',training_img_hover = '" . $data['hover_image'] . "', date_modified = NOW(), created_added = NOW()");
+
+		//$query = $this->db->query("INSERT INTO " . DB_PREFIX . "training_type SET program_id = '" . $data['training_description'][1]['program_id'] . "', training_name = '" . $data['training_description'][1]['name'] . "', training_description = '" . $data['training_description'][1]['description'] . "', content = " . $data['training_description'][1]['content'] . ", status = '" . (int)$data['status'] . "',  date_modified = NOW(), created_added = NOW()");
+		//print_r($query);exit;
+
+		
+		$this->db->query("INSERT INTO " . DB_PREFIX . "training_type SET program_id = '" . $data['training_description'][1]['program_id'] . "', training_name = '" . $data['training_description'][1]['name'] . "', training_description = '" . $data['training_description'][1]['description'] . "', content = '" . $data['training_description'][1]['content'] . "', status = '" . (int)$data['status'] . "',  date_modified = NOW(), created_added = NOW()");
 
 		$category_id = $this->db->getLastId();
 
