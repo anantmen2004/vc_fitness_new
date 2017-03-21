@@ -325,7 +325,7 @@ class ControllerGalleryGallery extends Controller {
 		if (isset($this->request->post['name'])) {
 			$data['name'] = $this->request->post['name'];
 		} elseif (!empty($gallery_info)) {
-			$data['name'] = $gallery_info['gallery_name'];
+			$data['name'] = $gallery_info['title'];
 		} else {
 			$data['name'] = '';
 		}
@@ -333,7 +333,7 @@ class ControllerGalleryGallery extends Controller {
 		if (isset($this->request->post['description'])) {
 			$data['description'] = $this->request->post['description'];
 		} elseif (!empty($gallery_info)) {
-			$data['description'] = $gallery_info['gallery_description'];
+			$data['description'] = $gallery_info['description'];
 		} else {
 			$data['description'] = '';
 		}
@@ -341,36 +341,24 @@ class ControllerGalleryGallery extends Controller {
 		if (isset($this->request->post['image'])) {
 			$data['image'] = $this->request->post['image'];
 		} elseif (!empty($gallery_info)) {
-			$data['image'] = $gallery_info['gallery_img'];
+			$data['image'] = $gallery_info['img_path'];
 		} else {
 			$data['image'] = '';
 		}
 
-		if (isset($this->request->post['hover_image'])) {
-			$data['hover_image'] = $this->request->post['hover_image'];
-		} elseif (!empty($gallery_info)) {
-			$data['hover_image'] = $gallery_info['gallery_img_hover'];
-		} else {
-			$data['hover_image'] = '';
-		}
+		
 
 		$this->load->model('tool/image');
 
 		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
 			$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
-		} elseif (!empty($gallery_info) && is_file(DIR_IMAGE . $gallery_info['gallery_img'])) {
-			$data['thumb'] = $this->model_tool_image->resize($gallery_info['gallery_img'], 100, 100);
+		} elseif (!empty($gallery_info) && is_file(DIR_IMAGE . $gallery_info['img_path'])) {
+			$data['thumb'] = $this->model_tool_image->resize($gallery_info['img_path'], 100, 100);
 		} else {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
 
-		if (isset($this->request->post['hover_image']) && is_file(DIR_IMAGE . $this->request->post['hover_image'])) {
-			$data['thumb_hover'] = $this->model_tool_image->resize($this->request->post['hover_image'], 100, 100);
-		} elseif (!empty($gallery_info) && is_file(DIR_IMAGE . $gallery_info['gallery_img_hover'])) {
-			$data['thumb_hover'] = $this->model_tool_image->resize($gallery_info['gallery_img_hover'], 100, 100);
-		} else {
-			$data['thumb_hover'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-		}
+		
 
 		 $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
@@ -387,8 +375,7 @@ class ControllerGalleryGallery extends Controller {
 			'name' => $data['name'],
 			'description' => $data['description'],
 			'image' => $data['image'],
-			'thumb' => $data['thumb'],
-			'thumb_hover' => $data['thumb_hover'], );
+			'thumb' => $data['thumb'], );
 		 $data['gallery_description'] = $data['gallery_details'];
 		//echo "<pre>";print_r($data);exit;
 
