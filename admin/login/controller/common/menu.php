@@ -74,6 +74,9 @@ class ControllerCommonMenu extends Controller {
 		$data['text_programs'] = $this->language->get('text_programs');
 		$data['text_trainings'] = $this->language->get('text_trainings');
 		$data['text_packages'] = $this->language->get('text_packages');
+		$data['text_videos'] = $this->language->get('text_videos');
+		$data['text_gallery'] = $this->language->get('text_gallery');
+		$data['text_gallery_types'] = $this->language->get('text_gallery_types');
 
 
 
@@ -224,6 +227,9 @@ class ControllerCommonMenu extends Controller {
 		$data['programs'] = $this->url->link('program/program', 'token=' . $this->session->data['token'], 'SSL');
 		$data['trainings'] = $this->url->link('training/training', 'token=' . $this->session->data['token'], 'SSL');
 		$data['packages'] = $this->url->link('package/package', 'token=' . $this->session->data['token'], 'SSL');
+		$data['videos'] = $this->url->link('video/video', 'token=' . $this->session->data['token'], 'SSL');
+		$data['gallery'] = $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'], 'SSL');
+		$data['gallery_types'] = $this->url->link('galleryType/galleryType', 'token=' . $this->session->data['token'], 'SSL');
 
 		return $this->load->view('common/menu.tpl', $data);
 	}

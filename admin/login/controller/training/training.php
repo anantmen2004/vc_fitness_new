@@ -338,42 +338,7 @@ class ControllerTrainingTraining extends Controller {
 		} else {
 			$data['description'] = '';
 		}
-
-		// if (isset($this->request->post['image'])) {
-		// 	$data['image'] = $this->request->post['image'];
-		// } elseif (!empty($training_info)) {
-		// 	$data['image'] = $training_info['training_img'];
-		// } else {
-		// 	$data['image'] = '';
-		// }
-
-		// if (isset($this->request->post['hover_image'])) {
-		// 	$data['hover_image'] = $this->request->post['hover_image'];
-		// } elseif (!empty($training_info)) {
-		// 	$data['hover_image'] = $training_info['training_img_hover'];
-		// } else {
-		// 	$data['hover_image'] = '';
-		// }
-
-		// $this->load->model('tool/image');
-
-		// if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
-		// 	$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
-		// } elseif (!empty($training_info) && is_file(DIR_IMAGE . $training_info['training_img'])) {
-		// 	$data['thumb'] = $this->model_tool_image->resize($training_info['training_img'], 100, 100);
-		// } else {
-		// 	$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-		// }
-
-		// if (isset($this->request->post['hover_image']) && is_file(DIR_IMAGE . $this->request->post['hover_image'])) {
-		// 	$data['thumb_hover'] = $this->model_tool_image->resize($this->request->post['hover_image'], 100, 100);
-		// } elseif (!empty($training_info) && is_file(DIR_IMAGE . $training_info['training_img_hover'])) {
-		// 	$data['thumb_hover'] = $this->model_tool_image->resize($training_info['training_img_hover'], 100, 100);
-		// } else {
-		// 	$data['thumb_hover'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-		// }
-
-		//  $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		
 		if (isset($this->request->post['program_id'])) {
 			$data['program_id'] = $this->request->post['program_id'];
 		} elseif (!empty($training_info)) {

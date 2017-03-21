@@ -98,6 +98,11 @@ $_['text_openbay_report_price']        = 'Pricing report';
 $_['text_openbay_order_import']        = 'Order import';
 $_['text_paypal_manage']               = 'PayPal';
 $_['text_paypal_search']               = 'Search';
+
+
 $_['text_programs']               	   = 'Programs';
 $_['text_trainings']               	   = 'Trainings';
 $_['text_packages']               	   = 'Package';
+$_['text_videos']               	   = 'Videos';
+$_['text_gallery']               	   = 'Gallery';
+$_['text_gallery_types']               = 'Gallery Types';

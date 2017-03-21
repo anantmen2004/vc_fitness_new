@@ -25,7 +25,7 @@ class Packages extends CI_Controller {
 
 		$data['packages'] = $this->Packages_model->getAllPackages(1);
 		$data['optional_packages'] = $this->Packages_model->getAllPackages(2);
-		//echo "<pre>";print_r($data);exit;
+		//echo "<pre>";print_r($data['optional_packages']);exit;
 		$data['page'] = "packagespage";
 		$this->load->view('templates/header',$data);
 		$this->load->view('packages/packagesView',$data);

@@ -1,13 +1,14 @@
 <?php
-class ControllerPackagePackage extends Controller {
+class ControllerGalleryGallery extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('package/package');
+		// print_r(121212);exit;
+		$this->language->load('gallery/gallery');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('package/package');
+		$this->load->model('gallery/gallery');
 
 		$this->getList();
 	}
@@ -54,14 +55,14 @@ class ControllerPackagePackage extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
 
-		$data['add'] = $this->url->link('package/package/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
-		$data['delete'] = $this->url->link('package/package/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
-		$data['repair'] = $this->url->link('package/package/repair', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['add'] = $this->url->link('gallery/gallery/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['delete'] = $this->url->link('gallery/gallery/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['repair'] = $this->url->link('gallery/gallery/repair', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
-		$data['packages'] = array();
+		$data['galleries'] = array();
 
 		$filter_data = array(
 			'sort'  => $sort,
@@ -70,9 +71,9 @@ class ControllerPackagePackage extends Controller {
 			'limit' => $this->config->get('config_limit_admin')
 		);
 
-		$package_total = $this->model_package_package->getTotalPackage();
+		$gallery_total = $this->model_gallery_gallery->getTotalGallery();
 
-		$results = $this->model_package_package->getPackages($filter_data);
+		$results = $this->model_gallery_gallery->getGalleries($filter_data);
 
 		 //print_r($results[0]['status']);exit;
 
@@ -83,13 +84,14 @@ class ControllerPackagePackage extends Controller {
 			else{
 				$status = "Inactive";
 			}
-			$data['packages'][] = array(
-				'package_id' => $result['package_id'],
-				'name'        => $result['package_name'],
+			$data['galleries'][] = array(
+				'gallery_id' => $result['gallery_id'],
+				'name'        => $result['title'],
+				'type'        => $result['name'],
 				 'sort_order'  => "ASC",
 				'status'  => $status,
-				'edit'        => $this->url->link('package/package/edit', 'token=' . $this->session->data['token'] . '&package_id=' . $result['package_id'] . $url, 'SSL'),
-				'delete'      => $this->url->link('package/package/delete', 'token=' . $this->session->data['token'] . '&package_id=' . $result['package_id'] . $url, 'SSL')
+				'edit'        => $this->url->link('gallery/gallery/edit', 'token=' . $this->session->data['token'] . '&gallery_id=' . $result['gallery_id'] . $url, 'SSL'),
+				'delete'      => $this->url->link('gallery/gallery/delete', 'token=' . $this->session->data['token'] . '&gallery_id=' . $result['gallery_id'] . $url, 'SSL')
 			);
 		}
 
@@ -140,8 +142,8 @@ class ControllerPackagePackage extends Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
-		$data['sort_name'] = $this->url->link('package/package', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
-		$data['sort_sort_order'] = $this->url->link('package/package', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
+		$data['sort_name'] = $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
+		$data['sort_sort_order'] = $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
 
 		$url = '';
 
@@ -154,14 +156,14 @@ class ControllerPackagePackage extends Controller {
 		}
 
 		$pagination = new Pagination();
-		$pagination->total = $package_total;
+		$pagination->total = $gallery_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
 		$pagination->url = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
 
 		$data['pagination'] = $pagination->render();
 
-		$data['results'] = sprintf($this->language->get('text_pagination'), ($package_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($package_total - $this->config->get('config_limit_admin'))) ? $package_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $package_total, ceil($package_total / $this->config->get('config_limit_admin')));
+		$data['results'] = sprintf($this->language->get('text_pagination'), ($gallery_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($gallery_total - $this->config->get('config_limit_admin'))) ? $gallery_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $gallery_total, ceil($gallery_total / $this->config->get('config_limit_admin')));
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
@@ -170,20 +172,20 @@ class ControllerPackagePackage extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('package/package_list.tpl', $data));
+		$this->response->setOutput($this->load->view('gallery/gallery_list.tpl', $data));
 	}
 
 	/**************************************************************/
 
 	public function edit() {
-		$this->language->load('package/package');
+		$this->language->load('gallery/gallery');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('package/package');
+		$this->load->model('gallery/gallery');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_package_package->editPackage($this->request->get['package_id'], $this->request->post);
+			$this->model_gallery_gallery->editGallery($this->request->get['gallery_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -201,25 +203,25 @@ class ControllerPackagePackage extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getForm();
 	}
 
 	protected function getForm() {
-// 		 print_r($this->request->get['package_id']);exit;
+// 		 print_r($this->request->get['gallery_id']);exit;
 		$data['heading_title'] = $this->language->get('heading_title');
 
-		$data['text_form'] = !isset($this->request->get['package_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
+		$data['text_form'] = !isset($this->request->get['gallery_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 		$data['text_none'] = $this->language->get('text_none');
 		$data['text_default'] = $this->language->get('text_default');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
 
 		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_gallery_type'] = $this->language->get('entry_gallery_type');
 		$data['entry_description'] = $this->language->get('entry_description');
-		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
 		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
 		$data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
 		$data['entry_keyword'] = $this->language->get('entry_keyword');
@@ -246,17 +248,6 @@ class ControllerPackagePackage extends Controller {
 		$data['tab_data'] = $this->language->get('tab_data');
 		$data['tab_design'] = $this->language->get('tab_design');
 
-		$data['entry_1m_amount'] = $this->language->get('entry_1m_amount');
-		$data['entry_3m_amount'] = $this->language->get('entry_3m_amount');
-		$data['entry_6m_amount'] = $this->language->get('entry_6m_amount');
-		$data['entry_1y_amount'] = $this->language->get('entry_1y_amount');
-		$data['entry_number_of_video'] = $this->language->get('number_of_video');
-		$data['entry_training_type'] = $this->language->get('training_type');
-		$data['entry_package_type'] = $this->language->get('package_type');
-
-		$data['text_normal'] = $this->language->get('text_normal');
-		$data['text_optional'] = $this->language->get('text_optional');
-
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
 		} else {
@@ -269,16 +260,16 @@ class ControllerPackagePackage extends Controller {
 			$data['error_name'] = array();
 		}
 
-		if (isset($this->error['amount'])) {
-			$data['error_amount'] = $this->error['amount'];
+		if (isset($this->error['meta_title'])) {
+			$data['error_meta_title'] = $this->error['meta_title'];
 		} else {
-			$data['error_amount'] = array();
+			$data['error_meta_title'] = array();
 		}
 
-		if (isset($this->error['3m_amount'])) {
-			$data['error_3m_amount'] = $this->error['3m_amount'];
+		if (isset($this->error['keyword'])) {
+			$data['error_keyword'] = $this->error['keyword'];
 		} else {
-			$data['error_3m_amount'] = '';
+			$data['error_keyword'] = '';
 		}
 
 		$url = '';
@@ -304,164 +295,118 @@ class ControllerPackagePackage extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
 
-		if (!isset($this->request->get['package_id'])) {
-			$data['action'] = $this->url->link('package/package/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		if (!isset($this->request->get['gallery_id'])) {
+			$data['action'] = $this->url->link('gallery/gallery/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
 		} else {
-			$data['action'] = $this->url->link('package/package/edit', 'token=' . $this->session->data['token'] . '&package_id=' . $this->request->get['package_id'] . $url, 'SSL');
+			$data['action'] = $this->url->link('gallery/gallery/edit', 'token=' . $this->session->data['token'] . '&gallery_id=' . $this->request->get['gallery_id'] . $url, 'SSL');
 		}
 
-		$data['cancel'] = $this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['cancel'] = $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
-		if (isset($this->request->get['package_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
-			$package_info = $this->model_package_package->getPackage($this->request->get['package_id']);
+		if (isset($this->request->get['gallery_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
+			$gallery_info = $this->model_gallery_gallery->getGallery($this->request->get['gallery_id']);
 		}
-		// print_r($package_info);exit;
+		
 		$data['token'] = $this->session->data['token'];
 
 		$this->load->model('localisation/language');
 
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 
+
+		$data['gallery_types'] = $this->model_gallery_gallery->getGalleryTypes();
+
+		// print_r($data['gallery_types']);exit;
+
 		
 		if (isset($this->request->post['name'])) {
 			$data['name'] = $this->request->post['name'];
-		} elseif (!empty($package_info)) {
-			$data['name'] = $package_info['package_name'];
+		} elseif (!empty($gallery_info)) {
+			$data['name'] = $gallery_info['gallery_name'];
 		} else {
 			$data['name'] = '';
 		}
 
-		if (isset($this->request->post['package_amount'])) {
-			$data['package_amount'] = $this->request->post['package_amount'];
-		} elseif (!empty($package_info)) {
-			$data['package_amount'] = $package_info['package_amount'];
-		} else {
-			$data['package_amount'] = '';
-		}
-
-		if (isset($this->request->post['package_3m_amount'])) {
-			$data['package_3m_amount'] = $this->request->post['package_3m_amount'];
-		} elseif (!empty($package_info)) {
-			$data['package_3m_amount'] = $package_info['package_3m_amount'];
-		} else {
-			$data['package_3m_amount'] = '';
-		}
-
-		if (isset($this->request->post['package_6m_amount'])) {
-			$data['package_6m_amount'] = $this->request->post['package_6m_amount'];
-		} elseif (!empty($package_info)) {
-			$data['package_6m_amount'] = $package_info['package_6m_amount'];
-		} else {
-			$data['package_6m_amount'] = '';
-		}
-
-		if (isset($this->request->post['package_1y_amount'])) {
-			$data['package_1y_amount'] = $this->request->post['package_1y_amount'];
-		} elseif (!empty($package_info)) {
-			$data['package_1y_amount'] = $package_info['package_1y_amount'];
-		} else {
-			$data['package_1y_amount'] = '';
-		}
-
 		if (isset($this->request->post['description'])) {
 			$data['description'] = $this->request->post['description'];
-		} elseif (!empty($package_info)) {
-			$data['description'] = $package_info['package_details'];
+		} elseif (!empty($gallery_info)) {
+			$data['description'] = $gallery_info['gallery_description'];
 		} else {
 			$data['description'] = '';
 		}
 
 		if (isset($this->request->post['image'])) {
 			$data['image'] = $this->request->post['image'];
-		} elseif (!empty($package_info)) {
-			$data['image'] = $package_info['package_img'];
+		} elseif (!empty($gallery_info)) {
+			$data['image'] = $gallery_info['gallery_img'];
 		} else {
 			$data['image'] = '';
 		}
 
-		if (isset($this->request->post['number_of_video'])) {
-			$data['number_of_video'] = $this->request->post['number_of_video'];
-		} elseif (!empty($package_info)) {
-			$data['number_of_video'] = $package_info['number_of_video'];
+		if (isset($this->request->post['hover_image'])) {
+			$data['hover_image'] = $this->request->post['hover_image'];
+		} elseif (!empty($gallery_info)) {
+			$data['hover_image'] = $gallery_info['gallery_img_hover'];
 		} else {
-			$data['number_of_video'] = '';
-		}
-
-		if (isset($this->request->post['package_training_type_id'])) {
-			$data['package_training_type_id'] = $this->request->post['package_training_type_id'];
-		} elseif (!empty($package_info)) {
-			$data['package_training_type_id'] = $package_info['package_training_type_id'];
-		} else {
-			$data['package_training_type_id'] = '';
-		}
-
-		if (isset($this->request->post['package_type'])) {
-			$data['package_type'] = $this->request->post['package_type'];
-		} elseif (!empty($package_info)) {
-			$data['package_type'] = $package_info['package_type'];
-		} else {
-			$data['package_type'] = '';
+			$data['hover_image'] = '';
 		}
 
 		$this->load->model('tool/image');
 
 		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
 			$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
-		} elseif (!empty($package_info) && is_file(DIR_IMAGE . $package_info['package_img'])) {
-			$data['thumb'] = $this->model_tool_image->resize($package_info['package_img'], 100, 100);
+		} elseif (!empty($gallery_info) && is_file(DIR_IMAGE . $gallery_info['gallery_img'])) {
+			$data['thumb'] = $this->model_tool_image->resize($gallery_info['gallery_img'], 100, 100);
 		} else {
 			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		}
+
+		if (isset($this->request->post['hover_image']) && is_file(DIR_IMAGE . $this->request->post['hover_image'])) {
+			$data['thumb_hover'] = $this->model_tool_image->resize($this->request->post['hover_image'], 100, 100);
+		} elseif (!empty($gallery_info) && is_file(DIR_IMAGE . $gallery_info['gallery_img_hover'])) {
+			$data['thumb_hover'] = $this->model_tool_image->resize($gallery_info['gallery_img_hover'], 100, 100);
+		} else {
+			$data['thumb_hover'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 		}
 
 		 $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
 		 if (isset($this->request->post['status'])) {
 			$data['status'] = $this->request->post['status'];
-		} elseif (!empty($package_info)) {
-			$data['status'] = $package_info['status'];
+		} elseif (!empty($gallery_info)) {
+			$data['status'] = $gallery_info['status'];
 		} else {
 			$data['status'] = true;
 		}
 
 		
-		 $data['package_details'][1] = array(
+		 $data['gallery_details'][1] = array(
 			'name' => $data['name'],
-			'package_amount' => $data['package_amount'],
-			'package_3m_amount' => $data['package_3m_amount'],
-			'package_6m_amount' => $data['package_6m_amount'],
-			'package_1y_amount' => $data['package_1y_amount'],
-			'number_of_video' => $data['number_of_video'],
-			'package_training_type_id' => $data['package_training_type_id'],
-			'package_type' => $data['package_type'],
 			'description' => $data['description'],
 			'image' => $data['image'],
-			'thumb' => $data['thumb'], );
-		 $data['package_description'] = $data['package_details'];
+			'thumb' => $data['thumb'],
+			'thumb_hover' => $data['thumb_hover'], );
+		 $data['gallery_description'] = $data['gallery_details'];
 		//echo "<pre>";print_r($data);exit;
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 		//echo "<pre>";print_r($data);exit;
-		$this->response->setOutput($this->load->view('package/package_form.tpl',$data));
+		$this->response->setOutput($this->load->view('gallery/gallery_form.tpl',$data));
 	}
 
 	protected function validateForm() {
-		if (!$this->user->hasPermission('modify', 'package/package')) {
+		if (!$this->user->hasPermission('modify', 'gallery/gallery')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		foreach ($this->request->post['package_description'] as $language_id => $value) {
-			//print_r($value);exit;
+		foreach ($this->request->post['gallery_description'] as $language_id => $value) {
 			if ((utf8_strlen($value['name']) < 2) || (utf8_strlen($value['name']) > 255)) {
 				$this->error['name'][$language_id] = $this->language->get('error_name');
-			}
-
-			if ($value['package_amount'] == "")  {
-				$this->error['amount'][$language_id] = $this->language->get('error_amount');
 			}
 
 			
@@ -471,14 +416,14 @@ class ControllerPackagePackage extends Controller {
 	}
 	/****************************************************/
 	public function add() {
-		$this->language->load('package/package');
+		$this->language->load('gallery/gallery');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('package/package');
+		$this->load->model('gallery/gallery');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_package_package->addPackage($this->request->post);
+			$this->model_gallery_gallery->addGallery($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -496,7 +441,7 @@ class ControllerPackagePackage extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getForm();
@@ -504,15 +449,15 @@ class ControllerPackagePackage extends Controller {
 
 
 	public function delete() {
-		$this->language->load('package/package');
+		$this->language->load('gallery/gallery');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('package/package');
+		$this->load->model('gallery/gallery');
 
 		if (isset($this->request->post['selected']) && $this->validateDelete()) {
-			foreach ($this->request->post['selected'] as $package_id) {
-				$this->model_package_package->deletepackage($package_id);
+			foreach ($this->request->post['selected'] as $gallery_id) {
+				$this->model_gallery_gallery->deletegallery($gallery_id);
 			}
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -531,14 +476,14 @@ class ControllerPackagePackage extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('package/package', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getList();
 	}
 
 	protected function validateDelete() {
-		if (!$this->user->hasPermission('modify', 'package/package')) {
+		if (!$this->user->hasPermission('modify', 'gallery/gallery')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 

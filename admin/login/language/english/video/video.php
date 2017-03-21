@@ -1,21 +1,21 @@
 <?php
 // Heading
-$_['heading_title']          = 'Packages';
+$_['heading_title']          = 'Video';
 
 // Text
-$_['text_success']           = 'Success: You have modified Packages!';
-$_['text_list']              = 'Package List';
-$_['text_add']               = 'Add Package';
-$_['text_edit']              = 'Edit Package';
+$_['text_success']           = 'Success: You have modified Video!';
+$_['text_list']              = 'Video List';
+$_['text_add']               = 'Add Video';
+$_['text_edit']              = 'Edit Video';
 $_['text_default']           = 'Default';
 
 // Column
-$_['column_name']            = 'Package Name';
+$_['column_name']            = 'Video Name';
 $_['column_sort_order']      = 'Sort Order';
 $_['column_action']          = 'Action';
 
 // Entry
-$_['entry_name']             = 'Package Name';
+$_['entry_name']             = 'Video Name';
 $_['entry_description']      = 'Description';
 $_['entry_meta_title'] 	     = 'Meta Tag Title';
 $_['entry_meta_keyword'] 	 = 'Meta Tag Keywords';
@@ -35,25 +35,16 @@ $_['entry_layout']           = 'Layout Override';
 // Help
 $_['help_filter']            = '(Autocomplete)';
 $_['help_keyword']           = 'Do not use spaces, instead replace spaces with - and make sure the keyword is globally unique.';
-$_['help_top']               = 'Display in the top menu bar. Only works for the top parent Packages.';
-$_['help_column']            = 'Number of columns to use for the bottom 3 Packages. Only works for the top parent Packages.';
+$_['help_top']               = 'Display in the top menu bar. Only works for the top parent Video.';
+$_['help_column']            = 'Number of columns to use for the bottom 3 Video. Only works for the top parent Video.';
 
 // Error
 $_['error_warning']          = 'Warning: Please check the form carefully for errors!';
-$_['error_permission']       = 'Warning: You do not have permission to modify Packages!';
-$_['error_name']             = 'Package Name must be between 2 and 255 characters!';
+$_['error_permission']       = 'Warning: You do not have permission to modify Video!';
+$_['error_name']             = 'Video Name must be between 2 and 255 characters!';
 $_['error_meta_title']       = 'Meta Title must be greater than 3 and less than 255 characters!';
 $_['error_keyword']          = 'SEO keyword already in use!';
 
-$_['entry_1m_amount']        = 'Package Per Month Amount';
-$_['entry_3m_amount']        = 'Package 3 Month Amount';
-$_['entry_6m_amount']        = 'Package 6 Month Amount';
-$_['entry_1y_amount']        = 'Package per year Amount';
-$_['number_of_video']        = 'Number of video';
-$_['training_type']          = 'Training type';
-$_['package_type']           = 'Package type';
+$_['error_amount']           = 'Please enter Video Path!';
 
-$_['text_normal']            = 'Normal';
-$_['text_optional']          = 'Optional';
-
-$_['error_amount']           = 'Please enter Package Per month Amount!';
+$_['entry_video_path']           = 'Video Path';

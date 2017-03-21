@@ -3225,3 +3225,302 @@
 2017-03-20 13:42:53 - PHP Notice:  Error: Unknown column 'package_description' in 'field list'<br />Error No: 1054<br />INSERT INTO oc_package_master SET package_name = '', package_description = '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', status = '1', package_img = '',package_img_hover = '', date_modified = NOW(), created_added = NOW() in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
 2017-03-20 13:42:56 - PHP Notice:  Undefined index: hover_image in C:\xampp\htdocs\vc_fitness_new\admin\login\model\package\package.php on line 40
 2017-03-20 13:42:56 - PHP Notice:  Error: Unknown column 'package_description' in 'field list'<br />Error No: 1054<br />INSERT INTO oc_package_master SET package_name = '', package_description = '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', status = '1', package_img = '',package_img_hover = '', date_modified = NOW(), created_added = NOW() in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
+2017-03-21 7:36:51 - PHP Notice:  Undefined index: number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 100
+2017-03-21 7:36:51 - PHP Notice:  Undefined index: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 107
+2017-03-21 7:36:51 - PHP Notice:  Undefined index: number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 100
+2017-03-21 7:36:51 - PHP Notice:  Undefined index: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 107
+2017-03-21 7:37:40 - PHP Notice:  Undefined index: number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 100
+2017-03-21 7:37:40 - PHP Notice:  Undefined index: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 107
+2017-03-21 7:38:17 - PHP Notice:  Undefined index: number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 100
+2017-03-21 7:38:17 - PHP Notice:  Undefined index: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 107
+2017-03-21 7:43:13 - PHP Notice:  Undefined index: number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 100
+2017-03-21 7:43:13 - PHP Notice:  Undefined variable: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 105
+2017-03-21 7:43:13 - PHP Notice:  Undefined index: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 107
+2017-03-21 7:43:13 - PHP Notice:  Undefined variable: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 107
+2017-03-21 7:43:16 - PHP Notice:  Undefined index: number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 100
+2017-03-21 7:43:16 - PHP Notice:  Undefined variable: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 105
+2017-03-21 7:43:16 - PHP Notice:  Undefined index: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 107
+2017-03-21 7:43:16 - PHP Notice:  Undefined variable: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 107
+2017-03-21 7:46:30 - PHP Notice:  Undefined index: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\package\package.php on line 417
+2017-03-21 7:46:30 - PHP Notice:  Undefined variable: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 105
+2017-03-21 7:46:30 - PHP Notice:  Undefined variable: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\package\package_form.tpl on line 107
+2017-03-21 7:47:15 - PHP Notice:  Undefined index: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\package\package.php on line 417
+2017-03-21 7:47:23 - PHP Notice:  Undefined index: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\package\package.php on line 417
+2017-03-21 7:52:56 - PHP Notice:  Undefined index: training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\package\package.php on line 417
+2017-03-21 8:14:08 - PHP Notice:  Undefined index: package_description in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\package\package.php on line 372
+2017-03-21 8:16:57 - PHP Notice:  Undefined index: hover_image in C:\xampp\htdocs\vc_fitness_new\admin\login\model\package\package.php on line 29
+2017-03-21 8:16:57 - PHP Notice:  Error: Unknown column 'package_description' in 'field list'<br />Error No: 1054<br />UPDATE oc_package_master SET package_name = 'zzzzzz', package_description = '&lt;p&gt;sssss&lt;/p&gt;', status = '1', package_img = 'catalog/demo/apple_logo.jpg',package_img_hover = '', date_modified = NOW(), created_added = NOW() WHERE package_id = '7' in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
+2017-03-21 8:17:08 - PHP Notice:  Undefined index: hover_image in C:\xampp\htdocs\vc_fitness_new\admin\login\model\package\package.php on line 29
+2017-03-21 8:17:08 - PHP Notice:  Error: Unknown column 'package_description' in 'field list'<br />Error No: 1054<br />UPDATE oc_package_master SET package_name = 'zzzzzz', package_description = '&lt;p&gt;sssss&lt;/p&gt;', status = '1', package_img = 'catalog/demo/apple_logo.jpg',package_img_hover = '', date_modified = NOW(), created_added = NOW() WHERE package_id = '7' in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
+2017-03-21 10:10:41 - PHP Notice:  Undefined variable: videos in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\common\menu.tpl on line 214
+2017-03-21 10:24:44 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 91
+2017-03-21 10:24:44 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 10:24:44 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 96
+2017-03-21 10:27:21 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 91
+2017-03-21 10:27:21 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 10:27:21 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 96
+2017-03-21 10:31:24 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 91
+2017-03-21 10:31:24 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 10:31:24 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 96
+2017-03-21 10:32:42 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 91
+2017-03-21 10:32:42 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 10:43:52 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 100
+2017-03-21 10:43:52 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 104
+2017-03-21 10:48:33 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 100
+2017-03-21 10:48:33 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 104
+2017-03-21 10:48:36 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 100
+2017-03-21 10:48:36 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 104
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 63
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 65
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 73
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 75
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 83
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 85
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 100
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 104
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 116
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 118
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 123
+2017-03-21 10:49:38 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 125
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 63
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 65
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 73
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 75
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 83
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 85
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 100
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 104
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 116
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 118
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 123
+2017-03-21 10:49:39 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 125
+2017-03-21 10:50:30 - PHP Notice:  Undefined index: Video_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 55
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 63
+2017-03-21 10:50:30 - PHP Notice:  Undefined index: Video_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 65
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 65
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 73
+2017-03-21 10:50:30 - PHP Notice:  Undefined index: Video_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 75
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 75
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 83
+2017-03-21 10:50:30 - PHP Notice:  Undefined index: Video_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 85
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 85
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 10:50:30 - PHP Notice:  Undefined index: Video_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 100
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 104
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 116
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 118
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 123
+2017-03-21 10:50:30 - PHP Notice:  Undefined index: Video_training_type_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 125
+2017-03-21 10:50:30 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 125
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: video_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 381
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: video_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 382
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: video_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 383
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: video_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 384
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 385
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: video_training_type_id in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 386
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 387
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: Video_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 55
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 63
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: Video_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 65
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 65
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 73
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: Video_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 75
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 75
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 83
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: Video_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 85
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 85
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: Video_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 100
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 104
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 116
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 118
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 123
+2017-03-21 11:02:45 - PHP Notice:  Undefined index: Video_training_type_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 125
+2017-03-21 11:02:45 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 125
+2017-03-21 11:05:31 - PHP Notice:  Undefined index: Video_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 55
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 63
+2017-03-21 11:05:31 - PHP Notice:  Undefined index: Video_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 65
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 65
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 73
+2017-03-21 11:05:31 - PHP Notice:  Undefined index: Video_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 75
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 75
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 83
+2017-03-21 11:05:31 - PHP Notice:  Undefined index: Video_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 85
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 85
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:05:31 - PHP Notice:  Undefined index: Video_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 100
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 104
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 116
+2017-03-21 11:05:31 - PHP Notice:  Undefined index: number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 118
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 118
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 123
+2017-03-21 11:05:31 - PHP Notice:  Undefined index: Video_training_type_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 125
+2017-03-21 11:05:31 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 125
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 63
+2017-03-21 11:06:15 - PHP Notice:  Undefined index: Video_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 65
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_1m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 65
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 73
+2017-03-21 11:06:15 - PHP Notice:  Undefined index: Video_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 75
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_3m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 75
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 83
+2017-03-21 11:06:15 - PHP Notice:  Undefined index: Video_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 85
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_6m_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 85
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:06:15 - PHP Notice:  Undefined index: Video_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_1y_amount in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 95
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 100
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: Video_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 104
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 116
+2017-03-21 11:06:15 - PHP Notice:  Undefined index: number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 118
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_number_of_video in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 118
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 123
+2017-03-21 11:06:15 - PHP Notice:  Undefined index: Video_training_type_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 125
+2017-03-21 11:06:15 - PHP Notice:  Undefined variable: entry_training_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 125
+2017-03-21 11:12:04 - PHP Notice:  Undefined index: video_path in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 405
+2017-03-21 11:12:24 - PHP Notice:  Undefined index: video_path in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 405
+2017-03-21 11:12:38 - PHP Notice:  Undefined index: video_path in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 405
+2017-03-21 11:19:49 - PHP Notice:  Undefined index: video_details in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 343
+2017-03-21 11:19:49 - PHP Notice:  Undefined index: video_img in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 351
+2017-03-21 11:19:49 - PHP Notice:  Undefined index: video_img in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\video\video.php on line 362
+2017-03-21 11:21:13 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:21:13 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:21:13 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 94
+2017-03-21 11:22:04 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:22:04 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:22:04 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 94
+2017-03-21 11:22:09 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:22:09 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:22:09 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 94
+2017-03-21 11:22:18 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:22:18 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:22:18 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 94
+2017-03-21 11:22:19 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:22:19 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:22:19 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 94
+2017-03-21 11:22:31 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:22:31 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:22:31 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 94
+2017-03-21 11:23:10 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:23:10 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 93
+2017-03-21 11:23:10 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\video\video_form.tpl on line 94
+2017-03-21 12:34:52 - PHP Notice:  Undefined variable: text_gallery_types in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\common\menu.tpl on line 220
+2017-03-21 12:35:55 - PHP Notice:  Undefined variable: text_gallery_type in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\common\menu.tpl on line 220
+2017-03-21 13:07:38 - PHP Notice:  Error: Table 'vc_fitness.oc_gallery_master' doesn't exist<br />Error No: 1146<br />SELECT COUNT(*) AS total FROM oc_gallery_master in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
+2017-03-21 13:07:38 - PHP Notice:  Trying to get property of non-object in C:\xampp\htdocs\vc_fitness_new\admin\login\model\gallery\gallery.php on line 7
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 81
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 81
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 81
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 81
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 81
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 81
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 81
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 81
+2017-03-21 13:09:22 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:09:22 - PHP Notice:  Undefined variable: gallerys in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_list.tpl on line 50
+2017-03-21 13:10:35 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:10:35 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:10:35 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:10:35 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:10:35 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:10:35 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:10:35 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:10:35 - PHP Notice:  Undefined index: gallery_name in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery.php on line 89
+2017-03-21 13:10:35 - PHP Notice:  Undefined variable: gallerys in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_list.tpl on line 50
+2017-03-21 13:12:02 - PHP Notice:  Undefined variable: gallerys in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_list.tpl on line 50
+2017-03-21 13:20:10 - PHP Notice:  Undefined index: meta_title in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-21 13:20:10 - PHP Notice:  Undefined index: meta_description in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 70
+2017-03-21 13:20:10 - PHP Notice:  Undefined index: meta_keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 76
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: path in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 87
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: parent_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 88
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: category_filters in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 96
+2017-03-21 13:20:10 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 96
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: category_store in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 110
+2017-03-21 13:20:10 - PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 110
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 119
+2017-03-21 13:20:10 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 119
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 138
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: top in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 161
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: column in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 173
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: sort_order in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 179
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: layouts in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 211
+2017-03-21 13:20:10 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 211
+2017-03-21 13:20:10 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 220
+2017-03-21 13:20:10 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 220
+2017-03-21 13:20:35 - PHP Notice:  Undefined index: meta_title in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-21 13:20:35 - PHP Notice:  Undefined index: meta_description in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 70
+2017-03-21 13:20:35 - PHP Notice:  Undefined index: meta_keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 76
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: path in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 87
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: parent_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 88
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: category_filters in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 96
+2017-03-21 13:20:35 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 96
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: category_store in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 110
+2017-03-21 13:20:35 - PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 110
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 119
+2017-03-21 13:20:35 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 119
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 138
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: top in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 161
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: column in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 173
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: sort_order in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 179
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: layouts in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 211
+2017-03-21 13:20:35 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 211
+2017-03-21 13:20:35 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 220
+2017-03-21 13:20:35 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 220
+2017-03-21 13:27:46 - PHP Notice:  Undefined variable: programs in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 59
+2017-03-21 13:27:46 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 59
+2017-03-21 13:37:43 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:37:43 - PHP Warning:  Illegal string offset 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 63
+2017-03-21 13:37:43 - PHP Warning:  Illegal string offset 'name' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 63
+2017-03-21 13:37:43 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:37:43 - PHP Warning:  Illegal string offset 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 63
+2017-03-21 13:37:43 - PHP Warning:  Illegal string offset 'name' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 63
+2017-03-21 13:37:43 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:37:43 - PHP Warning:  Illegal string offset 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 63
+2017-03-21 13:37:43 - PHP Warning:  Illegal string offset 'name' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 63
+2017-03-21 13:37:43 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:37:43 - PHP Warning:  Illegal string offset 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 63
+2017-03-21 13:37:43 - PHP Warning:  Illegal string offset 'name' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 63
+2017-03-21 13:37:43 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:37:43 - PHP Warning:  Illegal string offset 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 63
+2017-03-21 13:37:43 - PHP Warning:  Illegal string offset 'name' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 63
+2017-03-21 13:39:45 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:39:45 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:39:45 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:41:47 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:41:47 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:41:47 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:42:13 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:42:13 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:42:13 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:42:55 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:42:55 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:42:55 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:44:55 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:44:55 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:44:55 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:51:31 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:51:31 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:51:31 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:53:43 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:53:43 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:53:43 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:53:51 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:53:51 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:53:51 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-21 13:54:04 - PHP Notice:  Error: Unknown column 'gallery_description' in 'field list'<br />Error No: 1054<br />INSERT INTO oc_gallery SET title = 'eeeeee', gallery_type_id = '2', gallery_description = '&lt;p&gt;dddddffffffffff&lt;/p&gt;', status = '1', img_path = '', date_modified = NOW(), date_added = NOW() in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41

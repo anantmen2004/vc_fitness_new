@@ -211,6 +211,15 @@
   <li id="packages"><a class="parent" href="<?php echo $packages; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_packages; ?></span></a>
   </li>
 
+  <li id="videos"><a class="parent" href="<?php echo $videos; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_videos; ?></span></a>
+  </li>
+
+  <li id="gallery"><a class="parent" href="<?php echo $gallery; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_gallery; ?></span></a>
+  </li>
+
+  <li id="gallery_types"><a class="parent" href="<?php echo $gallery_types; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_gallery_types; ?></span></a>
+  </li>
+
 
 
 

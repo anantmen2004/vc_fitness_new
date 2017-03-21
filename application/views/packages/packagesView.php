@@ -90,7 +90,7 @@
                                                     </div>
                                                     <div class="dt-sc-pro-price"  onclick="insertPackage('<?php echo $value['package_id']?>','<?php echo $customer_id ?>')">
                                                         <p class="pro-price-content">
-                                                            <sup>$</sup> 89.99/<span>6 Months</span>
+                                                            <sup></sup> <?php echo round($value['package_amount']) ?>/<span>Per Months</span>
                                                         </p>
                                                         <a class="dt-sc-button small" data-hover="Enroll Now">Enroll Now</a>
                                                     </div>

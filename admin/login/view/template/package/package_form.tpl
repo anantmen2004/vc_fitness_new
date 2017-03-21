@@ -88,16 +88,33 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_1y_amount; ?></label>
+                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_package_type; ?></label>
                     <div class="col-sm-10">
-                      <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_1y_amount]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_1y_amount'] : ''; ?>" placeholder="<?php echo $entry_1y_amount; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
+                      <!-- <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_type]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_type'] : ''; ?>" placeholder="<?php echo $entry_package_type; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" /> -->
+
+                      <select name="package_type" id="input-package_type" class="form-control">
+                        <?php if ($package_type) { ?>
+                        <option value="1" selected="selected"><?php echo $text_normal; ?></option>
+                        <option value="0"><?php echo $text_optional; ?></option>
+                        <?php } else { ?>
+                        <option value="1"><?php echo $text_normal; ?></option>
+                        <option value="0" selected="selected"><?php echo $text_optional; ?></option>
+                        <?php } ?>
+                      </select>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_1y_amount; ?></label>
+                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_number_of_video; ?></label>
                     <div class="col-sm-10">
-                      <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_1y_amount]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_1y_amount'] : ''; ?>" placeholder="<?php echo $entry_1y_amount; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
+                      <input type="text" name="package_description[<?php echo $language['language_id']; ?>][number_of_video]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['number_of_video'] : ''; ?>" placeholder="<?php echo $entry_number_of_video; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_training_type; ?></label>
+                    <div class="col-sm-10">
+                      <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_training_type_id]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_training_type_id'] : ''; ?>" placeholder="<?php echo $entry_training_type; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
                     </div>
                   </div>
 

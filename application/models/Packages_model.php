@@ -9,7 +9,7 @@ class Packages_model extends CI_Model {
 
 	public function getAllPackages($id)
 	{
-		return $data = $this->db->query("SELECT * FROM oc_package_master WHERE package_type = $id")->result_array();
+		return $data = $this->db->query("SELECT * FROM oc_package_master WHERE status = 1 AND package_type = $id")->result_array();
 	}
 
 
