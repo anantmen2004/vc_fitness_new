@@ -3551,3 +3551,350 @@
 2017-03-21 14:20:14 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
 2017-03-21 14:20:14 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
 2017-03-21 14:20:14 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 8:19:25 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 8:19:25 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 8:19:25 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 8:19:27 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 8:19:27 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 8:19:27 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:27:17 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:27:17 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:27:17 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:27:20 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:27:20 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:27:20 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:27:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:39:28 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:39:28 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:39:28 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:40:18 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:40:18 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:40:18 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:48:56 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:48:56 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:48:56 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:49:16 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:49:16 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:49:16 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:29 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:49:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:49:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:49:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:52:47 - PHP Notice:  Use of undefined constant program_id - assumed 'program_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\training\training_form.tpl on line 49
+2017-03-22 9:56:06 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:56:06 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:56:06 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:56:12 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:56:12 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:56:12 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:57:14 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:57:14 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:57:14 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:57:15 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:57:15 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:57:15 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:57:16 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:57:16 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 9:57:16 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 10:03:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 10:03:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 10:03:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 60
+2017-03-22 10:06:23 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-22 10:06:23 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-22 10:06:23 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-22 10:06:25 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-22 10:06:25 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-22 10:06:25 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-22 10:07:13 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-22 10:07:13 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-22 10:07:13 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 61
+2017-03-22 10:08:12 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:08:12 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:08:12 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:47 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:47 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:47 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:47 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:47 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:47 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:48 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:48 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:48 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:48 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:48 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:48 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:51 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:51 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:51 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:51 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:51 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:51 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:52 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:13:53 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:14:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:14:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:14:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:14:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:14:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:14:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:15:08 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:15:08 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:15:08 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:15:08 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:15:08 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:15:08 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:15 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:15 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:15 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:15 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:15 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:15 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:58 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:58 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:58 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:58 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:58 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 10:19:58 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 11:50:42 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:50:42 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 89
+2017-03-22 11:50:42 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:50:42 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 89
+2017-03-22 11:50:42 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:50:42 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 89
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: gallery_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_list.tpl on line 54
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: gallery_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_list.tpl on line 54
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: gallery_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_list.tpl on line 54
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 89
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 89
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 89
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: gallery_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_list.tpl on line 54
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: gallery_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_list.tpl on line 54
+2017-03-22 11:50:43 - PHP Notice:  Undefined index: gallery_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_list.tpl on line 54
+2017-03-22 11:58:20 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:58:20 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 89
+2017-03-22 11:58:20 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:58:20 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 89
+2017-03-22 11:58:20 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:58:20 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 89
+2017-03-22 11:59:38 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:59:38 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 11:59:38 - PHP Notice:  Undefined index: status in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 81
+2017-03-22 12:07:23 - PHP Notice:  Undefined variable: gallery_types in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 60
+2017-03-22 12:07:23 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 60
+2017-03-22 12:07:23 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 73
+2017-03-22 12:07:23 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 73
+2017-03-22 12:07:23 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 74
+2017-03-22 12:07:23 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 110
+2017-03-22 12:07:23 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 110
+2017-03-22 12:07:23 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 111
+2017-03-22 12:12:06 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:12:06 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:12:06 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:13:49 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:13:49 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:13:49 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:13:54 - PHP Notice:  Undefined index: gallery_type_description in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 355
+2017-03-22 12:13:54 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 355
+2017-03-22 12:13:54 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:13:54 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:13:54 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:15:43 - PHP Notice:  Undefined index: gallery_type_description in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 355
+2017-03-22 12:15:43 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 355
+2017-03-22 12:15:43 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:15:43 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:15:43 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:17:24 - PHP Notice:  Undefined index: gallery_type_description in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 355
+2017-03-22 12:17:24 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 355
+2017-03-22 12:17:24 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:17:24 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:17:24 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:22:38 - PHP Notice:  Undefined index: gallery_type_description in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 355
+2017-03-22 12:22:38 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 355
+2017-03-22 12:22:38 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:22:38 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:22:38 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:24:08 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:24:08 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:24:08 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:24:14 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:24:14 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:24:14 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:27:02 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:27:02 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:27:02 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:27:07 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:27:07 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:27:07 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:32:50 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:32:50 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:32:50 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:33:09 - PHP Notice:  Undefined index: title in C:\xampp\htdocs\vc_fitness_new\admin\login\controller\gallery\gallery_types.php on line 312
+2017-03-22 12:33:09 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:33:09 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:33:09 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:34:10 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:34:10 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:34:10 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:34:20 - PHP Notice:  Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE gallery_type_id = '5'' at line 1<br />Error No: 1064<br />UPDATE oc_gallery_type SET name = 'Dhananajay...', description = '&lt;p&gt;pingale.......&lt;/p&gt;', status = '1', date_modified = NOW(), WHERE gallery_type_id = '5' in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
+2017-03-22 12:34:26 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:34:26 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:34:26 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:35:45 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:35:45 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:35:45 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:36:11 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:36:11 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:36:11 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:36:28 - PHP Notice:  Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE gallery_type_id = '5'' at line 1<br />Error No: 1064<br />UPDATE oc_gallery_type SET name = 'Dhananajayddddddd', description = '&lt;p&gt;pingalesssssss&lt;/p&gt;', status = '1', date_modified = NOW(), WHERE gallery_type_id = '5' in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
+2017-03-22 12:36:55 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:36:55 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:36:55 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:38:02 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:38:02 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:38:02 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:38:11 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:38:11 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:38:11 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:38:36 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:38:36 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:38:36 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:38:47 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:38:47 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:38:47 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:49:42 - PHP Notice:  Error: Unknown column 'gallery_type_id' in 'where clause'<br />Error No: 1054<br />DELETE FROM oc_training_type WHERE gallery_type_id = '4' in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
+2017-03-22 12:51:47 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:51:47 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:51:47 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:51:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 12:51:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 12:51:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 12:51:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 12:51:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 12:51:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 12:51:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 12:51:57 - PHP Notice:  Use of undefined constant gallery_type_id - assumed 'gallery_type_id' in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_form.tpl on line 62
+2017-03-22 12:59:13 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:59:13 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:59:13 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:59:19 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:59:19 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:59:19 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 12:59:29 - PHP Notice:  Error: Unknown column 'gallery_type_id' in 'where clause'<br />Error No: 1054<br />DELETE FROM oc_training_type WHERE gallery_type_id = '5' in C:\xampp\htdocs\vc_fitness_new\admin\system\library\db\mysqli.php on line 41
+2017-03-22 12:59:59 - PHP Notice:  Undefined variable: thumb in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:59:59 - PHP Notice:  Undefined variable: placeholder in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 85
+2017-03-22 12:59:59 - PHP Notice:  Undefined variable: image in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\gallery\gallery_type_form.tpl on line 86
+2017-03-22 13:30:10 - PHP Notice:  Undefined index: meta_title in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 61
+2017-03-22 13:30:10 - PHP Notice:  Undefined index: meta_description in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 70
+2017-03-22 13:30:10 - PHP Notice:  Undefined index: meta_keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 76
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: path in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 87
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: parent_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 88
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: category_filters in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 96
+2017-03-22 13:30:10 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 96
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: category_store in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 110
+2017-03-22 13:30:10 - PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 110
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 119
+2017-03-22 13:30:10 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 119
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 138
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: top in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 161
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: column in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 173
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: sort_order in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 179
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: layouts in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
+2017-03-22 13:30:10 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
+2017-03-22 13:30:10 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
+2017-03-22 13:30:10 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
+2017-03-22 13:32:57 - PHP Notice:  Undefined index: meta_title in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 61
+2017-03-22 13:32:57 - PHP Notice:  Undefined index: meta_description in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 70
+2017-03-22 13:32:57 - PHP Notice:  Undefined index: meta_keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 76
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: path in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 87
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: parent_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 88
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: category_filters in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 96
+2017-03-22 13:32:57 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 96
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: category_store in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 110
+2017-03-22 13:32:57 - PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 110
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 119
+2017-03-22 13:32:57 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 119
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 138
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: top in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 161
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: column in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 173
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: sort_order in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 179
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: layouts in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
+2017-03-22 13:32:57 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
+2017-03-22 13:32:57 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
+2017-03-22 13:32:57 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
+2017-03-22 13:35:38 - PHP Notice:  Undefined index: meta_title in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 61
+2017-03-22 13:35:38 - PHP Notice:  Undefined index: meta_description in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 70
+2017-03-22 13:35:38 - PHP Notice:  Undefined index: meta_keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 76
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: path in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 87
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: parent_id in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 88
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: category_filters in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 96
+2017-03-22 13:35:38 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 96
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: category_store in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 110
+2017-03-22 13:35:38 - PHP Warning:  in_array() expects parameter 2 to be array, null given in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 110
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 119
+2017-03-22 13:35:38 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 119
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: keyword in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 138
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: top in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 161
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: column in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 173
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: sort_order in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 179
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: layouts in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
+2017-03-22 13:35:38 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 211
+2017-03-22 13:35:38 - PHP Notice:  Undefined variable: stores in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220
+2017-03-22 13:35:38 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\vc_fitness_new\admin\login\view\template\program\program_form.tpl on line 220

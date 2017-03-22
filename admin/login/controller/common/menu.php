@@ -229,7 +229,7 @@ class ControllerCommonMenu extends Controller {
 		$data['packages'] = $this->url->link('package/package', 'token=' . $this->session->data['token'], 'SSL');
 		$data['videos'] = $this->url->link('video/video', 'token=' . $this->session->data['token'], 'SSL');
 		$data['gallery'] = $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'], 'SSL');
-		$data['gallery_types'] = $this->url->link('galleryType/galleryType', 'token=' . $this->session->data['token'], 'SSL');
+		$data['gallery_types'] = $this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'], 'SSL');
 
 		return $this->load->view('common/menu.tpl', $data);
 	}

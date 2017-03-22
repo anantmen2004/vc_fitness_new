@@ -60,7 +60,7 @@
                     </div>
                   </div>
 
-                  <div class="form-group required">
+                  <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_3m_amount; ?></label>
                     <div class="col-sm-10">
                       <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_3m_amount]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_3m_amount'] : ''; ?>" placeholder="<?php echo $entry_3m_amount; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />

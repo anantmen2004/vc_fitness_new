@@ -33,7 +33,7 @@ class ModelGalleryGallery extends Model {
 	public function editGallery($gallery_id, $data) {
 		$this->event->trigger('pre.admin.gallery.edit', $data);
 
-		$this->db->query("UPDATE " . DB_PREFIX . "gallery SET gallery_name = '" . $data['gallery_description'][1]['name'] . "', gallery_description = '" . $data['gallery_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', gallery_img = '" . $data['image'] . "',gallery_img_hover = '" . $data['hover_image'] . "', date_modified = NOW(), created_added = NOW() WHERE gallery_id = '" . (int)$gallery_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "gallery SET title = '" . $data['gallery_description'][1]['name'] . "', gallery_type_id = '" . (int)$data['gallery_description'][1]['gallery_type_id'] . "', description = '" . $data['gallery_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', img_path = '" . $data['image'] . "', date_modified = NOW() WHERE gallery_id = '" . (int)$gallery_id . "'");
 
 		
 		$this->cache->delete('gallery');
@@ -43,8 +43,8 @@ class ModelGalleryGallery extends Model {
 
 	public function addGallery($data) {
 		// $this->event->trigger('pre.admin.gallery.add', $data);
-		echo "<pre>";print_r($data);exit;
-		$this->db->query("INSERT INTO " . DB_PREFIX . "gallery SET title = '" . $data['gallery_description'][1]['name'] . "', gallery_type_id = '" . (int)$data['gallery_description'][1]['gallery_type_id'] . "', gallery_description = '" . $data['gallery_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', img_path = '" . $data['image'] . "', date_modified = NOW(), date_added = NOW()");
+		//echo "<pre>";print_r($data);exit;
+		$this->db->query("INSERT INTO " . DB_PREFIX . "gallery SET title = '" . $data['gallery_description'][1]['name'] . "', gallery_type_id = '" . (int)$data['gallery_description'][1]['gallery_type_id'] . "', description = '" . $data['gallery_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', img_path = '" . $data['image'] . "', date_modified = NOW(), date_added = NOW()");
 
 		$gallery_id = $this->db->getLastId();
 

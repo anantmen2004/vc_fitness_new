@@ -1,3 +1,4 @@
+<!-- print_r($gallery_type_description[1]['gallery_type_id']);exit; -->
 <?php echo $header; ?><?php echo $column_left; ?>
 <div id="content">
   <div class="page-header">
@@ -40,10 +41,11 @@
               <div class="tab-content">
                 <?php foreach ($languages as $language) { ?>
                 <div class="tab-pane" id="language<?php echo $language['language_id']; ?>">
+
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_name; ?></label>
                     <div class="col-sm-10">
-                      <input type="text" name="program_description[<?php echo $language['language_id']; ?>][name]" value="<?php echo isset($program_description[$language['language_id']]) ? $program_description[$language['language_id']]['name'] : ''; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
+                      <input type="text" name="gallery_type_description[<?php echo $language['language_id']; ?>][name]" value="<?php echo isset($gallery_type_description[$language['language_id']]) ? $gallery_type_description[$language['language_id']]['name'] : ''; ?>" placeholder="<?php echo $entry_name; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
                       <?php if (isset($error_name[$language['language_id']])) { ?>
                       <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
                       <?php } ?>
@@ -53,21 +55,38 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>
                     <div class="col-sm-10">
-                      <textarea name="program_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>" class="form-control"><?php echo isset($program_description[$language['language_id']]) ? $program_description[$language['language_id']]['description'] : ''; ?></textarea>
+                      <textarea name="gallery_type_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>" class="form-control"><?php echo isset($gallery_type_description[$language['language_id']]) ? $gallery_type_description[$language['language_id']]['description'] : ''; ?></textarea>
                     </div>
                   </div>
+
                   <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
+                <div class="col-sm-10">
+                  <select name="status" id="input-status" class="form-control">
+                    <?php if ($status) { ?>
+                    <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                    <option value="0"><?php echo $text_disabled; ?></option>
+                    <?php } else { ?>
+                    <option value="1"><?php echo $text_enabled; ?></option>
+                    <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+
+
+                </div>
+                <?php } ?>
+              </div>
+            </div>
+            <!-- <div class="tab-pane" id="tab-data">
+              <div class="form-group">
                 <label class="col-sm-2 control-label"><?php echo $entry_image; ?></label>
                 <div class="col-sm-10"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
                   <input type="hidden" name="image" value="<?php echo $image; ?>" id="input-image" />
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label"><?php echo $entry_hover_image; ?></label>
-                <div class="col-sm-10"><a href="" id="thumb-image1" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb_hover; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
-                  <input type="hidden" name="hover_image" value="<?php echo $hover_image; ?>" id="input-image" />
-                </div>
-              </div>
+              
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
                 <div class="col-sm-10">
@@ -82,13 +101,7 @@
                   </select>
                 </div>
               </div>
-                </div>
-                <?php } ?>
-              </div>
-            </div>
-            <div class="tab-pane" id="tab-data">
-              
-            </div>
+            </div> -->
           </div>
         </form>
       </div>
@@ -97,64 +110,64 @@
   <script type="text/javascript"><!--
 <?php foreach ($languages as $language) { ?>
 $('#input-description<?php echo $language['language_id']; ?>').summernote({
-	height: 300
+  height: 300
 });
 <?php } ?>
 //--></script> 
   <script type="text/javascript"><!--
 $('input[name=\'path\']').autocomplete({
-	'source': function(request, response) {
-		$.ajax({
-			url: 'index.php?route=catalog/category/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
-			dataType: 'json',
-			success: function(json) {
-				json.unshift({
-					category_id: 0,
-					name: '<?php echo $text_none; ?>'
-				});
+  'source': function(request, response) {
+    $.ajax({
+      url: 'index.php?route=catalog/category/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
+      dataType: 'json',
+      success: function(json) {
+        json.unshift({
+          category_id: 0,
+          name: '<?php echo $text_none; ?>'
+        });
 
-				response($.map(json, function(item) {
-					return {
-						label: item['name'],
-						value: item['category_id']
-					}
-				}));
-			}
-		});
-	},
-	'select': function(item) {
-		$('input[name=\'path\']').val(item['label']);
-		$('input[name=\'parent_id\']').val(item['value']);
-	}
+        response($.map(json, function(item) {
+          return {
+            label: item['name'],
+            value: item['category_id']
+          }
+        }));
+      }
+    });
+  },
+  'select': function(item) {
+    $('input[name=\'path\']').val(item['label']);
+    $('input[name=\'parent_id\']').val(item['value']);
+  }
 });
 //--></script> 
   <script type="text/javascript"><!--
 $('input[name=\'filter\']').autocomplete({
-	'source': function(request, response) {
-		$.ajax({
-			url: 'index.php?route=catalog/filter/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
-			dataType: 'json',
-			success: function(json) {
-				response($.map(json, function(item) {
-					return {
-						label: item['name'],
-						value: item['filter_id']
-					}
-				}));
-			}
-		});
-	},
-	'select': function(item) {
-		$('input[name=\'filter\']').val('');
+  'source': function(request, response) {
+    $.ajax({
+      url: 'index.php?route=catalog/filter/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
+      dataType: 'json',
+      success: function(json) {
+        response($.map(json, function(item) {
+          return {
+            label: item['name'],
+            value: item['filter_id']
+          }
+        }));
+      }
+    });
+  },
+  'select': function(item) {
+    $('input[name=\'filter\']').val('');
 
-		$('#category-filter' + item['value']).remove();
+    $('#category-filter' + item['value']).remove();
 
-		$('#category-filter').append('<div id="category-filter' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="category_filter[]" value="' + item['value'] + '" /></div>');
-	}
+    $('#category-filter').append('<div id="category-filter' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="category_filter[]" value="' + item['value'] + '" /></div>');
+  }
 });
 
 $('#category-filter').delegate('.fa-minus-circle', 'click', function() {
-	$(this).parent().remove();
+  $(this).parent().remove();
 });
 //--></script> 
   <script type="text/javascript"><!--

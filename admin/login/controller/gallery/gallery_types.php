@@ -1,14 +1,14 @@
 <?php
-class ControllerGalleryGallery extends Controller {
+class ControllerGalleryGallerytypes extends Controller {
 	private $error = array();
 
 	public function index() {
 		// print_r(121212);exit;
-		$this->language->load('gallery/gallery');
+		$this->language->load('gallery/gallery_type');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('gallery/gallery');
+		$this->load->model('gallery/gallery_type');
 
 		$this->getList();
 	}
@@ -55,12 +55,12 @@ class ControllerGalleryGallery extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
 
-		$data['add'] = $this->url->link('gallery/gallery/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
-		$data['delete'] = $this->url->link('gallery/gallery/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
-		$data['repair'] = $this->url->link('gallery/gallery/repair', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['add'] = $this->url->link('gallery/gallery_types/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['delete'] = $this->url->link('gallery/gallery_types/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['repair'] = $this->url->link('gallery/gallery_types/repair', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
 		$data['galleries'] = array();
 
@@ -71,9 +71,9 @@ class ControllerGalleryGallery extends Controller {
 			'limit' => $this->config->get('config_limit_admin')
 		);
 
-		$gallery_total = $this->model_gallery_gallery->getTotalGallery();
+		$gallery_type_total = $this->model_gallery_gallery_type->getTotalGallerytype();
 
-		$results = $this->model_gallery_gallery->getGalleries($filter_data);
+		$results = $this->model_gallery_gallery_type->getGalleries($filter_data);
 
 		 //print_r($results[0]['status']);exit;
 
@@ -85,13 +85,12 @@ class ControllerGalleryGallery extends Controller {
 				$status = "Inactive";
 			}
 			$data['galleries'][] = array(
-				'gallery_id' => $result['gallery_id'],
-				'name'        => $result['title'],
-				'type'        => $result['name'],
+				'gallery_type_id' => $result['gallery_type_id'],
+				'name'        => $result['name'],
 				 'sort_order'  => "ASC",
 				'status'  => $status,
-				'edit'        => $this->url->link('gallery/gallery/edit', 'token=' . $this->session->data['token'] . '&gallery_id=' . $result['gallery_id'] . $url, 'SSL'),
-				'delete'      => $this->url->link('gallery/gallery/delete', 'token=' . $this->session->data['token'] . '&gallery_id=' . $result['gallery_id'] . $url, 'SSL')
+				'edit'        => $this->url->link('gallery/gallery_types/edit', 'token=' . $this->session->data['token'] . '&gallery_type_id=' . $result['gallery_type_id'] . $url, 'SSL'),
+				'delete'      => $this->url->link('gallery/gallery_types/delete', 'token=' . $this->session->data['token'] . '&gallery_type_id=' . $result['gallery_type_id'] . $url, 'SSL')
 			);
 		}
 
@@ -142,8 +141,8 @@ class ControllerGalleryGallery extends Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
-		$data['sort_name'] = $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
-		$data['sort_sort_order'] = $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
+		$data['sort_name'] = $this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
+		$data['sort_sort_order'] = $this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
 
 		$url = '';
 
@@ -156,14 +155,14 @@ class ControllerGalleryGallery extends Controller {
 		}
 
 		$pagination = new Pagination();
-		$pagination->total = $gallery_total;
+		$pagination->total = $gallery_type_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
 		$pagination->url = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
 
 		$data['pagination'] = $pagination->render();
 
-		$data['results'] = sprintf($this->language->get('text_pagination'), ($gallery_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($gallery_total - $this->config->get('config_limit_admin'))) ? $gallery_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $gallery_total, ceil($gallery_total / $this->config->get('config_limit_admin')));
+		$data['results'] = sprintf($this->language->get('text_pagination'), ($gallery_type_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($gallery_type_total - $this->config->get('config_limit_admin'))) ? $gallery_type_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $gallery_type_total, ceil($gallery_type_total / $this->config->get('config_limit_admin')));
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
@@ -172,20 +171,20 @@ class ControllerGalleryGallery extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('gallery/gallery_list.tpl', $data));
+		$this->response->setOutput($this->load->view('gallery/gallery_type_list.tpl', $data));
 	}
 
 	/**************************************************************/
 
 	public function edit() {
-		$this->language->load('gallery/gallery');
+		$this->language->load('gallery/gallery_type');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('gallery/gallery');
+		$this->load->model('gallery/gallery_type');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_gallery_gallery->editGallery($this->request->get['gallery_id'], $this->request->post);
+			$this->model_gallery_gallery_type->editGallerytype($this->request->get['gallery_type_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -203,17 +202,17 @@ class ControllerGalleryGallery extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getForm();
 	}
 
 	protected function getForm() {
-// 		 print_r($this->request->get['gallery_id']);exit;
+// 		 print_r($this->request->get['gallery_type_id']);exit;
 		$data['heading_title'] = $this->language->get('heading_title');
 
-		$data['text_form'] = !isset($this->request->get['gallery_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
+		$data['text_form'] = !isset($this->request->get['gallery_type_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 		$data['text_none'] = $this->language->get('text_none');
 		$data['text_default'] = $this->language->get('text_default');
 		$data['text_enabled'] = $this->language->get('text_enabled');
@@ -283,19 +282,19 @@ class ControllerGalleryGallery extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
 
-		if (!isset($this->request->get['gallery_id'])) {
-			$data['action'] = $this->url->link('gallery/gallery/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		if (!isset($this->request->get['gallery_type_id'])) {
+			$data['action'] = $this->url->link('gallery/gallery_types/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
 		} else {
-			$data['action'] = $this->url->link('gallery/gallery/edit', 'token=' . $this->session->data['token'] . '&gallery_id=' . $this->request->get['gallery_id'] . $url, 'SSL');
+			$data['action'] = $this->url->link('gallery/gallery_types/edit', 'token=' . $this->session->data['token'] . '&gallery_type_id=' . $this->request->get['gallery_type_id'] . $url, 'SSL');
 		}
 
-		$data['cancel'] = $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['cancel'] = $this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
-		if (isset($this->request->get['gallery_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
-			$gallery_info = $this->model_gallery_gallery->getGallery($this->request->get['gallery_id']);
+		if (isset($this->request->get['gallery_type_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
+			$gallery_type_info = $this->model_gallery_gallery_type->getGallerytype($this->request->get['gallery_type_id']);
 		}
 		
 		$data['token'] = $this->session->data['token'];
@@ -304,61 +303,31 @@ class ControllerGalleryGallery extends Controller {
 
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 
-
-		$data['gallery_types'] = $this->model_gallery_gallery->getGalleryTypes();
-
 		// print_r($data['gallery_types']);exit;
 
 		
 		if (isset($this->request->post['name'])) {
 			$data['name'] = $this->request->post['name'];
-		} elseif (!empty($gallery_info)) {
-			$data['name'] = $gallery_info['title'];
+		} elseif (!empty($gallery_type_info)) {
+			$data['name'] = $gallery_type_info['name'];
 		} else {
 			$data['name'] = '';
 		}
 
 		if (isset($this->request->post['description'])) {
 			$data['description'] = $this->request->post['description'];
-		} elseif (!empty($gallery_info)) {
-			$data['description'] = $gallery_info['description'];
+		} elseif (!empty($gallery_type_info)) {
+			$data['description'] = $gallery_type_info['description'];
 		} else {
 			$data['description'] = '';
 		}
 
-		if (isset($this->request->post['gallery_type_id'])) {
-			$data['gallery_type_id'] = $this->request->post['gallery_type_id'];
-		} elseif (!empty($gallery_info)) {
-			$data['gallery_type_id'] = $gallery_info['gallery_type_id'];
-		} else {
-			$data['gallery_type_id'] = '';
-		}
-
-		if (isset($this->request->post['image'])) {
-			$data['image'] = $this->request->post['image'];
-		} elseif (!empty($gallery_info)) {
-			$data['image'] = $gallery_info['img_path'];
-		} else {
-			$data['image'] = '';
-		}  
-		$this->load->model('tool/image');
-
-		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
-			$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
-		} elseif (!empty($gallery_info) && is_file(DIR_IMAGE . $gallery_info['img_path'])) {
-			$data['thumb'] = $this->model_tool_image->resize($gallery_info['img_path'], 100, 100);
-		} else {
-			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-		}
-
 		
-
-		 $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
 		 if (isset($this->request->post['status'])) {
 			$data['status'] = $this->request->post['status'];
-		} elseif (!empty($gallery_info)) {
-			$data['status'] = $gallery_info['status'];
+		} elseif (!empty($gallery_type_info)) {
+			$data['status'] = $gallery_type_info['status'];
 		} else {
 			$data['status'] = true;
 		}
@@ -366,11 +335,8 @@ class ControllerGalleryGallery extends Controller {
 		
 		 $data['gallery_details'][1] = array(
 			'name' => $data['name'],
-			'description' => $data['description'],
-			'gallery_type_id' => $data['gallery_type_id'],
-			'image' => $data['image'],
-			'thumb' => $data['thumb'], );
-		 $data['gallery_description'] = $data['gallery_details'];
+			'description' => $data['description'] );
+		 $data['gallery_type_description'] = $data['gallery_details'];
 		//echo "<pre>";print_r($data);exit;
 
 		$data['header'] = $this->load->controller('common/header');
@@ -378,15 +344,15 @@ class ControllerGalleryGallery extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		//echo "<pre>";print_r($data);exit;
 
-		$this->response->setOutput($this->load->view('gallery/gallery_form.tpl',$data));
+		$this->response->setOutput($this->load->view('gallery/gallery_type_form.tpl',$data));
 	}
 
 	protected function validateForm() {
-		if (!$this->user->hasPermission('modify', 'gallery/gallery')) {
+		if (!$this->user->hasPermission('modify', 'gallery/gallery_types')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		foreach ($this->request->post['gallery_description'] as $language_id => $value) {
+		foreach ($this->request->post['gallery_type_description'] as $language_id => $value) {
 			if ((utf8_strlen($value['name']) < 2) || (utf8_strlen($value['name']) > 255)) {
 				$this->error['name'][$language_id] = $this->language->get('error_name');
 			}
@@ -398,14 +364,15 @@ class ControllerGalleryGallery extends Controller {
 	}
 	/****************************************************/
 	public function add() {
-		$this->language->load('gallery/gallery');
+		$this->language->load('gallery/gallery_type');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('gallery/gallery');
+		$this->load->model('gallery/gallery_type');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_gallery_gallery->addGallery($this->request->post);
+			// print_r(123);exit;
+			$this->model_gallery_gallery_type->addGallerytype($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -423,7 +390,7 @@ class ControllerGalleryGallery extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getForm();
@@ -431,15 +398,15 @@ class ControllerGalleryGallery extends Controller {
 
 
 	public function delete() {
-		$this->language->load('gallery/gallery');
+		$this->language->load('gallery/gallery_type');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('gallery/gallery');
+		$this->load->model('gallery/gallery_type');
 
 		if (isset($this->request->post['selected']) && $this->validateDelete()) {
-			foreach ($this->request->post['selected'] as $gallery_id) {
-				$this->model_gallery_gallery->deletegallery($gallery_id);
+			foreach ($this->request->post['selected'] as $gallery_type_id) {
+				$this->model_gallery_gallery_type->deletegallery_type($gallery_type_id);
 			}
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -458,14 +425,14 @@ class ControllerGalleryGallery extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('gallery/gallery', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getList();
 	}
 
 	protected function validateDelete() {
-		if (!$this->user->hasPermission('modify', 'gallery/gallery')) {
+		if (!$this->user->hasPermission('modify', 'gallery/gallery_types')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 

@@ -1,3 +1,4 @@
+<!-- print_r($gallery_description[1]['gallery_type_id']);exit; -->
 <?php echo $header; ?><?php echo $column_left; ?>
 <div id="content">
   <div class="page-header">
@@ -57,7 +58,8 @@
                       <select name="gallery_description[<?php echo $language['language_id']; ?>][gallery_type_id]" id="religion" class="form-control">
                       <option value="0">Please Select Program</option>
                       <?php foreach ($gallery_types as $type) { ?>
-                          <?php if(isset($gallery_description[1][gallery_type_id]) && $gallery_description[1][gallery_type_id]== $type['program_id']){ ?>
+                      print_r($gallery_description[1][gallery_type_id]);exit;
+                          <?php if(isset($gallery_description[1][gallery_type_id]) && $gallery_description[1][gallery_type_id]== $type['gallery_type_id']){ ?>
                           <option value="<?php echo $type['gallery_type_id']?>" selected><?php echo $type['name']?></option>
                       <?php } else {?>
                           <option value="<?php echo $type['gallery_type_id']?>"><?php echo $type['name']?></option>
@@ -102,7 +104,7 @@
                 <?php } ?>
               </div>
             </div>
-            <div class="tab-pane" id="tab-data">
+            <!-- <div class="tab-pane" id="tab-data">
               <div class="form-group">
                 <label class="col-sm-2 control-label"><?php echo $entry_image; ?></label>
                 <div class="col-sm-10"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
@@ -124,7 +126,7 @@
                   </select>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </form>
       </div>

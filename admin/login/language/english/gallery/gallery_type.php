@@ -1,21 +1,21 @@
 <?php
 // Heading
-$_['heading_title']          = 'Programs';
+$_['heading_title']          = 'Gallery Types';
 
 // Text
-$_['text_success']           = 'Success: You have modified Programs!';
-$_['text_list']              = 'Program List';
-$_['text_add']               = 'Add Program';
-$_['text_edit']              = 'Edit Program';
+$_['text_success']           = 'Success: You have modified Gallery Type!';
+$_['text_list']              = 'Gallery Type List';
+$_['text_add']               = 'Add Gallery Type';
+$_['text_edit']              = 'Edit Gallery Type';
 $_['text_default']           = 'Default';
 
 // Column
-$_['column_name']            = 'Program Name';
+$_['column_name']            = 'Gallery Type Name';
 $_['column_sort_order']      = 'Sort Order';
 $_['column_action']          = 'Action';
 
 // Entry
-$_['entry_name']             = 'Program Name';
+$_['entry_name']             = 'Gallery Type Name';
 $_['entry_description']      = 'Description';
 $_['entry_meta_title'] 	     = 'Meta Tag Title';
 $_['entry_meta_keyword'] 	 = 'Meta Tag Keywords';
@@ -35,12 +35,13 @@ $_['entry_layout']           = 'Layout Override';
 // Help
 $_['help_filter']            = '(Autocomplete)';
 $_['help_keyword']           = 'Do not use spaces, instead replace spaces with - and make sure the keyword is globally unique.';
-$_['help_top']               = 'Display in the top menu bar. Only works for the top parent Programs.';
-$_['help_column']            = 'Number of columns to use for the bottom 3 Programs. Only works for the top parent Programs.';
+$_['help_top']               = 'Display in the top menu bar. Only works for the top parent Gallery Type.';
+$_['help_column']            = 'Number of columns to use for the bottom 3 Gallery Type. Only works for the top parent Gallery Type.';
 
 // Error
 $_['error_warning']          = 'Warning: Please check the form carefully for errors!';
-$_['error_permission']       = 'Warning: You do not have permission to modify Programs!';
-$_['error_name']             = 'Program Name must be between 2 and 255 characters!';
+$_['error_permission']       = 'Warning: You do not have permission to modify Gallery Type!';
+$_['error_name']             = 'Gallery Type Name must be between 2 and 255 characters!';
 $_['error_meta_title']       = 'Meta Title must be greater than 3 and less than 255 characters!';
 $_['error_keyword']          = 'SEO keyword already in use!';
+
