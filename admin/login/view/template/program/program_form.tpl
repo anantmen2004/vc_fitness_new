@@ -64,7 +64,7 @@
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label"><?php echo $entry_hover_image; ?></label>
-                <div class="col-sm-10"><a href="" id="thumb-image1" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb_hover; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
+                <div class="col-sm-10"><a href="" id="thumb-  " data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb_hover; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
                   <input type="hidden" name="hover_image" value="<?php echo $hover_image; ?>" id="input-image" />
                 </div>
               </div>

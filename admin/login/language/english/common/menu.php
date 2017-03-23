@@ -106,3 +106,4 @@ $_['text_packages']               	   = 'Package';
 $_['text_videos']               	   = 'Videos';
 $_['text_gallery']               	   = 'Gallery';
 $_['text_gallery_types']               = 'Gallery Types';
+$_['text_package_training_video']      = 'Package Trainings Mapping';
