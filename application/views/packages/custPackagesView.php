@@ -49,10 +49,10 @@
                           <label class="control-label" for="input-payment-country">Duration</label>
                           <select name="package_duration" id="package_duration" class="form-control" onchange="showDate()">
                             <option value="">Please Select</option>
-                            <option value="1">1 Month</option>
-                            <option value="3">3 Month</option>
-                            <option value="6">6 Month</option>
-                            <option value="12">1 Year</option>
+                            <option value="1 month">1 Month</option>
+                            <option value="3 months">3 Month</option>
+                            <option value="6 months">6 Month</option>
+                            <option value="12 months">1 Year</option>
                           </select>
                         </div>
                         <div class="form-group required col-sm-3 durationDate" style="display: none;">

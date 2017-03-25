@@ -208,7 +208,8 @@
 	fieldset{ border:1px solid #efefef; padding:15px; margin:0 0 20px 0; }
 	legend{ font-weight: bold; }
 	
-	input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="tel"], input[type="number"], input[type="range"], input[type="date"], textarea, input.text, input[type="search"] { background:#ffffff; border:1px solid #e5e5d8; height:34px; color:#6a695e; padding:4px 16px; display:block; font-size:14px; margin:0px 0 30px; width:100%; box-sizing:border-box; -webkit-appearance:none; -moz-appearance:none; appearance:none; }
+	input[type="text"], input[type="password"], input[type="email"], input[type="url"], 
+	input[type="tel"], input[type="number"], input[type="range"], input[type="date"], textarea, input.text, input[type="search"] { background:#ffffff; border:1px solid #e5e5d8; height:34px; color:#6a695e; padding:4px 16px; display:block; font-size:14px; margin:0px 0 0px; width:100%; box-sizing:border-box; -webkit-appearance:none; -moz-appearance:none; appearance:none; border-radius: 0px; }
 	input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="tel"]:focus, input[type="number"]:focus, input[type="range"]:focus, input[type="date"]:focus, textarea:focus, input.text:focus, input[type="search"]:focus { border-color:#dadada; }
 	textarea { margin-bottom:15px; }
 	
@@ -2253,3 +2254,20 @@ margin-top:20px;
 .wishListheart {
 	color:red;
 }
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    cursor: not-allowed;
+    background-color: #fff !important;
+    opacity: 1;
+    border-top: 1px solid #fff !important;
+    border-left: none;
+    border-right: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0px;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.0) !important;
+}
+
+
+
+

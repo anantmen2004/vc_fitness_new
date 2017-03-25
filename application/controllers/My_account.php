@@ -23,14 +23,15 @@ class My_account extends CI_Controller {
 	public function index()
 	{
 		$data = $this->data;
-		
-		//echo "<pre>";print_r($data['customer_id']);exit;
+
+		$cust=$data['customer_id'];
+		//echo "<pre>";print_r($cust);exit;
 		if($data['customer_id'])
 		{
 			$data['page'] = "";
 			$tableName='oc_customer cust, oc_address addrs';
 			$select='cust.customer_id,cust.firstname as fname,cust.lastname as lname ,cust.email,cust.telephone,cust.telephone2,cust.fax, addrs.*';
-			$where='cust.customer_id=addrs.customer_id';
+			$where='cust.customer_id=addrs.customer_id AND cust.customer_id='.$cust;
 			$data['userData']=$this->Helper_model->select($select, $tableName, $where);
 
 			$tableName1='oc_order o, oc_order_history oh, oc_order_status os';
@@ -40,6 +41,49 @@ class My_account extends CI_Controller {
 			$order = 'DESC';
 			//echo "<pre>";print_r($select1);print_r($tableName1);print_r($where1);exit;
 			$data['myOrders']=$this->Helper_model->selectallWhereOrder($select1, $tableName1, $where1, $order_id,$order);
+
+			$query="SELECT  m.package_id, m.package_name,m.package_details, v.video_id, v.video_name, v.video_path, t.training_id, t.training_name, pc.duration,pc.customer_id FROM oc_package_training_video_master p,oc_training_type t, oc_package_master m,oc_video_master v, oc_package_customer_master pc WHERE m.package_id = pc.package_id AND m.package_id = p.package_id AND p.training_id = t.training_id AND p.video_id = v.video_id AND pc.customer_id =".$cust;
+			echo $query;exit;
+
+			$data['packageinfo']=$this->Helper_model->selectQuery($query);
+
+			echo "<pre>";print_r($data['packageinfo']);
+			foreach ($data['packageinfo'] as $key => $value) {
+				# code...
+
+
+
+
+			}
+
+
+			exit;
+
+			// $query="SELECT pc.package_id, p.package_name, p.package_details, pc.duration from oc_package_customer_master pc, oc_package_master p where pc.package_id = p.package_id AND pc.customer_id=".$cust;
+			// $data['packagename']=$this->Helper_model->selectQuery($query);
+
+			// $data['training']=array();
+			// $data['videonamepath']=array();
+
+			// foreach ($data['packagename'] as $key => $value) 
+			// {
+			// 	$train="SELECT DISTINCT t.training_id, t.training_name,ptv.package_id from oc_training_type t, oc_package_training_video_master ptv where t.training_id = ptv.training_id AND ptv.package_id = ".$value['package_id'];
+			// 	$data['trainname']=$this->Helper_model->selectQuery($train);
+			// 	array_push($data['training'], $data['trainname']);
+
+			// 	foreach ($data['training'] as $key1 => $value1) 
+			// 	{
+			// 		$video="SELECT v.video_id, v.video_path, v.video_name, ptv.training_id, ptv.package_id from oc_video_master v, oc_package_training_video_master ptv where v.video_id = ptv.video_id AND ptv.training_id= ".$value1[$key1]['training_id']." AND ptv.package_id=" .$value1[$key1]['package_id'];
+				
+			// 		$data['videoinfo']=$this->Helper_model->selectQuery($video);
+			// 		array_push($data['videonamepath'], $data['videoinfo']);
+			// 	}
+			// }
+			// echo "<pre>";
+			// print_r($data['videonamepath']);
+			// exit();
+			
+			// echo "<pre>";print_r($data['packagename']);exit;
 
 			$condition = array('customer_id' => $data['customer_id']);
 			$product_id = $this->Helper_model->select('product_id','oc_customer_wishlist',$condition);

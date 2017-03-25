@@ -22,10 +22,16 @@ class Packages extends CI_Controller {
 	{
 		$data = $this->data;
 		
-
 		$data['packages'] = $this->Packages_model->getAllPackages(1);
+		$data['packagetrain']=array();
+
+		foreach ($data['packages'] as $key => $value) 
+		{
+			$data['trainingname']=$this->Packages_model->getAllTraining($value['package_id']);
+			array_push($data['packagetrain'],$data['trainingname']);
+		}
+
 		$data['optional_packages'] = $this->Packages_model->getAllPackages(2);
-		//echo "<pre>";print_r($data['optional_packages']);exit;
 		$data['page'] = "packagespage";
 		$this->load->view('templates/header',$data);
 		$this->load->view('packages/packagesView',$data);
@@ -40,6 +46,7 @@ class Packages extends CI_Controller {
 		$where = array('package_id' => $packageId);
 		$data['package'] = $this->Helper_model->select("","oc_package_master",$where);
 		$data['name'] = "$firstname  $lastname";
+
 		//echo "<pre>";print_r($data);exit;
 		$data['page'] = "packagespage";
 		$this->load->view('templates/header',$data);
@@ -65,6 +72,7 @@ class Packages extends CI_Controller {
 		$data = array(
 			'package_id'=> $formData['package_id'],
 			'customer_id'=> $formData['package_customer_id'],
+			'duration' => $formData['package_duration'],
 			'start_date'=> date('Y-m-d',strtotime($formData['package_stratDate'])),
 			'end_date'=> date('Y-m-d',strtotime($formData['package_endDate'])),
 			'comment'=> $formData['package_comment'],
@@ -84,5 +92,11 @@ class Packages extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$this->load->view('packages/packagePayment');
 		$this->load->view('templates/footer');
+	}
+
+	public function packagesname($id)
+	{
+		$data['pkname']=$this->Packages_model->getsinglePackage($id);
+		echo json_encode($data);
 	}
 }

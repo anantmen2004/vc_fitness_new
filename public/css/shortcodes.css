@@ -776,7 +776,8 @@
 	.dt-sc-pr-tb-col.type3:hover .dt-sc-tb-header .dt-sc-tb-title, .dt-sc-pr-tb-col.type3:hover .dt-sc-tb-header .dt-sc-tb-title h3	{ color:#fff; }
 	.dt-sc-pr-tb-col.type3 .dt-sc-price { font-weight:300; color:#b3b3b3; font-size:18px; }
 	.dt-sc-pr-tb-col.type3 .dt-sc-price span { font-size:24px; font-weight:500; color:#4d4d4d; line-height:normal; }
-	.dt-sc-pr-tb-col.type3 .dt-sc-tb-header .dt-sc-one-half.no-space .dt-sc-price { border-right:1px solid #e6e6e6; }
+	.dt-sc-pr-tb-col.type3 .dt-sc-tb-header .dt-sc-one-third.no-space /*.dt-sc-one-half.no-space */
+	.dt-sc-price { border-right:1px solid #e6e6e6; }
 	.dt-sc-pr-tb-col.type3 .dt-sc-tb-header .dt-sc-one-half.no-space .dt-sc-price.last { border-right:0; }
 	.dt-sc-pr-tb-col.type3 .dt-sc-tb-header > .dt-sc-price { border-top:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6; }
 	.dt-sc-pr-tb-col.type3 .dt-sc-tb-content { padding:27px 0 26px; } 
@@ -1466,3 +1467,9 @@ ul.dt-sc-tabs-vertical-frame1 { float:left; width:22%; margin:0px 20px 0px 0px; 
 	.dt-sc-tabs-vertical-frame1-content iframe { width:100%; }
 	.dt-sc-tabs-vertical-frame1-content { float:left; width:76%; margin:0px; padding:0px; position:relative; }
 	
+	.package .column.first{margin: 0px 19px 0px 0px;}
+	.package .dt-sc-pr-tb-col.type3 .dt-sc-tb-content {
+    border-bottom: 4px solid #e6e6e6;
+    border-top: 0;
+    height: 290px;
+}

@@ -5,7 +5,11 @@
       <div class="dt-sc-hr-invisible"></div>
         <div class="fullwidth-section dt-sc-paralax full-pattern3">
           <div class="container">
-              <h3 class="border-title"> <span>Welcome XYZ </span> </h3>
+              <h3 class="border-title"> <span>Welcome 
+              <?php foreach($userData as $key => $value):?>
+                <?php echo $value['fname'].' '.$value['lname'] ?>
+              <?php endforeach; ?>
+               </span> </h3>
            	<div class="intro-text type2 animate" data-animation="fadeInUp" data-delay="100">
               	<div class="dt-sc-one first">
 	                                	  <!--Horizontal Tab-->
@@ -13,6 +17,7 @@
             <ul class="resp-tabs-list hor_1">
                 <li>My Account Information</li>
                 <li>My Orders</li>
+                <li>My Packages</li>
                 <!-- <li>Horizontal 3</li> -->
             </ul>
             <div class="resp-tabs-container hor_1">
@@ -35,10 +40,10 @@
                                       <div class="col-sm-6 col-sm-offset-0 updateBasicInfo"></div>
                                       <div class="form-group required">
                                         <input type="hidden" name="customer_id" value="<?php echo empty($userData)?"":$userData[0]['customer_id']?>" placeholder="First Name" id="input-firstname1" class="form-control">
-                                          <input type="text" name="firstname" value="<?php echo empty($userData)?"":$userData[0]['fname']?>" placeholder="First Name" id="input-firstname1" class="form-control">
+                                          <input type="text" name="firstname" value="<?php echo empty($userData)?"":$userData[0]['fname']?>" placeholder="First Name" id="input-firstname1" class="form-control" readonly >
                                        </div>
                                         <div class="form-group required">
-                                       <input type="text" name="lastname" value="<?php echo empty($userData)?"":$userData[0]['lname']?>" placeholder="Last Name" id="input-lastname1" class="form-control">
+                                       <input type="text" name="lastname" value="<?php echo empty($userData)?"":$userData[0]['lname']?>" placeholder="Last Name" id="input-lastname1" class="form-control" readonly>
                                         </div>
                                         <div class="form-group required">
                <input type="email" value="<?php echo empty($userData)?"":$userData[0]['email']?>" placeholder="E-Mail" id="input-email" class="form-control" readonly>
@@ -48,11 +53,11 @@
            <input type="tel"  value="<?php echo empty($userData)?"":$userData[0]['telephone']?>" placeholder="Telephone" id="input-telephone" class="form-control" readonly>
            </div>
            <div class="form-group required">
-           <input type="tel" name="telephone2" value="<?php echo empty($userData)?"":$userData[0]['telephone2']?>" placeholder="Telephone" id="input-telephone" class="form-control">
+           <input type="tel" name="telephone2" value="<?php echo empty($userData)?"":$userData[0]['telephone2']?>" placeholder="Telephone" id="input-telephone" class="form-control" readonly>
            </div>
 
            <div class="form-group required">
-           <input type="text" name="fax" value="<?php echo empty($userData)?"":$userData[0]['fax']?>" placeholder="Fax" id="input-fax" class="form-control">
+           <input type="text" name="fax" value="<?php echo empty($userData)?"":$userData[0]['fax']?>" placeholder="Fax" id="input-fax" class="form-control" readonly>
            </div>
               </fieldset>
         <button class="dt-sc-button small" type="submit" onclick="updateBasicInfo()">Submit</button>
@@ -213,8 +218,6 @@
               <td class="text-center">Order ID</td>
               <td class="text-center">Order Status</td>
               <td class="text-center">Date Added</td>
-              <!-- <td class="text-center">Shipping Time</td> -->
-              <!-- <td class="text-center">No. of Products</td> -->
               <td class="text-center">Customer</td>
               <td class="text-center">Total</td>
               <td></td>
@@ -326,48 +329,112 @@
                         </div>
                     </p>
                  </div>
-                <!--  <div>
+
+
+ <div>
                      <p>
-                       
+                        <!--vertical Tabs-->
 
                         <div id="ChildVerticalTab_3">
                             <ul class="resp-tabs-list ver_3">
-                                <li>Responsive Tab 1</li>
-                                <li>Responsive Tab 2</li>
-                                <li>Responsive Tab 3</li>
-                                <li>Long name Responsive Tab 4</li>
-                            </ul>
-                            <div class="resp-tabs-container ver_3">
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
-                                </div>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet, lerisque commodo. Nam porta cursus lectusconsectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales sce. Proin nunc erat, gravida a facilisis quis, ornare id lectus</p>
-                                </div>
-                                <div>
-                                    <p>Suspendisse blandit velit Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravid urna gravid eget erat suscipit in malesuada odio venenatis.</p>
-                                </div>
-                                <div>
-                                    <p>d ut ornare non, volutpat vel tortor. InLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.t in malesuada odio venenatis.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </p>
-                    <p>Tab 2 Container</p>
-                </div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis quis, ornare id lectus. Proin consectetur nibh quis urna gravida mollis.
-                    <br>
-                    <br>
-                    <p>Tab 3 Container</p>
-                </div> -->
-            </div>
+                                <li> My Package Details </li>
+                              
+</ul>
+<div class="resp-tabs-container ver_2">
+<div>
+ <h4>My Package Details</h4>
+<p>
+
+ <form id="mypackageInfo" role="form" enctype="multipart/form-data" class="form-horizontal">
+  <fieldset>
+  <div class="col-sm-6 col-sm-offset-0 updateBasicInfo"></div>
+
+<?php foreach ($packageinfo as $key => $value) : 
+?>
+  <div class="form-group required">
+    <input type="hidden" name="customer_id" value="" placeholder="id" id="customer_id" class="form-control" readonly>
+      <input type="text" name="package_name" value="<?php echo $value['package_name']; ?>" placeholder="Package Name" id="package_name" class="form-control" readonly>
+   </div>
+   <!--  <div class="form-group required">
+   <input type="text" name="package_amount" value="<?php echo $value['package_name']; ?>" placeholder="Package Amount" id="package_amount" class="form-control" readonly="" readonly>
+    </div> -->
+    <div class="form-group required">
+   <input type="text" name="package_duration" value="<?php echo $value['duration']; ?>" placeholder="Package Duration" id="package_duration" class="form-control" readonly>
+    </div>
+    <div class="form-group required">
+    <textarea  name="package_description" value=""  placeholder="Package Description" id="package_description" readonly><?php echo $value['package_details']; ?></textarea>
+    </div>
+
+<h4>Training Type</h4>
+    <div class="video"> 
+        <ul class="dt-sc-tb-content" style="list-style-type: none;">
+            <li class="Training_type"><?php echo $value['training_name']; ?>
+                <ul class="dt-sc-tb-content" id="ul1" style="list-style-type: none;">
+                    <li><a href="<?php echo $value['video_path']; ?>"><?php echo $value['video_name']; ?></a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <?php endforeach;?>
+</fieldset>
+</form>
+
+</p>
         </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-						</div>
+   </div>
+</div>
+</p>
+</div>
+
+ <!-- <div>
+                    
+                    <p>
+                                <div>
+                                     <h4>My Package Details</h4>
+                                      <form id="mypackageInfo" role="form" enctype="multipart/form-data" class="form-horizontal">
+                                      <fieldset>
+                                      <div class="col-sm-6 col-sm-offset-0 updateBasicInfo"></div>
+                                      <div class="form-group required">
+                                        <input type="hidden" name="customer_id" value="" placeholder="id" id="customer_id" class="form-control" readonly>
+                                          <input type="text" name="package_name" value="" placeholder="Package Name" id="package_name" class="form-control" readonly>
+                                       </div>
+                                        <div class="form-group required">
+                                       <input type="text" name="package_amount" value="" placeholder="Package Amount" id="package_amount" class="form-control" readonly="" readonly>
+                                        </div>
+                                        <div class="form-group required">
+                                       <input type="text" name="package_duration" value="" placeholder="Package Duration" id="package_duration" class="form-control" readonly="" readonly>
+                                        </div>
+                                        <div class="form-group required">
+                                                
+
+
+                                                <textarea  name="package_description" value="" placeholder="Package 
+                                                "></textarea>
+                                        </div>
+
+                                        <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 video-link medium-paragraph">
+    <h3>Training Type</h3>
+        <a href="#" class="launch-modal" data-modal-id="modal-video">
+            <span class="video-link-icon"><i class="fa fa-play"></i></span> 
+            <span class="video-link-text">Launch modal video</span>
+        </a>
+    </div>
+</div>
+
+                                         
+
+            
+              </fieldset>
+        
+                  
+    </form>
+</div>
+
+                    </p>
+                </div> -->
+               
+                            
                            
                         <!-- welcome-txt ends here -->
                         <div class="dt-sc-hr-invisible-small"></div>
@@ -376,3 +443,28 @@
                 <!-- main-content ends here -->
                 
             </div>
+
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $("#ul1").hide();
+            $("li.Training_type").click(function(){
+                $(this).find('ul').toggle();
+            });
+          });
+        </script>
+
+        <!--show-hide-data--> 
+<!-- <script language="JavaScript">
+function ShowHide(divId)
+{
+if(document.getElementById(divId).style.display == 'none')
+{
+document.getElementById(divId).style.display='block';
+}
+else
+{
+document.getElementById(divId).style.display = 'none';
+}
+}
+</script> --> 
+<!--Show hide-data-end--> 
