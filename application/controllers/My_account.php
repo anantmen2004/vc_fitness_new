@@ -29,7 +29,7 @@ class My_account extends CI_Controller {
 		if($data['customer_id'])
 		{
 			$data['page'] = "";
-			$tableName='oc_customer cust, oc_address addrs';
+			/*$tableName='oc_customer cust, oc_address addrs';
 			$select='cust.customer_id,cust.firstname as fname,cust.lastname as lname ,cust.email,cust.telephone,cust.telephone2,cust.fax, addrs.*';
 			$where='cust.customer_id=addrs.customer_id AND cust.customer_id='.$cust;
 			$data['userData']=$this->Helper_model->select($select, $tableName, $where);
@@ -57,33 +57,37 @@ class My_account extends CI_Controller {
 			}
 
 
-			exit;
+			exit;*/
 
-			// $query="SELECT pc.package_id, p.package_name, p.package_details, pc.duration from oc_package_customer_master pc, oc_package_master p where pc.package_id = p.package_id AND pc.customer_id=".$cust;
-			// $data['packagename']=$this->Helper_model->selectQuery($query);
+			$query="SELECT pc.package_id, p.package_name, p.package_details from oc_package_customer_master pc, oc_package_master p where pc.package_id = p.package_id AND pc.customer_id=".$cust;
+			$packages = $this->Helper_model->selectQuery($query);
 
-			// $data['training']=array();
-			// $data['videonamepath']=array();
+			$training = array();
+			$video_data = array();
+			$videoinfo = array();
 
-			// foreach ($data['packagename'] as $key => $value) 
-			// {
-			// 	$train="SELECT DISTINCT t.training_id, t.training_name,ptv.package_id from oc_training_type t, oc_package_training_video_master ptv where t.training_id = ptv.training_id AND ptv.package_id = ".$value['package_id'];
-			// 	$data['trainname']=$this->Helper_model->selectQuery($train);
-			// 	array_push($data['training'], $data['trainname']);
+			foreach ($packages as $key => $value) 
+			{
+				$train="SELECT DISTINCT t.training_id, t.training_name,ptv.package_id from oc_training_type t, oc_package_training_video_master ptv where t.training_id = ptv.training_id AND ptv.package_id = ".$value['package_id'];
+				$training_data = $this->Helper_model->selectQuery($train);
 
-			// 	foreach ($data['training'] as $key1 => $value1) 
-			// 	{
-			// 		$video="SELECT v.video_id, v.video_path, v.video_name, ptv.training_id, ptv.package_id from oc_video_master v, oc_package_training_video_master ptv where v.video_id = ptv.video_id AND ptv.training_id= ".$value1[$key1]['training_id']." AND ptv.package_id=" .$value1[$key1]['package_id'];
+				array_push($training, $training_data);
+				echo '<pre>';
+				//print_r($training_data);
+				foreach ($training_data as $key1 => $value1) 
+				{
+
+					$video="SELECT v.video_id, v.video_path, v.video_name, ptv.training_id, ptv.package_id from oc_video_master v, oc_package_training_video_master ptv where v.video_id = ptv.video_id AND ptv.training_id= ".$training_data[$key1]['training_id']." AND ptv.package_id=" .$training_data[$key1]['package_id'];
 				
-			// 		$data['videoinfo']=$this->Helper_model->selectQuery($video);
-			// 		array_push($data['videonamepath'], $data['videoinfo']);
-			// 	}
-			// }
-			// echo "<pre>";
-			// print_r($data['videonamepath']);
-			// exit();
-			
-			// echo "<pre>";print_r($data['packagename']);exit;
+					$videoinfo = $this->Helper_model->selectQuery($video);
+					array_push($video_data, $videoinfo);
+				}
+			}
+			echo "<pre>";
+			print_r($packages);
+			print_r($training);
+			print_r($video_data);
+			exit;
 
 			$condition = array('customer_id' => $data['customer_id']);
 			$product_id = $this->Helper_model->select('product_id','oc_customer_wishlist',$condition);

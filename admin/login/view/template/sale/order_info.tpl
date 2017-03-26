@@ -509,6 +509,7 @@ $.ajax({
 	data: 'key=<?php echo $api_key; ?>',
 	crossDomain: true,
 	success: function(json) {
+  
 		$('.alert').remove();
 
         if (json['error']) {

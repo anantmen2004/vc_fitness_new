@@ -87,7 +87,7 @@
 					<ul>
 					<?php $galCnt=1; foreach ($gallery as $key => $value) :
 					if($galCnt < 3):
-						$desc = preg_replace("/<.*?>/","",($value['description']));
+						$desc = preg_replace("/(?:<|&lt;)\/?([a-zA-Z]+) *[^<\/]*?(?:>|&gt;)/","",($value['description']));
 					?>
 							<li>
 									<a class="entry-thumb" href="#"><img alt="gallery-img" src="<?php echo base_url().'public/images/'.$value['img_path']?>"></a>

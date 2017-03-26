@@ -170,7 +170,7 @@ function getTraindata($pid){
         success:function(resp)
         { 
             $("#myModal").modal();
-            var div;
+            var div = "";
             var pname;
            
                 $.each(resp.pkname,function(i,val)
