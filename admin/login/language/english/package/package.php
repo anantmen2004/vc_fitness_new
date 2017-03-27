@@ -50,7 +50,7 @@ $_['entry_3m_amount']        = 'Package 3 Month Amount';
 $_['entry_6m_amount']        = 'Package 6 Month Amount';
 $_['entry_1y_amount']        = 'Package per year Amount';
 $_['number_of_video']        = 'Number of video';
-$_['training_type']          = 'Training type';
+$_['training_type']          = 'Add Training type';
 $_['package_type']           = 'Package type';
 
 $_['text_normal']            = 'Normal';

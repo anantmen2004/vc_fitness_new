@@ -80,11 +80,13 @@
                                     <?php $galCnt=1; foreach ($gallery as $key => $value) :
                                     if($galCnt < 3):
 
+                                       $desc = preg_replace("/(?:<|&lt;)\/?([a-zA-Z]+) *[^<\/]*?(?:>|&gt;)/","",($value['description']));
+
                                     ?>
                                         <li>
                                             <a class="entry-thumb" href="#"><img alt="gallery-img" src="<?php echo base_url().'public/images/'.$value['img_path']?>"></a>
                                             <h6><a href="#"><?php echo $value['title']; ?></a></h6>
-                                            <p><?php echo $value['description']; ?></p>
+                                            <p><?php echo $desc; ?></p>
                                         </li>
                                       <?php $galCnt++; endif; endforeach;?>
                                     </ul>
@@ -143,7 +145,9 @@
               </div>
               <span class="review-no">41 reviews</span>
             </div>
-            <p class="product-description"><?php echo $products[0]['description'];?></p>
+
+            <?php  $desc = preg_replace("/(?:<|&lt;)\/?([a-zA-Z]+) *[^<\/]*?(?:>|&gt;)/","",($products[0]['description'])); ?>
+            <p class="product-description"><?php echo $desc;?></p>
             <h4 class="price">current price: <span><?php echo $products[0]['price'];?></span></h4>
             <p class="vote"><strong>51%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
             <!--<h5 class="sizes">sizes:
@@ -172,7 +176,7 @@
                            <div class="dt-sc-clear"></div>
                         <div class="action">
 
-              <button class="btn-cart1 pull-right" type="button" data-toggle="tooltip" title="Add To Cart" onClick="addToCart('<?php echo $products[0]['product_id'];?>','<?php echo $products[0]['price'];?>','<?php echo $products[0]['name'];?>','<?php echo $products[0]['image'];?>','<?php echo $products[0]['meta_title'];?>')" id="addToCart" ><i class="fa fa-cart-arrow-down"></i> &nbsp;Add To Cart</button>
+              <button class="btn-cart1 pull-right" type="button" data-toggle="tooltip" title="Add To Cart" onClick="addToCart('<?php echo $products[0]['product_id'];?>','<?php echo $products[0]['price'];?>','<?php echo $products[0]['name'];?>','<?php echo $products[0]['image'];?>','<?php echo $desc;?>')" id="addToCart" ><i class="fa fa-cart-arrow-down"></i> &nbsp;Add To Cart</button>
               <button class="btn-cw pull-right" type="button" data-toggle="tooltip" title="Wishlist" onclick="addToWishlist('<?php echo $products[0]['product_id'];?>','<?php echo $customer_id;?>')"><span class="fa fa-heart"></span></button>
               
                             <!-- <button class="btn-cw pull-left" type="button" data-toggle="tooltip" title="Compare"><span class="fa fa-bar-chart"></span></button>
@@ -207,6 +211,8 @@
                          <div class="<?php echo ($j==0) ?  'item active' : 'item'?>"> 
                         <?php    $count = count($newProduct);
                             for($i=0;$i<4;$i++) { 
+                              
+                                $desc = preg_replace("/(?:<|&lt;)\/?([a-zA-Z]+) *[^<\/]*?(?:>|&gt;)/","",($newProduct[$flag]['description']));
                            
                         ?>
                           <div class="col-sm-3">
@@ -217,7 +223,7 @@
                                   <img src="<?php echo base_url().'public/images/'.$newProduct[$flag]['image']?>" alt="" />
                                   <h2>&#x20B9;<?php echo round($newProduct[$flag]['price']);?></h2>
                                   <p><?php echo $newProduct[$flag]['name']; ?></p>
-                                  <a href="#" class="btn-cart" onClick="addToCart('<?php echo $newProduct[$flag]['product_id'];?>','<?php echo $newProduct[$flag]['price'];?>','<?php echo $newProduct[$flag]['name'];?>','<?php echo $newProduct[$flag]['image'];?>','<?php echo $newProduct[$flag]['meta_title'];?>')"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
+                                  <a href="#" class="btn-cart" onClick="addToCart('<?php echo $newProduct[$flag]['product_id'];?>','<?php echo $newProduct[$flag]['price'];?>','<?php echo $newProduct[$flag]['name'];?>','<?php echo $newProduct[$flag]['image'];?>','<?php echo $desc;?>')"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</a>
                                 </div>
                                 
                               </div>

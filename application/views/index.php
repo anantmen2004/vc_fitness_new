@@ -39,7 +39,7 @@
           <div class="container-fluid">
             <div class="row">
             <div class="row">
-              <?php $cnt = 1; foreach ($menu_programs as $key => $value) : if($cnt<7):?>
+              <!-- <?php $cnt = 1; foreach ($menu_programs as $key => $value) : if($cnt<7):?>
               <a href="<?php echo base_url()."Programs/programView/".$value['program_id']?>">
               <div class="col-br-5">
                 <div class="row">
@@ -57,8 +57,24 @@
                   </div>
                 </div>
               </div></a>
-              <?php $cnt++; endif; endforeach; ?>
-              <!-- <div class="col-br-5" data-animation="fadeInLeft" data-delay="100">
+              <?php $cnt++; endif; endforeach; ?> -->
+               <div class="col-br-5" data-animation="fadeInLeft" data-delay="100">
+                <div class="row">
+                  <div class="teaser teaser-style-3 text-center">
+                    <div class="teaser-content">
+                      <div class="icon">
+                        <div class="wrapper">
+                          <div class="first-image"> <img src="<?php echo base_url();?>public/images/Forma-1.png" alt=""> </div>
+                          <div class="second-image"> <img class="Forma-11-hover" src="<?php echo base_url();?>public/images/Forma-1-hover.png" alt=""> </div>
+                        </div>
+                      </div>
+                      <div class="heading"> Weighting Training</div>
+                      <div class="text"> Chest Workout </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-br-5" data-animation="fadeInLeft" data-delay="100">
                 <div class="row">
                   <div class="teaser teaser-style-3 text-center">
                     <div class="teaser-content">
@@ -129,7 +145,7 @@
                       <div class="icon">
                         <div class="wrapper">
                           <div class="first-image"> <img src="<?php echo base_url();?>public/images/Forma-15.png" alt=""> </div>
-                          <div class="second-image"> <img class="Forma-15-hover" src="<?php echo base_url();?>public/images/Forma-14-hover.png" alt=""> </div>
+                          <div class="second-image"> <img class="Forma-15-hover" src="<?php echo base_url();?>public/images/Forma-15-hover.png" alt=""> </div>
                         </div>
                       </div>
                       <div class="heading"> Animal Flow </div>
@@ -137,7 +153,7 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
             </div>
           </div>
         </div>

@@ -51,18 +51,16 @@
                   </div>
 
                   <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_1m_amount; ?></label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-3 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_1m_amount; ?></label>
+                    <div class="col-sm-3">
                       <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_amount]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_amount'] : ''; ?>" placeholder="<?php echo $entry_1m_amount; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
                       <?php if (isset($error_amount[$language['language_id']])) { ?>
                       <div class="text-danger"><?php echo $error_amount[$language['language_id']]; ?></div>
                       <?php } ?>
                     </div>
-                  </div>
 
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_3m_amount; ?></label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-3 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_3m_amount; ?></label>
+                    <div class="col-sm-3">
                       <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_3m_amount]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_3m_amount'] : ''; ?>" placeholder="<?php echo $entry_3m_amount; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
                       <?php if (isset($error_3m_amount[$language['language_id']])) { ?>
                       <div class="text-danger"><?php echo $error_3m_amount[$language['language_id']]; ?></div>
@@ -70,55 +68,85 @@
                     </div>
                   </div>
 
+                  
+
                   <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_6m_amount; ?></label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-3 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_6m_amount; ?></label>
+                    <div class="col-sm-3">
                       <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_6m_amount]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_6m_amount'] : ''; ?>" placeholder="<?php echo $entry_6m_amount; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
                       <?php if (isset($error_name[$language['language_id']])) { ?>
                       <!-- <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div> -->
                       <?php } ?>
                     </div>
-                  </div>
 
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_1y_amount; ?></label>
-                    <div class="col-sm-10">
+
+                    <label class="col-sm-3 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_1y_amount; ?></label>
+                    <div class="col-sm-3">
                       <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_1y_amount]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_1y_amount'] : ''; ?>" placeholder="<?php echo $entry_1y_amount; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_package_type; ?></label>
-                    <div class="col-sm-10">
-                      <!-- <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_type]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_type'] : ''; ?>" placeholder="<?php echo $entry_package_type; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" /> -->
+                  
 
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_package_type; ?></label>
+                    <div class="col-sm-3">
                       <select name="package_type" id="input-package_type" class="form-control">
-                        <?php if ($package_type) { ?>
+                        <?php if ($package_type == 1) { ?>
                         <option value="1" selected="selected"><?php echo $text_normal; ?></option>
-                        <option value="0"><?php echo $text_optional; ?></option>
+                        <option value="2"><?php echo $text_optional; ?></option>
                         <?php } else { ?>
                         <option value="1"><?php echo $text_normal; ?></option>
-                        <option value="0" selected="selected"><?php echo $text_optional; ?></option>
+                        <option value="2" selected="selected"><?php echo $text_optional; ?></option>
                         <?php } ?>
                       </select>
                     </div>
                   </div>
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_number_of_video; ?></label>
                     <div class="col-sm-10">
                       <input type="text" name="package_description[<?php echo $language['language_id']; ?>][number_of_video]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['number_of_video'] : ''; ?>" placeholder="<?php echo $entry_number_of_video; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
                     </div>
-                  </div>
+                  </div> -->
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_training_type; ?></label>
                     <div class="col-sm-10">
                       <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_training_type_id]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_training_type_id'] : ''; ?>" placeholder="<?php echo $entry_training_type; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
                     </div>
+                  </div> -->
+
+                  <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_training_type; ?></label>
+                    <div class="col-sm-4">
+                      <select id="training_id" class="form-control">
+                      <option value="0">Please Select Program</option>
+                      <?php foreach ($training_types as $type) { ?>
+                      print_r($packagetraining_description[1][training_id]);exit;
+                          <?php if(isset($packagetraining_description[1][training_id]) && $packagetraining_description[1][training_id]== $type['training_id']){ ?>
+                          <option value="<?php echo $type['training_id']?>" selected><?php echo $type['training_name']?></option>
+                      <?php } else {?>
+                          <option value="<?php echo $type['training_id']?>"><?php echo $type['training_name']?></option>
+                      <?php } }?>
+                       </select>
+                    </div>
+
+                    <div class="col-sm-1" style="background-color:#1e91cf;padding:0.8%" onclick="add_new_training_row()">
+                        <a style="color:white;text-align: center; padding-left: 20px;">Add</a>
+                    </div>
                   </div>
 
+                  <?php print_r($package_training_id);exit; ?>
+                    <div class="col-sm-12" id="training_types_div">
+                    <?php if(empty($package_training_id)){ ?>
+                      <div class="col-sm-1" style="background-color:#1e91cf;padding:0.8%" onclick="add_new_training_row()">
+                        <a style="color:white;text-align: center; padding-left: 20px;">Add</a>
+                    </div>
+                    <?php } ?>
 
+                    </div>
+                  
 
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>
@@ -225,4 +253,37 @@ $('#category-filter').delegate('.fa-minus-circle', 'click', function() {
   <script type="text/javascript"><!--
 $('#language a:first').tab('show');
 //--></script></div>
+
+
+<script type="text/javascript">
+  var data = '';
+  var cnt = 1;
+  function add_new_training_row(){
+    var id = $("#training_id").val();
+    if(id != 0)
+    {
+    $.ajax({
+        type:'POST',
+        url: 'index.php?route=package/package/get_training&token=<?php echo $token; ?>&training_id=' +  encodeURIComponent(id),
+        data:'id='+id,
+        dataType: 'json',
+        success:function(resp)
+        {
+          ///alert(resp);
+          //console.log(resp);
+          data += '<div class="form-group"><div class="col-sm-4 col-sm-offset-2"><input class="form-control" type="text" value="'+resp.training_name+'" readonly/><input class="form-control" type="hidden" name="training_id[]" value="'+resp.training_id+'" readonly/></div>';
+          data += '<div class="col-sm-2"><button class="btn btn-danger">Remove</div></div>';
+           $("#training_types_div").html(data);
+           cnt++;
+        }
+      });
+    }
+    else
+    {
+      alert("Please Select Training");
+    }
+  }
+</script>
+
+
 <?php echo $footer; ?>
