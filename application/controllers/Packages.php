@@ -63,6 +63,26 @@ class Packages extends CI_Controller {
 	public function confirmPackage()
 	{
 		$formData = $this->input->post();
+		if($formData['package_duration']==1)
+		{
+			$amount= 5000;
+		}
+		else if($formData['package_duration']==3)
+		{
+			$amount= 10000;
+		}
+		else if($formData['package_duration']==6)
+		{
+			$amount= 20000;
+		}
+		else if($formData['package_duration']==12)
+		{
+			$amount= 30000;
+		}
+		else
+		{
+			$amount=0;
+		}
 
 		$timezone = new DateTimeZone("Asia/Kolkata" );
 		$date = new DateTime();
@@ -73,6 +93,7 @@ class Packages extends CI_Controller {
 			'package_id'=> $formData['package_id'],
 			'customer_id'=> $formData['package_customer_id'],
 			'duration' => $formData['package_duration'],
+			'amount' => $amount,
 			'start_date'=> date('Y-m-d',strtotime($formData['package_stratDate'])),
 			'end_date'=> date('Y-m-d',strtotime($formData['package_endDate'])),
 			'comment'=> $formData['package_comment'],
