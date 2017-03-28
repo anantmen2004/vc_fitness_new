@@ -500,6 +500,8 @@ $(document).delegate('#button-commission-remove', 'click', function() {
 });
 
 var token = '';
+alert('<?php echo $store_url; ?>');
+
 
 // Login to the API
 $.ajax({
