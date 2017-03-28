@@ -39,6 +39,28 @@ class ModelPackagePackage extends Model {
 
 		$this->db->query("UPDATE " . DB_PREFIX . "package_master SET package_name = '" . $data['package_description'][1]['name'] . "', package_amount = '" . $data['package_description'][1]['package_amount'] . "', package_3m_amount = '" . $data['package_description'][1]['package_3m_amount'] . "', package_6m_amount = '" . $data['package_description'][1]['package_6m_amount'] . "', package_1y_amount = '" . $data['package_description'][1]['package_1y_amount'] . "', package_details = '" . $data['package_description'][1]['description'] . "', package_type = '" . (int)$data['package_type'] . "', status = '" . (int)$data['status'] . "', package_img = '" . $data['image'] . "', date_modified = NOW(), date_added = NOW() WHERE package_id = '" . (int)$package_id . "'");
 
+
+		if(!empty($package_id))
+		{
+			$this->db->query("DELETE FROM " . DB_PREFIX . "package_training_master WHERE package_id = '" . (int)$package_id . "'");
+
+			$training_id = $data['training_id'];
+			$training_data = array();
+			$flag = 0;
+			foreach ($training_id as $key => $value) {
+				$query = $this->db->query("SELECT * FROM oc_package_training_master WHERE training_id = $value AND package_id = $package_id");
+				$cnt = $query->row;
+				//print_r($cnt);exit;
+				if(empty($cnt))
+				{
+					$this->db->query("INSERT INTO " . DB_PREFIX . "package_training_master SET package_id = '" . $package_id . "', training_id = '" . $value. "', date_added = NOW()");
+				}
+			}
+			
+		}
+		
+		//echo "<pre>";print_r($package_id);print_r($data['training_id']);exit;
+
 		
 		$this->cache->delete('package');
 
@@ -60,7 +82,7 @@ class ModelPackagePackage extends Model {
 				$query = $this->db->query("SELECT * FROM oc_package_training_master WHERE training_id = $value AND package_id = $package_id");
 				$cnt = $query->row;
 				//print_r($cnt);exit;
-				if(empty($cnt))
+				if(empty($cnt) && !empty($value))
 				{
 					$this->db->query("INSERT INTO " . DB_PREFIX . "package_training_master SET package_id = '" . $package_id . "', training_id = '" . $value. "', date_added = NOW()");
 				}
@@ -77,6 +99,17 @@ class ModelPackagePackage extends Model {
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "package_master WHERE package_id = '" . (int)$package_id . "'");
 		
+		$this->cache->delete('package');
+
+		$this->event->trigger('post.admin.package.delete', $package_id);
+	}
+
+	public function deleteSingleTraining($package_id, $training_id)
+	{
+		//print_r("DELETE FROM package_training_master WHERE package_id=$package_id AND  training_id = $training_id");exit;
+		$this->event->trigger('pre.admin.package.delete', $package_id);
+		$query = $this->db->query("DELETE FROM oc_package_training_master WHERE package_id=$package_id AND  training_id = $training_id");
+
 		$this->cache->delete('package');
 
 		$this->event->trigger('post.admin.package.delete', $package_id);

@@ -183,6 +183,7 @@ class ControllerPackagePackage extends Controller {
 		$this->load->model('package/package');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+
 			$this->model_package_package->editPackage($this->request->get['package_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -327,6 +328,14 @@ class ControllerPackagePackage extends Controller {
 
 		$data['training_types'] = $this->model_package_package->getAllTrainingTypes();
 		
+		if (isset($this->request->post['package_id'])) {
+			$data['package_id'] = $this->request->post['package_id'];
+		} elseif (!empty($package_info)) {
+			$data['package_id'] = $package_info[0]['package_id'];
+		} else {
+			$data['package_id'] = '';
+		}
+
 		if (isset($this->request->post['name'])) {
 			$data['name'] = $this->request->post['name'];
 		} elseif (!empty($package_info)) {
@@ -383,14 +392,7 @@ class ControllerPackagePackage extends Controller {
 			$data['image'] = '';
 		}
 
-		// if (isset($this->request->post['number_of_video'])) {
-		// 	$data['number_of_video'] = $this->request->post['number_of_video'];
-		// } elseif (!empty($package_info)) {
-		// 	$data['number_of_video'] = $package_info['number_of_video'];
-		// } else {
-		// 	$data['number_of_video'] = '';
-		// }
-
+		
 		if (isset($this->request->post['package_training_type_id'])) {
 			$data['package_training_type_id'] = $this->request->post['package_training_type_id'];
 		} elseif (!empty($package_info)) {
@@ -429,11 +431,12 @@ class ControllerPackagePackage extends Controller {
 		$training_id = array();
 		foreach ($package_info as $key => $value) {
 			$training_id[$key]['training_id'] = $value['training_id'];
-			$training_id[$key]['training_name'] = $value['training_id'];
+			$training_id[$key]['training_name'] = $value['training_name'];
 		}
 		//print_r($training_id);exit;
 		
 		 $data['package_details'][1] = array(
+			'package_id' => $data['package_id'],
 			'name' => $data['name'],
 			'package_amount' => $data['package_amount'],
 			'package_3m_amount' => $data['package_3m_amount'],
@@ -445,7 +448,7 @@ class ControllerPackagePackage extends Controller {
 			'thumb' => $data['thumb'], );
 		 $data['package_description'] = $data['package_details'];
 		 $data['package_training_types'] = $training_id;
-		//echo "<pre>";print_r($data);exit;
+		//echo "<pre>";print_r($data['package_description']);exit;
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -558,5 +561,15 @@ class ControllerPackagePackage extends Controller {
 		$this->load->model('package/package');
 		$training_data = $this->model_package_package->getSingleTraining($id);
 		echo json_encode($training_data);
+	}
+
+	public function delete_training() {
+		//print_r("123");exit;
+		$pack_id = $this->request->post['pack_id'];
+		$training_id = $this->request->post['training_id'];
+
+		$this->load->model('package/package');
+		$training_data = $this->model_package_package->deleteSingleTraining($pack_id,$training_id);
+		//echo json_encode($training_data);
 	}
 }
