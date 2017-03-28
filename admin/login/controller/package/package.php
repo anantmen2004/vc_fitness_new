@@ -426,9 +426,10 @@ class ControllerPackagePackage extends Controller {
 		} else {
 			$data['status'] = true;
 		}
-		// $training_id = array();
+		$training_id = array();
 		foreach ($package_info as $key => $value) {
-			$training_id[] = $value['training_id'];
+			$training_id[$key]['training_id'] = $value['training_id'];
+			$training_id[$key]['training_name'] = $value['training_id'];
 		}
 		//print_r($training_id);exit;
 		
@@ -443,7 +444,7 @@ class ControllerPackagePackage extends Controller {
 			'image' => $data['image'],
 			'thumb' => $data['thumb'], );
 		 $data['package_description'] = $data['package_details'];
-		 $data['package_training_id'] = $training_id;
+		 $data['package_training_types'] = $training_id;
 		//echo "<pre>";print_r($data);exit;
 
 		$data['header'] = $this->load->controller('common/header');

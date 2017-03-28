@@ -123,7 +123,6 @@
                       <select id="training_id" class="form-control">
                       <option value="0">Please Select Program</option>
                       <?php foreach ($training_types as $type) { ?>
-                      print_r($packagetraining_description[1][training_id]);exit;
                           <?php if(isset($packagetraining_description[1][training_id]) && $packagetraining_description[1][training_id]== $type['training_id']){ ?>
                           <option value="<?php echo $type['training_id']?>" selected><?php echo $type['training_name']?></option>
                       <?php } else {?>
@@ -136,14 +135,12 @@
                         <a style="color:white;text-align: center; padding-left: 20px;">Add</a>
                     </div>
                   </div>
-
-                  <?php print_r($package_training_id);exit; ?>
                     <div class="col-sm-12" id="training_types_div">
-                    <?php if(empty($package_training_id)){ ?>
-                      <div class="col-sm-1" style="background-color:#1e91cf;padding:0.8%" onclick="add_new_training_row()">
-                        <a style="color:white;text-align: center; padding-left: 20px;">Add</a>
-                    </div>
-                    <?php } ?>
+                    <?php if(!empty($package_training_types)){ ?>
+                      <?php foreach ($package_training_types as $types) { ?>
+                      <div class="form-group"><div class="col-sm-4 col-sm-offset-2"><input class="form-control" type="text" value="<?php echo $types['training_name']?>" readonly/><input class="form-control" type="hidden" name="training_id[]" value="" readonly/></div>
+                    <div class="col-sm-2"><button class="btn btn-danger">Remove</div></div>
+                    <?php }} ?>
 
                     </div>
                   

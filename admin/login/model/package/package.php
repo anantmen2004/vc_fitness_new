@@ -18,7 +18,7 @@ class ModelPackagePackage extends Model {
 	}
 	public function getPackage($package_id)  // single package
 	{
-		$query = $this->db->query("SELECT pm.*, ptm.training_id FROM oc_package_master pm LEFT JOIN oc_package_training_master ptm ON(pm.package_id=ptm.package_id) WHERE pm.package_id = $package_id AND status = 1");
+		$query = $this->db->query("SELECT pm.*, ptm.training_id, tt.training_name FROM oc_package_master pm LEFT JOIN oc_package_training_master ptm ON(pm.package_id=ptm.package_id) LEFT JOIN oc_training_type tt ON(ptm.training_id=tt.training_id) WHERE pm.package_id = $package_id ");
 
 		return $query->rows;
 	}
