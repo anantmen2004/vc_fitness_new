@@ -37,6 +37,7 @@
                 <li><a href="#language<?php echo $language['language_id']; ?>" data-toggle="tab"><img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a></li>
                 <?php } ?>
               </ul>
+
               <div class="tab-content">
                 <?php foreach ($languages as $language) { ?>
                 <div class="tab-pane" id="language<?php echo $language['language_id']; ?>">
@@ -54,7 +55,6 @@
                        </select>
                     </div>
                   </div>
-
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo $entry_name; ?></label>
                     <div class="col-sm-10">
@@ -64,6 +64,55 @@
                       <?php } ?>
                     </div>
                   </div>
+
+
+                   <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo "Video Type"; ?></label>
+                    <div class="col-sm-4">
+                      <select id="video_id" class="form-control">
+                      <option value="0">Please Select Program</option>
+                      <?php foreach ($video_types as $type) { ?>
+                          <?php if(isset($training_description[1][video_id]) && $training_description[1][training_video_id]== $type['video_id']){ ?>
+                          <option value="<?php echo $type['video_id']?>" selected><?php echo $type['video_name']?></option>
+                      <?php } else {?>
+                          <option value="<?php echo $type['video_id']?>"><?php echo $type['video_name']?></option>
+                      <?php } }?>
+                       </select>
+                    </div>
+
+                    <div class="col-sm-1" style="background-color:#1e91cf;padding:0.8%" onclick="add_new_video_row()">
+                        <a style="color:white;text-align: center; padding-left: 20px;">Add</a>
+                    </div>
+                  </div>
+                  <!-- <div class="col-sm-12" id="training_types_div">                   
+
+                    </div> -->
+
+                    <!-- <div class="col-sm-12"> -->
+                    <!-- <?php echo "<pre>"; print_r($training_video_types);?> -->
+                    <?php if(!empty($training_video_types)){ 
+                        $video_cnt = 1;
+                    ?>
+                      <?php foreach ($training_video_types as $types) { ?>
+                      <?php if(isset($training_video_types[0]['video_id'])) { ?>
+                      <div class="form-group" id="row_id_<?php echo $video_cnt;?>">
+                        <div class="col-sm-4 col-sm-offset-2">
+                          <input class="form-control" type="text" value="<?php echo $types['video_name']?>" readonly/>
+                          <input class="form-control" type="hidden" name="video_id[]" value="<?php echo $types['video_id']?>" readonly/>
+                        </div>
+                        <?php $id = $training_description[$language['language_id']]['video_id'];?>
+                        <?php $tran_id = $types["video_id"];?>
+                        <div class="col-sm-1" style="background-color:#f56b6b;padding:0.8%" onclick="remove_training('<?php echo $id;?>','<?php echo $tran_id;?>','<?php echo $video_cnt;?>')">
+                        <a style="color:white;text-align: center; padding-left: 20px;">Remove</a>
+                      </div>
+                      </div>
+                      <?php } ?>
+                     
+                    <?php $video_cnt++; }} ?>
+                     <div id="video_div">                   
+
+                    </div>
+
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>
                     <div class="col-sm-10">
@@ -168,4 +217,103 @@ $('#category-filter').delegate('.fa-minus-circle', 'click', function() {
   <script type="text/javascript"><!--
 $('#language a:first').tab('show');
 //--></script></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  var data = '';
+  //var cnt = '<?php echo $pack_id ?>';
+  var cnt = 1;
+  function add_new_video_row(){
+    var id = $("#video_id").val();
+    if(id != 0)
+    {
+    $.ajax({
+        type:'POST',
+        url: 'index.php?route=training/training/get_video&token=<?php echo $token; ?>&video_id=' +  encodeURIComponent(id),
+        data:'id='+id,
+        dataType: 'json',
+        success:function(resp)
+        {
+          // alert(resp);
+          // console.log(resp);
+          data += '<div class="form-group" id="row_id_'+cnt+'"><div class="col-sm-4 col-sm-offset-2"><input class="form-control" type="text" value="'+resp.video_name+'" readonly/><input class="form-control" type="hidden" name="video_id[]" value="'+resp.video_id+'" readonly/></div>';
+          // data += '<div class="col-sm-2"><button class="btn btn-danger">Remove</div></div>';
+          data += '<div class="col-sm-1" style="background-color:#f56b6b;padding:0.8%" onclick="remove_new_video('+cnt+')"> <a style="color:white;text-align: center; padding-left: 20px;">Remove</a></div></div>';
+           $("#video_div").html(data);
+           cnt++;
+
+           $("#video_id").val(0);
+        }
+      });
+    }
+    else
+    {
+      alert("Please Select Training");
+    }
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  function remove_training(training_id, video_id,train_cnt)
+  {
+    //alert(pack_id);alert(training_id);
+    if(train_cnt != 0)
+    {
+      var ans = confirm("Are you sure? You want to delete item.");
+
+      if(ans == true)
+      {
+
+      // $.ajax({
+      //   type:'POST',
+      //   url: 'index.php?route=package/package/delete_training&token=<?php echo $token; ?>&training_id=' +  encodeURIComponent(training_id),
+      //   data:'pack_id='+pack_id+'&training_id='+training_id,
+        
+      //   success:function(resp)
+      //   {
+      //     // alert(resp);
+      //     $("#row_id_"+pack_cnt).remove();
+          
+      //   }
+      // });
+    }
+    }
+  }
+  function remove_new_video(id)
+  {
+    $("#row_id_"+id).remove();
+  }
+
+</script>
+
+
+
+
 <?php echo $footer; ?>

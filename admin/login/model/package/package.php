@@ -37,7 +37,7 @@ class ModelPackagePackage extends Model {
 	public function editPackage($package_id, $data) {
 		$this->event->trigger('pre.admin.package.edit', $data);
 
-		$this->db->query("UPDATE " . DB_PREFIX . "package_master SET package_name = '" . $data['package_description'][1]['name'] . "', package_amount = '" . $data['package_description'][1]['package_amount'] . "', package_3m_amount = '" . $data['package_description'][1]['package_3m_amount'] . "', package_6m_amount = '" . $data['package_description'][1]['package_6m_amount'] . "', package_1y_amount = '" . $data['package_description'][1]['package_1y_amount'] . "', package_details = '" . $data['package_description'][1]['description'] . "', package_type = '" . (int)$data['package_type'] . "', status = '" . (int)$data['status'] . "', package_img = '" . $data['image'] . "', date_modified = NOW(), date_added = NOW() WHERE package_id = '" . (int)$package_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "package_master SET package_name = '" . $data['package_description'][1]['name'] . "', package_amount = '" . $data['package_description'][1]['package_amount'] . "', package_3m_amount = '" . $data['package_description'][1]['package_3m_amount'] . "', package_6m_amount = '" . $data['package_description'][1]['package_6m_amount'] . "', package_1y_amount = '" . $data['package_description'][1]['package_1y_amount'] . "', package_call = '" . $data['package_description'][1]['package_call'] . "', package_details = '" . $data['package_description'][1]['description'] . "', package_type = '" . (int)$data['package_type'] . "', status = '" . (int)$data['status'] . "', package_img = '" . $data['image'] . "', date_modified = NOW(), date_added = NOW() WHERE package_id = '" . (int)$package_id . "'");
 
 
 		if(!empty($package_id))
@@ -70,7 +70,7 @@ class ModelPackagePackage extends Model {
 	public function addPackage($data) {
 		// $this->event->trigger('pre.admin.package.add', $data);
 		//echo "<pre>";print_r($data);exit;
-		$this->db->query("INSERT INTO " . DB_PREFIX . "package_master SET package_name = '" . $data['package_description'][1]['name'] . "', package_amount = '" . $data['package_description'][1]['package_amount'] . "', package_3m_amount = '" . $data['package_description'][1]['package_3m_amount'] . "', package_6m_amount = '" . $data['package_description'][1]['package_6m_amount'] . "', package_1y_amount = '" . $data['package_description'][1]['package_1y_amount'] . "', package_details = '" . $data['package_description'][1]['description'] . "', package_type = '" . (int)$data['package_type'] . "', status = '" . (int)$data['status'] . "', package_img = '" . $data['image'] . "', date_modified = NOW(), date_added = NOW()");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "package_master SET package_name = '" . $data['package_description'][1]['name'] . "', package_amount = '" . $data['package_description'][1]['package_amount'] . "', package_3m_amount = '" . $data['package_description'][1]['package_3m_amount'] . "', package_6m_amount = '" . $data['package_description'][1]['package_6m_amount'] . "', package_1y_amount = '" . $data['package_description'][1]['package_1y_amount'] . "', package_call = '" . $data['package_description'][1]['package_call'] . "', package_details = '" . $data['package_description'][1]['description'] . "', package_type = '" . (int)$data['package_type'] . "', status = '" . (int)$data['status'] . "', package_img = '" . $data['image'] . "', date_modified = NOW(), date_added = NOW()");
 
 		$package_id = $this->db->getLastId();
 		if(!empty($package_id))

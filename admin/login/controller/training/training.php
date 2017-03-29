@@ -73,9 +73,9 @@ class ControllerTrainingTraining extends Controller {
 
 		$training_total = $this->model_training_training->getTotaltraining();
 
-		$results = $this->model_training_training->gettrainings($filter_data);
+		$results = $this->model_training_training->getTrainings($filter_data);
 
-		 //print_r($results[0]['status']);exit;
+		 //print_r($result['training_id']);exit;
 
 		foreach ($results as $result) {
 			if($result['status'] == '1'){
@@ -312,6 +312,8 @@ class ControllerTrainingTraining extends Controller {
 		if (isset($this->request->get['training_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$training_info = $this->model_training_training->getTraining($this->request->get['training_id']);
 		}
+
+		
 		
 		$data['token'] = $this->session->data['token'];
 
@@ -320,13 +322,36 @@ class ControllerTrainingTraining extends Controller {
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 
 		$this->load->model('program/program');
-
 		$data['programs'] = $this->model_program_program->getPrograms();
+
+		$data['video_types'] = $this->model_training_training->getVideos();
+
+// echo "<pre>";print_r($training_info);exit;
+		if(!empty($training_info))
+		{
+			$video_id = array();
+			foreach ($training_info as $key => $value) {
+				$video_id[$key]['video_id'] = $value['video_id'];
+				$video_id[$key]['video_name'] = $value['video_name'];
+			}
+
+			$data['training_video_types'] = $video_id;
+		}
+
+		// print_r($data['training_video_types']);exit;
+
+		// if (isset($this->request->post['training_video_id'])) {
+		// 	$data['training_video_id'] = $this->request->post['training_video_id'];
+		// } elseif (!empty($training_info)) {
+		// 	$data['training_video_id'] = $training_info[0]['training_video_id'];
+		// } else {
+		// 	$data['training_video_id'] = '';
+		// }
 		
 		if (isset($this->request->post['name'])) {
 			$data['name'] = $this->request->post['name'];
 		} elseif (!empty($training_info)) {
-			$data['name'] = $training_info['training_name'];
+			$data['name'] = $training_info[0]['training_name'];
 		} else {
 			$data['name'] = '';
 		}
@@ -334,7 +359,7 @@ class ControllerTrainingTraining extends Controller {
 		if (isset($this->request->post['description'])) {
 			$data['description'] = $this->request->post['description'];
 		} elseif (!empty($training_info)) {
-			$data['description'] = $training_info['training_description'];
+			$data['description'] = $training_info[0]['training_description'];
 		} else {
 			$data['description'] = '';
 		}
@@ -342,7 +367,7 @@ class ControllerTrainingTraining extends Controller {
 		if (isset($this->request->post['program_id'])) {
 			$data['program_id'] = $this->request->post['program_id'];
 		} elseif (!empty($training_info)) {
-			$data['program_id'] = $training_info['program_id'];
+			$data['program_id'] = $training_info[0]['program_id'];
 		} else {
 			$data['program_id'] = " ";
 		}
@@ -350,7 +375,7 @@ class ControllerTrainingTraining extends Controller {
 		if (isset($this->request->post['status'])) {
 			$data['status'] = $this->request->post['status'];
 		} elseif (!empty($training_info)) {
-			$data['status'] = $training_info['status'];
+			$data['status'] = $training_info[0]['status'];
 		} else {
 			$data['status'] = true;
 		}
@@ -358,9 +383,17 @@ class ControllerTrainingTraining extends Controller {
 		if (isset($this->request->post['content'])) {
 			$data['content'] = $this->request->post['content'];
 		} elseif (!empty($training_info)) {
-			$data['content'] = $training_info['content'];
+			$data['content'] = $training_info[0]['content'];
 		} else {
 			$data['content'] = '';
+		}
+
+		if (isset($this->request->post['video_id'])) {
+			$data['video_id'] = $this->request->post['video_id'];
+		} elseif (!empty($training_info)) {
+			$data['video_id'] = $training_info[0]['video_id'];
+		} else {
+			$data['video_id'] = '';
 		}
 
 		
@@ -370,6 +403,8 @@ class ControllerTrainingTraining extends Controller {
 			'description' => $data['description'],
 			'content' => $data['content'],
 			'status' => $data['status'],
+			'video_id' => $data['video_id'],
+			// 'training_video_id' => $data['training_video_id'],
 			//'image' => $data['image'],
 			// 'thumb' => $data['thumb'],
 			// 'thumb_hover' => $data['thumb_hover'], 
@@ -408,6 +443,9 @@ class ControllerTrainingTraining extends Controller {
 		$this->load->model('training/training');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+
+			$aaa = $this->request->post;
+			// echo "<pre>";print_r($aaa);exit;
 			$this->model_training_training->addTraining($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -473,5 +511,22 @@ class ControllerTrainingTraining extends Controller {
 		}
 
 		return !$this->error;
+	}
+
+	public function get_video() {
+		$id = $this->request->post['id'];
+		$this->load->model('training/training');
+		$video_data = $this->model_training_training->getSingleVideo($id);
+		echo json_encode($video_data);
+	}
+
+	public function delete_training() {
+		//print_r("123");exit;
+		$pack_id = $this->request->post['pack_id'];
+		$training_id = $this->request->post['training_id'];
+
+		$this->load->model('package/package');
+		$training_data = $this->model_package_package->deleteSingleTraining($pack_id,$training_id);
+		//echo json_encode($training_data);
 	}
 }

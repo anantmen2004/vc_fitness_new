@@ -319,7 +319,7 @@ class ControllerPackagePackage extends Controller {
 		if (isset($this->request->get['package_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$package_info = $this->model_package_package->getPackage($this->request->get['package_id']);
 		}
-		//echo "<pre>";print_r($package_info);exit;
+		
 		$data['token'] = $this->session->data['token'];
 
 		$this->load->model('localisation/language');
@@ -358,6 +358,14 @@ class ControllerPackagePackage extends Controller {
 			$data['package_3m_amount'] = $package_info[0]['package_3m_amount'];
 		} else {
 			$data['package_3m_amount'] = '';
+		}
+
+		if (isset($this->request->post['package_call'])) {
+			$data['package_call'] = $this->request->post['package_call'];
+		} elseif (!empty($package_info)) {
+			$data['package_call'] = $package_info[0]['package_call'];
+		} else {
+			$data['package_call'] = '';
 		}
 
 		if (isset($this->request->post['package_6m_amount'])) {
@@ -428,10 +436,15 @@ class ControllerPackagePackage extends Controller {
 		} else {
 			$data['status'] = true;
 		}
-		$training_id = array();
-		foreach ($package_info as $key => $value) {
-			$training_id[$key]['training_id'] = $value['training_id'];
-			$training_id[$key]['training_name'] = $value['training_name'];
+		if(!empty($package_info))
+		{
+			$training_id = array();
+			foreach ($package_info as $key => $value) {
+				$training_id[$key]['training_id'] = $value['training_id'];
+				$training_id[$key]['training_name'] = $value['training_name'];
+			}
+
+			$data['package_training_types'] = $training_id;
 		}
 		//print_r($training_id);exit;
 		
@@ -442,12 +455,13 @@ class ControllerPackagePackage extends Controller {
 			'package_3m_amount' => $data['package_3m_amount'],
 			'package_6m_amount' => $data['package_6m_amount'],
 			'package_1y_amount' => $data['package_1y_amount'],
+			'package_call' => $data['package_call'],
 			'package_type' => $data['package_type'],
 			'description' => $data['description'],
 			'image' => $data['image'],
 			'thumb' => $data['thumb'], );
 		 $data['package_description'] = $data['package_details'];
-		 $data['package_training_types'] = $training_id;
+		
 		//echo "<pre>";print_r($data['package_description']);exit;
 
 		$data['header'] = $this->load->controller('common/header');
@@ -487,8 +501,6 @@ class ControllerPackagePackage extends Controller {
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 
-			// $aaa = $this->request->post;
-			// echo "<pre>";print_r($aaa);exit;
 			$this->model_package_package->addPackage($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');

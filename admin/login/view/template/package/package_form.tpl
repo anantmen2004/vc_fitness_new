@@ -103,6 +103,12 @@
                         <?php } ?>
                       </select>
                     </div>
+
+                     <label class="col-sm-4 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo "Number of One to One Call"; ?></label>
+                    <div class="col-sm-3">
+                      <input type="text" name="package_description[<?php echo $language['language_id']; ?>][package_call]" value="<?php echo isset($package_description[$language['language_id']]) ? $package_description[$language['language_id']]['package_call'] : ''; ?>" placeholder="<?php echo 'Number of One to One Call'; ?>" id="input-name<?php echo $language['language_id']; ?>" class="form-control" />
+                    </div>
+
                   </div>
 
                   <div class="form-group required">
@@ -132,6 +138,7 @@
                         $pack_cnt = 1;
                     ?>
                       <?php foreach ($package_training_types as $types) { ?>
+                      <?php if(isset($package_training_types[0]['training_id'])) { ?>
                       <div class="form-group" id="row_id_<?php echo $pack_cnt;?>">
                         <div class="col-sm-4 col-sm-offset-2">
                           <input class="form-control" type="text" value="<?php echo $types['training_name']?>" readonly/>
@@ -143,10 +150,12 @@
                         <a style="color:white;text-align: center; padding-left: 20px;">Remove</a>
                       </div>
                       </div>
-                      <div id="training_types_div">                   
+                      <?php } ?>
+                      
+                    <?php $pack_cnt++; }} ?>
+                    <div id="training_types_div">                   
 
                     </div>
-                    <?php $pack_cnt++; }} ?>
 
                     
                     
@@ -281,6 +290,7 @@ $('#language a:first').tab('show');
           data += '<div class="col-sm-1" style="background-color:#f56b6b;padding:0.8%" onclick="remove_new_training('+cnt+')"> <a style="color:white;text-align: center; padding-left: 20px;">Remove</a></div></div>';
            $("#training_types_div").html(data);
            cnt++;
+           $("#training_id").val(0);
         }
       });
     }
@@ -321,13 +331,6 @@ $('#language a:first').tab('show');
     $("#row_id_"+id).remove();
   }
 
-</script>
-<script type="text/javascript">
-  
-  $(document).ready(function(){
-    $("#training_id").val(0);
-
-  });
 </script>
 
 
