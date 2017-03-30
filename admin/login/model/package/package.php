@@ -100,7 +100,6 @@ class ModelPackagePackage extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "package_master WHERE package_id = '" . (int)$package_id . "'");
 		
 		$this->cache->delete('package');
-
 		$this->event->trigger('post.admin.package.delete', $package_id);
 	}
 

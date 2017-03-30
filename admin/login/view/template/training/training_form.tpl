@@ -90,8 +90,8 @@
 
                     <!-- <div class="col-sm-12"> -->
                     <!-- <?php echo "<pre>"; print_r($training_video_types);?> -->
-                    <?php if(!empty($training_video_types)){ 
-                        $video_cnt = 1;
+                    <?php $video_cnt = 1; if(!empty($training_video_types)){ 
+                        
                     ?>
                       <?php foreach ($training_video_types as $types) { ?>
                       <?php if(isset($training_video_types[0]['video_id'])) { ?>
@@ -100,9 +100,9 @@
                           <input class="form-control" type="text" value="<?php echo $types['video_name']?>" readonly/>
                           <input class="form-control" type="hidden" name="video_id[]" value="<?php echo $types['video_id']?>" readonly/>
                         </div>
-                        <?php $id = $training_description[$language['language_id']]['video_id'];?>
-                        <?php $tran_id = $types["video_id"];?>
-                        <div class="col-sm-1" style="background-color:#f56b6b;padding:0.8%" onclick="remove_training('<?php echo $id;?>','<?php echo $tran_id;?>','<?php echo $video_cnt;?>')">
+                        <?php $train_id = $training_description[$language['language_id']]['training_id'];?>
+                        <?php $video_id = $types["video_id"];?>
+                        <div class="col-sm-1" style="background-color:#f56b6b;padding:0.8%" onclick="remove_video('<?php echo $train_id;?>','<?php echo $video_id;?>','<?php echo $video_cnt;?>')">
                         <a style="color:white;text-align: center; padding-left: 20px;">Remove</a>
                       </div>
                       </div>
@@ -233,8 +233,8 @@ $('#language a:first').tab('show');
 
 <script type="text/javascript">
   var data = '';
-  //var cnt = '<?php echo $pack_id ?>';
-  var cnt = 1;
+  var cnt = "<?php echo $video_cnt ?>";
+  
   function add_new_video_row(){
     var id = $("#video_id").val();
     if(id != 0)
@@ -260,7 +260,7 @@ $('#language a:first').tab('show');
     }
     else
     {
-      alert("Please Select Training");
+      alert("Please Select Video..!");
     }
   }
 </script>
@@ -281,9 +281,9 @@ $('#language a:first').tab('show');
 
 
 <script type="text/javascript">
-  function remove_training(training_id, video_id,train_cnt)
+  function remove_video(training_id, video_id,train_cnt)
   {
-    //alert(pack_id);alert(training_id);
+    //alert(training_id);alert(video_id);
     if(train_cnt != 0)
     {
       var ans = confirm("Are you sure? You want to delete item.");
@@ -291,18 +291,18 @@ $('#language a:first').tab('show');
       if(ans == true)
       {
 
-      // $.ajax({
-      //   type:'POST',
-      //   url: 'index.php?route=package/package/delete_training&token=<?php echo $token; ?>&training_id=' +  encodeURIComponent(training_id),
-      //   data:'pack_id='+pack_id+'&training_id='+training_id,
+      $.ajax({
+        type:'POST',
+        url: 'index.php?route=training/training/delete_video&token=<?php echo $token; ?>&training_id=' +  encodeURIComponent(training_id),
+        data:'training_id='+training_id+'&video_id='+video_id,
         
-      //   success:function(resp)
-      //   {
-      //     // alert(resp);
-      //     $("#row_id_"+pack_cnt).remove();
+        success:function(resp)
+        {
+          //alert(resp);
+          $("#row_id_"+train_cnt).remove();
           
-      //   }
-      // });
+        }
+      });
     }
     }
   }

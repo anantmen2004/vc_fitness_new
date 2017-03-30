@@ -78,6 +78,7 @@ class ControllerCommonMenu extends Controller {
 		$data['text_gallery'] = $this->language->get('text_gallery');
 		$data['text_gallery_types'] = $this->language->get('text_gallery_types');
 		$data['text_package_training_video'] = $this->language->get('text_package_training_video');
+		$data['text_call_scheduler'] = $this->language->get('text_call_scheduler');
 
 
 
@@ -232,6 +233,8 @@ class ControllerCommonMenu extends Controller {
 		$data['gallery'] = $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'], 'SSL');
 		$data['gallery_types'] = $this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'], 'SSL');
 		$data['packages_mapping'] = $this->url->link('packagetraining/packagetraining', 'token=' . $this->session->data['token'], 'SSL');$data['gallery_types'] = $this->url->link('packagetraining/packagetraining', 'token=' . $this->session->data['token'], 'SSL');
+
+		$data['scheduler'] = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'], 'SSL');
 
 		return $this->load->view('common/menu.tpl', $data);
 	}

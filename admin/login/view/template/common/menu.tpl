@@ -219,8 +219,11 @@
 
   <li id="gallery_types"><a class="parent" href="<?php echo $gallery_types; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_gallery_types; ?></span></a>
   </li>
-  <li id="packages_mapping"><a class="parent" href="<?php echo $packages_mapping; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_package_training_video; ?></span></a>
+  <!-- <li id="packages_mapping"><a class="parent" href="<?php echo $packages_mapping; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_package_training_video; ?></span></a>
+  </li> -->
+  <li id="sheduler"><a class="parent" href="<?php echo $scheduler; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_call_scheduler; ?></span></a>
   </li>
+  
 
 
 

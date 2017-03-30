@@ -134,8 +134,8 @@
                     </div> -->
 
                     <!-- <div class="col-sm-12"> -->
-                    <?php if(!empty($package_training_types)){ 
-                        $pack_cnt = 1;
+                    <?php $pack_cnt = 1; if(!empty($package_training_types)){ 
+                        
                     ?>
                       <?php foreach ($package_training_types as $types) { ?>
                       <?php if(isset($package_training_types[0]['training_id'])) { ?>
@@ -270,8 +270,8 @@ $('#language a:first').tab('show');
 
 <script type="text/javascript">
   var data = '';
-  //var cnt = '<?php echo $pack_id ?>';
-  var cnt = 1;
+  var cnt = '<?php echo $pack_cnt ?>';
+  // var cnt = 1;
   function add_new_training_row(){
     var id = $("#training_id").val();
     if(id != 0)
