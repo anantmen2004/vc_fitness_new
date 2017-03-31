@@ -40,9 +40,7 @@
                     <?php } else { ?>
                     <a ><?php echo $column_name; ?></a>
                     <?php } ?></td>
-                    <td class="text-left">
-                    <a  class=""><?php echo "Gallery Type" ?></a>
-                    </td>
+                    
                   <td class="text-right">
                     <a  class=""><?php echo "Status" ?></a>
                     </td>
@@ -50,18 +48,17 @@
                 </tr>
               </thead>
               <tbody>
-                <?php if ($galleries) { ?>
-                <?php foreach ($galleries as $gallery) { ?>
+                <?php if ($customer) { ?>
+                <?php foreach ($customer as $customer) { ?>
                 <tr>
-                  <td class="text-center"><?php if (in_array($gallery['gallery_id'], $selected)) { ?>
-                    <input type="checkbox" name="selected[]" value="<?php echo $gallery['gallery_id']; ?>" checked="checked" />
+                  <td class="text-center"><?php if (in_array($customer['sr_no'], $selected)) { ?>
+                    <input type="checkbox" name="selected[]" value="<?php echo $customer['sr_no']; ?>" checked="checked" />
                     <?php } else { ?>
-                    <input type="checkbox" name="selected[]" value="<?php echo $gallery['gallery_id']; ?>" />
+                    <input type="checkbox" name="selected[]" value="<?php echo $customer['sr_no']; ?>" />
                     <?php } ?></td>
-                  <td class="text-left"><?php echo $gallery['name']; ?></td>
-                  <td class="text-left"><?php echo $gallery['type']; ?></td>
-                  <td class="text-right"><?php echo $gallery['status']; ?></td>
-                  <td class="text-right"><a href="<?php echo $gallery['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
+                  <td class="text-left"><?php echo $customer['fname']; ?> <?php echo $customer['lname']; ?></td>
+                  <td class="text-right"><?php echo $customer['status']; ?></td>
+                  <td class="text-right"><a href="<?php echo $customer['edit']; ?>" data-toggle="tooltip" title="<?php echo "View Customer Call" ?>" class="btn btn-primary"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <?php } ?>
                 <?php } else { ?>

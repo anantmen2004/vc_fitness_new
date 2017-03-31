@@ -4,11 +4,11 @@ class ControllerSchedulerScheduler extends Controller {
 
 	public function index() {
 		// print_r(121212);exit;
-		$this->language->load('sheduler/sheduler');
+		$this->language->load('scheduler/scheduler');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('sheduler/sheduler');
+		$this->load->model('scheduler/scheduler');
 
 		$this->getList();
 	}
@@ -55,12 +55,12 @@ class ControllerSchedulerScheduler extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('sheduler/sheduler', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
 
-		$data['add'] = $this->url->link('sheduler/sheduler/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
-		$data['delete'] = $this->url->link('sheduler/sheduler/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
-		$data['repair'] = $this->url->link('sheduler/sheduler/repair', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['add'] = $this->url->link('scheduler/scheduler/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['delete'] = $this->url->link('scheduler/scheduler/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['repair'] = $this->url->link('scheduler/scheduler/repair', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
 		$data['galleries'] = array();
 
@@ -71,27 +71,28 @@ class ControllerSchedulerScheduler extends Controller {
 			'limit' => $this->config->get('config_limit_admin')
 		);
 
-		$sheduler_total = $this->model_sheduler_sheduler->getTotalScheduler();
+		$scheduler_total = $this->model_scheduler_scheduler->getTotalScheduler();
 
-		$results = $this->model_sheduler_sheduler->getGalleries($filter_data);
+		$results = $this->model_scheduler_scheduler->getAllCustomer($filter_data);
 
-		 //print_r($results[0]['status']);exit;
+		// echo "<pre>"; print_r($results);exit;
 
 		foreach ($results as $result) {
-			if($result['status'] == '1'){
+			if($result['status'] == '0'){
 				$status = "Active";
 			}
 			else{
 				$status = "Inactive";
 			}
-			$data['galleries'][] = array(
-				'sheduler_id' => $result['sheduler_id'],
-				'name'        => $result['title'],
-				'type'        => $result['name'],
-				 'sort_order'  => "ASC",
+			$data['customer'][] = array(
+				'sr_no' => $result['sr_no'],
+				'customer_id'        => $result['customer_id'],
+				'fname'        => $result['firstname'],
+				'lname'        => $result['lastname'],
+				'sort_order'  => "ASC",
 				'status'  => $status,
-				'edit'        => $this->url->link('sheduler/sheduler/edit', 'token=' . $this->session->data['token'] . '&sheduler_id=' . $result['sheduler_id'] . $url, 'SSL'),
-				'delete'      => $this->url->link('sheduler/sheduler/delete', 'token=' . $this->session->data['token'] . '&sheduler_id=' . $result['sheduler_id'] . $url, 'SSL')
+				'edit'        => $this->url->link('scheduler/scheduler/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $result['customer_id'] . $url, 'SSL'),
+				'delete'      => $this->url->link('scheduler/scheduler/delete', 'token=' . $this->session->data['token'] . '&customer_id=' . $result['customer_id'] . $url, 'SSL')
 			);
 		}
 
@@ -142,8 +143,8 @@ class ControllerSchedulerScheduler extends Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
-		$data['sort_name'] = $this->url->link('sheduler/sheduler', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
-		$data['sort_sort_order'] = $this->url->link('sheduler/sheduler', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
+		$data['sort_name'] = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
+		$data['sort_sort_order'] = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
 
 		$url = '';
 
@@ -156,14 +157,14 @@ class ControllerSchedulerScheduler extends Controller {
 		}
 
 		$pagination = new Pagination();
-		$pagination->total = $sheduler_total;
+		$pagination->total = $scheduler_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
 		$pagination->url = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
 
 		$data['pagination'] = $pagination->render();
 
-		$data['results'] = sprintf($this->language->get('text_pagination'), ($sheduler_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($sheduler_total - $this->config->get('config_limit_admin'))) ? $sheduler_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $sheduler_total, ceil($sheduler_total / $this->config->get('config_limit_admin')));
+		$data['results'] = sprintf($this->language->get('text_pagination'), ($scheduler_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($scheduler_total - $this->config->get('config_limit_admin'))) ? $scheduler_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $scheduler_total, ceil($scheduler_total / $this->config->get('config_limit_admin')));
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
@@ -172,20 +173,20 @@ class ControllerSchedulerScheduler extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('sheduler/sheduler_list.tpl', $data));
+		$this->response->setOutput($this->load->view('scheduler/scheduler_list.tpl', $data));
 	}
 
 	/**************************************************************/
 
 	public function edit() {
-		$this->language->load('sheduler/sheduler');
+		$this->language->load('scheduler/scheduler');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('sheduler/sheduler');
+		$this->load->model('scheduler/scheduler');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_sheduler_sheduler->editScheduler($this->request->get['sheduler_id'], $this->request->post);
+			$this->model_scheduler_scheduler->editScheduler($this->request->get['customer_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -203,24 +204,24 @@ class ControllerSchedulerScheduler extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('sheduler/sheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getForm();
 	}
 
 	protected function getForm() {
-// 		 print_r($this->request->get['sheduler_id']);exit;
+// 		 print_r($this->request->get['customer_id']);exit;
 		$data['heading_title'] = $this->language->get('heading_title');
 
-		$data['text_form'] = !isset($this->request->get['sheduler_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
+		$data['text_form'] = !isset($this->request->get['customer_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 		$data['text_none'] = $this->language->get('text_none');
 		$data['text_default'] = $this->language->get('text_default');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
 
 		$data['entry_name'] = $this->language->get('entry_name');
-		$data['entry_sheduler_type'] = $this->language->get('entry_sheduler_type');
+		$data['entry_scheduler_type'] = $this->language->get('entry_scheduler_type');
 		$data['entry_description'] = $this->language->get('entry_description');
 		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
 		$data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
@@ -283,20 +284,18 @@ class ControllerSchedulerScheduler extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('sheduler/sheduler', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
 
-		if (!isset($this->request->get['sheduler_id'])) {
-			$data['action'] = $this->url->link('sheduler/sheduler/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		if (!isset($this->request->get['customer_id'])) {
+			$data['action'] = $this->url->link('scheduler/scheduler/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
 		} else {
-			$data['action'] = $this->url->link('sheduler/sheduler/edit', 'token=' . $this->session->data['token'] . '&sheduler_id=' . $this->request->get['sheduler_id'] . $url, 'SSL');
+			$data['action'] = $this->url->link('scheduler/scheduler/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $this->request->get['customer_id'] . $url, 'SSL');
 		}
 
-		$data['cancel'] = $this->url->link('sheduler/sheduler', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['cancel'] = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
-		if (isset($this->request->get['sheduler_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
-			$sheduler_info = $this->model_sheduler_sheduler->getScheduler($this->request->get['sheduler_id']);
-		}
+		
 		
 		$data['token'] = $this->session->data['token'];
 
@@ -305,88 +304,89 @@ class ControllerSchedulerScheduler extends Controller {
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 
 
-		$data['sheduler_types'] = $this->model_sheduler_sheduler->getSchedulerTypes();
+		//$data['scheduler_types'] = $this->model_scheduler_scheduler->getSchedulerTypes();
 
-		// print_r($data['sheduler_types']);exit;
 
+
+
+		if (isset($this->request->get['customer_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
+			$scheduler_info = $this->model_scheduler_scheduler->getCustomerCall($this->request->get['customer_id']);
+		}
+
+
+		$cnt = count($scheduler_info);
+		// echo "<pre>";print_r($cnt);exit;
+
+for ($i=0; $i <$cnt ; $i++) { 
+			
 		
-		if (isset($this->request->post['name'])) {
-			$data['name'] = $this->request->post['name'];
-		} elseif (!empty($sheduler_info)) {
-			$data['name'] = $sheduler_info['title'];
+		if (isset($this->request->post['fname'])) {
+			$data['fname'] = $this->request->post['fname'];
+		} elseif (!empty($scheduler_info)) {
+			$data['fname'] = $scheduler_info[$i]['firstname'];
 		} else {
-			$data['name'] = '';
+			$data['fname'] = '';
+		}
+
+		if (isset($this->request->post['lname'])) {
+			$data['lname'] = $this->request->post['lname'];
+		} elseif (!empty($scheduler_info)) {
+			$data['lname'] = $scheduler_info[$i]['lastname'];
+		} else {
+			$data['lname'] = '';
 		}
 
 		if (isset($this->request->post['description'])) {
 			$data['description'] = $this->request->post['description'];
-		} elseif (!empty($sheduler_info)) {
-			$data['description'] = $sheduler_info['description'];
+		} elseif (!empty($scheduler_info)) {
+			$data['description'] = $scheduler_info[$i]['comment'];
 		} else {
 			$data['description'] = '';
 		}
 
-		if (isset($this->request->post['sheduler_type_id'])) {
-			$data['sheduler_type_id'] = $this->request->post['sheduler_type_id'];
-		} elseif (!empty($sheduler_info)) {
-			$data['sheduler_type_id'] = $sheduler_info['sheduler_type_id'];
+		if (isset($this->request->post['package_name'])) {
+			$data['package_name'] = $this->request->post['package_name'];
+		} elseif (!empty($scheduler_info)) {
+			$data['package_name'] = $scheduler_info[$i]['package_name'];
 		} else {
-			$data['sheduler_type_id'] = '';
+			$data['package_name'] = '';
 		}
 
-		if (isset($this->request->post['image'])) {
-			$data['image'] = $this->request->post['image'];
-		} elseif (!empty($sheduler_info)) {
-			$data['image'] = $sheduler_info['img_path'];
-		} else {
-			$data['image'] = '';
-		}  
-		$this->load->model('tool/image');
 
-		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
-			$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
-		} elseif (!empty($sheduler_info) && is_file(DIR_IMAGE . $sheduler_info['img_path'])) {
-			$data['thumb'] = $this->model_tool_image->resize($sheduler_info['img_path'], 100, 100);
-		} else {
-			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-		}
-
-		
-
-		 $data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-
-		 if (isset($this->request->post['status'])) {
+		if (isset($this->request->post['status'])) {
 			$data['status'] = $this->request->post['status'];
-		} elseif (!empty($sheduler_info)) {
-			$data['status'] = $sheduler_info['status'];
+		} elseif (!empty($scheduler_info)) {
+			$data['status'] = $scheduler_info[$i]['status'];
 		} else {
 			$data['status'] = true;
 		}
 
 		
-		 $data['sheduler_details'][1] = array(
-			'name' => $data['name'],
+		$data['scheduler_description'][$i]= array(
+			'fname' => $data['fname'],
+			'lname' => $data['lname'],
 			'description' => $data['description'],
-			'sheduler_type_id' => $data['sheduler_type_id'],
-			'image' => $data['image'],
-			'thumb' => $data['thumb'], );
-		 $data['sheduler_description'] = $data['sheduler_details'];
-		//echo "<pre>";print_r($data);exit;
+			'package_name' => $data['package_name'],
+
+
+			 );
+}
+		//echo "<pre>";print_r($data['scheduler_description']);exit;
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 		//echo "<pre>";print_r($data);exit;
 
-		$this->response->setOutput($this->load->view('sheduler/sheduler_form.tpl',$data));
+		$this->response->setOutput($this->load->view('scheduler/scheduler_form.tpl',$data));
 	}
 
 	protected function validateForm() {
-		if (!$this->user->hasPermission('modify', 'sheduler/sheduler')) {
+		if (!$this->user->hasPermission('modify', 'scheduler/scheduler')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		foreach ($this->request->post['sheduler_description'] as $language_id => $value) {
+		foreach ($this->request->post['scheduler_description'] as $language_id => $value) {
 			if ((utf8_strlen($value['name']) < 2) || (utf8_strlen($value['name']) > 255)) {
 				$this->error['name'][$language_id] = $this->language->get('error_name');
 			}
@@ -396,14 +396,14 @@ class ControllerSchedulerScheduler extends Controller {
 	}
 	/****************************************************/
 	public function add() {
-		$this->language->load('sheduler/sheduler');
+		$this->language->load('scheduler/scheduler');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('sheduler/sheduler');
+		$this->load->model('scheduler/scheduler');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_sheduler_sheduler->addScheduler($this->request->post);
+			$this->model_scheduler_scheduler->addScheduler($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -421,7 +421,7 @@ class ControllerSchedulerScheduler extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('sheduler/sheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getForm();
@@ -429,15 +429,15 @@ class ControllerSchedulerScheduler extends Controller {
 
 
 	public function delete() {
-		$this->language->load('sheduler/sheduler');
+		$this->language->load('scheduler/scheduler');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('sheduler/sheduler');
+		$this->load->model('scheduler/scheduler');
 
 		if (isset($this->request->post['selected']) && $this->validateDelete()) {
-			foreach ($this->request->post['selected'] as $sheduler_id) {
-				$this->model_sheduler_sheduler->deletesheduler($sheduler_id);
+			foreach ($this->request->post['selected'] as $customer_id) {
+				$this->model_scheduler_scheduler->deletescheduler($customer_id);
 			}
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -456,14 +456,14 @@ class ControllerSchedulerScheduler extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('sheduler/sheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getList();
 	}
 
 	protected function validateDelete() {
-		if (!$this->user->hasPermission('modify', 'sheduler/sheduler')) {
+		if (!$this->user->hasPermission('modify', 'scheduler/scheduler')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 

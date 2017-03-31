@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']          = 'Schedule call';
+$_['heading_title']          = 'Customer List';
 
 // Text
 $_['text_success']           = 'Success: You have modified Call!';
