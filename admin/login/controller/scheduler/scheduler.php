@@ -310,12 +310,14 @@ class ControllerSchedulerScheduler extends Controller {
 
 
 		if (isset($this->request->get['customer_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
-			$scheduler_info = $this->model_scheduler_scheduler->getCustomerCall($this->request->get['customer_id']);
+			$scheduler_info = $this->model_scheduler_scheduler->getCustomerPackageHistory($this->request->get['customer_id']);
+			$call_info = $this->model_scheduler_scheduler->getCustomerCall($this->request->get['customer_id']);
 		}
 
 
+
 		$cnt = count($scheduler_info);
-		// echo "<pre>";print_r($cnt);exit;
+		//echo "<pre>";print_r($call_info);exit;
 
 for ($i=0; $i <$cnt ; $i++) { 
 			
@@ -336,12 +338,12 @@ for ($i=0; $i <$cnt ; $i++) {
 			$data['lname'] = '';
 		}
 
-		if (isset($this->request->post['description'])) {
-			$data['description'] = $this->request->post['description'];
+		if (isset($this->request->post['comment'])) {
+			$data['comment'] = $this->request->post['comment'];
 		} elseif (!empty($scheduler_info)) {
-			$data['description'] = $scheduler_info[$i]['comment'];
+			$data['comment'] = $scheduler_info[$i]['comment'];
 		} else {
-			$data['description'] = '';
+			$data['comment'] = '';
 		}
 
 		if (isset($this->request->post['package_name'])) {
@@ -350,6 +352,62 @@ for ($i=0; $i <$cnt ; $i++) {
 			$data['package_name'] = $scheduler_info[$i]['package_name'];
 		} else {
 			$data['package_name'] = '';
+		}
+
+		if (isset($this->request->post['package_id'])) {
+			$data['package_id'] = $this->request->post['package_id'];
+		} elseif (!empty($scheduler_info)) {
+			$data['package_id'] = $scheduler_info[$i]['package_id'];
+		} else {
+			$data['package_id'] = '';
+		}
+
+		if (isset($this->request->post['customer_id'])) {
+			$data['customer_id'] = $this->request->post['customer_id'];
+		} elseif (!empty($scheduler_info)) {
+			$data['customer_id'] = $scheduler_info[$i]['customer_id'];
+		} else {
+			$data['customer_id'] = '';
+		}
+
+		if (isset($this->request->post['package_call'])) {
+			$data['package_call'] = $this->request->post['package_call'];
+		} elseif (!empty($scheduler_info)) {
+			$data['package_call'] = $scheduler_info[$i]['package_call'];
+		} else {
+			$data['package_call'] = '';
+		}
+
+		if (isset($this->request->post['start_date'])) {
+			$data['start_date'] = $this->request->post['start_date'];
+		} elseif (!empty($scheduler_info)) {
+			$data['start_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['start_date']));
+		} else {
+			$data['start_date'] = '';
+		}
+
+		if (isset($this->request->post['end_date'])) {
+			$data['end_date'] = $this->request->post['end_date'];
+		} elseif (!empty($scheduler_info)) {
+			$data['end_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['end_date']));
+		} else {
+			$data['end_date'] = '';
+		}
+
+		if (isset($this->request->post['duration'])) {
+			$data['duration'] = $this->request->post['duration'];
+		} elseif (!empty($scheduler_info)) {
+			$data['duration'] = $scheduler_info[$i]['duration'];
+		} else {
+			$data['duration'] = '';
+		}
+
+		if (isset($this->request->post['entry_date'])) {
+			$data['entry_date'] = $this->request->post['entry_date'];
+		} elseif (!empty($scheduler_info)) {
+			$data['entry_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['date_added']));
+		} else {
+			$data['entry_date'] = '';
 		}
 
 
@@ -365,9 +423,15 @@ for ($i=0; $i <$cnt ; $i++) {
 		$data['scheduler_description'][$i]= array(
 			'fname' => $data['fname'],
 			'lname' => $data['lname'],
-			'description' => $data['description'],
+			'package_id' => $data['package_id'],
+			'customer_id' => $data['customer_id'],
+			'comment' => $data['comment'],
+			'duration' => $data['duration'],
+			'package_call' => $data['package_call'],
 			'package_name' => $data['package_name'],
-
+			'start_date' => $data['start_date'],
+			'end_date' => $data['end_date'],
+			'entry_date' => $data['entry_date'],
 
 			 );
 }

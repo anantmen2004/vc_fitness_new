@@ -25,11 +25,11 @@ class My_account extends CI_Controller {
 		$data = $this->data;
 
 		$cust=$data['customer_id'];
-		//echo "<pre>";print_r($cust);exit;
+		
 		if($data['customer_id'])
 		{
 			$data['page'] = "";
-			/*$tableName='oc_customer cust, oc_address addrs';
+			$tableName='oc_customer cust, oc_address addrs';
 			$select='cust.customer_id,cust.firstname as fname,cust.lastname as lname ,cust.email,cust.telephone,cust.telephone2,cust.fax, addrs.*';
 			$where='cust.customer_id=addrs.customer_id AND cust.customer_id='.$cust;
 			$data['userData']=$this->Helper_model->select($select, $tableName, $where);
@@ -39,63 +39,50 @@ class My_account extends CI_Controller {
 			$where1='o.order_id = oh.order_id AND o.order_id = os.order_status_id AND o.customer_id='.$data['customer_id'];
 			$order_id = 'o.date_added';
 			$order = 'DESC';
-			//echo "<pre>";print_r($select1);print_r($tableName1);print_r($where1);exit;
+			
 			$data['myOrders']=$this->Helper_model->selectallWhereOrder($select1, $tableName1, $where1, $order_id,$order);
 
-			$query="SELECT  m.package_id, m.package_name,m.package_details, v.video_id, v.video_name, v.video_path, t.training_id, t.training_name, pc.duration,pc.customer_id FROM oc_package_training_video_master p,oc_training_type t, oc_package_master m,oc_video_master v, oc_package_customer_master pc WHERE m.package_id = pc.package_id AND m.package_id = p.package_id AND p.training_id = t.training_id AND p.video_id = v.video_id AND pc.customer_id =".$cust;
-			echo $query;exit;
-
-			$data['packageinfo']=$this->Helper_model->selectQuery($query);
-
-			echo "<pre>";print_r($data['packageinfo']);
-			foreach ($data['packageinfo'] as $key => $value) {
-				# code...
-
-
-
-
-			}
-
-
-			exit;*/
-
-			$query="SELECT pc.package_id, p.package_name, p.package_details from oc_package_customer_master pc, oc_package_master p where pc.package_id = p.package_id AND pc.customer_id=".$cust;
-			$packages = $this->Helper_model->selectQuery($query);
+		// Package details 
+			$packages=$this->Packages_model->getPackageType($cust);
 
 			$training = array();
-			$video_data = array();
+			$data['result']=array();	
+			$data['packdata']= array();
 			$videoinfo = array();
+			$data['video']=array();
+			$data['trainarr']= array();
+			$data['callnumber']=array();
 
-			foreach ($packages as $key => $value) 
-			{
-				$train="SELECT DISTINCT t.training_id, t.training_name,ptv.package_id from oc_training_type t, oc_package_training_video_master ptv where t.training_id = ptv.training_id AND ptv.package_id = ".$value['package_id'];
-				$training_data = $this->Helper_model->selectQuery($train);
-
-				array_push($training, $training_data);
-				echo '<pre>';
-				//print_r($training_data);
-				foreach ($training_data as $key1 => $value1) 
-				{
-
-					$video="SELECT v.video_id, v.video_path, v.video_name, ptv.training_id, ptv.package_id from oc_video_master v, oc_package_training_video_master ptv where v.video_id = ptv.video_id AND ptv.training_id= ".$training_data[$key1]['training_id']." AND ptv.package_id=" .$training_data[$key1]['package_id'];
+		foreach ($packages as $key => $value2) 
+		{
+			$data['packdata']= $packages;
+			
+		   $callstatus=$this->Packages_model->getCallno($value2['package_id'],$cust);
+		    array_push($data['callnumber'], $callstatus);
+		
+		  // print_r($data['callstatus']); exit();
 				
-					$videoinfo = $this->Helper_model->selectQuery($video);
-					array_push($video_data, $videoinfo);
-				}
+			$training_data=$this->Packages_model->getTrainingType($value2['package_id']);
+			array_push($data['trainarr'], $training_data);
+
+			$data1['packageinfo'] = array();
+			foreach ($training_data as $key1 => $value1) 
+			{
+				$video_data=$this->Packages_model->getVideoType($value1['training_id']);
+				array_push($data1['packageinfo'], $video_data);
 			}
-			echo "<pre>";
-			print_r($packages);
-			print_r($training);
-			print_r($video_data);
-			exit;
+				
+			array_push($data['video'], $data1['packageinfo']);
+		}
 
 			$condition = array('customer_id' => $data['customer_id']);
 			$product_id = $this->Helper_model->select('product_id','oc_customer_wishlist',$condition);
 			$data['wishlist'] = array();
-			foreach ($product_id as $key => $value) {
+			foreach ($product_id as $key => $value) 
+			{
 				$data['wishlist'][$key] = $this->Product_model->selectSingelProduct($value['product_id']);
 			}
-			//echo "<pre>";print_r($data['myOrders']);exit;
+
 			$this->load->view('templates/header',$data);
 			$this->load->view('myAccount/my_account');
 			$this->load->view('templates/footer');
@@ -207,6 +194,79 @@ class My_account extends CI_Controller {
 		$this->load->view('myAccount/order_return_success');
 		$this->load->view('templates/footer'); 
 	}
-	
+
+	public function videocall()
+	{
+		$data = $this->data;
+		$cust=$data['customer_id'];
+
+		$formData = $this->input->post();
+		//echo "<pre>"; print_r($formData); exit();
+
+		$packageid=$formData['package_id'];
+		$date=$formData['date1'];
+		$hour=$formData['hour'];
+		$minute=$formData['minute'];
+		$pm=$formData['pm'];
+		$callstatus=$formData['call_status'];
+		$packcall=$formData['packcall'];
+		$package_call=$formData['package_call'];
+
+		$tableName ='oc_call_schedule';
+
+		foreach ($packcall as $key => $value) 
+		{
+			if(!empty($date[$key]))
+			{
+				$select = '*';
+    			$tableName = 'oc_call_schedule';
+    			$where = array('customer_id' => $cust,'package_id' => $packageid, 'call_no' => $value );
+   	 			$callcheck = $this->Helper_model->select($select, $tableName, $where);
+  
+
+   	 			if(empty($callcheck))
+   	 			{
+					$call=array(
+					'customer_id' => $cust,
+					'package_id' => $packageid,
+					'date' => date("Y-m-d",strtotime($date[$key])),
+					'time' => $hour[$key].':'.$minute[$key].' '.$pm[$key], 
+					'status' => $callstatus[$key],
+					'complete_status' => 0,
+					'call_no' => $value,
+					'added_on' => date("Y-m-d h:i:s")
+				);
+
+					$callid=$this->Helper_model->insert($tableName, $call);
+					if(!empty($callid))
+					{
+						echo 1;
+					}
+				}
+				else
+				{
+					$call=array(
+					'date' => date("Y-m-d",strtotime($date[$key])),
+					'time' => $hour[$key].':'.$minute[$key].' '.$pm[$key], 
+					'status' => $callstatus[$key],
+					'updated_on' => date("Y-m-d h:i:s")
+					);
+
+					$where=array(
+						'customer_id' => $cust,
+						'package_id' => $packageid,
+						'call_no' => $value
+						);
+
+					$updateid=$this->Helper_model->update($tableName,$call,$where);
+					if(!empty($updateid))
+					{
+						echo 2;
+					}
+				}
+			}
+		}
+	}
+
 /*************************************************/	
 }

@@ -232,7 +232,8 @@ class ControllerCommonMenu extends Controller {
 		$data['videos'] = $this->url->link('video/video', 'token=' . $this->session->data['token'], 'SSL');
 		$data['gallery'] = $this->url->link('gallery/gallery', 'token=' . $this->session->data['token'], 'SSL');
 		$data['gallery_types'] = $this->url->link('gallery/gallery_types', 'token=' . $this->session->data['token'], 'SSL');
-		$data['packages_mapping'] = $this->url->link('packagetraining/packagetraining', 'token=' . $this->session->data['token'], 'SSL');$data['gallery_types'] = $this->url->link('packagetraining/packagetraining', 'token=' . $this->session->data['token'], 'SSL');
+		//$data['packages_mapping'] = $this->url->link('packagetraining/packagetraining', 'token=' . $this->session->data['token'], 'SSL');
+		//$data['gallery_types'] = $this->url->link('packagetraining/packagetraining', 'token=' . $this->session->data['token'], 'SSL');
 
 		$data['scheduler'] = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'], 'SSL');
 

@@ -1,4 +1,11 @@
-function display_alert123(type,message,div_Classname)
+$(document).ready(function(){
+
+    $(".pickdate").datepicker({
+        format: 'dd-mm-yyyy'
+    });
+
+});
+function display_alert123(type,message)
 {
     var alert_msg = '';
     if(type == 'err')
@@ -17,10 +24,10 @@ function display_alert123(type,message,div_Classname)
         alert_msg += '<span style="text-align:center"><strong>'+message+'</strong></span></div>';
     }
 
-    $("."+div_Classname).html(alert_msg);
+    $(".alert_msg").html(alert_msg);
 
     setTimeout(function(){
-        $("."+div_Classname).html("");       
+        $(".alert_msg").html("");       
     },3000);
 }
 function updatePassword()
@@ -158,4 +165,32 @@ function return_order()
         $('.return_reason_id').css("color","red");
         $('.reason_id').css("color","red");
     }
+}
+function videocall(id)
+{
+    var formData = $("#mypackageInfo_"+id).serialize();
+    var path = base_url+"my_account/videocall";
+    $.ajax({
+        type:'POST',
+        url:path,
+        data:formData,
+        success:function(resp)
+         {  alert(resp);
+           if(resp==1)
+            {
+                var msg = 'Information inserted Successfuly..!';
+                display_alert123('succ',msg);
+            }
+           else if(resp==2)
+            {
+                var msg = 'Information Updated Successfuly..!';
+                display_alert123('succ',msg);
+            }
+            else
+            {
+                var msg = 'Somthing goes Wrong.';
+                display_alert123('err',msg);   
+            }
+        }   
+        });
 }

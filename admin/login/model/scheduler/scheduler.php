@@ -16,9 +16,15 @@ class ModelSchedulerScheduler extends Model {
 		return $query->rows;
 
 	}
-	public function getCustomerCall($cust_id)  // single scheduler
+	public function getCustomerPackageHistory($cust_id)  // single scheduler
 	{
 		$sql = "SELECT pcm.*, cust.*, pm.*  FROM oc_package_customer_master pcm LEFT JOIN oc_customer cust ON(pcm.customer_id=cust.customer_id) LEFT JOIN oc_package_master pm ON(pm.package_id=pcm.package_id) WHERE pcm.customer_id = $cust_id" ;
+		$query = $this->db->query($sql);
+		return $query->rows;
+	}
+	public function getCustomerCall($cust_id)  // single scheduler
+	{
+		$sql = "SELECT *  FROM oc_call_schedule WHERE customer_id = $cust_id" ;
 		$query = $this->db->query($sql);
 		return $query->rows;
 	}
