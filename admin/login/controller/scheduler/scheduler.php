@@ -186,6 +186,7 @@ class ControllerSchedulerScheduler extends Controller {
 		$this->load->model('scheduler/scheduler');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+			//print_r(1233);exit;
 			$this->model_scheduler_scheduler->editScheduler($this->request->get['customer_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -204,7 +205,10 @@ class ControllerSchedulerScheduler extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('scheduler/scheduler/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $this->request->get['customer_id'] . $url, 'SSL'));
+
+
+			
 		}
 
 		$this->getForm();
@@ -317,7 +321,7 @@ class ControllerSchedulerScheduler extends Controller {
 
 
 		$cnt = count($scheduler_info);
-		//echo "<pre>";print_r($call_info);exit;
+		// echo "<pre>";print_r($call_info);exit;
 
 for ($i=0; $i <$cnt ; $i++) { 
 			
@@ -418,7 +422,6 @@ for ($i=0; $i <$cnt ; $i++) {
 		} else {
 			$data['status'] = true;
 		}
-
 		
 		$data['scheduler_description'][$i]= array(
 			'fname' => $data['fname'],
@@ -435,6 +438,70 @@ for ($i=0; $i <$cnt ; $i++) {
 
 			 );
 }
+
+
+$call_cnt = COUNT($call_info);
+for ($j=0; $j < $call_cnt; $j++) {
+
+		if (isset($this->request->post['package_id'])) {
+			$data['package_id'] = $this->request->post['package_id'];
+		} elseif (!empty($call_info)) {
+			$data['package_id'] = $call_info[$j]['package_id'];
+		} else {
+			$data['package_id'] = true;
+		} 
+	
+		if (isset($this->request->post['date'])) {
+			$data['date'] = $this->request->post['date'];
+		} elseif (!empty($call_info)) {
+			$data['date'] = $call_info[$j]['date'];
+		} else {
+			$data['date'] = true;
+		}
+
+		if (isset($this->request->post['time'])) {
+			$data['time'] = $this->request->post['time'];
+		} elseif (!empty($call_info)) {
+			$data['time'] = $call_info[$j]['time'];
+		} else {
+			$data['time'] = true;
+		}
+
+		if (isset($this->request->post['call_no'])) {
+			$data['call_no'] = $this->request->post['call_no'];
+		} elseif (!empty($call_info)) {
+			$data['call_no'] = $call_info[$j]['call_no'];
+		} else {
+			$data['call_no'] = true;
+		}
+
+		if (isset($this->request->post['status'])) {
+			$data['status'] = $this->request->post['status'];
+		} elseif (!empty($call_info)) {
+			$data['status'] = $call_info[$j]['status'];
+		} else {
+			$data['status'] = true;
+		}
+
+		if (isset($this->request->post['complete_status'])) {
+			$data['complete_status'] = $this->request->post['complete_status'];
+		} elseif (!empty($call_info)) {
+			$data['complete_status'] = $call_info[$j]['complete_status'];
+		} else {
+			$data['complete_status'] = true;
+		}
+
+
+		$data['call'][$j]= array(
+				'package_id' => $data['package_id'],
+				'call_no' => $data['call_no'],
+				'date' => $data['date'],
+				'time' => $data['time'],
+				'status' => $data['status'],
+				'complete_status' => $data['complete_status'],
+			);
+
+}
 		//echo "<pre>";print_r($data['scheduler_description']);exit;
 
 		$data['header'] = $this->load->controller('common/header');
@@ -450,87 +517,89 @@ for ($i=0; $i <$cnt ; $i++) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		foreach ($this->request->post['scheduler_description'] as $language_id => $value) {
-			if ((utf8_strlen($value['name']) < 2) || (utf8_strlen($value['name']) > 255)) {
-				$this->error['name'][$language_id] = $this->language->get('error_name');
-			}
-		}
+		// foreach ($this->request->post['scheduler_description'] as $language_id => $value) {
+		// 	if ((utf8_strlen($value['name']) < 2) || (utf8_strlen($value['name']) > 255)) {
+		// 		$this->error['name'][$language_id] = $this->language->get('error_name');
+		// 	}
+		// }
 
 		return !$this->error;
 	}
 	/****************************************************/
-	public function add() {
-		$this->language->load('scheduler/scheduler');
+	// public function add() {
+	// 	$this->language->load('scheduler/scheduler');
 
-		$this->document->setTitle($this->language->get('heading_title'));
+	// 	$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('scheduler/scheduler');
+	// 	$this->load->model('scheduler/scheduler');
 
-		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_scheduler_scheduler->addScheduler($this->request->post);
+	// 	if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+	// 		$this->model_scheduler_scheduler->addScheduler($this->request->post);
 
-			$this->session->data['success'] = $this->language->get('text_success');
+	// 		print_r(1233);exit;
 
-			$url = '';
+	// 		$this->session->data['success'] = $this->language->get('text_success');
 
-			if (isset($this->request->get['sort'])) {
-				$url .= '&sort=' . $this->request->get['sort'];
-			}
+	// 		$url = '';
 
-			if (isset($this->request->get['order'])) {
-				$url .= '&order=' . $this->request->get['order'];
-			}
+	// 		if (isset($this->request->get['sort'])) {
+	// 			$url .= '&sort=' . $this->request->get['sort'];
+	// 		}
 
-			if (isset($this->request->get['page'])) {
-				$url .= '&page=' . $this->request->get['page'];
-			}
+	// 		if (isset($this->request->get['order'])) {
+	// 			$url .= '&order=' . $this->request->get['order'];
+	// 		}
 
-			$this->response->redirect($this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
-		}
+	// 		if (isset($this->request->get['page'])) {
+	// 			$url .= '&page=' . $this->request->get['page'];
+	// 		}
 
-		$this->getForm();
-	}
+	// 		$this->response->redirect($this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+	// 	}
+
+	// 	$this->getForm();
+	// }
 
 
-	public function delete() {
-		$this->language->load('scheduler/scheduler');
+	// public function delete() {
+	// 	$this->language->load('scheduler/scheduler');
 
-		$this->document->setTitle($this->language->get('heading_title'));
+	// 	$this->document->setTitle($this->language->get('heading_title'));
 
-		$this->load->model('scheduler/scheduler');
+	// 	$this->load->model('scheduler/scheduler');
 
-		if (isset($this->request->post['selected']) && $this->validateDelete()) {
-			foreach ($this->request->post['selected'] as $customer_id) {
-				$this->model_scheduler_scheduler->deletescheduler($customer_id);
-			}
+	// 	if (isset($this->request->post['selected']) && $this->validateDelete()) {
+	// 		foreach ($this->request->post['selected'] as $customer_id) {
+	// 			$this->model_scheduler_scheduler->deletescheduler($customer_id);
+	// 		}
 
-			$this->session->data['success'] = $this->language->get('text_success');
+	// 		$this->session->data['success'] = $this->language->get('text_success');
 
-			$url = '';
+	// 		$url = '';
 
-			if (isset($this->request->get['sort'])) {
-				$url .= '&sort=' . $this->request->get['sort'];
-			}
+	// 		if (isset($this->request->get['sort'])) {
+	// 			$url .= '&sort=' . $this->request->get['sort'];
+	// 		}
 
-			if (isset($this->request->get['order'])) {
-				$url .= '&order=' . $this->request->get['order'];
-			}
+	// 		if (isset($this->request->get['order'])) {
+	// 			$url .= '&order=' . $this->request->get['order'];
+	// 		}
 
-			if (isset($this->request->get['page'])) {
-				$url .= '&page=' . $this->request->get['page'];
-			}
+	// 		if (isset($this->request->get['page'])) {
+	// 			$url .= '&page=' . $this->request->get['page'];
+	// 		}
 
-			$this->response->redirect($this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
-		}
+	// 		$this->response->redirect($this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+	// 	}
 
-		$this->getList();
-	}
+	// 	$this->getList();
+	// }
 
-	protected function validateDelete() {
-		if (!$this->user->hasPermission('modify', 'scheduler/scheduler')) {
-			$this->error['warning'] = $this->language->get('error_permission');
-		}
+	// protected function validateDelete() {
+	// 	if (!$this->user->hasPermission('modify', 'scheduler/scheduler')) {
+	// 		$this->error['warning'] = $this->language->get('error_permission');
+	// 	}
 
-		return !$this->error;
-	}
+	// 	return !$this->error;
+	// }
 }

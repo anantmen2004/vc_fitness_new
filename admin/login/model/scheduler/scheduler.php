@@ -25,68 +25,21 @@ class ModelSchedulerScheduler extends Model {
 	public function getCustomerCall($cust_id)  // single scheduler
 	{
 		$sql = "SELECT *  FROM oc_call_schedule WHERE customer_id = $cust_id" ;
+		// print_r($sql);exit;
 		$query = $this->db->query($sql);
 		return $query->rows;
 	}
-	// public function getSchedulerTypes()  // single scheduler
-	// {
-	// 	$query = $this->db->query("SELECT * FROM oc_scheduler_type");
 
-	// 	return $query->rows;
-	// }
-	
-
-	// public function editScheduler($scheduler_id, $data) {
-	// 	$this->event->trigger('pre.admin.scheduler.edit', $data);
-
-	// 	$this->db->query("UPDATE " . DB_PREFIX . "scheduler SET title = '" . $data['scheduler_description'][1]['name'] . "', scheduler_type_id = '" . (int)$data['scheduler_description'][1]['scheduler_type_id'] . "', description = '" . $data['scheduler_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', img_path = '" . $data['image'] . "', date_modified = NOW() WHERE scheduler_id = '" . (int)$scheduler_id . "'");
+	public function editScheduler($cust_id, $data) {
+		// print_r($data);exit;
+		$this->event->trigger('pre.admin.scheduler.edit', $data);
+		$this->db->query("UPDATE " . DB_PREFIX . "call_schedule SET date = '" . $data['date']. "', time = '" . $data['time']. "', status = '" . $data['status'] . "', updated_on = NOW() WHERE customer_id = '" . (int)$cust_id . "' AND package_id = '" . (int)$data['package_id'] . "' AND call_no = '" . (int)$data['call_no'] . "'");
 
 		
-	// 	$this->cache->delete('scheduler');
+		$this->cache->delete('scheduler');
 
-	// 	$this->event->trigger('post.admin.scheduler.edit', $scheduler_id);
-	// }
-
-	// public function addScheduler($data) {
-	// 	// $this->event->trigger('pre.admin.scheduler.add', $data);
-	// 	//echo "<pre>";print_r($data);exit;
-	// 	$this->db->query("INSERT INTO " . DB_PREFIX . "scheduler SET title = '" . $data['scheduler_description'][1]['name'] . "', scheduler_type_id = '" . (int)$data['scheduler_description'][1]['scheduler_type_id'] . "', description = '" . $data['scheduler_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', img_path = '" . $data['image'] . "', date_modified = NOW(), date_added = NOW()");
-
-	// 	$scheduler_id = $this->db->getLastId();
-
-	// 	// $this->event->trigger('post.admin.scheduler.add', $category_id);
-
-	// 	return $scheduler_id;
-	// }
-
-	// public function deleteScheduler($scheduler_id) {
-	// 	$this->event->trigger('pre.admin.scheduler.delete', $scheduler_id);
-
-	// 	$this->db->query("DELETE FROM " . DB_PREFIX . "training_type WHERE scheduler_id = '" . (int)$scheduler_id . "'");
-	// 	$this->db->query("DELETE FROM " . DB_PREFIX . "scheduler WHERE scheduler_id = '" . (int)$scheduler_id . "'");
-		
-	// 	$this->cache->delete('scheduler');
-
-	// 	$this->event->trigger('post.admin.scheduler.delete', $scheduler_id);
-	// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		$this->event->trigger('post.admin.scheduler.edit', $scheduler_id);
+	}
 
 
 }

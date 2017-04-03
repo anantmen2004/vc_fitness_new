@@ -63,46 +63,60 @@ class Packages extends CI_Controller {
 	public function confirmPackage()
 	{
 		$formData = $this->input->post();
-		if($formData['package_duration']==1)
-		{
-			$amount= 5000;
-		}
-		else if($formData['package_duration']==3)
-		{
-			$amount= 10000;
-		}
-		else if($formData['package_duration']==6)
-		{
-			$amount= 20000;
-		}
-		else if($formData['package_duration']==12)
-		{
-			$amount= 30000;
+
+		$where = array(
+			'package_id'=> $formData['package_id'],
+			'customer_id'=> $formData['package_customer_id'],
+			'status'=> 0
+			);
+		$check_packdata= $this->Helper_model->select("","oc_package_customer_master",$where);
+		if(empty($check_packdata)){
+
+			if($formData['package_duration']==1)
+			{
+				$amount= 5000;
+			}
+			else if($formData['package_duration']==3)
+			{
+				$amount= 10000;
+			}
+			else if($formData['package_duration']==6)
+			{
+				$amount= 20000;
+			}
+			else if($formData['package_duration']==12)
+			{
+				$amount= 30000;
+			}
+			else
+			{
+				$amount=0;
+			}
+
+			$timezone = new DateTimeZone("Asia/Kolkata" );
+			$date = new DateTime();
+			$date->setTimezone($timezone );
+			$date =  $date->format( 'Y-m-d H:i:s');
+
+			$data = array(
+				'package_id'=> $formData['package_id'],
+				'customer_id'=> $formData['package_customer_id'],
+				'duration' => $formData['package_duration'],
+				'amount' => $amount,
+				'start_date'=> date('Y-m-d',strtotime($formData['package_stratDate'])),
+				'end_date'=> date('Y-m-d',strtotime($formData['package_endDate'])),
+				'comment'=> $formData['package_comment'],
+				'date_added'=> $date
+				);
+			$result = $this->Helper_model->insert('oc_package_customer_master',$data);
+			if(!empty($result))
+			{
+				echo 1;
+			}
 		}
 		else
 		{
-			$amount=0;
-		}
-
-		$timezone = new DateTimeZone("Asia/Kolkata" );
-		$date = new DateTime();
-		$date->setTimezone($timezone );
-		$date =  $date->format( 'Y-m-d H:i:s');
-
-		$data = array(
-			'package_id'=> $formData['package_id'],
-			'customer_id'=> $formData['package_customer_id'],
-			'duration' => $formData['package_duration'],
-			'amount' => $amount,
-			'start_date'=> date('Y-m-d',strtotime($formData['package_stratDate'])),
-			'end_date'=> date('Y-m-d',strtotime($formData['package_endDate'])),
-			'comment'=> $formData['package_comment'],
-			'date_added'=> $date
-			);
-		$result = $this->Helper_model->insert('oc_package_customer_master',$data);
-		if(!empty($result))
-		{
-			echo 1;
+			echo 2;
 		}
 	}
 	public function packagesPayment()
