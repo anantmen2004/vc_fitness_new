@@ -51,16 +51,16 @@ class My_account extends CI_Controller {
 			$videoinfo = array();
 			$data['video']=array();
 			$data['trainarr']= array();
-			$data['callnumber']=array();
+			$data['call_data']=array();
 
 		foreach ($packages as $key => $value2) 
 		{
 			$data['packdata']= $packages;
 			
-		   $callstatus=$this->Packages_model->getCallno($value2['package_id'],$cust);
-		    array_push($data['callnumber'], $callstatus);
+		   $calls = $this->Packages_model->getCallno($value2['package_id'],$cust);
+		   array_push($data['call_data'], $calls);
 		
-		  // print_r($data['callstatus']); exit();
+		  	
 				
 			$training_data=$this->Packages_model->getTrainingType($value2['package_id']);
 			array_push($data['trainarr'], $training_data);
@@ -82,6 +82,8 @@ class My_account extends CI_Controller {
 			{
 				$data['wishlist'][$key] = $this->Product_model->selectSingelProduct($value['product_id']);
 			}
+
+			//echo "<pre>";print_r($data['call_data']); exit();
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('myAccount/my_account');
@@ -265,6 +267,54 @@ class My_account extends CI_Controller {
 					}
 				}
 			}
+		}
+	}
+	/*****************************************/
+	public function send_call_schedule_mail($customer_id)
+	{
+		
+        $config['mailtype'] = 'html';
+    	$this->email->initialize($config);
+
+		$email_body ='<div style="background:#fff; border: 1px solid #b3b3b3; height:auto; width:650;">';
+		$email_body .='<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">';
+		$email_body .='<img src="'.base_url().'public/images/logo.png" style="align:center; height:150px width: 200px;" />';
+		$email_body .='</div>';
+		$email_body .='<br/>';		
+		$email_body .='<div>';
+		$email_body .='<div style="background:#d9d9d9; padding:30px">';
+		$email_body .= "<b>Hello Sir/Madam,</b>";
+		$email_body .='<br/>';
+		$email_body .='Following Call have been Scheduled Now';
+		$email_body .='<br/>';
+        $email_body .='<br/>';
+        $email_body .= "<span><b>Login Details:</b></span>";
+        $email_body .='<br/>';
+        $email_body .= "<span><b>Login :</b></span>".$email;
+        $email_body .='<br/>';
+        $email_body .= "<span><b>Password :</b></span>".$password;
+        $email_body .='<br/>';
+        $email_body .='<br/>';
+        
+        $email_body .='</div>';
+        $email_body .='</div>';
+        $email_body .='</div>';
+      
+        //print_r($email_body);exit();
+		$this->load->library('email');
+		$this->email->from("dhanuping@noreply.net");
+		//print_r($email_body);exit();
+		$this->email->to("dhananjaypingale2112@gmail.com");
+		
+		$this->email->subject("Call Schedulling Request");
+		$this->email->message($email_body);
+		if(!$this->email->send())
+		{
+			echo 0;
+		}
+		else
+		{
+		echo 1;
 		}
 	}
 

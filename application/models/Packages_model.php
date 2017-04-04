@@ -39,6 +39,7 @@ class Packages_model extends CI_Model {
 
 	public function getCallno($pid, $custid)
 	{
-		return $data = $this->db->query("SELECT call_no,package_id from oc_call_schedule where customer_id= $custid AND package_id= $pid AND complete_status=1")->result_array();
+		//print_r("SELECT * from oc_call_schedule where customer_id = $custid AND package_id= $pid");exit;
+		return $this->db->query("SELECT * FROM oc_call_schedule WHERE customer_id = $custid AND package_id= $pid")->result_array();
 	}
 }
