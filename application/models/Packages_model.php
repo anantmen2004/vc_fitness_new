@@ -42,4 +42,8 @@ class Packages_model extends CI_Model {
 		//print_r("SELECT * from oc_call_schedule where customer_id = $custid AND package_id= $pid");exit;
 		return $this->db->query("SELECT * FROM oc_call_schedule WHERE customer_id = $custid AND package_id= $pid")->result_array();
 	}
+	public function getHistory($custid)
+	{
+		return $data = $this->db->query("SELECT p.package_id, p.package_name, p.package_details,pc.duration, pc.amount, p.package_call FROM oc_package_master p, oc_package_customer_master pc WHERE pc.package_id=p.package_id AND pc.status = 1 AND pc.customer_id = $custid ")->result_array();
+	}
 }

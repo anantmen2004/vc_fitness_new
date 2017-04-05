@@ -175,7 +175,8 @@ function videocall(id)
         url:path,
         data:formData,
         success:function(resp)
-         {  alert(resp);
+         {  
+            alert(resp);
            if(resp==1)
             {
                 var msg = 'Information inserted Successfuly..!';

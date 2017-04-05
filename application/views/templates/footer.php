@@ -503,6 +503,17 @@ window.info = function(msg) {
             active_content_border_color: '#5AB1D0' // border color for active tabs contect in this group so that it matches the tab head border
         });
 
+        $('#ChildVerticalTab_4').easyResponsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true,
+            tabidentify: 'ver_4', // The tab groups identifier
+            activetab_bg: '#fff', // background color for active tabs in this group
+            inactive_bg: '#F5F5F5', // background color for inactive tabs in this group
+            active_border_color: '#c1c1c1', // border color for active tabs heads in this group
+            active_content_border_color: '#5AB1D0' // border color for active tabs contect in this group so that it matches the tab head border
+        });
+
         
     });
 </script>

@@ -16,6 +16,7 @@
               <li>My Account Information</li>
               <li>My Orders</li>
               <li>My Packages</li>
+              <li>My Package History</li>
             </ul>
             <div class="resp-tabs-container hor_1">
               <div>
@@ -345,7 +346,7 @@
                   }
 
            ?>
-          <input type="hidden" name="packcall[]" value="<?php echo empty($call_data[$i][$p])? $call_cnt : $call_data[$i][$p]['call_no']; ?>" placeholder="id" id="pack_call" class="form-control" readonly>          
+          <input type="text" name="packcall[]" value="<?php echo empty($call_data[$i][$p])? $call_cnt : $call_data[$i][$p]['call_no']; ?>" placeholder="id" id="pack_call" class="form-control" readonly>          
           <div class="col-md-3">
           <label>Date</label>
             <input type="text" date-date-format=""  class="pickdate" id="packagecall" name="date1[]" placeholder="Select Date" value="<?php echo empty($call_data[$i][$p]['date'])? "" : $call_data[$i][$p]['date']; ?>" <?php echo (!empty($status) && $status== 2)?"disabled":"";?>/>
@@ -406,6 +407,176 @@
 <?php endfor; ?>
 </div>
 </div>
+<!-- package history starts-->
+
+<div>
+ <p>
+
+  <div id="ChildVerticalTab_4">
+    <ul class="resp-tabs-list ver_4">    
+    <?php $cnt=COUNT($packhistory); ?>
+    <?php for ($i=0; $i < $cnt; $i++) : ?>     
+      <?php if($i==0) {for ($j=0; $j < $cnt; $j++) : ?> 
+
+    <li><?php echo $packhistory[$j]['package_name']; ?></li>
+      <?php endfor;} ?>
+
+  <!-- <?php //endforeach; ?> -->
+    </ul>
+    <div class="resp-tabs-container ver_4">
+      <div>
+       <h4>My Package Details</h4>
+       <p>
+         <form id="mypackageInfo_<?php echo $i; ?>" role="form" enctype="multipart/form-data" class="form-horizontal">
+          <fieldset>
+
+            <div class="form-group required">
+              <input type="hidden" name="package_id" value="<?php echo $packhistory[$i]['package_id']; ?>" placeholder="id" id="package_id" class="form-control" readonly>
+               <label class="col-sm-3">Package Name</label>
+               <div class="col-sm-9">
+              <input type="text" name="package_name" value="<?php echo $packhistory[$i]['package_name']; ?>" placeholder="Package Name" id="package_name" class="form-control" readonly>
+              </div>
+            </div>
+            <div class="form-group required">
+             <label class="col-sm-3">Package Amount</label>
+               <div class="col-sm-9">
+             <input type="text" name="package_amount" value="<?php echo $packhistory[$i]['amount']; ?>" placeholder="Package Amount" id="package_amount" class="form-control" readonly="" readonly>
+             </div>
+           </div>
+           <div class="form-group required">
+            <label class="col-sm-3">Package Duration</label>
+              <div class="col-sm-9">
+             <input type="text" name="package_duration" value="<?php echo $packhistory[$i]['duration']; ?> Months" placeholder="Package Duration" id="package_duration" class="form-control" readonly="" readonly>
+             </div>
+           </div>
+           <div class="form-group required">
+            <label class="col-sm-3">Package Description</label>
+              <div class="col-sm-9">
+            <textarea  name="package_description" value="" placeholder="Package Description" readonly><?php echo $packhistory[$i]['package_details']; ?></textarea>
+            </div>
+          </div>
+
+            <div class="form-group required">
+            <label class="col-sm-3">No. of Call Sessions</label>
+              <div class="col-sm-9">
+             <input type="text" name="package_call[]" value="<?php echo $packhistory[$i]['package_call']; ?>" placeholder="Video Call" id="package_call" class="form-control" readonly="" readonly>
+             </div>
+           </div>
+
+          <div> 
+            <h4>Training Type</h4>
+            <div class="video"> 
+              <ul style="list-style-type: none;">
+              
+              <?php $cnt1=COUNT($trainarr1[$i]); ?>
+               <?php for ($k=0; $k < $cnt1; $k++) : ?>
+                <li class="Training_type"><h5><?php echo $trainarr1[$i][$k]['training_name']; ?>
+                <span class="pull-right"><img src="<?php echo base_url();?>public/images/arrow-down2.png"></span></h5>
+                <div class="row">
+                  <ul class="ul9_<?php echo $k; ?>" style="list-style: none;">
+                  <?php $cnt2=COUNT($video1[$i][$k]); ?>
+                      <?php for ($v=0; $v < $cnt2; $v++) : ?>
+                    <li class="col-md-3">
+                      <a class="youtube-btn-training" href="">
+                      
+                         <video id="<?php echo $video1[$i][$k][$v]['video_id']; ?>" style="min-width:100%; min-height:100%; border:3px solid #F26522;" name="<?php echo $video1[$i][$k][$v]['video_name']; ?>" >
+                          <source src="<?php echo $video1[$i][$k][$v]['video_path']; ?>" type="video/mp4" />
+                        </video> 
+                      
+                      </a>
+                    </li>
+                    <?php endfor; ?>
+                  </ul>
+                  </div>
+                </li>
+              <?php endfor; ?>
+
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h4>Schedule Video Call</h4>
+          <div class="alert_msg"></div>
+          <?php $val=$packhistory[$i]['package_call']; ?>
+            <?php for($p=1; $p<=$val; $p++) : ?>
+  
+           <input type="hidden" name="packcall[]" value="<?php echo $p; ?>" placeholder="id" id="pack_call" class="form-control" readonly> 
+               
+          <div class="col-md-3">
+          <label>Date</label>
+            <!-- <input type="text" date-date-format=""  class="pickdate" id="packagecall" name="date1[]" placeholder="Select Date" value=" <?php //echo ($callnumber[$i] == '' && $p > 1) ?"disabled" : "dfhdg"; ?>" /> -->
+            <input type="text" date-date-format=""  class="pickdate" id="packagecall" name="date1[]" placeholder="Select Date" />
+            <!-- value="<?php if(isset($call)): echo $call[$i][$p][$key]['date'] ;  endif;  ?>" -->
+          </div>
+
+           <div class="col-md-2">
+          <label>Hours</label>
+          <select id="hour" name="hour[]" style="height:34px; padding: 3px 0px 0px 10px;" >
+
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+
+         </select>
+         </div>
+
+         <div class="col-md-2">
+          <label>Minutes</label>
+         <select id="minute" name="minute[]" style="height:34px; padding: 3px 0px 0px 10px;" >
+         <option value="00">00</option>
+            <?php for($r=01; $r<61 ; $r++) : ?>
+              <option value="<?php echo $r; ?>"><?php echo $r; ?></option>
+            <?php endfor; ?>
+         </select>
+         </div>
+
+         <div class="col-md-2">
+         <label></label>
+         <select id="pm" name="pm[]" style="height:34px; padding: 3px 0px 0px 10px; margin-top: 5px;" >
+
+              <option value="AM">AM</option>
+              <option value="PM">PM</option>
+           
+         </select>
+          </div>
+
+          <div class="col-md-3">
+          <label>Status</label>
+            <select id="callstatus" name="call_status[]" style="height:34px; padding: 3px 0px 0px 20px;"  value="<?php if(isset($call4)): echo $call[$i][$p][$key]['time'] ;  endif; ?>">
+              <option>---select---</option>
+              <option value="0">Pending</option>
+              <option value="1">Confirm</option>
+              <option value="2">Reschedule</option>
+              <option value="3">Cancel</option>
+            </select>
+          </div> 
+    <!-- <?php //endif; ?>  -->
+        <?php endfor; ?>
+       
+          <div>
+            <button type="button" name="callsubmit" id="callsubmit" value="Submit" class="dt-sc-button small" onclick="videocall('<?php echo $i; ?>')">Submit</button>
+          </div>
+         
+        </div>
+          </fieldset>
+        </form>
+      </p>
+    </div>
+  </div>
+<?php endfor; ?>
+</div>
+</div>
+<!-- history end-->
 </div>
 </p>
 </div>

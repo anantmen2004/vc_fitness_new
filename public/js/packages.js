@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 
 
-})
+});
 
 
 function insertPackage(packagesId,customer_id)

@@ -20,6 +20,7 @@
                   <div class="dt-sc-tabs-vertical-frame1-content">
                     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                       <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+                      <?php if(!empty($trainings)): ?>
                       <?php 
                         $cnt=count($trainings);
                         for($i=0; $i<$cnt;$i++): 
@@ -41,6 +42,7 @@
                       <div id="myTabContent" class="tab-content">
                           <?php echo $trainings[0]['content']; ?>
                       </div>
+                    <?php endif; ?>
                     </div>
 
   <!--****************************************************-->
