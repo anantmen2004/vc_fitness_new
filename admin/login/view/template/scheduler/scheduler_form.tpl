@@ -24,7 +24,7 @@
         <h3 class="panel-title"><i class="fa fa-pencil"></i> <?php echo "Package Name"; ?></h3>
       </div>
       <div class="panel-body">
-        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-category" class="form-horizontal">
+        <!-- <form class="form-horizontal"> -->
   <?php $cnt = COUNT($scheduler_description);?>
 <?php for($i=0; $i<$cnt; $i++):?>
 
@@ -53,16 +53,16 @@
                     <label class="col-sm-2 control-label" for=""><?php echo "Customer Name"; ?></label>
                     <div class="col-sm-4">
                       <input type="text"  value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['fname'] : '';?> <?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['lname'] : '';?>" placeholder="" id="" class="form-control" readonly/>
-                      <input type="hidden" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['customer_id'] : '';?>" placeholder="" id="" class="form-control" readonly/>
+                      
                     </div>
 
                     <label class="col-sm-2 control-label" for=""><?php echo "Package Name"; ?></label>
                     <div class="col-sm-4">
                       <input type="text" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['package_name'] : '';?>" placeholder="" id="" class="form-control" readonly/>
-                      <input type="hidden" name="package_id" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['package_id'] : '';?>" placeholder="" id="" class="form-control" readonly/>
+                      <!-- <input type="hidden" name="package_id" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['package_id'] : '';?>" placeholder="" id="" class="form-control" readonly/> -->
                     </div>
                   </div>
-
+<br/>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for=""><?php echo "No of Video Call"; ?></label>
                     <div class="col-sm-4">
@@ -75,7 +75,7 @@
                       <input type="text" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['entry_date'] : '';?>" placeholder="" id="" class="form-control" readonly/>
                     </div>
                   </div>
-
+<br/>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for=""><?php echo "Package Start date"; ?></label>
                     <div class="col-sm-4">
@@ -88,7 +88,7 @@
                       <input type="text" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['end_date'] : '';?>" placeholder="" id="" class="form-control" readonly/>
                     </div>
                   </div>
-
+<br/>
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for=""><?php echo "Package duration"; ?></label>
                     <div class="col-sm-4">
@@ -102,6 +102,7 @@
                     
                     </div>
                   </div>
+<br/>
                   <h3 style="text-align: center;">Schedule Customer Call</h3>
                   <div class="form-group">
                   <div class="col-sm-10 col-sm-offset-1">
@@ -114,13 +115,18 @@
                               <th>Action</th>
                           </tr>
                           <?php 
+                              $form_id = 1;
                               foreach($call as $key => $value){
                               if($scheduler_description[$j]['package_id']==$value['package_id']){
 
                           ?>
-                          <tr id="">
+                          
+                          <tr>
+                          <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="<?php echo $j;?><?php echo $form_id;?>">
                               <td style="width:100px;">
                                  <input type="text" class="form-control" name="call_no" id="call_no" value="<?php echo $value['call_no']?>" readonly/>
+                                 <input type="hidden" name="package_id" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['package_id'] : '';?>" placeholder="" id="" class="form-control" readonly/>
+                                 <input type="hidden" name="customer_id" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['customer_id'] : '';?>" placeholder="" id="" class="form-control" readonly/>
                               </td>
                               <td>
                                   <div class="input-group date">
@@ -148,10 +154,14 @@
                                   </select>
                               </td>
                               <td>
-                                <button type="submit" form="form-category" data-toggle="tooltip" title="<?php echo "Submit New dates"; ?>" class="btn btn-primary">Submit</button>
+                                <button type="submit" form="<?php echo $j;?><?php echo $form_id; ?>" data-toggle="tooltip" title="Submit New dates" class="btn btn-primary">Submit</button>
+
+                                <button type="button" form="<?php echo $j;?><?php echo $form_id; ?>" data-toggle="tooltip" onclick="call_start('<?php echo $j;?><?php echo $form_id; ?>')" title="Call Start" class="btn btn-primary">Start</button>
 
                               
                               </td>
+                              </form>
+                              <?php $form_id++; ?>
                               </tr>
                               <?php }}?>
                           </tr>
@@ -174,7 +184,7 @@
           
 
 <?php endfor;?>
-        </form>
+        <!-- </form> -->
       </div>
     </div>
   </div>
@@ -258,5 +268,23 @@ $('#language a:first').tab('show');
       pickDate: true,
       pickTime: true
     });
+</script>
+<script type="text/javascript">
+  function call_start(id){
+    //alert(id);
+    var formData = $("#"+id).serialize();
+    //var path = '<?php echo $call_start;?>';
+    // alert(path);
+    $.ajax({
+        type:'POST',
+        url: 'index.php?route=scheduler/scheduler/call_start/autocomplete&token=<?php echo $token; ?>',
+        dataType: 'json',
+        data:formData,
+        success:function(resp)
+         {  
+            alert(resp);console.log(resp);
+        }   
+        });
+  }
 </script>
 <?php echo $footer; ?>

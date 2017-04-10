@@ -20,7 +20,7 @@ class Helper_model extends CI_Model {
 		$query = $this->db->get();
 		//print_r($query);exit();
 		return $query->result_array();
-		//echo $this->db->last_query();
+		echo $this->db->last_query();
 	}
 
 	public function insert($tableName,$data)
@@ -47,14 +47,14 @@ class Helper_model extends CI_Model {
 	}
 	public function selectwhere($select,$tableName,$where)
 	{
-
+// print_r(123);exit;
 		$this->db->select($select);
 		$this->db->from($tableName);
 		$this->db->where($where);
 		//echo $this->db->_compile_select();
-		$query = $this->db->get();
-		//echo $this->db->last_query();
-		return $query->result();
+		$query = $this->db->get();echo $this->db->last_query();
+		
+		 $query->result();
 	}
 
 	public function selectrow($select,$tableName,$where)

@@ -1,0 +1,819 @@
+.DS_Store	Missing	public - Copy/fonts/fontawesome
+.htaccess	Missing	application - Copy
+.htaccess	Missing	application - Copy/cache
+.htaccess	Missing	application - Copy/views
+.htaccess	Modified	application/views
+1.jpg	Missing	public - Copy/assets/img/backgrounds
+_animated.scss	Missing	public - Copy/assets/font-awesome/scss
+_bordered-pulled.scss	Missing	public - Copy/assets/font-awesome/scss
+_core.scss	Missing	public - Copy/assets/font-awesome/scss
+_fixed-width.scss	Missing	public - Copy/assets/font-awesome/scss
+_icons.scss	Missing	public - Copy/assets/font-awesome/scss
+_larger.scss	Missing	public - Copy/assets/font-awesome/scss
+_list.scss	Missing	public - Copy/assets/font-awesome/scss
+_mixins.scss	Missing	public - Copy/assets/font-awesome/scss
+_path.scss	Missing	public - Copy/assets/font-awesome/scss
+_rotated-flipped.scss	Missing	public - Copy/assets/font-awesome/scss
+_screen-reader.scss	Missing	public - Copy/assets/font-awesome/scss
+_stacked.scss	Missing	public - Copy/assets/font-awesome/scss
+_variables.scss	Missing	public - Copy/assets/font-awesome/scss
+about-fitness-img.png	Missing	public - Copy/images
+About-status-img.png	Missing	public - Copy/images
+about.jpg	Missing	public - Copy/images
+about.php	Missing	application - Copy/views
+about.php	Missing	application - Copy/views/pages
+about.php	Modified	application/views
+about.php	Modified	application/views/pages
+Aboutus.php	Missing	application - Copy/controllers
+Aboutus.php	Modified	application/controllers
+abtus_sorting.css	Missing	application - Copy/views
+abtus_sorting.css	Modified	application/views
+add1.png	Missing	public - Copy/images
+add2.jpg	Missing	public - Copy/images
+add3.jpg	Missing	public - Copy/images
+animated.less	Missing	public - Copy/assets/font-awesome/less
+animations.css	Missing	public - Copy/css
+app-store.jpg	Missing	public - Copy/images
+apple-touch-icon-57-precomposed.png	Missing	public - Copy/assets/ico
+apple-touch-icon-72-precomposed.png	Missing	public - Copy/assets/ico
+apple-touch-icon-114-precomposed.png	Missing	public - Copy/assets/ico
+apple-touch-icon-144-precomposed.png	Missing	public - Copy/assets/ico
+apple_cinema_30.jpg	Missing	public - Copy/images/catalog/demo
+apple_logo.jpg	Missing	public - Copy/images/catalog/demo
+Auth.php	Missing	application - Copy/controllers
+Auth.php	Modified	application/controllers
+autoload.php	Missing	application - Copy/config
+award.jpg	Missing	public - Copy/images
+AwardsAchivements.php	Missing	application - Copy/controllers
+AwardsAchivements.php	Modified	application/controllers
+awardsAchivements.php	Missing	application - Copy/views/pages
+awardsAchivements.php	Modified	application/views/pages
+being-builder.png	Missing	public - Copy/images
+bg.png	Missing	public - Copy/images/default
+blank.gif	Missing	public - Copy/images/fancybox
+blank.html	Missing	public - Copy/css
+blog-thumb.jpg	Missing	public - Copy/images
+blog-thumb1.jpg	Missing	public - Copy/images
+blog-thumbnail-2.jpg	Missing	public - Copy/images
+blog-thumbnail.jpg	Missing	public - Copy/images
+blog1.jpg	Missing	public - Copy/images
+blog2.jpg	Missing	public - Copy/images
+blog2.png	Missing	public - Copy/images
+blog3.jpg	Missing	public - Copy/images
+blog3.png	Missing	public - Copy/images
+blog4.jpg	Missing	public - Copy/images
+blog4.png	Missing	public - Copy/images
+blog5.jpg	Missing	public - Copy/images
+blog5.png	Missing	public - Copy/images
+blog6.jpg	Missing	public - Copy/images
+bmi-frm-bg.png	Missing	public - Copy/images
+books.png	Missing	public - Copy/images
+bootstrap-datepicker.js	Missing	public - Copy/js/datepicker
+bootstrap-theme.css	Missing	public - Copy/assets/bootstrap/css
+bootstrap-theme.css.map	Missing	public - Copy/assets/bootstrap/css
+bootstrap-theme.min.css	Missing	public - Copy/assets/bootstrap/css
+bootstrap-theme.min.css.map	Missing	public - Copy/assets/bootstrap/css
+bootstrap.css	Missing	public - Copy/assets/bootstrap/css
+bootstrap.css.map	Missing	public - Copy/assets/bootstrap/css
+bootstrap.js	Missing	public - Copy/assets/bootstrap/js
+bootstrap.min.css	Missing	public - Copy/assets/bootstrap/css
+bootstrap.min.css	Missing	public - Copy/css/bootstrap
+bootstrap.min.css.map	Missing	public - Copy/assets/bootstrap/css
+bootstrap.min.js	Missing	public - Copy/assets/bootstrap/js
+bootstrap.min.js	Missing	public - Copy/css/bootstrap
+bordered-pulled.less	Missing	public - Copy/assets/font-awesome/less
+bpicons.eot	Missing	public - Copy/fonts/bpicons
+bpicons.svg	Missing	public - Copy/fonts/bpicons
+bpicons.ttf	Missing	public - Copy/fonts/bpicons
+bpicons.woff	Missing	public - Copy/fonts/bpicons
+breadcrumb-seperator.png	Missing	public - Copy/images
+breadcrumb-seperator@2x.png	Missing	public - Copy/images
+btn-bg.html	Missing	public - Copy/images
+btnNext.png	Missing	public - Copy/images/prettyPhoto/dark_rounded
+btnNext.png	Missing	public - Copy/images/prettyPhoto/dark_square
+btnNext.png	Missing	public - Copy/images/prettyPhoto/facebook
+btnNext.png	Missing	public - Copy/images/prettyPhoto/light_rounded
+btnNext.png	Missing	public - Copy/images/prettyPhoto/light_square
+btnPrevious.png	Missing	public - Copy/images/prettyPhoto/dark_rounded
+btnPrevious.png	Missing	public - Copy/images/prettyPhoto/dark_square
+btnPrevious.png	Missing	public - Copy/images/prettyPhoto/facebook
+btnPrevious.png	Missing	public - Copy/images/prettyPhoto/light_rounded
+btnPrevious.png	Missing	public - Copy/images/prettyPhoto/light_square
+burgerking.png	Missing	public - Copy/images/catalog/demo/manufacturer
+button-bg-large.png	Missing	public - Copy/images
+button-bg-medium.png	Missing	public - Copy/images
+button-bg-medium.png	Missing	public - Copy/images/sliders
+button-bg-small.png	Missing	public - Copy/images
+button-bg-xlarge.png	Missing	public - Copy/images
+cache.language.1491829459	Renamed (untracked)	admin/system/storage/cache
+cache.order_status.1.1491828581	Renamed (untracked)	admin/system/storage/cache
+cache.store.1491831705	Renamed (untracked)	admin/system/storage/cache
+canon.png	Missing	public - Copy/images/catalog/demo/manufacturer
+canon_eos_5d_1.jpg	Missing	public - Copy/images/catalog/demo
+canon_eos_5d_2.jpg	Missing	public - Copy/images/catalog/demo
+canon_eos_5d_3.jpg	Missing	public - Copy/images/catalog/demo
+canon_logo.jpg	Missing	public - Copy/images/catalog/demo
+cart.png	Missing	public - Copy/images/catalog
+cartView.php	Missing	application - Copy/views/product
+cartView.php	Modified	application/views/product
+cartView_2_march.php	Missing	application - Copy/views/product
+cartView_2_march.php	Modified	application/views/product
+cat_high_res.jpg	Missing	public - Copy/images
+cat_low_res.jpg	Missing	public - Copy/images
+cd-covers.png	Missing	public - Copy/images
+certificate.jpg	Missing	public - Copy/images
+certificate.png	Missing	public - Copy/images
+certificate2.png	Missing	public - Copy/images
+Certification.php	Missing	application - Copy/controllers
+Certification.php	Modified	application/controllers
+certification.php	Missing	application - Copy/views/pages
+certification.php	Modified	application/views/pages
+checkOut.php	Missing	application - Copy/views/product
+checkOut.php	Modified	application/views/product
+class.phpmailer.php	Missing	application - Copy/controllers/mailer
+class.phpmailer.php	Modified	application/controllers/mailer
+class.phpmaileroauth.php	Missing	application - Copy/controllers/mailer
+class.phpmaileroauth.php	Modified	application/controllers/mailer
+class.phpmaileroauthgoogle.php	Missing	application - Copy/controllers/mailer
+class.phpmaileroauthgoogle.php	Modified	application/controllers/mailer
+class.pop3.php	Missing	application - Copy/controllers/mailer
+class.pop3.php	Modified	application/controllers/mailer
+class.smtp.php	Missing	application - Copy/controllers/mailer
+class.smtp.php	Modified	application/controllers/mailer
+client1.png	Missing	public - Copy/images
+client2.png	Missing	public - Copy/images
+client3.png	Missing	public - Copy/images
+client4.png	Missing	public - Copy/images
+close.gif	Missing	public - Copy/images/default
+close.png	Missing	public - Copy/images/default
+Cmaster.php	Missing	application - Copy/controllers
+Cmaster.php	Modified	application/controllers
+cocacola.png	Missing	public - Copy/images/catalog/demo/manufacturer
+common.css	Missing	public - Copy/css
+compaq_presario.jpg	Missing	public - Copy/images/catalog/demo
+composer.json	Missing	application - Copy/controllers/mailer
+composer.lock	Missing	application - Copy/controllers/mailer
+config.php	Missing	application - Copy/config
+constants.php	Missing	application - Copy/config
+contact-bg.jpg	Missing	public - Copy/images
+contact.js	Missing	public - Copy/js
+ContactUs.php	Missing	application - Copy/controllers
+ContactUs.php	Modified	application/controllers
+contactUs.php	Missing	application - Copy/views/pages
+contactUs.php	Modified	application/views/pages
+contentPattern.png	Missing	public - Copy/images/prettyPhoto/dark_rounded
+contentPatternBottom.png	Missing	public - Copy/images/prettyPhoto/facebook
+contentPatternLeft.png	Missing	public - Copy/images/prettyPhoto/facebook
+contentPatternRight.png	Missing	public - Copy/images/prettyPhoto/facebook
+contentPatternTop.png	Missing	public - Copy/images/prettyPhoto/facebook
+controllers.zip	Missing	application - Copy
+controlpanel.js	Missing	public - Copy/js
+core.less	Missing	public - Copy/assets/font-awesome/less
+custom-fancy-ico.png	Missing	public - Copy/images
+custom-fancy-ico@2x.png	Missing	public - Copy/images
+custom.js	Missing	public - Copy/js
+custom_mapping.js	Missing	public - Copy/js
+custPackagesView.php	Missing	application - Copy/views/packages
+custPackagesView.php	Modified	application/views/packages
+database.php	Missing	application - Copy/config
+date-bg.png	Missing	public - Copy/images
+datepicker.css	Missing	public - Copy/js/datepicker
+datepicker.js	Missing	public - Copy/js
+datepicker.zip	Missing	public - Copy/js
+default_thumb.png	Missing	public - Copy/images/prettyPhoto/default
+default_thumbnail.gif	Missing	public - Copy/images/prettyPhoto/facebook
+dell.png	Missing	public - Copy/images/catalog/demo/manufacturer
+disney.png	Missing	public - Copy/images/catalog/demo/manufacturer
+doctypes.php	Missing	application - Copy/config
+dt-icon1.png	Missing	public - Copy/images
+dt-icon2.png	Missing	public - Copy/images
+dt-icon3.png	Missing	public - Copy/images
+dt-icon4.png	Missing	public - Copy/images
+easy-responsive-tabs.css	Missing	public - Copy/css
+easy-responsive-tabs.css	Modified	public/css
+easyResponsiveTabs.js	Missing	public - Copy/js
+error.log	Modified	admin/system/storage/logs
+error_404.php	Missing	application - Copy/views/errors/cli
+error_404.php	Missing	application - Copy/views/errors/html
+error_404.php	Modified	application/views/errors/cli
+error_404.php	Modified	application/views/errors/html
+error_db.php	Missing	application - Copy/views/errors/cli
+error_db.php	Missing	application - Copy/views/errors/html
+error_db.php	Modified	application/views/errors/cli
+error_db.php	Modified	application/views/errors/html
+error_exception.php	Missing	application - Copy/views/errors/cli
+error_exception.php	Missing	application - Copy/views/errors/html
+error_exception.php	Modified	application/views/errors/cli
+error_exception.php	Modified	application/views/errors/html
+error_general.php	Missing	application - Copy/views/errors/cli
+error_general.php	Missing	application - Copy/views/errors/html
+error_general.php	Modified	application/views/errors/cli
+error_general.php	Modified	application/views/errors/html
+error_php.php	Missing	application - Copy/views/errors/cli
+error_php.php	Missing	application - Copy/views/errors/html
+error_php.php	Modified	application/views/errors/cli
+error_php.php	Modified	application/views/errors/html
+event-shadow.png	Missing	public - Copy/images
+event1.jpg	Missing	public - Copy/images
+event2.jpg	Missing	public - Copy/images
+event3.jpg	Missing	public - Copy/images
+event4.jpg	Missing	public - Copy/images
+event5.jpg	Missing	public - Copy/images
+event11.jpg	Missing	public - Copy/images
+event12.jpg	Missing	public - Copy/images
+excersise1.jpg	Missing	public - Copy/images
+excersise2.jpg	Missing	public - Copy/images
+eye.js	Missing	public - Copy/js
+facebook.png	Missing	public - Copy/images/default
+fancy-box-title-bg.png	Missing	public - Copy/images
+fancybox_loading.gif	Missing	public - Copy/images/fancybox
+fancybox_loading@2x.gif	Missing	public - Copy/images/fancybox
+fancybox_overlay.png	Missing	public - Copy/images/fancybox
+fancybox_sprite.png	Missing	public - Copy/images/fancybox
+fancybox_sprite@2x.png	Missing	public - Copy/images/fancybox
+Faq.php	Missing	application - Copy/controllers
+Faq.php	Modified	application/controllers
+faq.php	Missing	application - Copy/views/pages
+faq.php	Modified	application/views/pages
+favicon.ico	Missing	public - Copy/images
+favicon.png	Missing	public - Copy/assets/ico
+female.jpg	Missing	public - Copy/images
+fitness-logo.png	Missing	public - Copy/images
+fitness-message.jpg	Missing	public - Copy/images
+fitness-summer-bag.jpg	Missing	public - Copy/images
+fixed-width.less	Missing	public - Copy/assets/font-awesome/less
+flaticon.css	Missing	public - Copy/css
+flaticon.eot	Missing	public - Copy/fonts
+flaticon.svg	Missing	public - Copy/fonts
+flaticon.ttf	Missing	public - Copy/fonts
+flaticon.woff	Missing	public - Copy/fonts
+font-awesome.css	Missing	public - Copy/assets/font-awesome/css
+font-awesome.less	Missing	public - Copy/assets/font-awesome/less
+font-awesome.min.css	Missing	public - Copy/assets/font-awesome/css
+font-awesome.min.css	Missing	public - Copy/css
+font-awesome.scss	Missing	public - Copy/assets/font-awesome/scss
+fontawesome-webfont.eot	Missing	public - Copy/assets/font-awesome/fonts
+fontawesome-webfont.svg	Missing	public - Copy/assets/font-awesome/fonts
+fontawesome-webfont.ttf	Missing	public - Copy/assets/font-awesome/fonts
+fontawesome-webfont.woff	Missing	public - Copy/assets/font-awesome/fonts
+fontawesome-webfont.woff2	Missing	public - Copy/assets/font-awesome/fonts
+fontawesome-webfontd41d.eot	Missing	public - Copy/fonts
+fontawesome-webfonte0a5.eot	Missing	public - Copy/fonts
+fontawesome-webfonte0a5.svg	Missing	public - Copy/fonts
+fontawesome-webfonte0a5.ttf	Missing	public - Copy/fonts
+fontawesome-webfonte0a5.woff	Missing	public - Copy/fonts
+fontawesome-webfonte0a5.woff2	Missing	public - Copy/fonts
+fontawesome.eot	Missing	public - Copy/fonts/fontawesome
+FontAwesome.otf	Missing	public - Copy/assets/font-awesome/fonts
+fontawesome.svg	Missing	public - Copy/fonts/fontawesome
+fontawesome.ttf	Missing	public - Copy/fonts/fontawesome
+fontawesome.woff	Missing	public - Copy/fonts/fontawesome
+Food-Fitness-logo1.jpg	Missing	public - Copy/images/products
+footer-link-seperator.jpg	Missing	public - Copy/images
+footer-link-seperator@2x.jpg	Missing	public - Copy/images
+footer.php	Missing	application - Copy/views/templates
+footer.php	Modified	application/views/templates
+footer_bkp.php	Missing	application - Copy/views/templates
+footer_bkp.php	Modified	application/views/templates
+foreign_chars.php	Missing	application - Copy/config
+forgotPass.php	Missing	application - Copy/views/register
+forgotPass.php	Modified	application/views/register
+forgotPassOtp.php	Missing	application - Copy/views/register
+forgotPassOtp.php	Modified	application/views/register
+form-elements.css	Missing	public - Copy/assets/css
+form-validation.js	Missing	public - Copy/js
+Forma-1-hover.png	Missing	public - Copy/images
+Forma-1.png	Missing	public - Copy/images
+Forma-11-hover.png	Missing	public - Copy/images
+Forma-11.png	Missing	public - Copy/images
+Forma-12-hover.png	Missing	public - Copy/images
+Forma-12.png	Missing	public - Copy/images
+Forma-13-hover.png	Missing	public - Copy/images
+Forma-13.png	Missing	public - Copy/images
+Forma-14-hover.png	Missing	public - Copy/images
+Forma-14.png	Missing	public - Copy/images
+Forma-15-hover.png	Missing	public - Copy/images
+Forma-15.png	Missing	public - Copy/images
+gallery.js	Missing	public - Copy/js
+Gallery.php	Missing	application - Copy/controllers
+Gallery.php	Modified	application/controllers
+gallery.php	Missing	application - Copy/views/pages
+gallery.php	Modified	application/views/pages
+Gallery_model.php	Missing	application - Copy/models
+Gallery_model.php	Modified	application/models
+get_oauth_token.php	Missing	application - Copy/controllers/mailer
+get_oauth_token.php	Modified	application/controllers/mailer
+gift-voucher-birthday.jpg	Missing	public - Copy/images/catalog/demo
+girl.png	Missing	public - Copy/images
+glyphicons-halflings-regular.eot	Missing	public - Copy/assets/bootstrap/fonts
+glyphicons-halflings-regular.svg	Missing	public - Copy/assets/bootstrap/fonts
+glyphicons-halflings-regular.ttf	Missing	public - Copy/assets/bootstrap/fonts
+glyphicons-halflings-regular.woff	Missing	public - Copy/assets/bootstrap/fonts
+glyphicons-halflings-regular.woff2	Missing	public - Copy/assets/bootstrap/fonts
+google-play.jpg	Missing	public - Copy/images
+google.png	Missing	public - Copy/images/default
+greensock.js	Missing	public - Copy/js
+guy-running.png	Missing	public - Copy/images/sliders
+guy.png	Missing	public - Copy/images
+Gym.jpg	Missing	public - Copy/images
+harley.png	Missing	public - Copy/images/catalog/demo/manufacturer
+header-border.html	Missing	public - Copy/images
+header.php	Missing	application - Copy/views/templates
+header.php	Modified	application/views/templates
+HELP-US-OUT.txt	Missing	public - Copy/assets/font-awesome
+Helper_model.php	Missing	application - Copy/models
+Helper_model.php	Modified	application/models
+hooks.php	Missing	application - Copy/config
+hp_1.jpg	Missing	public - Copy/images/catalog/demo
+hp_2.jpg	Missing	public - Copy/images/catalog/demo
+hp_3.jpg	Missing	public - Copy/images/catalog/demo
+hp_banner.jpg	Missing	public - Copy/images/catalog/demo
+htc_touch_hd_1.jpg	Missing	public - Copy/images/catalog/demo
+htc_touch_hd_2.jpg	Missing	public - Copy/images/catalog/demo
+htc_touch_hd_3.jpg	Missing	public - Copy/images/catalog/demo
+icon-seperator.png	Missing	public - Copy/images
+icon-seperator1.png	Missing	public - Copy/images
+icon-seperator2.png	Missing	public - Copy/images
+icon1-hover.png	Missing	public - Copy/images
+icon1.png	Missing	public - Copy/skins/green/images
+icon1@2x.png	Missing	public - Copy/skins/green/images
+icon2-hover.png	Missing	public - Copy/images
+icon2.png	Missing	public - Copy/skins/green/images
+icon2@2x.png	Missing	public - Copy/skins/green/images
+icon3-hover.png	Missing	public - Copy/images
+icon3.png	Missing	public - Copy/skins/green/images
+icon3@2x.png	Missing	public - Copy/skins/green/images
+icon4-hover.png	Missing	public - Copy/images
+icon4.png	Missing	public - Copy/skins/green/images
+icon4@2x.png	Missing	public - Copy/skins/green/images
+icon5.png	Missing	public - Copy/images
+icon6.png	Missing	public - Copy/images
+icon7.png	Missing	public - Copy/images
+icon8.png	Missing	public - Copy/images
+icons.less	Missing	public - Copy/assets/font-awesome/less
+imac.png	Missing	public - Copy/images
+imac_1.jpg	Missing	public - Copy/images/catalog/demo
+imac_2.jpg	Missing	public - Copy/images/catalog/demo
+imac_3.jpg	Missing	public - Copy/images/catalog/demo
+image.jpg	Missing	public - Copy/images/ritesh
+image1.jpg	Missing	public - Copy/images/anant-ambani
+image1.jpg	Missing	public - Copy/images/john
+image1.jpg	Missing	public - Copy/images/ritesh
+image1.jpg	Missing	public - Copy/images/shilpa-shetty
+image2.jpg	Missing	public - Copy/images/anant-ambani
+image2.jpg	Missing	public - Copy/images/john
+image2.jpg	Missing	public - Copy/images/ritesh
+image2.jpg	Missing	public - Copy/images/shilpa-shetty
+image3.jpg	Missing	public - Copy/images/anant-ambani
+image3.jpg	Missing	public - Copy/images/john
+image3.jpg	Missing	public - Copy/images/ritesh
+image3.jpg	Missing	public - Copy/images/shilpa-shetty
+image4.jpg	Missing	public - Copy/images/anant-ambani
+image4.jpg	Missing	public - Copy/images/john
+image4.jpg	Missing	public - Copy/images/ritesh
+image4.jpg	Missing	public - Copy/images/shilpa-shetty
+image5.jpg	Missing	public - Copy/images/anant-ambani
+image5.jpg	Missing	public - Copy/images/john
+image5.jpg	Missing	public - Copy/images/ritesh
+image5.jpg	Missing	public - Copy/images/shilpa-shetty
+image6.jpg	Missing	public - Copy/images/anant-ambani
+image6.jpg	Missing	public - Copy/images/john
+image6.jpg	Missing	public - Copy/images/shilpa-shetty
+index.html	Missing	application - Copy
+index.html	Missing	application - Copy/cache
+index.html	Missing	application - Copy/config
+index.html	Missing	application - Copy/controllers
+index.html	Missing	application - Copy/core
+index.html	Missing	application - Copy/helpers
+index.html	Missing	application - Copy/hooks
+index.html	Missing	application - Copy/language
+index.html	Missing	application - Copy/language/english
+index.html	Missing	application - Copy/libraries
+index.html	Missing	application - Copy/logs
+index.html	Missing	application - Copy/models
+index.html	Missing	application - Copy/third_party
+index.html	Missing	application - Copy/views/errors
+index.html	Missing	application - Copy/views/errors/cli
+index.html	Missing	application - Copy/views/errors/html
+index.html	Modified	application/controllers
+index.html	Modified	application/models
+index.html	Modified	application/views/errors
+index.html	Modified	application/views/errors/cli
+index.html	Modified	application/views/errors/html
+index.html	Missing	public - Copy/images/catalog
+index.html	Missing	public - Copy/images/catalog/demo
+index.php	Missing	application - Copy/views
+index.php	Modified	application/views
+iphone-1.png	Missing	public - Copy/images
+iphone.jpg	Missing	public - Copy/images/catalog/demo/product
+iphone.png	Missing	public - Copy/images
+iPhone6.jpg	Missing	public - Copy/images/catalog/demo/banners
+iphone_1.jpg	Missing	public - Copy/images/catalog/demo
+iphone_2.jpg	Missing	public - Copy/images/catalog/demo
+iphone_3.jpg	Missing	public - Copy/images/catalog/demo
+iphone_4.jpg	Missing	public - Copy/images/catalog/demo
+iphone_5.jpg	Missing	public - Copy/images/catalog/demo
+iphone_6.jpg	Missing	public - Copy/images/catalog/demo
+ipod_classic_1.jpg	Missing	public - Copy/images/catalog/demo
+ipod_classic_2.jpg	Missing	public - Copy/images/catalog/demo
+ipod_classic_3.jpg	Missing	public - Copy/images/catalog/demo
+ipod_classic_4.jpg	Missing	public - Copy/images/catalog/demo
+ipod_nano_1.jpg	Missing	public - Copy/images/catalog/demo
+ipod_nano_2.jpg	Missing	public - Copy/images/catalog/demo
+ipod_nano_3.jpg	Missing	public - Copy/images/catalog/demo
+ipod_nano_4.jpg	Missing	public - Copy/images/catalog/demo
+ipod_nano_5.jpg	Missing	public - Copy/images/catalog/demo
+ipod_shuffle_1.jpg	Missing	public - Copy/images/catalog/demo
+ipod_shuffle_2.jpg	Missing	public - Copy/images/catalog/demo
+ipod_shuffle_3.jpg	Missing	public - Copy/images/catalog/demo
+ipod_shuffle_4.jpg	Missing	public - Copy/images/catalog/demo
+ipod_shuffle_5.jpg	Missing	public - Copy/images/catalog/demo
+ipod_touch_1.jpg	Missing	public - Copy/images/catalog/demo
+ipod_touch_2.jpg	Missing	public - Copy/images/catalog/demo
+ipod_touch_3.jpg	Missing	public - Copy/images/catalog/demo
+ipod_touch_4.jpg	Missing	public - Copy/images/catalog/demo
+ipod_touch_5.jpg	Missing	public - Copy/images/catalog/demo
+ipod_touch_6.jpg	Missing	public - Copy/images/catalog/demo
+ipod_touch_7.jpg	Missing	public - Copy/images/catalog/demo
+item-1.jpg	Missing	public - Copy/images
+item-2.jpg	Missing	public - Copy/images
+item-3.jpg	Missing	public - Copy/images
+jquery-1.11.1.js	Missing	public - Copy/assets/js
+jquery-1.11.1.min.js	Missing	public - Copy/assets/js
+jquery-bootstrap-modal-steps.js	Missing	public - Copy/assets/js
+jquery-migrate.min.js	Missing	public - Copy/js
+jquery-transit-modified.js	Missing	public - Copy/js
+jquery.backstretch.js	Missing	public - Copy/assets/js
+jquery.backstretch.min.js	Missing	public - Copy/assets/js
+jquery.bootstrap.wizard.js	Missing	public - Copy/css/bootstrap
+jquery.bxslider.js	Missing	public - Copy/js
+jquery.carouFredSel-6.2.1-packed.js	Missing	public - Copy/js
+jquery.classybox.min.css	Missing	public - Copy/css/bootstrap
+jquery.classybox.min.js	Missing	public - Copy/css/bootstrap
+jquery.fancybox.css	Missing	public - Copy/css
+jquery.fancybox.pack.js	Missing	public - Copy/js
+jquery.gmap.min.js	Missing	public - Copy/js
+jquery.isotope.min.js	Missing	public - Copy/js
+jquery.js	Missing	public - Copy/js
+jquery.marquee.js	Missing	public - Copy/css/bootstrap
+jquery.marquee.min.js	Missing	public - Copy/css/bootstrap
+jquery.meanmenu.min.js	Missing	public - Copy/js
+jquery.min.js	Missing	public - Copy/css/bootstrap
+jquery.nav.js	Missing	public - Copy/js
+jquery.nicescroll.min.js	Missing	public - Copy/js
+jquery.plugins.min.js	Missing	public - Copy/js
+jquery.prettyPhoto.js	Missing	public - Copy/js
+jquery.scrollTo.js	Missing	public - Copy/js
+jquery.sparkline.min.js	Missing	public - Copy/js
+jquery.tabs.min.js	Missing	public - Copy/js
+jquery.tipTip.minified.js	Missing	public - Copy/js
+jquery.tweet.min.js	Missing	public - Copy/js/twitter
+jquery.ui.totop.min.js	Missing	public - Copy/js
+jquery.validate.min.js	Missing	public - Copy/js
+jquery.viewport.js	Missing	public - Copy/js
+jquery.zoomtoo.js	Missing	public - Copy/js
+jquery.zoomtoo.min.js	Missing	public - Copy/js
+l.png	Missing	public - Copy/images
+larger.less	Missing	public - Copy/assets/font-awesome/less
+layerslider.css	Missing	public - Copy/css
+layerslider.kreaturamedia.jquery.js	Missing	public - Copy/js
+layerslider.transitions.js	Missing	public - Copy/js
+layout.js	Missing	public - Copy/js
+LICENSE	Missing	application - Copy/controllers/mailer
+LICENSE	Modified	application/controllers/mailer
+license.txt	Missing	public - Copy/fonts/bpicons
+list.less	Missing	public - Copy/assets/font-awesome/less
+load.gif	Missing	public - Copy/images/default
+loader.gif	Missing	public - Copy/images/prettyPhoto/dark_rounded
+loader.gif	Missing	public - Copy/images/prettyPhoto/dark_square
+loader.gif	Missing	public - Copy/images/prettyPhoto/default
+loader.gif	Missing	public - Copy/images/prettyPhoto/facebook
+loader.gif	Missing	public - Copy/images/prettyPhoto/light_rounded
+login.css	Missing	public - Copy/css
+login.php	Missing	application - Copy/views/register
+login.php	Modified	application/views/register
+logo-old.png	Missing	public - Copy/images
+logo.png	Missing	public - Copy/assets/img
+logo.png	Missing	public - Copy/images
+logo.png	Missing	public - Copy/images/catalog
+logo@2x.png	Missing	public - Copy/assets/img
+m.png	Missing	public - Copy/images
+mac.png	Missing	public - Copy/images
+mac2.png	Missing	public - Copy/images
+macbook.jpg	Missing	public - Copy/images/catalog/demo/product
+macbook_1.jpg	Missing	public - Copy/images/catalog/demo
+macbook_2.jpg	Missing	public - Copy/images/catalog/demo
+macbook_3.jpg	Missing	public - Copy/images/catalog/demo
+macbook_4.jpg	Missing	public - Copy/images/catalog/demo
+macbook_5.jpg	Missing	public - Copy/images/catalog/demo
+macbook_air_1.jpg	Missing	public - Copy/images/catalog/demo
+macbook_air_2.jpg	Missing	public - Copy/images/catalog/demo
+macbook_air_3.jpg	Missing	public - Copy/images/catalog/demo
+macbook_air_4.jpg	Missing	public - Copy/images/catalog/demo
+macbook_pro_1.jpg	Missing	public - Copy/images/catalog/demo
+macbook_pro_2.jpg	Missing	public - Copy/images/catalog/demo
+macbook_pro_3.jpg	Missing	public - Copy/images/catalog/demo
+macbook_pro_4.jpg	Missing	public - Copy/images/catalog/demo
+MacBookAir.jpg	Missing	public - Copy/images/catalog/demo/banners
+mail.php	Missing	application - Copy/controllers/mailer
+mail.php	Modified	application/controllers/mailer
+mail_helper.php	Missing	application - Copy/controllers
+mail_helper.php	Modified	application/controllers
+main-cnt-left.png	Missing	public - Copy/images
+main-cnt-right.png	Missing	public - Copy/images
+male.jpg	Missing	public - Copy/images
+man.png	Missing	public - Copy/images
+man.png	Missing	public - Copy/images/sliders
+meanmenu.css	Missing	public - Copy/css
+mega-menu-img.png	Missing	public - Copy/images
+memcached.php	Missing	application - Copy/config
+menu-img.png	Missing	public - Copy/images
+migration.php	Missing	application - Copy/config
+mimes.php	Missing	application - Copy/config
+mixins.less	Missing	public - Copy/assets/font-awesome/less
+models.zip	Missing	application - Copy
+modernizr.custom.js	Missing	public - Copy/js
+morris.min.js	Missing	public - Copy/js
+my_account.js	Missing	public - Copy/js
+my_account.js	Modified	public/js
+My_account.php	Missing	application - Copy/controllers
+My_account.php	Modified	application/controllers
+my_account.php	Missing	application - Copy/views/myAccount
+my_account.php	Modified	application/views/myAccount
+my_account_8_april.php	Untracked	application/views/myAccount
+my_account_old.php	Untracked	application/views/myAccount
+Myclass.php	Missing	application - Copy/libraries
+name.png	Missing	public - Copy/images
+newsletter-bg.jpg	Missing	public - Copy/images
+next.png	Missing	public - Copy/images/default
+nfl.png	Missing	public - Copy/images/catalog/demo/manufacturer
+nikon_d300_1.jpg	Missing	public - Copy/images/catalog/demo
+nikon_d300_2.jpg	Missing	public - Copy/images/catalog/demo
+nikon_d300_3.jpg	Missing	public - Copy/images/catalog/demo
+nikon_d300_4.jpg	Missing	public - Copy/images/catalog/demo
+nikon_d300_5.jpg	Missing	public - Copy/images/catalog/demo
+nintendo.png	Missing	public - Copy/images/catalog/demo/manufacturer
+normalize.css	Missing	public - Copy/css
+notepad.png	Missing	public - Copy/images
+npm.js	Missing	public - Copy/assets/bootstrap/js
+nutrition1.jpg	Missing	public - Copy/images
+nutrition2.jpg	Missing	public - Copy/images
+nutrition3.jpg	Missing	public - Copy/images
+opencart.ico	Missing	public - Copy/images/catalog
+order_history.php	Missing	application - Copy/views/myAccount
+order_history.php	Modified	application/views/myAccount
+order_return_success.php	Missing	application - Copy/views/myAccount
+order_return_success.php	Modified	application/views/myAccount
+orderMsg.php	Missing	application - Copy/views/product
+orderMsg.php	Modified	application/views/product
+overlay.png	Missing	public - Copy/images
+pace-theme-loading-bar.css	Missing	public - Copy/css
+pace.min.js	Missing	public - Copy/js
+packagePayment.php	Missing	application - Copy/views/packages
+packagePayment.php	Modified	application/views/packages
+packages.js	Missing	public - Copy/js
+Packages.php	Missing	application - Copy/controllers
+Packages.php	Modified	application/controllers
+packages.php	Missing	application - Copy/views/pages
+packages.php	Modified	application/views/pages
+Packages_model.php	Missing	application - Copy/models
+Packages_model.php	Modified	application/models
+packagesView.php	Missing	application - Copy/views/packages
+pagination-bg.png	Missing	public - Copy/images
+pagination-prev-bg.png	Missing	public - Copy/images
+pagination.php	Missing	application - Copy/controllers
+pagination.php	Modified	application/controllers
+palm_logo.jpg	Missing	public - Copy/images/catalog/demo
+palm_treo_pro_1.jpg	Missing	public - Copy/images/catalog/demo
+palm_treo_pro_2.jpg	Missing	public - Copy/images/catalog/demo
+palm_treo_pro_3.jpg	Missing	public - Copy/images/catalog/demo
+paralax-5.png	Missing	public - Copy/images
+paralax-quote.jpg	Missing	public - Copy/images
+paralax.jpg	Missing	public - Copy/images
+paralx-1.jpg	Missing	public - Copy/images
+paralx-2.jpg	Missing	public - Copy/images
+paralx-3.jpg	Missing	public - Copy/images
+path.less	Missing	public - Copy/assets/font-awesome/less
+pattern1.png	Missing	public - Copy/images
+pattern2.png	Missing	public - Copy/images
+pattern3.jpg	Missing	public - Copy/images
+pattern3.png	Missing	public - Copy/images
+pattern4.jpg	Missing	public - Copy/images
+pattern4.png	Missing	public - Copy/images
+PHPMailerAutoload.php	Missing	application - Copy/controllers/mailer
+PHPMailerAutoload.php	Modified	application/controllers/mailer
+placeholder.js	Missing	public - Copy/assets/js
+portfolio1.jpg	Missing	public - Copy/images
+portfolio2.jpg	Missing	public - Copy/images
+portfolio3.jpg	Missing	public - Copy/images
+portfolio4.jpg	Missing	public - Copy/images
+portfolio5.jpg	Missing	public - Copy/images
+portfolio6.jpg	Missing	public - Copy/images
+portfolio7.jpg	Missing	public - Copy/images
+portfolio8.jpg	Missing	public - Copy/images
+pr-offer-bg.png	Missing	public - Copy/skins/green/images
+pr-offer-bg@2x.png	Missing	public - Copy/skins/green/images
+PressReleases.php	Missing	application - Copy/controllers
+PressReleases.php	Modified	application/controllers
+pressReleases.php	Missing	application - Copy/views/pages
+pressReleases.php	Modified	application/views/pages
+prettify.css	Missing	public - Copy/css/bootstrap
+prettify.js	Missing	public - Copy/css/bootstrap
+prettyPhoto.css	Missing	public - Copy/css
+prev.png	Missing	public - Copy/images/default
+pricing-table-bg-hover.png	Missing	public - Copy/images
+pricing-table-bg.png	Missing	public - Copy/images
+prod_list_bkup_11_feb.php	Missing	application - Copy/views/product
+prod_list_bkup_11_feb.php	Modified	application/views/product
+product-high-res.jpg	Missing	public - Copy/images/products
+product-low-res.png	Missing	public - Copy/images/products
+product.js	Missing	public - Copy/js
+Product.php	Missing	application - Copy/controllers
+Product.php	Modified	application/controllers
+product_bkup.php	Missing	application - Copy/controllers
+product_bkup.php	Modified	application/controllers
+product_list_bkup.php	Missing	application - Copy/views/product
+product_list_bkup.php	Modified	application/views/product
+product_list_bkup1.php	Missing	application - Copy/views/product
+product_list_bkup1.php	Modified	application/views/product
+Product_model.php	Missing	application - Copy/models
+Product_model.php	Modified	application/models
+product_return.php	Missing	application - Copy/views/myAccount
+product_return.php	Modified	application/views/myAccount
+productDetails.php	Missing	application - Copy/views/product
+productDetails.php	Modified	application/views/product
+productList.php	Missing	application - Copy/views/product
+productList_2_march.php	Missing	application - Copy/views/product
+productList_2_march.php	Modified	application/views/product
+profiler.php	Missing	application - Copy/config
+program.js	Missing	public - Copy/js
+Program_model.php	Missing	application - Copy/models
+Program_model.php	Modified	application/models
+Programs.php	Missing	application - Copy/controllers
+Programs.php	Modified	application/controllers
+programs.php	Missing	application - Copy/views
+programs.php	Missing	application - Copy/views/pages
+programs.php	Modified	application/views
+programsView.php	Missing	application - Copy/views/programs
+programsView.php	Modified	application/views/programs
+programsView_satic_bkup.php	Missing	application - Copy/views/programs
+programsView_satic_bkup.php	Modified	application/views/programs
+public (1).zip	Untracked
+raphael.min.js	Missing	public - Copy/js
+redbull.png	Missing	public - Copy/images/catalog/demo/manufacturer
+register.css	Missing	public - Copy/css
+register.html	Missing	application - Copy/views
+register.html	Modified	application/views
+registration.js	Missing	public - Copy/js
+registration.php	Missing	application - Copy/views/register
+registration.php	Modified	application/views/register
+reset.css	Missing	public - Copy/css
+resetPass.php	Missing	application - Copy/views/register
+resetPass.php	Modified	application/views/register
+resize.png	Missing	public - Copy/images/default
+responsive-nav.js	Missing	public - Copy/js
+responsive.css	Missing	public - Copy/css
+retina-1.1.0.js	Missing	public - Copy/assets/js
+retina-1.1.0.min.js	Missing	public - Copy/assets/js
+retina.js	Missing	public - Copy/js
+return_information.php	Missing	application - Copy/views/myAccount
+return_information.php	Modified	application/views/myAccount
+rotated-flipped.less	Missing	public - Copy/assets/font-awesome/less
+routes.php	Missing	application - Copy/config
+samsung_banner.jpg	Missing	public - Copy/images/catalog/demo
+samsung_syncmaster_941bw.jpg	Missing	public - Copy/images/catalog/demo
+samsung_tab_1.jpg	Missing	public - Copy/images/catalog/demo
+samsung_tab_2.jpg	Missing	public - Copy/images/catalog/demo
+samsung_tab_3.jpg	Missing	public - Copy/images/catalog/demo
+samsung_tab_4.jpg	Missing	public - Copy/images/catalog/demo
+samsung_tab_5.jpg	Missing	public - Copy/images/catalog/demo
+samsung_tab_6.jpg	Missing	public - Copy/images/catalog/demo
+samsung_tab_7.jpg	Missing	public - Copy/images/catalog/demo
+samsungtab.jpg	Missing	public - Copy/images/catalog/demo/product
+scheduler.php	Modified	admin/login/controller/scheduler
+scheduler.php	Modified	admin/login/model/scheduler
+scheduler_form.tpl	Modified	admin/login/view/template/scheduler
+screen-reader.less	Missing	public - Copy/assets/font-awesome/less
+scripts.js	Missing	public - Copy/assets/js
+service-img1.png	Missing	public - Copy/images
+service-img2.png	Missing	public - Copy/images
+service-img3.png	Missing	public - Copy/images
+service-img4.png	Missing	public - Copy/images
+shadow.png	Missing	public - Copy/images
+shell.png	Missing	public - Copy/images/catalog/demo/manufacturer
+shop.style.css	Missing	public - Copy/css
+shortcodes.css	Missing	public - Copy/css
+simple.min.css	Missing	public - Copy/css/bootstrap
+skin.css	Missing	public - Copy/css
+skin.png	Missing	public - Copy/images
+skins.zip	Missing	public - Copy
+slider-next-arrow-white.png	Missing	public - Copy/images
+slider-next-arrow-white@2x.png	Missing	public - Copy/images
+slider-prev-arrow-white.png	Missing	public - Copy/images
+slider-prev-arrow-white@2x.png	Missing	public - Copy/images
+slider.css	Missing	public - Copy/css/bootstrap
+slider1-bg.jpg	Missing	public - Copy/images/sliders
+slider2-bg.jpg	Missing	public - Copy/images/sliders
+slider3-bg.jpg	Missing	public - Copy/images/sliders
+smileys.php	Missing	application - Copy/config
+sony.png	Missing	public - Copy/images/catalog/demo/manufacturer
+sony_logo.jpg	Missing	public - Copy/images/catalog/demo
+sony_vaio_1.jpg	Missing	public - Copy/images/catalog/demo
+sony_vaio_2.jpg	Missing	public - Copy/images/catalog/demo
+sony_vaio_3.jpg	Missing	public - Copy/images/catalog/demo
+sony_vaio_4.jpg	Missing	public - Copy/images/catalog/demo
+sony_vaio_5.jpg	Missing	public - Copy/images/catalog/demo
+sorting-bg.png	Missing	public - Copy/images
+splitter2.png	Missing	public - Copy/images
+sport_nutrition.png	Missing	public - Copy/images/products
+sprite.png	Missing	public - Copy/images/prettyPhoto/dark_rounded
+sprite.png	Missing	public - Copy/images/prettyPhoto/dark_square
+sprite.png	Missing	public - Copy/images/prettyPhoto/default
+sprite.png	Missing	public - Copy/images/prettyPhoto/facebook
+sprite.png	Missing	public - Copy/images/prettyPhoto/light_rounded
+sprite.png	Missing	public - Copy/images/prettyPhoto/light_square
+sprite_next.png	Missing	public - Copy/images/prettyPhoto/default
+sprite_prev.png	Missing	public - Copy/images/prettyPhoto/default
+sprite_x.png	Missing	public - Copy/images/prettyPhoto/default
+sprite_y.png	Missing	public - Copy/images/prettyPhoto/default
+stacked.less	Missing	public - Copy/assets/font-awesome/less
+starbucks.png	Missing	public - Copy/images/catalog/demo/manufacturer
+static_header_bckup.php	Missing	application - Copy/views/templates
+static_header_bckup.php	Modified	application/views/templates
+style-old-02-03-2017.css	Missing	public - Copy/css
+style-old-02-03-2017.css	Missing	public - Copy/skins/green
+style.css	Missing	public - Copy/assets/css
+style.css	Missing	public - Copy/css
+style.css	Missing	public - Copy/skins/green
+submit.png	Missing	public - Copy/images
+submit@2x.png	Missing	public - Copy/images
+SuccessStories.php	Missing	application - Copy/controllers
+SuccessStories.php	Modified	application/controllers
+successStories.php	Missing	application - Copy/views/pages
+successStories.php	Modified	application/views/pages
+support-author.png	Missing	public - Copy/images
+tab-img1.jpg	Missing	public - Copy/images
+tab-img2.jpg	Missing	public - Copy/images
+tab-img3.jpg	Missing	public - Copy/images
+team1.jpg	Missing	public - Copy/images
+team2.jpg	Missing	public - Copy/images
+team3.jpg	Missing	public - Copy/images
+team4.jpg	Missing	public - Copy/images
+team5.jpg	Missing	public - Copy/images
+team6.jpg	Missing	public - Copy/images
+team11.jpg	Missing	public - Copy/images
+team12.jpg	Missing	public - Copy/images
+team13.jpg	Missing	public - Copy/images
+team14.jpg	Missing	public - Copy/images
+team21.jpg	Missing	public - Copy/images
+team22.jpg	Missing	public - Copy/images
+team23.jpg	Missing	public - Copy/images
+team24.jpg	Missing	public - Copy/images
+testimonial-bg.jpg	Missing	public - Copy/images
+Testimonials.php	Missing	application - Copy/controllers
+Testimonials.php	Modified	application/controllers
+testimonials.php	Missing	application - Copy/views/pages
+testimonials.php	Modified	application/views/pages
+textured-border.html	Missing	public - Copy/images
+thunderboltdisplay.jpg	Missing	public - Copy/images/catalog/demo/product
+tick.jpg	Missing	public - Copy/images
+title-pattern.png	Missing	public - Copy/images
+toggle-img1.jpg	Missing	public - Copy/images
+tooltip-image.jpg	Missing	public - Copy/images
+tooltip-image2.jpg	Missing	public - Copy/images
+transparent-bg.png	Missing	public - Copy/images
+twitter.png	Missing	public - Copy/images/default
+ui.totop.png	Missing	public - Copy/images
+ui.totop@2x.png	Missing	public - Copy/images
+Untitled-1.png	Missing	public - Copy/images
+upcomming_events.php	Missing	application - Copy/views/pages
+upcomming_events.php	Modified	application/views/pages
+UpcommingEvents.php	Missing	application - Copy/controllers
+UpcommingEvents.php	Modified	application/controllers
+user_agents.php	Missing	application - Copy/config
+utils.js	Missing	public - Copy/js
+variables.less	Missing	public - Copy/assets/font-awesome/less
+VERSION	Missing	application - Copy/controllers/mailer
+video-buttonn.png	Missing	public - Copy/images
+views (1).zip	Missing	application - Copy
+Vinod Channa.mp4	Missing	public - Copy/video
+vinod-chnna.jpg	Missing	public - Copy/images
+weight_gainer.jpg	Missing	public - Copy/images/catalog
+weightlifting.png	Missing	public - Copy/images
+Welcome.php	Missing	application - Copy/controllers
+Welcome.php	Modified	application/controllers
+whey22.jpg	Missing	public - Copy/images/catalog
+whey23.jpg	Missing	public - Copy/images/catalog
+why1.jpg	Missing	public - Copy/images/catalog
+why2.jpg	Missing	public - Copy/images/catalog
+why3.jpg	Missing	public - Copy/images/catalog
+why11.jpg	Missing	public - Copy/images/catalog
+why12.jpg	Missing	public - Copy/images/catalog
+why13.jpg	Missing	public - Copy/images/catalog
+why21.jpg	Missing	public - Copy/images/catalog
+widget-title.png	Missing	public - Copy/images
+wishlistView.php	Missing	application - Copy/views/product
+wishlistView.php	Modified	application/views/product
+women-with-iphone.png	Missing	public - Copy/images
+YouTubePopUp.css	Missing	public - Copy/css
+YouTubePopUp.jquery.js	Missing	public - Copy/js

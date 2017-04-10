@@ -226,3 +226,31 @@ h2.resp-accordion:first-child {
         border-bottom: 1px solid #c1c1c1 !important;
     }
 }
+
+.training-list  li{
+
+        margin: 0px 0px;
+    font-size: 13px;
+    padding: 15px 8px;
+
+}
+.video ul li ul{padding-left: 0px;}
+
+
+.youtube-btn-training{
+    position: relative;
+}
+.video .youtube-btn-training:before {
+   content: "";
+    position: absolute;
+    width: 100%;
+    height: 95px;
+    z-index: 10;
+    background: rgba(29,31,32,0.7) url(../images/video-buttonn.png) center center no-repeat;
+    border: 3px solid #F26522;
+
+}
+.video h5{
+    border-bottom: 2px solid rgba(204, 204, 204, 0.24);
+    padding-bottom: 1%;
+}

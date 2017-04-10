@@ -41,5 +41,19 @@ class ModelSchedulerScheduler extends Model {
 		$this->event->trigger('post.admin.scheduler.edit', $scheduler_id);
 	}
 
+	public function getCustomerDetails($cust_id,$package_id)  // single scheduler
+	{
+		$sql = "SELECT cust.* FROM oc_customer cust WHERE customer_id = $cust_id" ;
+		$query = $this->db->query($sql);
+		$data['customer'] = $query->rows;
+
+		$sql1 = "SELECT pm.package_name FROM oc_package_master pm WHERE package_id = $package_id" ;
+		$query1 = $this->db->query($sql1);
+		
+		$data['package'] = $query1->rows;
+		return $data;
+
+	}
+
 
 }

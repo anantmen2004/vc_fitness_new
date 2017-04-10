@@ -168,6 +168,7 @@ function return_order()
 }
 function videocall(id)
 {
+    // alert(123);
     var formData = $("#mypackageInfo_"+id).serialize();
     var path = base_url+"my_account/videocall";
     $.ajax({
@@ -176,7 +177,7 @@ function videocall(id)
         data:formData,
         success:function(resp)
          {  
-            alert(resp);
+         //alert(resp);
            if(resp==1)
             {
                 var msg = 'Information inserted Successfuly..!';
@@ -189,8 +190,8 @@ function videocall(id)
             }
             else
             {
-                var msg = 'Somthing goes Wrong.';
-                display_alert123('err',msg);   
+                var msg = 'Information Updated Successfuly..!';
+                display_alert123('succ',msg);  
             }
         }   
         });

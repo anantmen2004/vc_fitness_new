@@ -60,8 +60,6 @@ class My_account extends CI_Controller {
 		   $calls = $this->Packages_model->getCallno($value2['package_id'],$cust);
 		   array_push($data['call_data'], $calls);
 		
-		  	
-				
 			$training_data=$this->Packages_model->getTrainingType($value2['package_id']);
 			array_push($data['trainarr'], $training_data);
 
@@ -109,7 +107,7 @@ class My_account extends CI_Controller {
 				array_push($data1['packageinfo1'], $video_data);
 			}
 				
-			array_push($data['video1'], $data1['packageinfo']);
+			array_push($data['video1'], $data1['packageinfo1']);
 		}
 		 array_push($data['call4'], $data['call3']);
 		 //echo "<pre>"; print_r($data['call4']); exit();
@@ -249,7 +247,7 @@ class My_account extends CI_Controller {
 		$date=$formData['date1'];
 		$hour=$formData['hour'];
 		$minute=$formData['minute'];
-		$pm=$formData['pm'];
+		// $pm=$formData['pm'];
 		$callstatus=$formData['call_status'];
 		$packcall=$formData['packcall'];
 		$package_call=$formData['package_call'];
@@ -258,7 +256,7 @@ class My_account extends CI_Controller {
 
 		foreach ($packcall as $key => $value) 
 		{
-			echo "date";print_r($value);
+			//echo "date";print_r($value); 
 			if(!empty($date[$key]))
 			{
 				$callcheck = array();
@@ -267,37 +265,40 @@ class My_account extends CI_Controller {
     			$where = array('customer_id' => $cust,'package_id' => $packageid, 'call_no' => $value);
    	 			$callcheck = $this->Helper_model->select($select, $tableName, $where);
   
-// print_r($callcheck);
+				// print_r($callcheck);
+				if($callstatus[$key] != 2)
+				{
    	 			if(empty($callcheck))
    	 			{
-   	 				//echo "date";
+   	 				//echo "date";print_r($value); exit;
 					$call=array(
 					'customer_id' => $cust,
 					'package_id' => $packageid,
 					'date' => date("Y-m-d",strtotime($date[$key])),
-					'time' => $hour[$key].':'.$minute[$key].' '.$pm[$key], 
+					'time' => $hour[$key].':'.$minute[$key], 
 					'status' => $callstatus[$key],
 					'complete_status' => 0,
 					'call_no' => $value,
 					'added_on' => date("Y-m-d h:i:s")
-				);
+					);
 					//echo "date";print_r($call);exit;
 					$callid=$this->Helper_model->insert($tableName, $call);
 					$callcheck = array();
 					if(!empty($callid))
 					{
+						// echo 1;exit;
+						$this->send_call_schedule_mail($call);
 						//echo 1;
-						//send_call_schedule_mail($call);
 					}
 				}
 				else
 				{
-					//echo "update";
-					if($callcheck[0]['complete_status'] !=1)
-					{
+					//echo "update";print_r($value); exit;
+					// if($callcheck[0]['complete_status'] !=1)
+					// {
 						$call=array(
 						'date' => date("Y-m-d",strtotime($date[$key])),
-						'time' => $hour[$key].':'.$minute[$key].' '.$pm[$key], 
+						'time' => $hour[$key].':'.$minute[$key], 
 						'status' => $callstatus[$key],
 						'updated_on' => date("Y-m-d h:i:s")
 						);
@@ -307,17 +308,21 @@ class My_account extends CI_Controller {
 							'package_id' => $packageid,
 							'call_no' => $value
 							);
-						//echo "update";print_r($call);print_r($where);;exit;
+						//echo "update";  print_r($tableName); print_r($call);print_r($where);;exit;
 						$updateid=$this->Helper_model->update($tableName,$call,$where);
+
+						//echo "update";print_r($updateid);exit;
 						$callcheck = array();
 						if(!empty($updateid))
 						{
+							// echo 2;exit;
+							$this->send_call_schedule_mail($where);
 							//echo 2;
-							//send_call_schedule_mail($where);
 						}
-					}
+					// }
 					$callcheck = array();
 				} 
+				}
 			}
 		}
 	}
@@ -325,51 +330,73 @@ class My_account extends CI_Controller {
 	public function send_call_schedule_mail($call)
 	{
 
-		print_r($call);
-		
-  //       $config['mailtype'] = 'html';
-  //   	$this->email->initialize($config);
+		// print_r($call);exit;
+		$customer_id = $call['customer_id'];
+		$package_id = $call['package_id'];
+		$call_no = $call['call_no'];
 
-		// $email_body ='<div style="background:#fff; border: 1px solid #b3b3b3; height:auto; width:650;">';
-		// $email_body .='<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">';
-		// $email_body .='<img src="'.base_url().'public/images/logo.png" style="align:center; height:150px width: 200px;" />';
-		// $email_body .='</div>';
-		// $email_body .='<br/>';		
-		// $email_body .='<div>';
-		// $email_body .='<div style="background:#d9d9d9; padding:30px">';
-		// $email_body .= "<b>Hello Sir/Madam,</b>";
-		// $email_body .='<br/>';
-		// $email_body .='Following Call have been Scheduled Now';
-		// $email_body .='<br/>';
-  //       $email_body .='<br/>';
-  //       $email_body .= "<span><b>Login Details:</b></span>";
-  //       $email_body .='<br/>';
-  //       $email_body .= "<span><b>Login :</b></span>".$email;
-  //       $email_body .='<br/>';
-  //       $email_body .= "<span><b>Password :</b></span>".$password;
-  //       $email_body .='<br/>';
-  //       $email_body .='<br/>';
-        
-  //       $email_body .='</div>';
-  //       $email_body .='</div>';
-  //       $email_body .='</div>';
-      
-  //       //print_r($email_body);exit();
-		// $this->load->library('email');
-		// $this->email->from("dhanuping@noreply.net");
-		// //print_r($email_body);exit();
-		// $this->email->to("dhananjaypingale2112@gmail.com");
+		$tableName1='oc_call_schedule call_s, oc_customer cust, oc_package_master pack';
+		$select1='call_s.*, cust.firstname,cust.lastname, cust.email,pack.package_name';
+		$where1='call_s.customer_id=cust.customer_id AND pack.package_id=call_s.package_id AND call_s.package_id = '.$package_id.' AND call_s.call_no = '.$call_no.' AND call_s.call_no= '.$call_no;
+		$call_data=$this->Helper_model->select($select1, $tableName1, $where1);
+  		// print_r($call_data);exit;
+  		$fname = $call_data[0]['firstname'];
+  		$lname = $call_data[0]['lastname'];
+  		$email = $call_data[0]['email'];
+  		$pack_name = $call_data[0]['package_name'];
+  		$date = date("d-m-Y",strtotime($call_data[0]['date']));
+  		$time = $call_data[0]['time'];
+  		
+
 		
-		// $this->email->subject("Call Schedulling Request");
-		// $this->email->message($email_body);
-		// if(!$this->email->send())
-		// {
-		// 	echo 0;
-		// }
-		// else
-		// {
-		// echo 1;
-		// }
+     	$config['mailtype'] = 'html';
+    	$this->email->initialize($config);
+
+		$email_body ='<div style="background:#fff; border: 1px solid #b3b3b3; height:auto; width:650;">';
+		$email_body .='<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">';
+		$email_body .='<img src="'.base_url().'public/images/logo.png" style="align:center; height:150px width: 200px;" />';
+		$email_body .='</div>';
+		$email_body .='<br/>';		
+		$email_body .='<div>';
+		$email_body .='<div style="background:#d9d9d9; padding:30px">';
+		$email_body .= "<b>Hello Sir/Madam,</b>";
+		$email_body .='<br/>';
+		$email_body .='Following Call have been Scheduled Now';
+		$email_body .='<br/>';
+		$email_body .='<br/>';
+		$email_body .='Customer name : <b>'.$fname.' '.$lname.'</b>';
+		$email_body .='<br/>';
+		$email_body .='Package name : <b>'.$pack_name.'</b>';
+		$email_body .='<br/>';
+		$email_body .='Call no : '.$call_no;
+		$email_body .='<br/>';
+		$email_body .='On Dated : <b>'.$date.'</b> Time:<b>'.$time;
+		$email_body .='</b><br/>';
+        $email_body .='<br/>';
+        
+        $email_body .='<br/>';
+        $email_body .='<br/>';
+        
+        $email_body .='</div>';
+        $email_body .='</div>';
+        $email_body .='</div>';
+      
+        // print_r($email_body);exit();
+		$this->load->library('email');
+		$this->email->from($email);
+		//print_r($email_body);exit();
+		$this->email->to("dhananjaypingale2112@gmail.com");
+		
+		$this->email->subject("Call Schedulling Request");
+		$this->email->message($email_body);
+		if(!$this->email->send())
+		 {
+		 	echo 0;
+		}
+		 else
+		 {
+		echo 1;
+		}
 	}
 
 /*************************************************/	
