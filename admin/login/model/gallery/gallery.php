@@ -12,6 +12,18 @@ class ModelGalleryGallery extends Model {
 	{
 		$sql = "SELECT gal.*, type.name FROM oc_gallery gal JOIN oc_gallery_type type ON(gal.gallery_type_id=type.gallery_type_id)" ;
 
+		if (isset($data['start']) || isset($data['limit'])) {
+			if ($data['start'] < 0) {
+				$data['start'] = 0;
+			}
+
+			if ($data['limit'] < 1) {
+				$data['limit'] = 20;
+			}
+
+			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+		}
+
 		$query = $this->db->query($sql);
 
 		return $query->rows;

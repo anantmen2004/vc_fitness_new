@@ -210,7 +210,7 @@ class ControllerTrainingTraining extends Controller {
 	}
 
 	protected function getForm() {
-// 		 print_r($this->request->get['training_id']);exit;
+	// 	print_r($this->request->get['training_id']);exit;
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_form'] = !isset($this->request->get['training_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');

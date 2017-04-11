@@ -10,6 +10,18 @@ class ModelGalleryGallerytype extends Model {
 	{
 		$sql = "SELECT * FROM oc_gallery_type" ;
 
+		if (isset($data['start']) || isset($data['limit'])) {
+			if ($data['start'] < 0) {
+				$data['start'] = 0;
+			}
+
+			if ($data['limit'] < 1) {
+				$data['limit'] = 20;
+			}
+
+			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+		}
+
 		$query = $this->db->query($sql);
 
 		return $query->rows;

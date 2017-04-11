@@ -10,7 +10,22 @@ class ModelTrainingTraining extends Model {
 
 	public function getTrainings($data = array()) //multiple trainings
 	{
+		//print_r($data);exit;
 		$sql = "SELECT tt.*, pm.program_name as program_name FROM oc_training_type tt JOIN oc_program_master pm ON(tt.program_id=pm.program_id)" ;
+
+		if (isset($data['start']) || isset($data['limit'])) {
+			if ($data['start'] < 0) {
+				$data['start'] = 0;
+			}
+
+			if ($data['limit'] < 1) {
+				$data['limit'] = 20;
+			}
+
+			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+		}
+
+		//print_r($sql);exit;
 
 		$query = $this->db->query($sql);
 

@@ -322,7 +322,7 @@ class ControllerSchedulerScheduler extends Controller {
 
 		$pagination->limit = $this->config->get('config_limit_admin');
 
-		$pagination->url = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
+		$pagination->url = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
 
 
 
