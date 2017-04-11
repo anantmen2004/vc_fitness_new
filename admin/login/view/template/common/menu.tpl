@@ -201,28 +201,50 @@ s<ul id="menu">
   </li>
 
 
+  <li><a class="parent"><?php echo "Fitness Menu" ?></a>
+  <ul>
+    <li><a href="<?php echo $programs; ?>"><?php echo $text_programs; ?></a></li>
+    <li><a href="<?php echo $trainings; ?>"><?php echo $text_trainings; ?></a></li>
+  </ul>
+  </li>
 
-  <li id="programs"><a class="parent" href="<?php echo $programs; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_programs; ?></span></a>
+  <li><a class="parent"><?php echo "Packages" ?></a>
+  <ul>
+    <li><a href="<?php echo $packages; ?>"><?php echo $text_packages; ?></a></li>
+    <li><a href="<?php echo $scheduler; ?>"><?php echo $text_call_scheduler; ?></a></li>
+  </ul>
+  </li>
+
+   <li><a class="parent"><?php echo "Gallery/Video" ?></a>
+  <ul>
+    <li><a href="<?php echo $gallery_types; ?>"><?php echo $text_gallery_types; ?></a></li>
+    <li><a href="<?php echo $gallery; ?>"><?php echo $text_gallery; ?></a></li>
+    <li><a href="<?php echo $videos; ?>"><?php echo $text_videos; ?></a></li>
+  </ul>
+  </li>
+
+
+ <!-- <li id="programs"><a class="parent" href="<?php echo $programs; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_programs; ?></span></a>
   </li>
 
   <li id="trainings"><a class="parent" href="<?php echo $trainings; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_trainings; ?></span></a>
-  </li>
+  </li>-->
 
-  <li id="packages"><a class="parent" href="<?php echo $packages; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_packages; ?></span></a>
-  </li>
+  <!--<li id="packages"><a class="parent" href="<?php echo $packages; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_packages; ?></span></a>
+  </li>-->
 
-  <li id="videos"><a class="parent" href="<?php echo $videos; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_videos; ?></span></a>
+  <!--<li id="videos"><a class="parent" href="<?php echo $videos; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_videos; ?></span></a>
   </li>
 
   <li id="gallery"><a class="parent" href="<?php echo $gallery; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_gallery; ?></span></a>
   </li>
 
   <li id="gallery_types"><a class="parent" href="<?php echo $gallery_types; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_gallery_types; ?></span></a>
-  </li>
+  </li>-->
   <!-- <li id="packages_mapping"><a class="parent" href="<?php echo $packages_mapping; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_package_training_video; ?></span></a>
   </li> -->
-  <li id="sheduler"><a class="parent" href="<?php echo $scheduler; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_call_scheduler; ?></span></a>
-  </li>
+  <!--<li id="sheduler"><a class="parent" href="<?php echo $scheduler; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_call_scheduler; ?></span></a>
+  </li>-->
   
 
 

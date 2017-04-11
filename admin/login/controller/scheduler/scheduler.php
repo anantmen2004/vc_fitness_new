@@ -852,7 +852,7 @@ for ($i=0; $i <$cnt ; $i++) {
 
 		}
 
-		
+		// echo "<pre>";print_r($scheduler_info);exit;
 
 		$data['scheduler_description'][$i]= array(
 
@@ -877,6 +877,8 @@ for ($i=0; $i <$cnt ; $i++) {
 			'end_date' => $data['end_date'],
 
 			'entry_date' => $data['entry_date'],
+
+			'status' => $data['status'],
 
 
 
@@ -1012,7 +1014,7 @@ for ($j=0; $j < $call_cnt; $j++) {
 
 }
 
-		//echo "<pre>";print_r($data['scheduler_description']);exit;
+		// echo "<pre>";print_r($data['scheduler_description']);exit;
 
 
 

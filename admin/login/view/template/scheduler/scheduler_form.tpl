@@ -26,30 +26,27 @@
       <div class="panel-body">
         <!-- <form class="form-horizontal"> -->
   <?php $cnt = COUNT($scheduler_description);?>
-<?php for($i=0; $i<$cnt; $i++):?>
-
-
+    <?php for($i=0; $i<$cnt; $i++):?>
           <ul class="nav nav-tabs">
-
-            <?php if($i==0) for($j=0; $j<$cnt; $j++):?>
-            <li class="<?php echo ($j==0)?'active':''?>" ><a href="#tab-general_<?php echo $j;?>" data-toggle="tab"><?php echo $scheduler_description[$j]['package_name']; ?></a></li>
-          <?php endfor;?>
+            <?php if($i==0) {$flag=0;for($j=0; $j<$cnt; $j++): ?>
+            <li class="<?php echo ($flag==0)?'active':''?>" ><a href="#tab-general_<?php echo $flag;?>" data-toggle="tab"><?php echo $scheduler_description[$j]['package_name']; ?></a></li>
+          <?php $flag++; endfor;}?>
           </ul>
           <div class="tab-content">
-          <?php if($i==0) for($j=0; $j<$cnt; $j++){?>
-            <div class="tab-pane " id="tab-general_<?php echo $j;?>">
+          <?php if($i==0) {$flag_con=0;for($j=0; $j<$cnt; $j++){ ?>
+            <div class="tab-pane <?php echo ($flag_con==0)?'active':''?>" id="tab-general_<?php echo $flag_con;?>">
 
               <ul class="nav nav-tabs" id="language">
                 <?php foreach ($languages as $language) { ?>
-                <li><a href="#language<?php echo $j; ?>" data-toggle="tab"><img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a></li>
+                <li><a href="#language<?php echo $flag_con; ?>" data-toggle="tab"><img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a></li>
                 <?php } ?>
               </ul>
 
               <div class="tab-content">
                 <?php foreach ($languages as $language) { ?>
-                <div class="tab-pane active" id="language<?php echo $j; ?>">
+                <div class="tab-pane active" id="language<?php echo $flag_con; ?>">
 
-                  <div class="form-group">
+                  <div class="form-group active">
                     <label class="col-sm-2 control-label" for=""><?php echo "Customer Name"; ?></label>
                     <div class="col-sm-4">
                       <input type="text"  value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['fname'] : '';?> <?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['lname'] : '';?>" placeholder="" id="" class="form-control" readonly/>
@@ -75,32 +72,39 @@
                       <input type="text" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['entry_date'] : '';?>" placeholder="" id="" class="form-control" readonly/>
                     </div>
                   </div>
-<br/>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for=""><?php echo "Package Start date"; ?></label>
-                    <div class="col-sm-4">
-                      <input type="text" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['start_date'] : '';?>" placeholder="" id="" class="form-control" readonly/>
-                      
-                    </div>
 
-                    <label class="col-sm-2 control-label" for=""><?php echo "Package End Date"; ?></label>
-                    <div class="col-sm-4">
-                      <input type="text" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['end_date'] : '';?>" placeholder="" id="" class="form-control" readonly/>
-                    </div>
+          <br/>
+
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label" for=""><?php echo "Package Start date"; ?>
+                        
+                      </label>
+
+                      <div class="col-sm-4">
+                        <input type="text" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['start_date'] : '';?>" placeholder="" id="" class="form-control" readonly/>
+                        
+                      </div>
+
+                      <label class="col-sm-2 control-label" for=""><?php echo "Package End Date"; ?>
+                        
+                      </label>    
+                      <div class="col-sm-4">
+                         <input type="text" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['end_date'] : '';?>" placeholder="" id="" class="form-control" readonly/>
+                      </div>
                   </div>
-<br/>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for=""><?php echo "Package duration"; ?></label>
-                    <div class="col-sm-4">
-                      <input type="text" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['duration'] : '';?>" placeholder="" id="" class="form-control" readonly/>
-                      
-                    </div>
+        <br/>
 
-                    <label class="col-sm-2 control-label" for=""><?php echo "Customer Comment"; ?></label>
-                    <div class="col-sm-4">
-                    <textarea placeholder="" id="" class="form-control" readonly><?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['comment'] : '';?></textarea>
-                    
-                    </div>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label" for=""><?php echo "Package duration"; ?></label>
+                        <div class="col-sm-4">
+                          <input type="text" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['duration'] : '';?>" placeholder="" id="" class="form-control" readonly/>
+                        </div>
+
+                     <label class="col-sm-2 control-label" for=""><?php echo "Customer Comment"; ?></label>
+                        <div class="col-sm-4">
+                        <textarea placeholder="" id="" class="form-control" readonly><?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['comment'] : '';?></textarea>
+                        </div>
                   </div>
 <br/>
                   <h3 style="text-align: center;">Schedule Customer Call</h3>
@@ -163,7 +167,8 @@
                               </form>
                               <?php $form_id++; ?>
                               </tr>
-                              <?php }}?>
+                              <?php }
+                              }?>
                           </tr>
                       </table>
                     </div>
@@ -175,10 +180,13 @@
                 <?php } ?>
               </div>
 
+<?php $flag_con++;
+       }
 
+    } ?>
  </div>
 
-<?php } ?>
+
            
           </div>
           
