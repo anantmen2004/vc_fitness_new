@@ -412,102 +412,13 @@
 
               </tbody>
             </table>
+          <?php if(!empty($checkIp)): ?>
             <div>
             <button type="button" name="callsubmit" id="callsubmit" value="Submit" class="dt-sc-button small" onclick="videocall('<?php echo $i; ?>')">Submit</button>
           </div>
+        <?php endif; ?>
         </div>
 
-        <!-- <div>
-          <h4>Schedule Video Call</h4>
-          <div class="alert_msg"></div>
-          <?php $val=$packdata[$i]['package_call']; ?>
-            
-            <?php $call_cnt = 1; for($p=0; $p<$val; $p++) : ?>
-           <?php 
-               if(!empty($call_data[$i][$p]['time'])){
-                    $time = $call_data[$i][$p]['time'];
-                    $timestring = explode(" ", $time);
-                    $ampm = $timestring[1];
-                    $timestring2 = explode(":", $timestring[0]);
-                    $hour = $timestring2[0];
-                    $min = $timestring2[1];
-                  }
-                  else{
-                    $hour = ""; $min=""; $ampm="";
-                  }
-                  if(!empty($call_data[$i][$p]['status'])){
-                    $status = $call_data[$i][$p]['status'];
-                  }
-                  else{
-                      $status="";
-                  }
-
-                  if(!empty($call_data[$i][$p]['call_no'])){
-                    $call_no = $call_data[$i][$p]['call_no'];
-                  }
-                  else{
-                    $call_no = "";
-                  }
-
-                  if(!empty($call_data[$i][$p]['date'])){
-                    $date = $call_data[$i][$p]['date'];
-                  }
-                  else{
-                    $date = "";
-                  }
-
-           ?>
-          <input type="hidden" name="packcall[]" value="<?php echo empty($call_data[$i][$p])? $call_cnt : $call_data[$i][$p]['call_no']; ?>" placeholder="id" id="pack_call" class="form-control" readonly>          
-          <div class="col-md-3">
-          <label>Date</label>
-            <input type="text" date-date-format=""  class="pickdate" id="packagecall" name="date1[]" placeholder="Select Date" value="<?php echo empty($call_data[$i][$p]['date'])? "" : $call_data[$i][$p]['date']; ?>" <?php echo (!empty($status) && $status== 2)?"disabled":"";?>/>
-          </div>
-          <div class="col-md-2">
-          <label>Hours</label>
-          <select id="hour" name="hour[]" style="height:34px; padding: 3px 0px 0px 10px;" <?php echo (!empty($status) && $status== 2)?"disabled":"";?> >
-            <?php for($r=01; $r<12 ; $r++) : ?>
-              <option value="<?php echo $r;?>" <?php echo (!empty($hour)&& $hour == $r)?"selected":""?>><?php echo $r; ?></option>
-            <?php endfor; ?>
-         </select>
-         </div>
-
-         <div class="col-md-2">
-          <label>Minutes</label>
-         <select id="minute" name="minute[]" style="height:34px; padding: 3px 0px 0px 10px;" <?php echo (!empty($status) && $status== 2)?"disabled":"";?> >
-         <option value="00">00</option>
-            <?php for($r=01; $r<61 ; $r++) : ?>
-              <option value="<?php echo $r;?>" <?php echo (!empty($min)&& $min == $r)?"selected":""?>><?php echo $r; ?></option>
-            <?php endfor; ?>
-         </select>
-         </div>
-
-         <div class="col-md-2">
-         <label></label>
-         <select id="pm" name="pm[]" style="height:34px; padding: 3px 0px 0px 10px; margin-top: 5px;" <?php echo (!empty($status) && $status== 2)?"disabled":"";?> >
-
-              <option value="AM" <?php echo (!empty($ampm)&& $ampm == "AM")?"selected":""?>>AM</option>
-              <option value="PM" <?php echo (!empty($ampm)&& $ampm == "PM")?"selected":""?>>PM</option>
-           
-         </select>
-          </div>
-
-          <div class="col-md-3">
-          <label>Status</label>
-            <select id="callstatus" name="call_status[]" style="height:34px; padding: 3px 0px 0px 20px;" <?php echo (!empty($status) && $status== 2)?"disabled":"";?>  >
-              <option>---select---</option>
-              <option value="1" <?php echo (!empty($status)&& $status == "1")?"selected":""?>>Pending</option>
-              <option id="completehide" value="2" <?php echo (!empty($status)&& $status == "2")?"selected":""?> hidden >Complete</option >
-              <option value="3" <?php echo (!empty($status)&& $status == "3")?"selected":""?>>Reschedule</option>
-              <option value="4" <?php echo (!empty($status)&& $status == "4")?"selected":""?>>Cancel</option>
-            </select>
-          </div>
-        <?php $call_cnt++; endfor; ?>
-       
-          <div>
-            <button type="button" name="callsubmit" id="callsubmit" value="Submit" class="dt-sc-button small" onclick="videocall('<?php echo $i; ?>')">Submit</button>
-          </div>
-         
-        </div> -->
           </fieldset>
         </form>
       </p>
@@ -516,7 +427,9 @@
 <?php endfor; ?>
 </div>
 </div>
-<!-- package history starts-->
+
+
+<!-- **********************************package history starts**************************-->
 
 <div>
  <p>

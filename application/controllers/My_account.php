@@ -121,7 +121,11 @@ class My_account extends CI_Controller {
 				$data['wishlist'][$key] = $this->Product_model->selectSingelProduct($value['product_id']);
 			}
 
-			//echo "<pre>";print_r($data['call_data']); exit();
+			$id = $data['customer_id'];
+            $client_ip = $_SERVER['REMOTE_ADDR'];
+			$where = 'customer_id = '.$id.' AND ip = '."'$client_ip'";
+            $data['checkIp'] = $this->Helper_model->select("ip",'oc_customer_ip', $where);
+			// echo "<pre>";print_r($data['checkIp']); exit();
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('myAccount/my_account');
