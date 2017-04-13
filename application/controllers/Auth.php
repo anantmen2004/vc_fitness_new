@@ -165,7 +165,34 @@ class Auth extends CI_Controller {
         //print_r($fields);exit();
         $userExist = $this->helper_model->select('',$tableName, $fields);
         
-        if($userExist){ 
+        if($userExist){
+
+                $id = $userExist[0]['customer_id'];
+                $client_ip = $_SERVER['REMOTE_ADDR'];
+                $where = 'customer_id = '.$id.' AND ip = '."'$client_ip'";
+                $checkIp = $this->helper_model->select("ip",'oc_customer_ip', $where);
+                //print_r($checkIp);exit;
+                if(empty($checkIp))
+                {
+                    $arr = array('customer_id' => $id);
+                    $cnt = $this->helper_model->get_cnt('oc_customer_ip', $arr);
+                    if($cnt<6)
+                    {
+                        $client_ip = $_SERVER['REMOTE_ADDR'];
+                        $timezone = new DateTimeZone("Asia/Kolkata" );
+                        $date = new DateTime();
+                        $date->setTimezone($timezone );
+                        $date =  $date->format( 'Y-m-d H:i:s');
+
+                        $ip_data = array(
+                                'customer_id' => $userExist[0]['customer_id'],
+                                'ip' => $client_ip,
+                                'date_added' => $date
+                            );
+                        $this->helper_model->insert('oc_customer_ip', $ip_data); 
+                    }
+                }
+
                 $condition = array('customer_id' => $userExist[0]['customer_id']);
                 $proCount = $this->helper_model->get_cnt('oc_customer_wishlist',$condition);
 
