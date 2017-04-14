@@ -22,9 +22,9 @@
 <meta name="author" content="">
  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic" />
 
-<script src="js/jquery.classybox.min.js"></script>
+<script src="<?php echo base_url();?>public/js/jquery.classybox.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="css/jquery.classybox.min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/jquery.classybox.min.css" />
 
 <!-- **Favicon** -->
 <link href="<?php echo base_url();?>public/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -46,7 +46,7 @@
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/font-awesome.min.css" />
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/flaticon.css" />
 <link rel="stylesheet" href="<?php echo base_url();?>public/css/easy-responsive-tabs.css" />
-<script src="<?php echo base_url();?>public/js/easyResponsiveTabs.js"></script>
+<!-- <script src="<?php echo base_url();?>public/js/easyResponsiveTabs.js"></script> -->
 
 
 <!-- **Google - Fonts** -->

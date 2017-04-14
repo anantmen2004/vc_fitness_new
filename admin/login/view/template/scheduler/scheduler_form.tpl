@@ -29,7 +29,7 @@
     <?php for($i=0; $i<$cnt; $i++):?>
           <ul class="nav nav-tabs">
             <?php if($i==0) {$flag=0;for($j=0; $j<$cnt; $j++): ?>
-            <li class="<?php echo ($flag==0)?'active':''?>" ><a href="#tab-general_<?php echo $flag;?>" data-toggle="tab"><?php echo $scheduler_description[$j]['package_name']; ?></a></li>
+            <li class="<?php echo ($flag==0)?'active':''?>" ><a href="#tab-general_<?php echo $flag;?>" data-toggle="tab" style="background-color: <?php echo ($scheduler_description[$j]['status']==1)?'#f24a24':'#94fc9d'; ?>"><?php echo $scheduler_description[$j]['package_name'];?></a></li>
           <?php $flag++; endfor;}?>
           </ul>
           <div class="tab-content">
@@ -151,10 +151,10 @@
                               <td>
                                    <select class="form-control" name="status" id="stat">
                                       <option value="" <?php echo ($value['status'] == "")? "selected":""?> >Status</option>
-                                      <option value="0" <?php echo ($value['status'] == "0")? "selected":""?> >Pending</option>
-                                      <option value="1" <?php echo ($value['status'] == "1")? "selected":""?>  >Confirm</option>
-                                      <option value="2" <?php echo ($value['status'] == "2")? "selected":""?>>Reschedule</option>
-                                      <option value="3" <?php echo ($value['status'] == "3")? "selected":""?> >Cancel</option>
+                                      <option value="1" <?php echo ($value['status'] == "1")? "selected":""?> >Pending</option>
+                                      <option value="2" <?php echo ($value['status'] == "2")? "selected":""?>  >Complete</option>
+                                      <option value="3" <?php echo ($value['status'] == "3")? "selected":""?>>Reschedule</option>
+                                      <option value="4" <?php echo ($value['status'] == "4")? "selected":""?> >Cancel</option>
                                   </select>
                               </td>
                               <td>

@@ -90,7 +90,7 @@
 	.border-title.alignright { text-align:right; margin-bottom:40px; width:100%; }
 	.border-title { margin-bottom:40px; }
 	.border-title, .widgettitle { background:url(../images/title-pattern.png) repeat-x scroll 0 10px rgba(0, 0, 0, 0); display:block; font-size:30px; text-transform:uppercase; }
-	.widgettitle { background:url(../images/widget-title1.png) repeat-x 0px 5px; }
+	.widgettitle { background:url(http://localhost/vc_fitness_new/public/images/widget-title.png) repeat-x 0px 5px; }
 	.secondary-sidebar .widgettitle { background-position:0px 11px; }
 	
 	.border-title span { background:#fff; padding:0 12px 0px 0px; }
@@ -693,8 +693,8 @@
 	/*----*****---- << Main >> ----*****----*/
 	#main { width:100%; margin:0px; padding:0px; float:left; }
 	#main-content { position:relative; float:left; width:100%; }
-	#main-content:before { background:url(images/main-cnt-left.png) no-repeat; content:""; width:210px; height:445px; display:block; left:0; position:absolute; top:0; z-index:1; }
-	#main-content:after { background:url(images/main-cnt-right.png) no-repeat; content:""; width:217px; height:404px; display:block; right:0; position:absolute; top:0; z-index:1; }
+	#main-content:before { background:url(http://localhost/vc_fitness_new/public/images/main-cnt-left.png) no-repeat; content:""; width:210px; height:445px; display:block; left:0; position:absolute; top:0; z-index:1; }
+	#main-content:after { background:url(http://localhost/vc_fitness_new/public/images/main-cnt-right.png) no-repeat; content:""; width:217px; height:404px; display:block; right:0; position:absolute; top:0; z-index:1; }
 	
 	#primary { width:770px; margin:0px; padding:0px; float:left; z-index:2; position:relative; }
 	#primary.content-full-width { width:100%; background:#fff; margin-top:3%;}
@@ -722,13 +722,13 @@
 			
 		.fullwidth-section { width:100%; clear:both; margin:0px; padding:0px; float:left; position:relative; }
 		
-		.full-service { background:url(images/pattern1.png) repeat-x; padding:32px 0px 26px 0px; }
-		.full-pattern  { background:url(images/pattern3.png) no-repeat center #f4f4f4; padding:20px 0px 7px; }
-		.full-pattern1 { background:url(../images/fitness-summer-bag.jpg) repeat; padding:50px 0px; }
-		.full-pattern2 { background:url(images/pattern2.png) repeat #fff; padding:30px 0px; }
-		.full-pattern3 { background:url(images/pattern3.jpg) repeat; padding:70px 0px; }
-		.full-pattern4 { background:url(images/pattern4.jpg) repeat; padding:70px 0px; background-attachment:fixed; }
-		.full-paralax4 { background:url(../images/paralax-5.png) no-repeat center; padding:25px 0 0; min-height:470px; }
+		.full-service { background:url(http://localhost/vc_fitness_new/public/images/pattern1.png) repeat-x; padding:32px 0px 26px 0px; }
+		.full-pattern  { background:url(http://localhost/vc_fitness_new/public/images/pattern3.png) no-repeat center #f4f4f4; padding:20px 0px 7px; }
+		.full-pattern1 { background:url(http://localhost/vc_fitness_new/public/images/fitness-summer-bag.jpg) repeat; padding:50px 0px; }
+		.full-pattern2 { background:url(http://localhost/vc_fitness_new/public/images/pattern2.png) repeat #fff; padding:30px 0px; }
+		.full-pattern3 { background:url(http://localhost/vc_fitness_new/public/images/pattern3.jpg) repeat; padding:70px 0px; }
+		.full-pattern4 { background:url(http://localhost/vc_fitness_new/public/images/pattern4.jpg) repeat; padding:70px 0px; background-attachment:fixed; }
+		.full-paralax4 { background:url(http://localhost/vc_fitness_new/public/images/paralax-5.png) no-repeat center; padding:25px 0 0; min-height:470px; }
 		.full-paralax4 .container, .full-paralax4 .column { position:static; }
 		.full-paralax4 img { position: absolute; bottom: 0px; }
 		.full-pattern5 { background:url(../images/fitness-message.jpg) no-repeat scroll 0 0 / cover rgba(0, 0, 0, 0); padding:60px 0px; overflow:hidden; }
@@ -753,7 +753,7 @@
 		
 		.full-paralax4 .dt-sc-bmi-frm-detail { background:transparent; }
 		
-		.full-testimonial, .service-full-bg { background:url(../images/testimonial-bg.jpg) repeat; background-attachment: fixed; }
+		.full-testimonial, .service-full-bg { background:url(http://localhost/vc_fitness_new/public/images/testimonial-bg.jpg) repeat; background-attachment: fixed; }
 		.full-testimonial { padding:60px 0px 50px; color:#6a6a6a; }
 		.full-grey { background-color:#f2f2f2; padding:60px 0px 50px; }
 		.full-man { background:url(../images/paralx-3.jpg) no-repeat; padding:50px 0px; }

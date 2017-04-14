@@ -840,11 +840,11 @@ for ($i=0; $i <$cnt ; $i++) {
 
 		if (isset($this->request->post['status'])) {
 
-			$data['status'] = $this->request->post['status'];
+			$data['status'] = $this->request->post['pack_status'];
 
 		} elseif (!empty($scheduler_info)) {
 
-			$data['status'] = $scheduler_info[$i]['status'];
+			$data['status'] = $scheduler_info[$i]['pack_status'];
 
 		} else {
 

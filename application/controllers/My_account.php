@@ -268,38 +268,30 @@ class My_account extends CI_Controller {
     			$tableName = 'oc_call_schedule';
     			$where = array('customer_id' => $cust,'package_id' => $packageid, 'call_no' => $value);
    	 			$callcheck = $this->Helper_model->select($select, $tableName, $where);
-  
-				// print_r($callcheck);
 				if($callstatus[$key] != 2)
 				{
-   	 			if(empty($callcheck))
-   	 			{
-   	 				//echo "date";print_r($value); exit;
-					$call=array(
-					'customer_id' => $cust,
-					'package_id' => $packageid,
-					'date' => date("Y-m-d",strtotime($date[$key])),
-					'time' => $hour[$key].':'.$minute[$key], 
-					'status' => $callstatus[$key],
-					'complete_status' => 0,
-					'call_no' => $value,
-					'added_on' => date("Y-m-d h:i:s")
-					);
-					//echo "date";print_r($call);exit;
-					$callid=$this->Helper_model->insert($tableName, $call);
-					$callcheck = array();
-					if(!empty($callid))
-					{
-						// echo 1;exit;
-						$this->send_call_schedule_mail($call);
-						//echo 1;
+	   	 			if(empty($callcheck))
+	   	 			{
+						$call=array(
+						'customer_id' => $cust,
+						'package_id' => $packageid,
+						'date' => date("Y-m-d",strtotime($date[$key])),
+						'time' => $hour[$key].':'.$minute[$key], 
+						'status' => $callstatus[$key],
+						'complete_status' => 0,
+						'call_no' => $value,
+						'added_on' => date("Y-m-d h:i:s")
+						);
+						//echo "date";print_r($call);exit;
+						$callid=$this->Helper_model->insert($tableName, $call);
+						$callcheck = array();
+						if(!empty($callid))
+						{
+							$this->send_call_schedule_mail($call);
+						}
 					}
-				}
-				else
-				{
-					//echo "update";print_r($value); exit;
-					// if($callcheck[0]['complete_status'] !=1)
-					// {
+					else
+					{
 						$call=array(
 						'date' => date("Y-m-d",strtotime($date[$key])),
 						'time' => $hour[$key].':'.$minute[$key], 
@@ -312,20 +304,14 @@ class My_account extends CI_Controller {
 							'package_id' => $packageid,
 							'call_no' => $value
 							);
-						//echo "update";  print_r($tableName); print_r($call);print_r($where);;exit;
 						$updateid=$this->Helper_model->update($tableName,$call,$where);
-
-						//echo "update";print_r($updateid);exit;
 						$callcheck = array();
 						if(!empty($updateid))
 						{
-							// echo 2;exit;
 							$this->send_call_schedule_mail($where);
-							//echo 2;
 						}
-					// }
-					$callcheck = array();
-				} 
+						$callcheck = array();
+					} 
 				}
 			}
 		}

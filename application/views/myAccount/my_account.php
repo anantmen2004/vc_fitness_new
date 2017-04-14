@@ -1,3 +1,4 @@
+
 <div id="main">
   <div id="main-content">
    <section id="primary" class="content-full-width">
@@ -286,14 +287,19 @@
                   <?php $cnt2=COUNT($video[$i][$k]); ?>
                       <?php for ($v=0; $v < $cnt2; $v++) : ?>
                     <li class="col-md-3">
-                      <a class="youtube-btn-training" href="">
+                      <!-- <a class="youtube-btn-training" href="<?php echo base_url()."public/video/".$video[$i][$k][$v]["video_path"];?>"> -->
+                      <!-- <a class="youtube-btn-training" href="http://www.youtube.com/watch?v=QgbpcsjvBks">
                       
                          <video id="<?php echo $video[$i][$k][$v]['video_id']; ?>" style="min-width:100%; min-height:100%; border:3px solid #F26522;" name="<?php echo $video[$i][$k][$v]['video_name']; ?>" >
-                          <source src="<?php echo $video[$i][$k][$v]['video_path']; ?>" type="video/mp4" />
+                          <source src="<?php echo base_url()."public/video/".$video[$i][$k][$v]["video_path"];?>" type="video/mp4" />
                         </video> 
+                       
                       
-                      </a>
+                      </a> -->
+                      
+                       <div id="player">aasfasfasf</div>
                     </li>
+                    
                     <?php endfor; ?>
                   </ul>
                   </div>
@@ -408,8 +414,6 @@
                     
                   </tr>
                 <?php $call_cnt++; endfor; ?>
-
-
               </tbody>
             </table>
           <?php if(!empty($checkIp)): ?>
@@ -418,7 +422,6 @@
           </div>
         <?php endif; ?>
         </div>
-
           </fieldset>
         </form>
       </p>
@@ -520,7 +523,7 @@
 <div>
           <h4>Schedule Video Call</h4>
           <div class="alert_msg"></div>
-          <?php $val=COUNT($callnumber1[$i]); ?>
+          <!-- <?php $val=COUNT($callnumber1[$i]); ?>
             
             <?php $call_cnt = 1; for($p=0; $p<$val; $p++) : ?>
            <?php 
@@ -574,7 +577,72 @@
              <input type="text"  id="status" value="<?php if(!empty($status) && $status==2): echo "Complete"; endif; ?>" disabled/>
           </div>
           
-        <?php $call_cnt++; endfor; ?>
+        <?php $call_cnt++; endfor; ?> -->
+
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <td class="text-center">Date</td>
+                    <td class="text-center">Hours</td>
+                    <td class="text-center">Status</td>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php $val=COUNT($callnumber1[$i]); ?>
+            
+            <?php $call_cnt = 1; for($p=0; $p<$val; $p++) : ?>
+           <?php 
+           //echo "<pre> status";print_r($callnumber1[$i][$p]['status']);exit;
+               if(!empty($callnumber1[$i][$p]['time'])){
+                    $time = $callnumber1[$i][$p]['time'];
+                    $timestring = explode(" ", $time);
+                    if(!empty($timestring[1])){$ampm = $timestring[1];} else { $ampm ="";}
+                    $timestring2 = explode(":", $timestring[0]);
+                    $hour = $timestring2[0];
+                    $min = $timestring2[1];
+                  }
+                  else{
+                    $hour = ""; $min=""; $ampm="";
+                  }
+
+                  if(!empty($callnumber1[$i][$p]['status'])){
+                    $status = $callnumber1[$i][$p]['status'];
+                  }
+                  else{
+                      $status="";
+                  }
+
+                  if(!empty($callnumber1[$i][$p]['call_no'])){
+                    $call_no = $callnumber1[$i][$p]['call_no'];
+                  }
+                  else{
+                    $call_no = "";
+                  }
+
+                  if(!empty($callnumber1[$i][$p]['date'])){
+                    $date = $callnumber1[$i][$p]['date'];
+                  }
+                  else{
+                    $date = "";
+                  }
+
+           ?>
+           <tr>
+             <td><input type="text" date-date-format=""  class="pickdate" id="packagecall" name="date1[]"  value="<?php echo (!empty( $callnumber1[$i][$p]['date'])) ? $callnumber1[$i][$p]['date'] : ""; ?>" disabled/></td>
+
+             <td><input type="text"  id="time" value="<?php echo (!empty($hour))?"$hour":""; echo ":"; echo (!empty($min))?"$min":""; echo " "; echo (!empty($ampm))?"$ampm":""  ?>" disabled/></td>
+             <td><input type="text"  id="status" value="<?php if(!empty($status) && $status==2): echo "Complete"; endif; ?>" disabled/></td>
+           </tr>
+
+
+
+
+           <?php $call_cnt++; endfor; ?>
+                </tbody>
+              </table>
+
+
+
          
         </div>
           </fieldset>
@@ -614,3 +682,20 @@ $(document).ready(function(){
 $('.timepicker').timepicker();
 });
 </script> -->
+<!-- <script type="text/javascript">
+  jwplayer("#video").setup({
+    file: "http://localhost/vc_fitness_new/public/video/Vinod Channa.mp4",
+    type: "mp4"
+});
+
+
+</script> -->
+<script src="<?php echo base_url();?>public/js/jwplayer.js"></script>
+<script>
+jwplayer('player').setup({
+  'flashplayer': 'player.swf',
+  'width': '400',
+  'height':'300',
+  'file': 'http://localhost/vc_fitness_new/public/video/Vinod_Channa.mp4'
+});
+</script>
