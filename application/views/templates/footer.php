@@ -114,6 +114,9 @@
 <script type="text/javascript" src="<?php echo base_url();?>public/js/jquery.isotope.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/js/jquery.prettyPhoto.js"></script>
 
+
+<script src="<?php echo base_url();?>public/css/bootstrap/jquery.classybox.min.js"></script>
+
 <!--show-hide-data--->
 <script language="JavaScript">
 function ShowHide(divId)

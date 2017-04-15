@@ -1,4 +1,4 @@
-
+<script src="<?php echo base_url();?>public/js/jwplayer.js"></script> 
 <div id="main">
   <div id="main-content">
    <section id="primary" class="content-full-width">
@@ -224,9 +224,9 @@
 
   <div id="ChildVerticalTab_3">
     <ul class="resp-tabs-list ver_3">    
-    <?php $cnt=COUNT($packdata); ?>
-    <?php for ($i=0; $i < $cnt; $i++) : ?>     
-      <?php if($i==0) {for ($j=0; $j < $cnt; $j++) : ?> 
+    <?php $pack_cnt=COUNT($packdata); ?>
+    <?php for ($i=0; $i < $pack_cnt; $i++) : ?>     
+      <?php if($i==0) {for ($j=0; $j < $pack_cnt; $j++) : ?> 
 
     <li><?php echo $packdata[$j]['package_name']; ?></li>
       <?php endfor;} ?>
@@ -278,26 +278,44 @@
             <div class="video"> 
               <ul style="list-style-type: none;">
               
-              <?php $cnt1=COUNT($trainarr[$i]); ?>
-               <?php for ($k=0; $k < $cnt1; $k++) : ?>
+              <?php $train_cnt1=COUNT($trainarr[$i]); ?>
+               <?php for ($k=0; $k < $train_cnt1; $k++) : ?>
                 <li class="Training_type"><h5><?php echo $trainarr[$i][$k]['training_name']; ?>
                 <span class="pull-right"><img src="<?php echo base_url();?>public/images/arrow-down2.png"></span></h5>
                 <div class="row">
-                  <ul class="ul9_<?php echo $k; ?>" style="list-style: none;">
-                  <?php $cnt2=COUNT($video[$i][$k]); ?>
-                      <?php for ($v=0; $v < $cnt2; $v++) : ?>
-                    <li class="col-md-3">
-                      <!-- <a class="youtube-btn-training" href="<?php echo base_url()."public/video/".$video[$i][$k][$v]["video_path"];?>"> -->
-                      <!-- <a class="youtube-btn-training" href="http://www.youtube.com/watch?v=QgbpcsjvBks">
+                  <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
+                  <?php $video_cnt2=COUNT($video[$i][$k]); ?>
+                      <?php for ($v=0; $v < $video_cnt2; $v++) : ?>
+                    <!-- <li class="col-md-3">
+                      <a class="youtube-btn-training" href="player">
+                      <!-- <a class="youtube-btn-training" href="http://www.youtube.com/watch?v=QgbpcsjvBks">-->
                       
-                         <video id="<?php echo $video[$i][$k][$v]['video_id']; ?>" style="min-width:100%; min-height:100%; border:3px solid #F26522;" name="<?php echo $video[$i][$k][$v]['video_name']; ?>" >
+                       <!-- <video id="<?php echo $video[$i][$k][$v]['video_id']; ?>" style="min-width:100%; min-height:100%; border:3px solid #F26522;" name="<?php echo $video[$i][$k][$v]['video_name']; ?>" >
                           <source src="<?php echo base_url()."public/video/".$video[$i][$k][$v]["video_path"];?>" type="video/mp4" />
                         </video> 
                        
                       
-                      </a> -->
-                      
-                       <div id="player">aasfasfasf</div>
+                      </a>
+
+                    </li> -->
+                    <li class="col-md-4">
+                    <div class="" id="player<?php echo $i;?><?php echo $k;?><?php echo $v;?>" ></div>
+                      <script type="text/javascript">
+  
+                        var x = '<?php echo $i;?>';
+                        var y = '<?php echo $k;?>';
+                        var z = '<?php echo $v;?>';
+                        // var p = '<?php echo $v;?>';
+                        id = 'player'+x+y+z;
+                        //lert(id);
+                        jwplayer('player<?php echo $i;?><?php echo $k;?><?php echo $v;?>').setup({
+                        'flashplayer': 'player.swf',
+                        'width': '100%',
+                        'height':'200',
+                        'type' : 'mp4',
+                        'file': 'http://localhost/vc_fitness_new/public/video/Vinod_Channa.mp4'
+                      });
+                      </script>
                     </li>
                     
                     <?php endfor; ?>
@@ -309,8 +327,6 @@
             </ul>
           </div>
         </div>
-
-
 
 
 
@@ -523,61 +539,6 @@
 <div>
           <h4>Schedule Video Call</h4>
           <div class="alert_msg"></div>
-          <!-- <?php $val=COUNT($callnumber1[$i]); ?>
-            
-            <?php $call_cnt = 1; for($p=0; $p<$val; $p++) : ?>
-           <?php 
-           //echo "<pre>";print_r($callnumber1[$i][$p]['time']);exit;
-               if(!empty($callnumber1[$i][$p]['time'])){
-                    $time = $callnumber1[$i][$p]['time'];
-                    $timestring = explode(" ", $time);
-                    if(!empty($timestring[1])){$ampm = $timestring[1];} else { $ampm ="";}
-                    $timestring2 = explode(":", $timestring[0]);
-                    $hour = $timestring2[0];
-                    $min = $timestring2[1];
-                  }
-                  else{
-                    $hour = ""; $min=""; $ampm="";
-                  }
-
-                  if(!empty($callnumber1[$i][$p]['status'])){
-                    $status = $callnumber1[$i][$p]['status'];
-                  }
-                  else{
-                      $status="";
-                  }
-
-                  if(!empty($callnumber1[$i][$p]['call_no'])){
-                    $call_no = $callnumber1[$i][$p]['call_no'];
-                  }
-                  else{
-                    $call_no = "";
-                  }
-
-                  if(!empty($callnumber1[$i][$p]['date'])){
-                    $date = $callnumber1[$i][$p]['date'];
-                  }
-                  else{
-                    $date = "";
-                  }
-
-           ?>
-          <input type="hidden" name="packcall[]" value="<?php echo empty($callnumber1[$i][$p])? $call_cnt : $callnumber1[$i][$p]['call_no']; ?>" placeholder="id" id="pack_call" class="form-control" readonly> 
-          <div class="col-md-3">
-          <label>Date</label>
-            <input type="text" date-date-format=""  class="pickdate" id="packagecall" name="date1[]"  value="<?php echo (!empty( $callnumber1[$i][$p]['date'])) ? $callnumber1[$i][$p]['date'] : ""; ?>" disabled/>
-          </div>
-          <div class="col-md-2">
-          <label>Time</label>
-          <input type="text"  id="time" value="<?php echo (!empty($hour))?"$hour":""; echo ":"; echo (!empty($min))?"$min":""; echo " "; echo (!empty($ampm))?"$ampm":""  ?>" disabled/>
-         </div>
-
-          <div class="col-md-3">
-          <label>Status</label>
-             <input type="text"  id="status" value="<?php if(!empty($status) && $status==2): echo "Complete"; endif; ?>" disabled/>
-          </div>
-          
-        <?php $call_cnt++; endfor; ?> -->
 
               <table class="table table-bordered table-hover">
                 <thead>
@@ -668,34 +629,14 @@
     
     for( i=1;  i<10 ; i++)
     {
-     $(".ul9_"+i).hide();
+     //$(".ul9_"+i).hide();
     }
  
-    $("li.Training_type").click(function(){
-      $(this).find('ul').toggle();
-    });
-  });
-</script>
-
-<!-- <script type="text/javascript">
-$(document).ready(function(){
-$('.timepicker').timepicker();
-});
-</script> -->
-<!-- <script type="text/javascript">
-  jwplayer("#video").setup({
-    file: "http://localhost/vc_fitness_new/public/video/Vinod Channa.mp4",
-    type: "mp4"
-});
-
-
-</script> -->
-<script src="<?php echo base_url();?>public/js/jwplayer.js"></script>
-<script>
-jwplayer('player').setup({
-  'flashplayer': 'player.swf',
-  'width': '400',
-  'height':'300',
-  'file': 'http://localhost/vc_fitness_new/public/video/Vinod_Channa.mp4'
-});
+  //   $("li.Training_type").click(function(){
+  //     $(this).find('ul').removeClass();
+  //   });
+  // });
+  //  $("li.Training_type").click(function(){
+  //    $(this).find('ul').removeClass();
+  //   });
 </script>

@@ -424,19 +424,25 @@ class Product extends CI_Controller {
 	public function wishlistView()
 	{ 
 		$data = $this->data;
-
 		$customer_id = $this->session->userdata('customer_id');
-		$condition = array('customer_id' => $customer_id);
-		$product_id = $this->Helper_model->select('product_id','oc_customer_wishlist',$condition);
-		$data['wishlist'] = array();
-		foreach ($product_id as $key => $value) {
-			$data['wishlist'][$key] = $this->Product_model->selectSingelProduct($value['product_id']);
-		}
+		if($customer_id)
+		{
+			$condition = array('customer_id' => $customer_id);
+			$product_id = $this->Helper_model->select('product_id','oc_customer_wishlist',$condition);
+			$data['wishlist'] = array();
+			foreach ($product_id as $key => $value) {
+				$data['wishlist'][$key] = $this->Product_model->selectSingelProduct($value['product_id']);
+			}
 
-		$data['page'] = "productspage";
-		$this->load->view('templates/header',$data);
-		$this->load->view('product/wishlistView',$data);
-		$this->load->view('templates/footer');
+			$data['page'] = "productspage";
+			$this->load->view('templates/header',$data);
+			$this->load->view('product/wishlistView',$data);
+			$this->load->view('templates/footer');
+		}
+		else
+        {
+            redirect(base_url());
+        }
 	}
 	public function addToWishlist()
 	{
@@ -459,15 +465,25 @@ class Product extends CI_Controller {
 			$this->session->set_userdata('wishCount', $proCount);
 			echo $proCount;
 		}
+		else
+        {
+            redirect(base_url());
+        }
 	}
 	public function deleteWishlistItem($product_id)
 	{
 		$customer_id = $this->session->userdata('customer_id');
+		if($customer_id){
 		$result = $this->Product_model->delete_wishlistItem($customer_id,$product_id);
 		$condition = array('customer_id' => $customer_id);
 		$proCount = $this->Product_model->get_cnt('oc_customer_wishlist',$condition);
 		$this->session->set_userdata('wishCount', $proCount);
 		echo $proCount;
+		}
+		else
+        {
+            redirect(base_url());
+        }
 	}
 	public function productSearching($catId="",$pageno = "")
 	{

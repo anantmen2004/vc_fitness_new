@@ -22,9 +22,9 @@
 <meta name="author" content="">
  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic" />
 
-<script src="<?php echo base_url();?>public/js/jquery.classybox.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/jquery.classybox.min.css" />
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/bootstrap/jquery.classybox.min.css" />
 
 <!-- **Favicon** -->
 <link href="<?php echo base_url();?>public/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -78,8 +78,8 @@
        <script type="text/javascript" src="<?php echo base_url();?>public/css/bootstrap/jquery.marquee.js"></script>
      <!-- slider-corporate-end --> 
   <!-- slider-video --> 
- <script src="<?php echo base_url();?>public/css/bootstrap/jquery.classybox.min.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/bootstrap/jquery.classybox.min.css"/>
+ <!-- <script src="<?php echo base_url();?>public/css/bootstrap/jquery.classybox.min.js"></script> -->
+<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/jquery.classybox.min.css"/> -->
 
 
 <!-- slider-video-end --> 

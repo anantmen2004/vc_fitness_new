@@ -19,9 +19,18 @@ class Auth extends CI_Controller {
 	}
     public function loginView($itemId = "",$from="")
     {
-        $data['itemId'] = $itemId;
-        $data['from'] = $from;
-        $this->load->view('register/login',$data);
+        $customer_id = $this->session->userdata('customer_id');
+        if(empty($customer_id)){
+
+            $data['itemId'] = $itemId;
+            $data['from'] = $from;
+            $this->load->view('register/login',$data);
+
+        }
+        else
+        {
+            redirect(base_url());
+        }
     }
     public function verifyUser()    // verifiaction at the time of registration
     { 
@@ -169,6 +178,7 @@ class Auth extends CI_Controller {
 
                 $id = $userExist[0]['customer_id'];
                 $client_ip = $_SERVER['REMOTE_ADDR'];
+                // print_r($client_ip);exit;
                 $where = 'customer_id = '.$id.' AND ip = '."'$client_ip'";
                 $checkIp = $this->helper_model->select("ip",'oc_customer_ip', $where);
                 //print_r($checkIp);exit;

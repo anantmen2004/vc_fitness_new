@@ -57,6 +57,10 @@ class Gallery extends CI_Controller {
 				echo 1;
 			}
 		}
+		else
+        {
+            redirect(base_url());
+        }
 	}
 
 
