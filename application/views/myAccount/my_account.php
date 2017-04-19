@@ -1,4 +1,23 @@
 <script src="<?php echo base_url();?>public/js/jwplayer.js"></script> 
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 <div id="main">
   <div id="main-content">
    <section id="primary" class="content-full-width">
@@ -282,45 +301,76 @@
                <?php for ($k=0; $k < $train_cnt1; $k++) : ?>
                 <li class="Training_type"><h5><?php echo $trainarr[$i][$k]['training_name']; ?>
                 <span class="pull-right"><img src="<?php echo base_url();?>public/images/arrow-down2.png"></span></h5>
-                <div class="row">
-                  <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
-                  <?php $video_cnt2=COUNT($video[$i][$k]); ?>
-                      <?php for ($v=0; $v < $video_cnt2; $v++) : ?>
-                    <!-- <li class="col-md-3">
-                      <a class="youtube-btn-training" href="player">
-                      <!-- <a class="youtube-btn-training" href="http://www.youtube.com/watch?v=QgbpcsjvBks">-->
-                      
-                       <!-- <video id="<?php echo $video[$i][$k][$v]['video_id']; ?>" style="min-width:100%; min-height:100%; border:3px solid #F26522;" name="<?php echo $video[$i][$k][$v]['video_name']; ?>" >
-                          <source src="<?php echo base_url()."public/video/".$video[$i][$k][$v]["video_path"];?>" type="video/mp4" />
-                        </video> 
-                       
-                      
-                      </a>
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#basic" data-toggle="tab">Basic</a></li>
+                  <li><a href="#reguler" data-toggle="tab">Reguler</a></li>
+                </ul>
 
-                    </li> -->
+                <div class="row tab-pane active" id="basic">
+                      <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
+                  <?php $video_cnt2=COUNT($basic_video[$i][$k]); ?>
+                      <?php for ($v=0; $v < $video_cnt2; $v++) : ?>
                     <li class="col-md-4">
                     <div class="" id="player<?php echo $i;?><?php echo $k;?><?php echo $v;?>" ></div>
                       <script type="text/javascript">
-  
-                        var x = '<?php echo $i;?>';
-                        var y = '<?php echo $k;?>';
-                        var z = '<?php echo $v;?>';
-                        // var p = '<?php echo $v;?>';
-                        id = 'player'+x+y+z;
-                        //lert(id);
+                        var url  = '<?php echo base_url()."public/video/".$basic_video[$i][$k][$v]["video_path"];?>';
+                        //alert(url);
                         jwplayer('player<?php echo $i;?><?php echo $k;?><?php echo $v;?>').setup({
                         'flashplayer': 'player.swf',
                         'width': '100%',
                         'height':'200',
                         'type' : 'mp4',
-                        'file': 'http://localhost/vc_fitness_new/public/video/Vinod_Channa.mp4'
+                        'display' : 'none',
+                        'background-image': 'none',
+                        'file': url
                       });
                       </script>
                     </li>
                     
                     <?php endfor; ?>
                   </ul>
-                  </div>
+                </div>
+
+                <div class="row tab-pane " id="reguler">
+                    <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
+                  <?php $video_cnt2=COUNT($video[$i][$k]); ?>
+                      <?php for ($v=0; $v < $video_cnt2; $v++) : ?>
+                    <li class="col-md-4">
+                    <div class="" id="player<?php echo $i;?><?php echo $k;?><?php echo $v;?>" ></div>
+                      <script type="text/javascript">
+                        var url  = '<?php echo base_url()."public/video/".$video[$i][$k][$v]["video_path"];?>';
+                        //alert(url);
+                        jwplayer('player<?php echo $i;?><?php echo $k;?><?php echo $v;?>').setup({
+                        'flashplayer': 'player.swf',
+                        'width': '100%',
+                        'height':'200',
+                        'type' : 'mp4',
+                        'display' : 'none',
+                        'background-image': 'none',
+                        'file': url
+                      });
+                      </script>
+                    </li>
+                    
+                    <?php endfor; ?>
+                  </ul>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- <div class="row">
+                
+                  </div> -->
                 </li>
               <?php endfor; ?>
 
@@ -343,6 +393,7 @@
                     <td class="text-center">Minutes</td>
                     <!-- <td class="text-center">AM/PM</td> -->
                     <td class="text-center">Status</td>
+                    <td class="text-center">Miss Session Video</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -426,6 +477,9 @@
                         <option value="3" <?php echo (!empty($status)&& $status == "3")?"selected":""?>>Reschedule</option>
                         <option value="4" <?php echo (!empty($status)&& $status == "4")?"selected":""?>>Cancel</option>
                       </select>
+                    </td>
+                    <td>
+                      <button type="button" name="callsubmit" id="callsubmit" value="Submit" class="dt-sc-button small pull-left" >Play</button>
                     </td>
                     
                   </tr>
@@ -639,4 +693,11 @@
   //  $("li.Training_type").click(function(){
   //    $(this).find('ul').removeClass();
   //   });
+</script>
+<script type="text/javascript">
+  function video_popup()
+  {
+    $("#myModal").modal('show');
+    $(".modal-body").html('<div id="player010" ></div>')
+  }
 </script>

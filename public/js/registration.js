@@ -7,6 +7,10 @@ $(document).ready(function() {
     $("#nxtBtn").click(function(){
         $(".alert_msg").html("");   
     });
+
+    $('#password').change(function(e) {
+    $('#login_btn').focus();
+});
     
 });
 
@@ -570,8 +574,6 @@ function galleryLike(galleryId,customer_id)
         }
     });
 }
-/****************/
-
 /**************/
 // function verifyUser()
 // {

@@ -109,14 +109,16 @@
 <br/>
                   <h3 style="text-align: center;">Schedule Customer Call</h3>
                   <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="col-sm-12 ">
                     <table class="table table-bordered">
                           <tr>
                               <th>Call No</th>
                               <th>Date</th>
                               <th>Time</th> 
+                              <th>Comment</th> 
+                              <th>Video</th> 
                               <th>Status</th>
-                              <th>Action</th>
+                              <th style="width:15%;">Action</th>
                           </tr>
                           <?php 
                               $form_id = 1;
@@ -141,12 +143,29 @@
                                   </div>
                               </td>
                                <td>
-                                    <div class="input-group time">
-                                      <input type="text" name="time" value="<?php echo $value['time']?>" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
-                                      <span class="input-group-btn">
-                                      <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
-                                      </span>
-                                    </div>
+                                  <div class="input-group time">
+                                    <input type="text" name="time" value="<?php echo $value['time']?>" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
+                                    <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                    </span>
+                                  </div>
+                              </td>
+                              <td>
+                                  <div class="input-group time">
+                                    <textarea placeholder="comment for self understanding" id="" name="admin_comment" class="form-control" ><?php echo isset($value['admin_comment']) ? $value['admin_comment'] : '';?></textarea>
+                                  </div>
+                              </td>
+                              <td>
+                              
+                                   <select class="form-control" name="video_id" id="stat">
+                                   <?php foreach($video as $key => $value2){?>
+                                      <option value="<?php echo $value2['video_id'];?>" <?php echo ($value2['video_id'] == $value['video_id'])? "selected":""?> ><?php echo $value2['video_name'];?></option>
+                                      <<!-- option value="1" <?php echo ($value['status'] == "1")? "selected":""?> >Pending</option>
+                                      <option value="2" <?php echo ($value['status'] == "2")? "selected":""?>  >Complete</option>
+                                      <option value="3" <?php echo ($value['status'] == "3")? "selected":""?>>Reschedule</option>
+                                      <option value="4" <?php echo ($value['status'] == "4")? "selected":""?> >Cancel</option> -->
+                                      <?php } ?>
+                                  </select>
                               </td>
                               <td>
                                    <select class="form-control" name="status" id="stat">

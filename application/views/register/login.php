@@ -80,7 +80,7 @@
 						
 					 <form id="loginForm">
 						<input type="text"  placeholder="Enter Email Id" name="email"  id="email" autocomplete="off"/>
-						<input type="password"  placeholder="Password" name="password" id="password" autocomplete="off"/>
+						<input type="password"  placeholder="Password" name="password" id="password" autocomplete="off"  />
 						<div class="remember">
 			             <!-- <span class="checkbox1">
 							   <label class="checkbox"><input type="checkbox" name="rememberMe" checked=""><i> 
@@ -91,7 +91,7 @@
 						 </div>
 						<div class="clear"> </div>
 					  </div>  
-						<input type="button" onclick="loginAction('redirectToHome','<?php echo $itemId;?>','<?php echo $from;?>')" value="Login">
+						<input id="login_btn" type="button" onclick="loginAction('redirectToHome','<?php echo $itemId;?>','<?php echo $from;?>')" value="Login">
 					</form>
 				</div>
 				</div>

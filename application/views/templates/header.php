@@ -1,5 +1,5 @@
 <?php
-
+$this->session->sess_expiration = '120';
     //$customer_id = $this->session->userdata('customer_id');
     $firstname = $this->session->userdata('firstname');
     $wishCount = $this->session->userdata('wishCount');

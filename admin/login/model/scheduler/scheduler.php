@@ -45,7 +45,7 @@ class ModelSchedulerScheduler extends Model {
 	public function editScheduler($cust_id, $data) {
 		// print_r($data);exit;
 		$this->event->trigger('pre.admin.scheduler.edit', $data);
-		$this->db->query("UPDATE " . DB_PREFIX . "call_schedule SET date = '" . $data['date']. "', time = '" . $data['time']. "', status = '" . $data['status'] . "', updated_on = NOW() WHERE customer_id = '" . (int)$cust_id . "' AND package_id = '" . (int)$data['package_id'] . "' AND call_no = '" . (int)$data['call_no'] . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "call_schedule SET date = '" . $data['date']. "', time = '" . $data['time']. "', admin_comment = '" . $data['admin_comment'] . "', video_id = '" . $data['video_id'] . "', status = '" . $data['status'] . "', updated_on = NOW() WHERE customer_id = '" . (int)$cust_id . "' AND package_id = '" . (int)$data['package_id'] . "' AND call_no = '" . (int)$data['call_no'] . "'");
 
 		
 		$this->cache->delete('scheduler');
@@ -65,6 +65,14 @@ class ModelSchedulerScheduler extends Model {
 		$data['package'] = $query1->rows;
 		return $data;
 
+	}
+
+	public function getAllVideo()  // single scheduler
+	{
+		$sql = "SELECT *  FROM oc_video_master WHERE video_type = 2" ;
+		// print_r($sql);exit;
+		$query = $this->db->query($sql);
+		return $query->rows;
 	}
 
 

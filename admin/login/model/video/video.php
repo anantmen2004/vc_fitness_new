@@ -35,7 +35,7 @@ class ModelVideoVideo extends Model {
 	public function editVideo($video_id, $data) {
 		$this->event->trigger('pre.admin.video.edit', $data);
 
-		$this->db->query("UPDATE " . DB_PREFIX . "video_master SET video_name = '" . $data['video_description'][1]['name'] . "', video_path = '" . $data['video_description'][1]['video_path'] . "', description = '" . $data['video_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW() WHERE video_id = '" . (int)$video_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "video_master SET video_name = '" . $data['video_description'][1]['name'] . "', video_path = '" . $data['video_description'][1]['video_path'] . "', video_type = '" . $data['video_type'] . "', description = '" . $data['video_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW() WHERE video_id = '" . (int)$video_id . "'");
 
 		
 		$this->cache->delete('video');
@@ -45,8 +45,8 @@ class ModelVideoVideo extends Model {
 
 	public function addVideo($data) {
 		// $this->event->trigger('pre.admin.video.add', $data);
-		//echo "<pre>";print_r($data);exit;
-		$this->db->query("INSERT INTO " . DB_PREFIX . "video_master SET video_name = '" . $data['video_description'][1]['name'] . "', video_path = '" . $data['video_description'][1]['video_path'] . "', description = '" . $data['video_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW(), date_added = NOW()");
+		// echo "<pre>";print_r($data);exit;
+		$this->db->query("INSERT INTO " . DB_PREFIX . "video_master SET video_name = '" . $data['video_description'][1]['name'] . "', video_path = '" . $data['video_description'][1]['video_path'] . "', video_type = '" . $data['video_type'] . "', description = '" . $data['video_description'][1]['description'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW(), date_added = NOW()");
 
 		$video_id = $this->db->getLastId();
 

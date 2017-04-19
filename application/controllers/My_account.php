@@ -52,6 +52,7 @@ class My_account extends CI_Controller {
 			$data['video']=array();
 			$data['trainarr']= array();
 			$data['call_data']=array();
+			$data['basic_video']=array();
 
 		foreach ($packages as $key => $value2) 
 		{
@@ -66,11 +67,20 @@ class My_account extends CI_Controller {
 			$data1['packageinfo'] = array();
 			foreach ($training_data as $key1 => $value1) 
 			{
-				$video_data=$this->Packages_model->getVideoType($value1['training_id']);
+				$video_data=$this->Packages_model->getVideoType($value1['training_id'],0);
 				array_push($data1['packageinfo'], $video_data);
 			}
 				
 			array_push($data['video'], $data1['packageinfo']);
+
+			$data1['b_video'] = array();
+			foreach ($training_data as $key1 => $value1) 
+			{
+				$video_data=$this->Packages_model->getVideoType($value1['training_id'],1);
+				array_push($data1['b_video'], $video_data);
+			}
+				
+			array_push($data['basic_video'], $data1['b_video']);
 		}
 
 		/************************************/
@@ -103,7 +113,7 @@ class My_account extends CI_Controller {
 			$data1['packageinfo1'] = array();
 			foreach ($training_data as $key1 => $value1) 
 			{
-				$video_data=$this->Packages_model->getVideoType($value1['training_id']);
+				$video_data=$this->Packages_model->getVideoType($value1['training_id'],0);
 				array_push($data1['packageinfo1'], $video_data);
 			}
 				

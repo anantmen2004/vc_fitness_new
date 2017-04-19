@@ -3,27 +3,14 @@
 class ControllerSchedulerScheduler extends Controller {
 
 	private $error = array();
-
-
-
 	public function index() {
 
 		// print_r(121212);exit;
 
 		$this->language->load('scheduler/scheduler');
-
-
-
 		$this->document->setTitle($this->language->get('heading_title'));
-
-
-
 		$this->load->model('scheduler/scheduler');
-
-
-
 		$this->getList();
-
 	}
 
 
@@ -31,92 +18,47 @@ class ControllerSchedulerScheduler extends Controller {
 	protected function getList() {
 
 		if (isset($this->request->get['sort'])) {
-
 			$sort = $this->request->get['sort'];
-
 		} else {
-
 			$sort = 'name';
-
 		}
-
-
 
 		if (isset($this->request->get['order'])) {
-
 			$order = $this->request->get['order'];
-
 		} else {
-
 			$order = 'ASC';
-
 		}
-
-
 
 		if (isset($this->request->get['page'])) {
-
 			$page = $this->request->get['page'];
-
 		} else {
-
 			$page = 1;
-
 		}
-
-
 
 		$url = '';
 
-
-
 		if (isset($this->request->get['sort'])) {
-
 			$url .= '&sort=' . $this->request->get['sort'];
-
 		}
-
-
 
 		if (isset($this->request->get['order'])) {
-
 			$url .= '&order=' . $this->request->get['order'];
-
 		}
-
-
 
 		if (isset($this->request->get['page'])) {
-
 			$url .= '&page=' . $this->request->get['page'];
-
 		}
 
-
-
 		$data['breadcrumbs'] = array();
-
-
-
 		$data['breadcrumbs'][] = array(
-
 			'text' => $this->language->get('text_home'),
-
 			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
-
-		);
-
-
+			);
 
 		$data['breadcrumbs'][] = array(
-
 			'text' => $this->language->get('heading_title'),
-
 			'href' => $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL')
-
-		);
-
-
+			);
 
 		$data['add'] = $this->url->link('scheduler/scheduler/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
@@ -124,170 +66,84 @@ class ControllerSchedulerScheduler extends Controller {
 
 		$data['repair'] = $this->url->link('scheduler/scheduler/repair', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
-
-
 		$data['galleries'] = array();
 
-
-
 		$filter_data = array(
-
 			'sort'  => $sort,
-
 			'order' => $order,
-
 			'start' => ($page - 1) * $this->config->get('config_limit_admin'),
-
 			'limit' => $this->config->get('config_limit_admin')
-
-		);
-
-
+			);
 
 		$scheduler_total = $this->model_scheduler_scheduler->getTotalScheduler();
-
-
-
 		$results = $this->model_scheduler_scheduler->getAllCustomer($filter_data);
-
-
-
 		// echo "<pre>"; print_r($results);exit;
-
-
-
 		foreach ($results as $result) {
-
 			if($result['status'] == '0'){
-
 				$status = "Active";
-
 			}
 
 			else{
-
 				$status = "Inactive";
-
 			}
 
 			$data['customer'][] = array(
-
 				'sr_no' => $result['sr_no'],
-
 				'customer_id'        => $result['customer_id'],
-
 				'fname'        => $result['firstname'],
-
 				'lname'        => $result['lastname'],
-
 				'sort_order'  => "ASC",
-
 				'status'  => $status,
-
 				'edit'        => $this->url->link('scheduler/scheduler/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $result['customer_id'] . $url, 'SSL'),
-
 				'delete'      => $this->url->link('scheduler/scheduler/delete', 'token=' . $this->session->data['token'] . '&customer_id=' . $result['customer_id'] . $url, 'SSL')
 
-			);
+				);
 
 		}
-
-
 
 		$data['heading_title'] = $this->language->get('heading_title');
-
-
-
 		$data['text_list'] = $this->language->get('text_list');
-
 		$data['text_no_results'] = $this->language->get('text_no_results');
-
 		$data['text_confirm'] = $this->language->get('text_confirm');
-
-
-
 		$data['column_name'] = $this->language->get('column_name');
-
 		$data['column_sort_order'] = $this->language->get('column_sort_order');
-
 		$data['column_action'] = $this->language->get('column_action');
-
-
-
 		$data['button_add'] = $this->language->get('button_add');
-
 		$data['button_edit'] = $this->language->get('button_edit');
-
 		$data['button_delete'] = $this->language->get('button_delete');
-
 		$data['button_rebuild'] = $this->language->get('button_rebuild');
 
-
-
 		if (isset($this->error['warning'])) {
-
 			$data['error_warning'] = $this->error['warning'];
-
 		} else {
-
 			$data['error_warning'] = '';
-
 		}
 
-
-
 		if (isset($this->session->data['success'])) {
-
 			$data['success'] = $this->session->data['success'];
-
-
-
 			unset($this->session->data['success']);
 
 		} else {
-
 			$data['success'] = '';
-
 		}
-
-
-
 		if (isset($this->request->post['selected'])) {
-
 			$data['selected'] = (array)$this->request->post['selected'];
-
 		} else {
-
 			$data['selected'] = array();
-
 		}
-
-
 
 		$url = '';
-
-
-
 		if ($order == 'ASC') {
-
 			$url .= '&order=DESC';
-
 		} else {
-
 			$url .= '&order=ASC';
-
 		}
 
 
 
 		if (isset($this->request->get['page'])) {
-
 			$url .= '&page=' . $this->request->get['page'];
-
 		}
-
-
-
 		$data['sort_name'] = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
 
 		$data['sort_sort_order'] = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
@@ -295,59 +151,30 @@ class ControllerSchedulerScheduler extends Controller {
 
 
 		$url = '';
-
-
-
 		if (isset($this->request->get['sort'])) {
-
 			$url .= '&sort=' . $this->request->get['sort'];
-
 		}
-
-
 
 		if (isset($this->request->get['order'])) {
-
 			$url .= '&order=' . $this->request->get['order'];
-
 		}
 
-
-
 		$pagination = new Pagination();
-
 		$pagination->total = $scheduler_total;
-
 		$pagination->page = $page;
-
 		$pagination->limit = $this->config->get('config_limit_admin');
-
 		$pagination->url = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
 
-
-
 		$data['pagination'] = $pagination->render();
-
-
-
 		$data['results'] = sprintf($this->language->get('text_pagination'), ($scheduler_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($scheduler_total - $this->config->get('config_limit_admin'))) ? $scheduler_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $scheduler_total, ceil($scheduler_total / $this->config->get('config_limit_admin')));
-
-
 
 		$data['sort'] = $sort;
 
 		$data['order'] = $order;
 
-
-
 		$data['header'] = $this->load->controller('common/header');
-
 		$data['column_left'] = $this->load->controller('common/column_left');
-
 		$data['footer'] = $this->load->controller('common/footer');
-
-
-
 		$this->response->setOutput($this->load->view('scheduler/scheduler_list.tpl', $data));
 
 	}
@@ -361,17 +188,8 @@ class ControllerSchedulerScheduler extends Controller {
 	public function edit() {
 
 		$this->language->load('scheduler/scheduler');
-
-
-
 		$this->document->setTitle($this->language->get('heading_title'));
-
-
-
 		$this->load->model('scheduler/scheduler');
-
-
-
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
 
 			// print_r(1233);exit;
@@ -382,50 +200,22 @@ class ControllerSchedulerScheduler extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-
-
 			$url = '';
 
-
-
 			if (isset($this->request->get['sort'])) {
-
 				$url .= '&sort=' . $this->request->get['sort'];
-
 			}
-
-
 
 			if (isset($this->request->get['order'])) {
-
 				$url .= '&order=' . $this->request->get['order'];
-
 			}
-
-
 
 			if (isset($this->request->get['page'])) {
-
 				$url .= '&page=' . $this->request->get['page'];
-
 			}
-
-
-
-			$this->response->redirect($this->url->link('scheduler/scheduler/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $this->request->get['customer_id'] . $url, 'SSL'));
-
-
-
-
-
-			
-
+			$this->response->redirect($this->url->link('scheduler/scheduler/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $this->request->get['customer_id'] . $url, 'SSL'));		
 		}
-
-
-
 		$this->getForm();
-
 	}
 
 
@@ -441,138 +231,68 @@ class ControllerSchedulerScheduler extends Controller {
 		$data['text_form'] = !isset($this->request->get['customer_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 
 		$data['text_none'] = $this->language->get('text_none');
-
 		$data['text_default'] = $this->language->get('text_default');
-
 		$data['text_enabled'] = $this->language->get('text_enabled');
-
 		$data['text_disabled'] = $this->language->get('text_disabled');
-
-
-
 		$data['entry_name'] = $this->language->get('entry_name');
-
 		$data['entry_scheduler_type'] = $this->language->get('entry_scheduler_type');
-
 		$data['entry_description'] = $this->language->get('entry_description');
-
 		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
-
 		$data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
-
 		$data['entry_keyword'] = $this->language->get('entry_keyword');
-
 		$data['entry_parent'] = $this->language->get('entry_parent');
-
 		$data['entry_filter'] = $this->language->get('entry_filter');
-
 		$data['entry_store'] = $this->language->get('entry_store');
-
 		$data['entry_image'] = $this->language->get('entry_image');
-
 		$data['entry_hover_image'] = $this->language->get('entry_hover_image');
-
 		$data['entry_top'] = $this->language->get('entry_top');
-
 		$data['entry_column'] = $this->language->get('entry_column');
-
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
-
 		$data['entry_status'] = $this->language->get('entry_status');
-
 		$data['entry_layout'] = $this->language->get('entry_layout');
 
-
-
 		$data['help_filter'] = $this->language->get('help_filter');
-
 		$data['help_keyword'] = $this->language->get('help_keyword');
-
 		$data['help_top'] = $this->language->get('help_top');
-
 		$data['help_column'] = $this->language->get('help_column');
 
-
-
 		$data['button_save'] = $this->language->get('button_save');
-
 		$data['button_cancel'] = $this->language->get('button_cancel');
 
-
-
 		$data['tab_general'] = $this->language->get('tab_general');
-
 		$data['tab_data'] = $this->language->get('tab_data');
-
 		$data['tab_design'] = $this->language->get('tab_design');
 
-
-
 		if (isset($this->error['warning'])) {
-
 			$data['error_warning'] = $this->error['warning'];
-
 		} else {
-
 			$data['error_warning'] = '';
-
 		}
-
-
 
 		if (isset($this->error['name'])) {
-
 			$data['error_name'] = $this->error['name'];
-
 		} else {
-
 			$data['error_name'] = array();
-
 		}
-
-
 
 		$url = '';
-
-
-
 		if (isset($this->request->get['sort'])) {
-
 			$url .= '&sort=' . $this->request->get['sort'];
-
 		}
-
-
 
 		if (isset($this->request->get['order'])) {
-
 			$url .= '&order=' . $this->request->get['order'];
-
 		}
-
-
 
 		if (isset($this->request->get['page'])) {
-
 			$url .= '&page=' . $this->request->get['page'];
-
 		}
 
-
-
 		$data['breadcrumbs'] = array();
-
-
-
 		$data['breadcrumbs'][] = array(
-
 			'text' => $this->language->get('text_home'),
-
 			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
-
-		);
-
-
+			);
 
 		$data['breadcrumbs'][] = array(
 
@@ -580,9 +300,7 @@ class ControllerSchedulerScheduler extends Controller {
 
 			'href' => $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL')
 
-		);
-
-
+			);
 
 		if (!isset($this->request->get['customer_id'])) {
 
@@ -601,420 +319,344 @@ class ControllerSchedulerScheduler extends Controller {
 
 
 		$data['cancel'] = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL');
-
-		
-
-
-
-		
-
-		
-
 		$data['token'] = $this->session->data['token'];
-
-
-
 		$this->load->model('localisation/language');
-
-
-
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 
-
-
-
-
 		//$data['scheduler_types'] = $this->model_scheduler_scheduler->getSchedulerTypes();
-
-
-
-
-
-
-
-
-
 		if (isset($this->request->get['customer_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 
 			$scheduler_info = $this->model_scheduler_scheduler->getCustomerPackageHistory($this->request->get['customer_id']);
 
 			$call_info = $this->model_scheduler_scheduler->getCustomerCall($this->request->get['customer_id']);
 
+			$video = $this->model_scheduler_scheduler->getAllVideo();
+			//print_r($video);exit;
+
 		}
-
-
-
-
-
-
-
 		$cnt = count($scheduler_info);
 
 		// echo "<pre>";print_r($call_info);exit;
+		for ($i=0; $i <$cnt ; $i++) { 
+			if (isset($this->request->post['fname'])) {
+				$data['fname'] = $this->request->post['fname'];
+			} elseif (!empty($scheduler_info)) {
+				$data['fname'] = $scheduler_info[$i]['firstname'];
+			} else {
+				$data['fname'] = '';
+			}
 
+			if (isset($this->request->post['lname'])) {
+				$data['lname'] = $this->request->post['lname'];
+			} elseif (!empty($scheduler_info)) {
+				$data['lname'] = $scheduler_info[$i]['lastname'];
+			} else {
+				$data['lname'] = '';
+			}
 
 
-for ($i=0; $i <$cnt ; $i++) { 
+			if (isset($this->request->post['comment'])) {
 
-			
+				$data['comment'] = $this->request->post['comment'];
 
-		
+			} elseif (!empty($scheduler_info)) {
 
-		if (isset($this->request->post['fname'])) {
+				$data['comment'] = $scheduler_info[$i]['comment'];
 
-			$data['fname'] = $this->request->post['fname'];
+			} else {
 
-		} elseif (!empty($scheduler_info)) {
+				$data['comment'] = '';
 
-			$data['fname'] = $scheduler_info[$i]['firstname'];
+			}
 
-		} else {
 
-			$data['fname'] = '';
 
-		}
+			if (isset($this->request->post['package_name'])) {
 
+				$data['package_name'] = $this->request->post['package_name'];
 
+			} elseif (!empty($scheduler_info)) {
 
-		if (isset($this->request->post['lname'])) {
+				$data['package_name'] = $scheduler_info[$i]['package_name'];
 
-			$data['lname'] = $this->request->post['lname'];
+			} else {
 
-		} elseif (!empty($scheduler_info)) {
+				$data['package_name'] = '';
 
-			$data['lname'] = $scheduler_info[$i]['lastname'];
+			}
 
-		} else {
 
-			$data['lname'] = '';
 
-		}
+			if (isset($this->request->post['package_id'])) {
 
+				$data['package_id'] = $this->request->post['package_id'];
 
+			} elseif (!empty($scheduler_info)) {
 
-		if (isset($this->request->post['comment'])) {
+				$data['package_id'] = $scheduler_info[$i]['package_id'];
 
-			$data['comment'] = $this->request->post['comment'];
+			} else {
 
-		} elseif (!empty($scheduler_info)) {
+				$data['package_id'] = '';
 
-			$data['comment'] = $scheduler_info[$i]['comment'];
+			}
 
-		} else {
 
-			$data['comment'] = '';
 
-		}
+			if (isset($this->request->post['customer_id'])) {
 
+				$data['customer_id'] = $this->request->post['customer_id'];
 
+			} elseif (!empty($scheduler_info)) {
 
-		if (isset($this->request->post['package_name'])) {
+				$data['customer_id'] = $scheduler_info[$i]['customer_id'];
 
-			$data['package_name'] = $this->request->post['package_name'];
+			} else {
 
-		} elseif (!empty($scheduler_info)) {
+				$data['customer_id'] = '';
 
-			$data['package_name'] = $scheduler_info[$i]['package_name'];
+			}
 
-		} else {
 
-			$data['package_name'] = '';
 
-		}
+			if (isset($this->request->post['package_call'])) {
 
+				$data['package_call'] = $this->request->post['package_call'];
 
+			} elseif (!empty($scheduler_info)) {
 
-		if (isset($this->request->post['package_id'])) {
+				$data['package_call'] = $scheduler_info[$i]['package_call'];
 
-			$data['package_id'] = $this->request->post['package_id'];
+			} else {
 
-		} elseif (!empty($scheduler_info)) {
+				$data['package_call'] = '';
 
-			$data['package_id'] = $scheduler_info[$i]['package_id'];
+			}
 
-		} else {
 
-			$data['package_id'] = '';
 
-		}
+			if (isset($this->request->post['start_date'])) {
 
+				$data['start_date'] = $this->request->post['start_date'];
 
+			} elseif (!empty($scheduler_info)) {
 
-		if (isset($this->request->post['customer_id'])) {
+				$data['start_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['start_date']));
 
-			$data['customer_id'] = $this->request->post['customer_id'];
+			} else {
 
-		} elseif (!empty($scheduler_info)) {
+				$data['start_date'] = '';
 
-			$data['customer_id'] = $scheduler_info[$i]['customer_id'];
+			}
 
-		} else {
 
-			$data['customer_id'] = '';
 
-		}
+			if (isset($this->request->post['end_date'])) {
 
+				$data['end_date'] = $this->request->post['end_date'];
 
+			} elseif (!empty($scheduler_info)) {
 
-		if (isset($this->request->post['package_call'])) {
+				$data['end_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['end_date']));
 
-			$data['package_call'] = $this->request->post['package_call'];
+			} else {
 
-		} elseif (!empty($scheduler_info)) {
+				$data['end_date'] = '';
 
-			$data['package_call'] = $scheduler_info[$i]['package_call'];
+			}
 
-		} else {
 
-			$data['package_call'] = '';
 
-		}
+			if (isset($this->request->post['duration'])) {
 
+				$data['duration'] = $this->request->post['duration'];
 
+			} elseif (!empty($scheduler_info)) {
 
-		if (isset($this->request->post['start_date'])) {
+				$data['duration'] = $scheduler_info[$i]['duration'];
 
-			$data['start_date'] = $this->request->post['start_date'];
+			} else {
 
-		} elseif (!empty($scheduler_info)) {
+				$data['duration'] = '';
 
-			$data['start_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['start_date']));
+			}
 
-		} else {
 
-			$data['start_date'] = '';
 
-		}
+			if (isset($this->request->post['entry_date'])) {
 
+				$data['entry_date'] = $this->request->post['entry_date'];
 
+			} elseif (!empty($scheduler_info)) {
 
-		if (isset($this->request->post['end_date'])) {
+				$data['entry_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['date_added']));
 
-			$data['end_date'] = $this->request->post['end_date'];
+			} else {
 
-		} elseif (!empty($scheduler_info)) {
+				$data['entry_date'] = '';
 
-			$data['end_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['end_date']));
+			}
 
-		} else {
 
-			$data['end_date'] = '';
 
-		}
 
 
+			if (isset($this->request->post['status'])) {
 
-		if (isset($this->request->post['duration'])) {
+				$data['status'] = $this->request->post['pack_status'];
 
-			$data['duration'] = $this->request->post['duration'];
+			} elseif (!empty($scheduler_info)) {
 
-		} elseif (!empty($scheduler_info)) {
+				$data['status'] = $scheduler_info[$i]['pack_status'];
 
-			$data['duration'] = $scheduler_info[$i]['duration'];
+			} else {
 
-		} else {
+				$data['status'] = true;
 
-			$data['duration'] = '';
-
-		}
-
-
-
-		if (isset($this->request->post['entry_date'])) {
-
-			$data['entry_date'] = $this->request->post['entry_date'];
-
-		} elseif (!empty($scheduler_info)) {
-
-			$data['entry_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['date_added']));
-
-		} else {
-
-			$data['entry_date'] = '';
-
-		}
-
-
-
-
-
-		if (isset($this->request->post['status'])) {
-
-			$data['status'] = $this->request->post['pack_status'];
-
-		} elseif (!empty($scheduler_info)) {
-
-			$data['status'] = $scheduler_info[$i]['pack_status'];
-
-		} else {
-
-			$data['status'] = true;
-
-		}
+			}
 
 		// echo "<pre>";print_r($scheduler_info);exit;
 
-		$data['scheduler_description'][$i]= array(
+			$data['scheduler_description'][$i]= array(
 
-			'fname' => $data['fname'],
+				'fname' => $data['fname'],
 
-			'lname' => $data['lname'],
-
-			'package_id' => $data['package_id'],
-
-			'customer_id' => $data['customer_id'],
-
-			'comment' => $data['comment'],
-
-			'duration' => $data['duration'],
-
-			'package_call' => $data['package_call'],
-
-			'package_name' => $data['package_name'],
-
-			'start_date' => $data['start_date'],
-
-			'end_date' => $data['end_date'],
-
-			'entry_date' => $data['entry_date'],
-
-			'status' => $data['status'],
-
-
-
-			 );
-
-}
-
-
-
-
-
-$call_cnt = COUNT($call_info);
-
-for ($j=0; $j < $call_cnt; $j++) {
-
-
-
-		if (isset($this->request->post['package_id'])) {
-
-			$data['package_id'] = $this->request->post['package_id'];
-
-		} elseif (!empty($call_info)) {
-
-			$data['package_id'] = $call_info[$j]['package_id'];
-
-		} else {
-
-			$data['package_id'] = true;
-
-		} 
-
-	
-
-		if (isset($this->request->post['date'])) {
-
-			$data['date'] = $this->request->post['date'];
-
-		} elseif (!empty($call_info)) {
-
-			$data['date'] = $call_info[$j]['date'];
-
-		} else {
-
-			$data['date'] = true;
-
-		}
-
-
-
-		if (isset($this->request->post['time'])) {
-
-			$data['time'] = $this->request->post['time'];
-
-		} elseif (!empty($call_info)) {
-
-			$data['time'] = $call_info[$j]['time'];
-
-		} else {
-
-			$data['time'] = true;
-
-		}
-
-
-
-		if (isset($this->request->post['call_no'])) {
-
-			$data['call_no'] = $this->request->post['call_no'];
-
-		} elseif (!empty($call_info)) {
-
-			$data['call_no'] = $call_info[$j]['call_no'];
-
-		} else {
-
-			$data['call_no'] = true;
-
-		}
-
-
-
-		if (isset($this->request->post['status'])) {
-
-			$data['status'] = $this->request->post['status'];
-
-		} elseif (!empty($call_info)) {
-
-			$data['status'] = $call_info[$j]['status'];
-
-		} else {
-
-			$data['status'] = true;
-
-		}
-
-
-
-		if (isset($this->request->post['complete_status'])) {
-
-			$data['complete_status'] = $this->request->post['complete_status'];
-
-		} elseif (!empty($call_info)) {
-
-			$data['complete_status'] = $call_info[$j]['complete_status'];
-
-		} else {
-
-			$data['complete_status'] = true;
-
-		}
-
-
-
-
-
-		$data['call'][$j]= array(
+				'lname' => $data['lname'],
 
 				'package_id' => $data['package_id'],
 
-				'call_no' => $data['call_no'],
+				'customer_id' => $data['customer_id'],
 
-				'date' => $data['date'],
+				'comment' => $data['comment'],
 
-				'time' => $data['time'],
+				'duration' => $data['duration'],
+
+				'package_call' => $data['package_call'],
+
+				'package_name' => $data['package_name'],
+
+				'start_date' => $data['start_date'],
+
+				'end_date' => $data['end_date'],
+
+				'entry_date' => $data['entry_date'],
 
 				'status' => $data['status'],
+				);
+		}
 
+
+		$call_cnt = COUNT($call_info);
+
+		for ($j=0; $j < $call_cnt; $j++) {
+
+			if (isset($this->request->post['package_id'])) {
+				$data['package_id'] = $this->request->post['package_id'];
+			} elseif (!empty($call_info)) {
+				$data['package_id'] = $call_info[$j]['package_id'];
+			} else {
+				$data['package_id'] = true;
+			} 
+
+			if (isset($this->request->post['date'])) {
+				$data['date'] = $this->request->post['date'];
+			} elseif (!empty($call_info)) {
+				$data['date'] = $call_info[$j]['date'];
+			} else {
+				$data['date'] = true;
+			}
+
+			if (isset($this->request->post['time'])) {
+				$data['time'] = $this->request->post['time'];
+
+			} elseif (!empty($call_info)) {
+
+				$data['time'] = $call_info[$j]['time'];
+
+			} else {
+
+				$data['time'] = true;
+
+			}
+
+
+
+			if (isset($this->request->post['call_no'])) {
+				$data['call_no'] = $this->request->post['call_no'];
+			} elseif (!empty($call_info)) {
+				$data['call_no'] = $call_info[$j]['call_no'];
+			} else {
+				$data['call_no'] = true;
+			}
+
+			if (isset($this->request->post['admin_comment'])) {
+				$data['admin_comment'] = $this->request->post['call_no'];
+			} elseif (!empty($call_info)) {
+				$data['admin_comment'] = $call_info[$j]['admin_comment'];
+			} else {
+				$data['admin_comment'] = true;
+			}
+
+			if (isset($this->request->post['video_id'])) {
+				$data['video_id'] = $this->request->post['video_id'];
+			} elseif (!empty($call_info)) {
+				$data['video_id'] = $call_info[$j]['video_id'];
+			} else {
+				$data['video_id'] = true;
+			}
+
+
+
+			if (isset($this->request->post['status'])) {
+
+				$data['status'] = $this->request->post['status'];
+
+			} elseif (!empty($call_info)) {
+
+				$data['status'] = $call_info[$j]['status'];
+
+			} else {
+
+				$data['status'] = true;
+
+			}
+
+
+
+			if (isset($this->request->post['complete_status'])) {
+
+				$data['complete_status'] = $this->request->post['complete_status'];
+
+			} elseif (!empty($call_info)) {
+
+				$data['complete_status'] = $call_info[$j]['complete_status'];
+
+			} else {
+
+				$data['complete_status'] = true;
+
+			}
+
+
+
+			$data['video'] = $video;
+
+			$data['call'][$j]= array(
+				'package_id' => $data['package_id'],
+				'call_no' => $data['call_no'],
+				'admin_comment' => $data['admin_comment'],
+				'video_id' => $data['video_id'],
+				'date' => $data['date'],
+				'time' => $data['time'],
+				'status' => $data['status'],
 				'complete_status' => $data['complete_status'],
-
-			);
-
+				);
 
 
-}
 
-		// echo "<pre>";print_r($data['scheduler_description']);exit;
+		}
+
+		//echo "<pre>";print_r($data['call']);exit;
 
 
 
@@ -1089,112 +731,95 @@ for ($j=0; $j < $call_cnt; $j++) {
 		$time = $call_data['time'];
 
 		//echo "<pre>";print_r($customer_name);exit;
+		$from = 'info@vinodchanna.com';
+		$to = $email;
+		$subject="Call Sheduling Details";
+		$msg  = "";
+		$msg .='
 
 
 
-			$from = 'info@vinodchanna.com';
+		<html xmlns="http://www.w3.org/1999/xhtml">
 
 
 
-			$to = $email;
+		<head>
 
 
 
-			$subject="Call Sheduling Details";
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 
 
-
-
-	$msg  = "";
-
-
-
-	$msg .='
+			<title>VC Fitness</title>
 
 
 
-	<html xmlns="http://www.w3.org/1999/xhtml">
+			<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 
-	<head>
+			<style type="text/css">    
 
 
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				body {
 
+					margin-left:100px;
 
+					margin-right:100px;
 
-	<title>VC Fitness</title>
-
-
-
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-
-	<style type="text/css">    
-
-
-
-	body {
-
-		margin-left:100px;
-
-		margin-right:100px;
-
-	}
+				}
 
 
 
 	#main-div{
 
-		background-size: 100%;
+				background-size: 100%;
 
-		background-image: url("../images/473025691.jpg");
+				background-image: url("../images/473025691.jpg");
 
-		background-repeat: no-repeat;
+				background-repeat: no-repeat;
 
-    	background-position: center center;
+				background-position: center center;
 
-    	background-attachment: fixed;
+				background-attachment: fixed;
 
-    	opacity: 0.5;
+				opacity: 0.5;
 
-    	filter: alpha(opacity=90);
-
-
-
-	}
-
-	
-
-	.TextCss {
+				filter: alpha(opacity=90);
 
 
 
-	font-family: Arial, Helvetica, sans-serif;
+			}
 
 
 
-	font-size: 12px;
+			.TextCss {
 
 
 
-	color:#333333 ;
+				font-family: Arial, Helvetica, sans-serif;
 
 
 
-	padding:45px;
+				font-size: 12px;
 
 
 
-	}    
+				color:#333333 ;
 
 
 
-	</style>
+				padding:45px;
+
+
+
+			}    
+
+
+
+		</style>
 
 
 
@@ -1204,85 +829,85 @@ for ($j=0; $j < $call_cnt; $j++) {
 
 	<body>
 
-	<div class="container" style="width:700px;">
+		<div class="container" style="width:700px;">
 
-	<div style="background:#fff; border: 1px solid #b3b3b3; width:650;">
+			<div style="background:#fff; border: 1px solid #b3b3b3; width:650;">
 
-		<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">
+				<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">
 
-			<img src="http://demo.proxanttech.com/vc_fitness/public/images/logo.png"  style="align:center; height:150px width: 200px;" />
+					<img src="http://demo.proxanttech.com/vc_fitness/public/images/logo.png"  style="align:center; height:150px width: 200px;" />
 
-		</div>
+				</div>
 
-		<br/>
+				<br/>
 
-		<div style="background:#d9d9d9; padding:30px;height:auto; text-align:justify;" >
+				<div style="background:#d9d9d9; padding:30px;height:auto; text-align:justify;" >
 
-			<b>Dear '.$firstname.',</b>
+					<b>Dear '.$firstname.',</b>
 
-			<br/>
+					<br/>
 
-			<br/>
+					<br/>
 
-			<p> Your call has been schedule on : '.$date.' at : '.$time.'</b></p>
+					<p> Your call has been schedule on : '.$date.' at : '.$time.'</b></p>
 
-	       <br/>
+					<br/>
 
-			<footer>
+					<footer>
 
-	            <b>Thanks & Regards,</b>
+						<b>Thanks & Regards,</b>
 
-	            <br/>
+						<br/>
 
-				VC Fitness<br/>
+						VC Fitness<br/>
 
-				<b>Mr. Vinod Channa</b><br/>
+						<b>Mr. Vinod Channa</b><br/>
 
-				Conact no.: 022 65556512<br/>
+						Conact no.: 022 65556512<br/>
 
-				ADD- 98/3446, <br/>
+						ADD- 98/3446, <br/>
 
-				Mumbai 400024.
+						Mumbai 400024.
 
-            </footer> 
+					</footer> 
+
+
+
+				</div>
 
 
 
 			</div>
 
-	       
-
-	 </div>
+		</div>
 
 	</div>
 
-	</div>
-
-	</body>
+</body>
 
 
 
-	</html>';	
+</html>';	
 
 	// print_r($msg);exit;
 
-	$mailheaders  = 'MIME-Version: 1.0' . "\r\n";
+$mailheaders  = 'MIME-Version: 1.0' . "\r\n";
 
 
 
-	$mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+$mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 
 
-	$mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
+$mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
 
 
 
-	mail($to,$subject,$msg,$mailheaders);
+mail($to,$subject,$msg,$mailheaders);
 
 
 
-  
+
 
 // print_r($msg);exit;
 
@@ -1332,15 +957,15 @@ public function call_start()
 
 
 
-			$from = 'info@vinodchanna.com';
+	$from = 'info@vinodchanna.com';
 
 
 
-			$to = $email;
+	$to = $email;
 
 
 
-			$subject="Call Sheduling Details";
+	$subject="Call Sheduling Details";
 
 
 
@@ -1362,75 +987,75 @@ public function call_start()
 
 
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 
 
-	<title>VC Fitness</title>
+		<title>VC Fitness</title>
 
 
 
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 
-	<style type="text/css">    
+		<style type="text/css">    
 
 
 
-	body {
+			body {
 
-		margin-left:100px;
+				margin-left:100px;
 
-		margin-right:100px;
+				margin-right:100px;
 
-	}
+			}
 
 
 
 	#main-div{
 
-		background-size: 100%;
+			background-size: 100%;
 
-		background-image: url("../images/473025691.jpg");
+			background-image: url("../images/473025691.jpg");
 
-		background-repeat: no-repeat;
+			background-repeat: no-repeat;
 
-    	background-position: center center;
+			background-position: center center;
 
-    	background-attachment: fixed;
+			background-attachment: fixed;
 
-    	opacity: 0.5;
+			opacity: 0.5;
 
-    	filter: alpha(opacity=90);
-
-
-
-	}
-
-	
-
-	.TextCss {
+			filter: alpha(opacity=90);
 
 
 
-	font-family: Arial, Helvetica, sans-serif;
+		}
 
 
 
-	font-size: 12px;
+		.TextCss {
 
 
 
-	color:#333333 ;
+			font-family: Arial, Helvetica, sans-serif;
 
 
 
-	padding:45px;
+			font-size: 12px;
 
 
 
-	}    
+			color:#333333 ;
+
+
+
+			padding:45px;
+
+
+
+		}    
 
 
 
@@ -1438,89 +1063,89 @@ public function call_start()
 
 
 
-	</head>
+</head>
 
 
 
-	<body>
+<body>
 
 	<div class="container" style="width:700px;">
 
-	<div style="background:#fff; border: 1px solid #b3b3b3; width:650;">
+		<div style="background:#fff; border: 1px solid #b3b3b3; width:650;">
 
-		<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">
+			<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">
 
-			<img src="http://demo.proxanttech.com/vc_fitness/public/images/logo.png"  style="align:center; height:150px width: 200px;" />
+				<img src="http://demo.proxanttech.com/vc_fitness/public/images/logo.png"  style="align:center; height:150px width: 200px;" />
 
-		</div>
-
-		<br/>
-
-		<div style="background:#d9d9d9; padding:30px;height:auto; text-align:justify;" >
-
-			<b>Dear '.$firstname.',</b>
+			</div>
 
 			<br/>
 
-			<br/>
+			<div style="background:#d9d9d9; padding:30px;height:auto; text-align:justify;" >
 
-			<p><b> Your call has been schedule on : '.$date.' at : '.$time.'</b></p>
+				<b>Dear '.$firstname.',</b>
 
-	       <br/>
+				<br/>
 
-	       <p>Click on Link For video Call : <a href="'.$link.'">Call Start</a></p> 
+				<br/>
 
-			<footer>
+				<p><b> Your call has been schedule on : '.$date.' at : '.$time.'</b></p>
 
-	            <b>Thanks & Regards,</b>
+				<br/>
 
-	            <br/>
+				<p>Click on Link For video Call : <a href="'.$link.'">Call Start</a></p> 
 
-				VC Fitness<br/>
+				<footer>
 
-				<b>Mr. Vinod Channa</b><br/>
+					<b>Thanks & Regards,</b>
 
-				Conact no.: 022 65556512<br/>
+					<br/>
 
-				ADD- 98/3446, <br/>
+					VC Fitness<br/>
 
-				Mumbai 400024.
+					<b>Mr. Vinod Channa</b><br/>
 
-            </footer> 
+					Conact no.: 022 65556512<br/>
+
+					ADD- 98/3446, <br/>
+
+					Mumbai 400024.
+
+				</footer> 
 
 
 
 			</div>
 
-	       
 
-	 </div>
 
-	</div>
+		</div>
 
 	</div>
 
-	</body>
+</div>
+
+</body>
 
 
 
-	</html>';	
+</html>';	
 
 	// print_r($msg);exit;
 
-	$mailheaders  = 'MIME-Version: 1.0' . "\r\n";
+$mailheaders  = 'MIME-Version: 1.0' . "\r\n";
 
 
 
-	$mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+$mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 
 
-	$mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
+$mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
 
 
 
-	mail($to,$subject,$msg,$mailheaders);
+mail($to,$subject,$msg,$mailheaders);
 
 }
 

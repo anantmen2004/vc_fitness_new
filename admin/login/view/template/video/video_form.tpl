@@ -60,6 +60,17 @@
                     </div>
                   </div>
 
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-name<?php echo $language['language_id']; ?>"><?php echo "Video Type"; ?></label>
+                    <div class="col-sm-10">
+                      <select class="form-control" name="video_type" id="stat">
+                          <option value="" <?php echo ($video_description[$language['language_id']]['video_type'] == "0")? "selected":""?> >Normal</option>
+                          <option value="1" <?php echo ($video_description[$language['language_id']]['video_type'] == "1")? "selected":""?> >Basic</option>
+                          <option value="2" <?php echo ($video_description[$language['language_id']]['video_type'] == "2")? "selected":""?>  >One To One</option>
+                      </select>
+                    </div>
+                  </div>
+
 
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-description<?php echo $language['language_id']; ?>"><?php echo $entry_description; ?></label>

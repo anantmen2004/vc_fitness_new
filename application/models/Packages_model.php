@@ -32,9 +32,9 @@ class Packages_model extends CI_Model {
 		return $data = $this->db->query("SELECT DISTINCT t.training_id, t.training_name,p.package_id,p.package_name from oc_training_type t, oc_package_training_master ptv, oc_package_master p where t.training_id = ptv.training_id AND p.package_id = ptv.package_id AND ptv.package_id = $pid")->result_array();
 	}
 
-	public function getVideoType($tid)
+	public function getVideoType($tid,$type="")
 	{
-		return $data = $this->db->query("SELECT DISTINCT v.video_id, v.video_path, v.video_name from oc_video_master v JOIN oc_training_video_master tv  ON (tv.video_id=v.video_id) where tv.training_id= $tid")->result_array();
+		return $data = $this->db->query("SELECT DISTINCT v.video_id, v.video_path, v.video_name from oc_video_master v JOIN oc_training_video_master tv  ON (tv.video_id=v.video_id) WHERE tv.training_id= $tid AND v.video_type = $type")->result_array();
 	}
 
 	public function getCallno($pid, $custid)

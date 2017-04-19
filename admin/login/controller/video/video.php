@@ -83,10 +83,23 @@ class ControllerVideoVideo extends Controller {
 			else{
 				$status = "Inactive";
 			}
+			if($result['video_type']==0)
+			{
+				$type = "Normal";
+			}
+			else if($result['video_type'] == 1)
+			{
+				$type = "Basic Video";
+			}
+			else if($result['video_type'])
+			{
+				$type = "One to One Video";
+			}
 			$data['videos'][] = array(
 				'video_id' => $result['video_id'],
 				'name'        => $result['video_name'],
 				 'sort_order'  => "ASC",
+				'type'  => $type,
 				'status'  => $status,
 				'edit'        => $this->url->link('video/video/edit', 'token=' . $this->session->data['token'] . '&video_id=' . $result['video_id'] . $url, 'SSL'),
 				'delete'      => $this->url->link('video/video/delete', 'token=' . $this->session->data['token'] . '&video_id=' . $result['video_id'] . $url, 'SSL')
@@ -336,6 +349,13 @@ class ControllerVideoVideo extends Controller {
 			$data['video_path'] = '';
 		}
 
+		if (isset($this->request->post['video_type'])) {
+			$data['video_type'] = $this->request->post['video_type'];
+		} elseif (!empty($video_info)) {
+			$data['video_type'] = $video_info['video_type'];
+		} else {
+			$data['video_type'] = '';
+		}
 		
 		if (isset($this->request->post['description'])) {
 			$data['description'] = $this->request->post['description'];
@@ -357,6 +377,7 @@ class ControllerVideoVideo extends Controller {
 		 $data['video_details'][1] = array(
 			'name' => $data['name'],
 			'video_path' => $data['video_path'],
+			'video_type' => $data['video_type'],
 			'description' => $data['description']
 			 );
 		 $data['video_description'] = $data['video_details'];

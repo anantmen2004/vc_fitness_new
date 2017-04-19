@@ -40,9 +40,10 @@
                     <?php } else { ?>
                     <a ><?php echo $column_name; ?></a>
                     <?php } ?></td>
+                  <td class="text-left"><a  class=""><?php echo "Type" ?></a></td>
                   <td class="text-right">
-                    <a  class=""><?php echo "Status" ?></a>
-                    </td>
+                  <a  class=""><?php echo "Status" ?></a>
+                  </td>
                   <td class="text-right"><?php echo $column_action; ?></td>
                 </tr>
               </thead>
@@ -56,6 +57,7 @@
                     <input type="checkbox" name="selected[]" value="<?php echo $video['video_id']; ?>" />
                     <?php } ?></td>
                   <td class="text-left"><?php echo $video['name']; ?></td>
+                  <td class="text-left"><?php echo $video['type']; ?></td>
                   <td class="text-right"><?php echo $video['status']; ?></td>
                   <td class="text-right"><a href="<?php echo $video['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>
