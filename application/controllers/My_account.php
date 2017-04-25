@@ -135,7 +135,7 @@ class My_account extends CI_Controller {
             $client_ip = $_SERVER['REMOTE_ADDR'];
 			$where = 'customer_id = '.$id.' AND ip = '."'$client_ip'";
             $data['checkIp'] = $this->Helper_model->select("ip",'oc_customer_ip', $where);
-			// echo "<pre>";print_r($data['checkIp']); exit();
+			//echo "<pre>";print_r($data['video']); exit();
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('myAccount/my_account');

@@ -294,24 +294,34 @@
 
           <div> 
             <h4>Training Type</h4>
-            <div class="video"> 
+            
+            <div>  <!-- class="video" -->
               <ul style="list-style-type: none;">
               
               <?php $train_cnt1=COUNT($trainarr[$i]); ?>
                <?php for ($k=0; $k < $train_cnt1; $k++) : ?>
-                <li class="Training_type"><h5><?php echo $trainarr[$i][$k]['training_name']; ?>
-                <span class="pull-right"><img src="<?php echo base_url();?>public/images/arrow-down2.png"></span></h5>
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#basic" data-toggle="tab">Basic</a></li>
-                  <li><a href="#reguler" data-toggle="tab">Reguler</a></li>
-                </ul>
-
-                <div class="row tab-pane active" id="basic">
-                      <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
+                <li class="Training_type"><h4><?php echo $trainarr[$i][$k]['training_name']; ?>
+                <span class="pull-right"><img src="<?php echo base_url();?>public/images/arrow-down2.png"></span></h4>
+<div class="tabbable-panel">
+        <div class="tabbable-line">
+          <ul class="nav nav-tabs ">
+            <li class="active">
+              <a href="#tab_default_1" data-toggle="tab">
+              Basic </a>
+            </li>
+            <li>
+              <a href="#tab_default_2" data-toggle="tab">
+              Reguler </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab_default_1">
+              <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
                   <?php $video_cnt2=COUNT($basic_video[$i][$k]); ?>
                       <?php for ($v=0; $v < $video_cnt2; $v++) : ?>
                     <li class="col-md-4">
-                    <div class="" id="player<?php echo $i;?><?php echo $k;?><?php echo $v;?>" ></div>
+                    <div class="" id="player<?php echo $i;?><?php echo $k;?><?php echo $v;?>" ></div> 
+                    <h5><?php echo $basic_video[$i][$k][$v]["video_name"];?></h5>
                       <script type="text/javascript">
                         var url  = '<?php echo base_url()."public/video/".$basic_video[$i][$k][$v]["video_path"];?>';
                         //alert(url);
@@ -325,14 +335,12 @@
                         'file': url
                       });
                       </script>
-                    </li>
-                    
-                    <?php endfor; ?>
-                  </ul>
-                </div>
-
-                <div class="row tab-pane " id="reguler">
-                    <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
+                    </li>     
+                  <?php endfor; ?>
+              </ul> 
+            </div>
+            <div class="tab-pane" id="tab_default_2">
+                <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
                   <?php $video_cnt2=COUNT($video[$i][$k]); ?>
                       <?php for ($v=0; $v < $video_cnt2; $v++) : ?>
                     <li class="col-md-4">
@@ -351,26 +359,13 @@
                       });
                       </script>
                     </li>
-                    
-                    <?php endfor; ?>
+                   <?php endfor; ?>
                   </ul>
-                </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-                <!-- <div class="row">
-                
-                  </div> -->
                 </li>
               <?php endfor; ?>
 
@@ -441,11 +436,11 @@
 
                     <input type="hidden" name="packcall[]" value="<?php echo empty($call_data[$i][$p])? $call_cnt : $call_data[$i][$p]['call_no']; ?>" id="pack_call"  readonly> 
 
-                    <input type="text" date-date-format=""  class="pickdate" id="packagecall" name="date1[]" placeholder="Select Date" value="<?php echo empty($call_data[$i][$p]['date'])? "" : $call_data[$i][$p]['date']; ?>" <?php echo (!empty($status) && $status== 2)?"disabled":"";?>/>
+                    <input type="text" date-date-format=""   class="pickdate" id="packagecall" name="date1[]" placeholder="Select Date" value="<?php echo empty($call_data[$i][$p]['date'])? "" : $call_data[$i][$p]['date']; ?>" <?php echo (!empty($status) && $status== 2)?"disabled":"";?>/>
 
                     </td>
                     <td class="text-center">
-                      <select id="hour" name="hour[]" style="height:34px; padding: 3px 0px 0px 10px;"<?php echo (!empty($status) && $status== 2)?"disabled":"";?> >
+                      <select id="hour" name="hour[]" style="height:34px; padding: 3px 0px 0px 10px; width: 100px;"<?php echo (!empty($status) && $status== 2)?"disabled":"";?> >
 
                         <?php for($r=01; $r<24 ; $r++) : ?>
                             <option value="<?php echo $r;?>" <?php echo (!empty($hour)&& $hour == $r)?"selected":""?>><?php echo $r; ?></option>
@@ -454,7 +449,7 @@
                     </td>
 
                     <td class="text-center">
-                      <select id="minute" name="minute[]" style="height:34px; padding: 3px 0px 0px 10px;" <?php echo (!empty($status) && $status== 2)?"disabled":"";?> >
+                      <select id="minute" name="minute[]" style="height:34px; padding: 3px 0px 0px 10px;width: 100px;" <?php echo (!empty($status) && $status== 2)?"disabled":"";?> >
                        <option value="00">00</option>
                           <?php for($r=01; $r<61 ; $r++) : ?>
                             <option value="<?php echo $r;?>" <?php echo (!empty($min)&& $min == $r)?"selected":""?>><?php echo $r; ?></option>
@@ -470,7 +465,7 @@
                    </select>
                     </td> -->
                     <td class="text-center">
-                       <select id="callstatus" name="call_status[]" style="height:34px; padding: 3px 0px 0px 20px;" <?php echo (!empty($status) && $status== 2)?"disabled":"";?>  >
+                       <select id="callstatus" name="call_status[]" style="height:34px; padding: 3px 0px 0px 20px; width: 150px;" <?php echo (!empty($status) && $status== 2)?"disabled":"";?> >
                         <option>---select---</option>
                         <option value="1" <?php echo (!empty($status)&& $status == "1")?"selected":""?>>Pending</option>
                         <option id="completehide" value="2" <?php echo (!empty($status)&& $status == "2")?"selected":""?> hidden >Complete</option >
@@ -590,7 +585,7 @@
           </div>
         </div>
 
-<div>
+<div onload="setupPlayer();">
           <h4>Schedule Video Call</h4>
           <div class="alert_msg"></div>
 
@@ -643,7 +638,11 @@
 
            ?>
            <tr>
-             <td><input type="text" date-date-format=""  class="pickdate" id="packagecall" name="date1[]"  value="<?php echo (!empty( $callnumber1[$i][$p]['date'])) ? $callnumber1[$i][$p]['date'] : ""; ?>" disabled/></td>
+
+           
+
+             <td><input type="text" date-date-format=""  class="pickdate" id="packagecall" name="date1[]"  value="<?php echo (!empty( $callnumber1[$i][$p]['date'])) ? $callnumber1[$i][$p]['date'] : ""; ?>" disabled/>
+             </td>
 
              <td><input type="text"  id="time" value="<?php echo (!empty($hour))?"$hour":""; echo ":"; echo (!empty($min))?"$min":""; echo " "; echo (!empty($ampm))?"$ampm":""  ?>" disabled/></td>
              <td><input type="text"  id="status" value="<?php if(!empty($status) && $status==2): echo "Complete"; endif; ?>" disabled/></td>

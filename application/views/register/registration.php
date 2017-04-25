@@ -117,7 +117,7 @@
                                 </div>
                                  <div class="form-group">
                                     <label class="sr-only" for="f1-mobile">Mobile No.</label>
-                                    <input type="text" onblur="javascript:return check_ismobile(event,this,0);" name="mobile" placeholder=" Mobile No." class="f1-mobile form-control"  id="mobile" onKeyUp="javascript:return check_isnumeric(event,this,0);" maxlength="10" autocomplete="off">
+                                    <input type="text"  name="mobile" placeholder=" Mobile No." class="f1-mobile form-control"  id="mobile" onkeyup="validate_mobile()" maxlength="10" autocomplete="off">
                                     <span class="help-inline col-xs-12 col-sm-7">
                                         <span class="middle input-text-error" id="mobile_errorlabel"></span>
                                     </span>
@@ -141,7 +141,7 @@
                             </fieldset>
 
                             <fieldset>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="sr-only" for="f1-first-name">Select Package</label>
                                       <select name="packageType"  class="f1-first-name" id="packageType">
                                         <option>Select Package</option>
@@ -156,7 +156,7 @@
                                         <option>500 Rs.</option>
                                         <option>2000 Rs.</option>
                                     </select> 
-                                </div>
+                                </div> -->
                                 
                                 <div class="form-group">
                                 <label for="happy" class="col-sm-4 col-md-4 control-label text-left">Regular Workout?</label>
@@ -197,15 +197,18 @@
                                     <label class="sr-only" for="f1-google-plus">City</label>
                                     <select name="city"  class="f1-first-name" id="city">
                                         <option>Select City</option>
-                                        <option>Nagpur</option>
-                                        <option>Pune</option>
+                                        <?php foreach ($City as $key => $value): ?>
+                                            <option value="<?php echo $value['ID'];?>"><?php echo $value['Name'];?></option>
+                                        <?php endforeach ?>
                                     </select> 
                                 </div>
                                 <div class="form-group">
                                     <select name="country"  class="f1-first-name" id="country">
                                         <option>Select Country</option>
-                                        <option>India</option>
-                                        <option>USA</option>
+                                        <?php foreach ($Country as $key => $value): ?>
+                                            <option value="<?php echo $value['country_id'];?>"><?php echo $value['name'];?></option>
+                                        <?php endforeach ?>
+                                        
                                     </select> 
                                 </div>
                                 <div class="form-group">

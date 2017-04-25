@@ -15,7 +15,10 @@ class Auth extends CI_Controller {
     }
 	public function rgisterView()
 	{
-		$this->load->view('register/registration');
+        $data['City'] = $this->helper_model->selectAll("",'city');
+        $data['Country'] = $this->helper_model->selectAll("",'oc_country');
+       //print_r($data['City']);exit();
+		$this->load->view('register/registration',$data);
 	}
     public function loginView($itemId = "",$from="")
     {
@@ -81,8 +84,8 @@ class Auth extends CI_Controller {
         @$email = $this->input->post('email');
         @$password = $this->input->post('password');
         @$mobile = $this->input->post('mobile');
-        @$packageType = $this->input->post('packageType');
-        @$packagePrice = $this->input->post('packagePrice');
+        // @$packageType = $this->input->post('packageType');
+        // @$packagePrice = $this->input->post('packagePrice');
         @$regWorkout = $this->input->post('regWorkout');
         @$gender = $this->input->post('gender');
         @$fname = $this->input->post('fname');
@@ -114,7 +117,6 @@ class Auth extends CI_Controller {
                         'firstname' => $fname,
                         'lastname' => $lname,
                         'telephone2' => $mobile2,
-                        'package_id' => $packageType,
                         'reg_workout' => $regWorkout,
                         'gender' => $regWorkout
                     );

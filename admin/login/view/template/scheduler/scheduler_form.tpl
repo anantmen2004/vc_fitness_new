@@ -158,6 +158,7 @@
                               <td>
                               
                                    <select class="form-control" name="video_id" id="stat">
+                                   <option value="0">Please Select Video</option> 
                                    <?php foreach($video as $key => $value2){?>
                                       <option value="<?php echo $value2['video_id'];?>" <?php echo ($value2['video_id'] == $value['video_id'])? "selected":""?> ><?php echo $value2['video_name'];?></option>
                                       <<!-- option value="1" <?php echo ($value['status'] == "1")? "selected":""?> >Pending</option>

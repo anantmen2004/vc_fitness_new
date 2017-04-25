@@ -84,8 +84,7 @@ function isEmail() {
 function validate_mobile()
 {
     $("#mobile").val($("#mobile").val().replace(/[^\d]/ig, ''));
-    $("#mobile2").val($("#mobile2").val().replace(/[^\d]/ig, ''));
-    $("#registration_monthly_income").val($("#registration_monthly_income").val().replace(/[^\d]/ig, '')); 
+     
 }
 /********************/
 function verifyMobile()
@@ -276,7 +275,8 @@ function registerUser()
             data:formData,
             success:function(resp)
             {
-                //alert(resp);
+                alert(resp);
+                console.log(resp);
                 if(resp == 1){
                     var msg = 'Registration Successfull...!';
                     display_alert('succ',msg);

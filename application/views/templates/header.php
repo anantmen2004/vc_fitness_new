@@ -1,11 +1,11 @@
 <?php
 $this->session->sess_expiration = '120';
-    //$customer_id = $this->session->userdata('customer_id');
-    $firstname = $this->session->userdata('firstname');
-    $wishCount = $this->session->userdata('wishCount');
-    $this->load->helper('cookie');
-    $this->load->library('cart');
-    $totalItems = $this->cart->total_items();
+//$customer_id = $this->session->userdata('customer_id');
+$firstname = $this->session->userdata('firstname');
+$wishCount = $this->session->userdata('wishCount');
+$this->load->helper('cookie');
+$this->load->library('cart');
+$totalItems = $this->cart->total_items();
 ?>
 <!doctype html>
 <!--[if IE 7 ]>    <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
@@ -54,6 +54,7 @@ $this->session->sess_expiration = '120';
 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+<link id="default-css" href="<?php echo base_url();?>public/css/jwbox.js" rel="stylesheet" media="all" />
 <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="<?php echo base_url();?>public/js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/js/jquery-migrate.min.js"></script>

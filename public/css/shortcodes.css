@@ -119,12 +119,16 @@
 	.dt-sc-button.xlarge.filled { font-size:20px; padding:25px 40px; }
 	
 	.dt-sc-button.small { font-size:14px; padding:10px 20px; }
-	.dt-sc-button.medium, input[type="submit"], button, input[type="button"] { font-size:16px; padding:13px 26px; }
+	.dt-sc-button.medium, input[type="submit"], button, input[type="button"] 
+	{ font-size:16px; padding:13px 26px; }
 	.dt-sc-button.large { font-size:18px; padding:18px 37px; }
 	.dt-sc-button.xlarge { font-size:20px; padding:25px 50px; }
 	
-	.dt-sc-button.small, .dt-sc-button.small.bordered, .dt-sc-button.small::before { background-image:url(../images/button-bg-small.png); background-repeat:no-repeat; }
-	.dt-sc-button.medium, input[type="submit"], input[type="reset"], button, input[type="button"], .dt-sc-button.medium.bordered, .dt-sc-button.medium::before { background-image:url(../images/button-bg-medium.png); background-repeat:no-repeat; }
+	.dt-sc-button.small, 
+	.dt-sc-button.small.bordered, .dt-sc-button.small::before
+	 { background-image:url(../images/button-bg-small.png); background-repeat:no-repeat; }
+	.dt-sc-button.medium, input[type="submit"], input[type="reset"], button, input[type="button"], 
+	.dt-sc-button.medium.bordered, .dt-sc-button.medium::before { background-image:url(../images/button-bg-medium.png); background-repeat:no-repeat; }
 	.dt-sc-button.large, .dt-sc-button.large.bordered, .dt-sc-button.large::before { background-image:url(../images/button-bg-large.png); background-repeat:no-repeat; }
 	.dt-sc-button.xlarge, .dt-sc-button.xlarge.bordered, .dt-sc-button.xlarge::before { background-image:url(../images/button-bg-xlarge.png); background-repeat:no-repeat; }
 	
