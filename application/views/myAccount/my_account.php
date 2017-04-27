@@ -1,23 +1,20 @@
-<script src="<?php echo base_url();?>public/js/jwplayer.js"></script> 
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+<!-- <script src="<?php echo base_url();?>public/js/jwplayer.js"></script>  -->
+<style type="text/css">
+  video::-internal-media-controls-download-button {
+    display:none;
+}
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
 
-  </div>
-</div>
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); /* Adjust as needed */    
+}
+/*video::-webkit-media-controls-fullscreen-button {
+    display: none;
+}*/
+</style>
 <div id="main">
   <div id="main-content">
    <section id="primary" class="content-full-width">
@@ -213,9 +210,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($myOrders as $key => $value):
-
-                  ?>
+                  <?php foreach ($myOrders as $key => $value):  ?>
                   <tr>
                     <td class="text-center"><?php echo $value['order_id'];?></td>
                     <td class="text-center"><?php echo $value['status'];?></td>
@@ -225,19 +220,15 @@
                     <td class="text-center"><a href="<?php echo base_url().'my_account/myOrders/'.$value['order_id']; ?>" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="View"><i class="fa fa-eye"></i></a></td>
                   </tr>
                 <?php endforeach;?>
-
-
               </tbody>
             </table>
           </p>
           <a href="about.html" class="dt-sc-button small pull-right" data-hover="Read More">Continue</a>
         </div>
-
       </div>
     </div>
   </p>
 </div>
-
 <div>
  <p>
 
@@ -302,81 +293,83 @@
                <?php for ($k=0; $k < $train_cnt1; $k++) : ?>
                 <li class="Training_type"><h4><?php echo $trainarr[$i][$k]['training_name']; ?>
                 <span class="pull-right"><img src="<?php echo base_url();?>public/images/arrow-down2.png"></span></h4>
-<div class="tabbable-panel">
+      <div class="tabbable-panel">
         <div class="tabbable-line">
           <ul class="nav nav-tabs ">
-            <li class="active">
-              <a href="#tab_default_1" data-toggle="tab">
-              Basic </a>
+         <?php if($workout[0]['reg_workout']=='NO') : ?>
+            <li class="active"> 
+              <a href="#tab_default_B<?php echo $k; ?>" data-toggle="tab">
+              Basic </a> 
             </li>
-            <li>
-              <a href="#tab_default_2" data-toggle="tab">
-              Reguler </a>
+         <?php endif; ?> 
+            <li class="<?php echo ($workout[0]['reg_workout']=='YES') ? "active" : "" ?>">
+              <a href="#tab_default_R<?php echo $k; ?>" data-toggle="tab">
+              Regular </a>
             </li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane active" id="tab_default_1">
+          <?php if($workout[0]['reg_workout']=='NO') : ?> 
+            <div class="tab-pane active" id="tab_default_B<?php echo $k; ?>">
               <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
                   <?php $video_cnt2=COUNT($basic_video[$i][$k]); ?>
                       <?php for ($v=0; $v < $video_cnt2; $v++) : ?>
+                        <?php $path= base_url()."public/video/".$basic_video[$i][$k][$v]['video_path']; ?>
                     <li class="col-md-4">
-                    <div class="" id="player<?php echo $i;?><?php echo $k;?><?php echo $v;?>" ></div> 
-                    <h5><?php echo $basic_video[$i][$k][$v]["video_name"];?></h5>
-                      <script type="text/javascript">
-                        var url  = '<?php echo base_url()."public/video/".$basic_video[$i][$k][$v]["video_path"];?>';
-                        //alert(url);
-                        jwplayer('player<?php echo $i;?><?php echo $k;?><?php echo $v;?>').setup({
-                        'flashplayer': 'player.swf',
-                        'width': '100%',
-                        'height':'200',
-                        'type' : 'mp4',
-                        'display' : 'none',
-                        'background-image': 'none',
-                        'file': url
-                      });
-                      </script>
+
+                      <image class="youtube-btn-training" type="button" onclick="basicvideo('<?php echo $i;?><?php echo $k;?><?php echo $v; ?>','<?php echo $path; ?>')" data-toggle="modal" src="<?php echo base_url()."public/images/video-buttonn.png"; ?>" style="background: url('<?php echo base_url()."public/images/vc.png"; ?>')"><?php echo $basic_video[$i][$k][$v]["video_name"];?></image>
+                    
                     </li>     
                   <?php endfor; ?>
-              </ul> 
+              </ul>  
+
             </div>
-            <div class="tab-pane" id="tab_default_2">
+           <?php endif; ?> 
+            <div class="tab-pane <?php echo ($workout[0]['reg_workout']=='YES') ? "active" : "" ?>" id="tab_default_R<?php echo $k; ?>">
                 <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
-                  <?php $video_cnt2=COUNT($video[$i][$k]); ?>
-                      <?php for ($v=0; $v < $video_cnt2; $v++) : ?>
+                  <?php $video_cnt3=COUNT($video[$i][$k]); ?>
+                      <?php for ($r=0; $r < $video_cnt3; $r++) : ?>
+                        <?php $path= base_url()."public/video/".$video[$i][$k][$r]['video_path']; ?>
                     <li class="col-md-4">
-                    <div class="" id="player<?php echo $i;?><?php echo $k;?><?php echo $v;?>" ></div>
-                      <script type="text/javascript">
-                        var url  = '<?php echo base_url()."public/video/".$video[$i][$k][$v]["video_path"];?>';
-                        //alert(url);
-                        jwplayer('player<?php echo $i;?><?php echo $k;?><?php echo $v;?>').setup({
-                        'flashplayer': 'player.swf',
-                        'width': '100%',
-                        'height':'200',
-                        'type' : 'mp4',
-                        'display' : 'none',
-                        'background-image': 'none',
-                        'file': url
-                      });
-                      </script>
+
+                    <?php 
+                      $num_days = $packdata[$i]['duration'] * 30;
+                      $num_video = ($video_cnt3 / $num_days);
+                       
+                      /********* claculate no of days from package start date**********/
+                      $start_date = $packdata[$i]['start_date'];    
+                      $date = new DateTime($start_date);
+                      $now = new DateTime();
+                      $month =  $date->diff($now)->format("%m");
+                      $days =  $date->diff($now)->format("%d");
+                      /*****************************************************************/
+                      $total_days = (30 * $month) + $days;
+                      //print_r($total_days);
+                      $total  = $num_video * $total_days;
+                      $show_cnt = ceil($total);
+                      print_r($show_cnt);
+
+                     
+                      //$id = $i;'.'$k;'.'$r;
+                      
+                       //print_r($id);
+
+                     ?>
+
+                    <image type="button" onclick="<?php echo ($r < $show_cnt) ? "regularvideo('$i$k$r','$path')" : "return false" ?>" data-toggle="modal" src="<?php echo base_url()."public/images/video-buttonn.png"; ?>" class="youtube-btn-training" style="background: url('<?php echo base_url()."public/images/vc.png"; ?>')"><?php echo $video[$i][$k][$r]["video_name"];?></image>
+                         
                     </li>
                    <?php endfor; ?>
-                  </ul>
+                  </ul> 
             </div>
           </div>
         </div>
       </div>
-
                 </li>
               <?php endfor; ?>
 
             </ul>
           </div>
         </div>
-
-
-
-
-
 
         <div>
         <div class="alert_msg"></div>
@@ -428,9 +421,15 @@
                   else{
                     $date = "";
                   }
+
+                  if(!empty($call_data[$i][$p]['video_id'])){
+                    $video_id = $call_data[$i][$p]['video_id'];
+                  }
+                  else{
+                    $video_id = 0;
+                  }
                   ?>
 
-                 
                   <tr>
                     <td class="text-center">
 
@@ -474,7 +473,12 @@
                       </select>
                     </td>
                     <td>
-                      <button type="button" name="callsubmit" id="callsubmit" value="Submit" class="dt-sc-button small pull-left" >Play</button>
+                    <?php if($video_id != 0) : ?>
+                         <?php $path= base_url()."public/video/".$call_data[$i][$p]['video_path']; ?>
+
+                      <a onclick="sessionvideo('<?php echo $i;?><?php echo $p;?>','<?php echo $path; ?>')" class="dt-sc-button small pull-left" data-toggle="modal">Play</a>
+                      
+                    <?php endif; ?>
                     </td>
                     
                   </tr>
@@ -495,7 +499,6 @@
 <?php endfor; ?>
 </div>
 </div>
-
 
 <!-- **********************************package history starts**************************-->
 
@@ -562,22 +565,6 @@
                <?php for ($k=0; $k < $cnt1; $k++) : ?>
                 <li class="Training_type"><h5><?php echo $trainarr1[$i][$k]['training_name']; ?>
                 <span class="pull-right"><img src="<?php echo base_url();?>public/images/arrow-down2.png"></span></h5>
-                <div class="row">
-                  <ul class="ul9_<?php echo $k; ?>" style="list-style: none;">
-                  <?php $cnt2=COUNT($video1[$i][$k]); ?>
-                      <?php for ($v=0; $v < $cnt2; $v++) : ?>
-                    <li class="col-md-3">
-                      <a class="youtube-btn-training" href="">
-                      
-                         <video id="<?php echo $video1[$i][$k][$v]['video_id']; ?>" style="min-width:100%; min-height:100%; border:3px solid #F26522;" name="<?php echo $video1[$i][$k][$v]['video_name']; ?>" >
-                          <source src="<?php echo $video1[$i][$k][$v]['video_path']; ?>" type="video/mp4" />
-                        </video> 
-                      
-                      </a>
-                    </li>
-                    <?php endfor; ?>
-                  </ul>
-                  </div>
                 </li>
               <?php endfor; ?>
 
@@ -635,11 +622,8 @@
                   else{
                     $date = "";
                   }
-
            ?>
            <tr>
-
-           
 
              <td><input type="text" date-date-format=""  class="pickdate" id="packagecall" name="date1[]"  value="<?php echo (!empty( $callnumber1[$i][$p]['date'])) ? $callnumber1[$i][$p]['date'] : ""; ?>" disabled/>
              </td>
@@ -648,16 +632,9 @@
              <td><input type="text"  id="status" value="<?php if(!empty($status) && $status==2): echo "Complete"; endif; ?>" disabled/></td>
            </tr>
 
-
-
-
            <?php $call_cnt++; endfor; ?>
                 </tbody>
               </table>
-
-
-
-         
         </div>
           </fieldset>
         </form>
@@ -677,26 +654,155 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    var i;
+  // $(document).ready(function(){
+  //   var i;
     
-    for( i=1;  i<10 ; i++)
-    {
-     //$(".ul9_"+i).hide();
-    }
+  //   for( i=1;  i<10 ; i++)
+  //   {
+  //    $(".ul9_"+i).hide();
+  //   }
  
   //   $("li.Training_type").click(function(){
-  //     $(this).find('ul').removeClass();
+  //     $(this).find('ul').toggle();
   //   });
   // });
-  //  $("li.Training_type").click(function(){
-  //    $(this).find('ul').removeClass();
-  //   });
+
 </script>
+<!-- Basic video Modal-->
+ <?php $pack_cnt=COUNT($packdata); ?>
+    <?php for ($i=0; $i < $pack_cnt; $i++) : ?> 
+         <?php $train_cnt1=COUNT($trainarr[$i]); ?>
+               <?php for ($k=0; $k < $train_cnt1; $k++) : ?>
+                  <?php $video_cnt2=COUNT($basic_video[$i][$k]); ?>
+                      <?php for ($v=0; $v < $video_cnt2; $v++) : ?>
+                  
+                        <div id="myModal_BV<?php echo $i;?><?php echo $k;?><?php echo $v; ?>" class="modal fade">
+                          <div class="modal-dialog" style=" width: 800px; margin-top: 110px;">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" onclick="basicvideostop('<?php echo $i;?><?php echo $k;?><?php echo $v; ?>')" data-dismiss="modal" aria-hidden="true">×</button>
+                              <h4 class="modal-title"><?php echo $basic_video[$i][$k][$v]['video_name']; ?></h4>
+                            </div>
+                            <div class="modal-body">
+                              <video id="BVfitnessVideo_<?php echo $i;?><?php echo $k;?><?php echo $v; ?>" width="800" height="300" controls="false" autoplay>
+                              
+                              </video> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <?php endfor; ?>
+                <?php endfor; ?>
+          <?php endfor; ?>
+
 <script type="text/javascript">
-  function video_popup()
+function basicvideo(bid,path)
+{
+  $("#myModal_BV"+bid).modal('show');
+  $("#BVfitnessVideo_"+bid).html('<source src="'+path+'" type="video/mp4">');
+}
+</script>          
+<script type="text/javascript">
+  function basicvideostop(id)
   {
-    $("#myModal").modal('show');
-    $(".modal-body").html('<div id="player010" ></div>')
+      $("#myModal_BV"+id).on('hidden.bs.modal', function()
+      {
+        $("#BVfitnessVideo_"+id).each(function() 
+        {
+          this.pause();
+        });
+      }) 
+  }
+</script>
+
+<!-- Regular video Modal-->
+ <?php $pack_cnt=COUNT($packdata); ?>
+    <?php for ($i=0; $i < $pack_cnt; $i++) : ?> 
+         <?php $train_cnt1=COUNT($trainarr[$i]); ?>
+               <?php for ($k=0; $k < $train_cnt1; $k++) : ?>
+                 <?php $video_cnt3=COUNT($video[$i][$k]); ?>
+                      <?php for ($r=0; $r < $video_cnt3; $r++) : ?>
+                  
+                        <div id="myModal_RV<?php echo $i;?><?php echo $k;?><?php echo $r; ?>" class="modal fade">
+                          <div class="modal-dialog" style=" width: 800px; margin-top: 110px;">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" onclick="regularvideostop('<?php echo $i;?><?php echo $k;?><?php echo $r; ?>')" data-dismiss="modal" aria-hidden="true">×</button>
+                              <h4 class="modal-title"><?php echo $video[$i][$k][$r]['video_name']; ?></h4>
+                            </div>
+                            <div class="modal-body">
+                              <video id="RVfitnessVideo_<?php echo $i;?><?php echo $k;?><?php echo $r; ?>" width="800" height="300" controls="false" autoplay>
+                              
+                              </video> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <?php endfor; ?>
+                <?php endfor; ?>
+          <?php endfor; ?>
+
+<script type="text/javascript">
+function regularvideo(rid,path)
+{
+  $("#myModal_RV"+rid).modal('show');
+  $("#RVfitnessVideo_"+rid).html('<source src="'+path+'" type="video/mp4">');
+}
+</script>          
+<script type="text/javascript">
+  function regularvideostop(id)
+  {
+      $("#myModal_RV"+id).on('hidden.bs.modal', function()
+      {
+        $("#RVfitnessVideo_"+id).each(function() 
+        {
+          this.pause();
+        });
+      }) 
+  }
+</script>
+
+<!-- Miss session play video Modal-->
+ <?php $pack_cnt=COUNT($packdata); ?>
+    <?php for ($i=0; $i < $pack_cnt; $i++) : ?> 
+         <?php $sessioncnt=$packdata[$i]['package_call']; ?>
+               <?php for ($k=0; $k < $sessioncnt; $k++) : ?>
+                  
+                        <div id="myModal_PV<?php echo $i;?><?php echo $k;?>" class="modal fade">
+                          <div class="modal-dialog" style=" width: 800px; margin-top: 110px;">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" onclick="sessionvideostop('<?php echo $i;?><?php echo $k;?>')" data-dismiss="modal" aria-hidden="true">×</button>
+                              <h4 class="modal-title"><?php echo $call_data[$i][$k]['video_name']; ?></h4>
+                            </div>
+                            <div class="modal-body">
+                              <video id="PVfitnessVideo_<?php echo $i;?><?php echo $k;?>" width="800" height="300" controls="false" autoplay>
+                              
+                              </video> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          
+                <?php endfor; ?>
+          <?php endfor; ?>
+
+<script type="text/javascript">
+function sessionvideo(pid,path)
+{
+  $("#myModal_PV"+pid).modal('show');
+  $("#PVfitnessVideo_"+pid).html('<source src="'+path+'" type="video/mp4">');
+}
+</script>          
+<script type="text/javascript">
+  function sessionvideostop(id)
+  {
+      $("#myModal_PV"+id).on('hidden.bs.modal', function()
+      {
+        $("#PVfitnessVideo_"+id).each(function() 
+        {
+          this.pause();
+        });
+      }) 
   }
 </script>

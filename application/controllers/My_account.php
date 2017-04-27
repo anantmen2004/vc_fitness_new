@@ -45,6 +45,8 @@ class My_account extends CI_Controller {
 		// Package details 
 			$packages=$this->Packages_model->getPackageType($cust);
 
+			$data['workout']=$this->Packages_model->getWorkout($cust);
+			//echo "<pre>"; print_r($packages); exit();
 			$training = array();
 			$data['result']=array();	
 			$data['packdata']= array();
@@ -81,8 +83,13 @@ class My_account extends CI_Controller {
 			}
 				
 			array_push($data['basic_video'], $data1['b_video']);
+			//echo "<pre>";
+			//print_r($data['basic_video']); 
+			//print_r($data['video']);
+			//exit();
 		}
-
+		//echo "<pre>"; print_r($data['call_data']); exit();
+		
 		/************************************/
 		 //pakage history
 		 $packagehistory=$this->Packages_model->getHistory($cust);
@@ -228,7 +235,7 @@ class My_account extends CI_Controller {
 			$timezone = new DateTimeZone("Asia/Kolkata" );
 			$date = new DateTime();
 			$date->setTimezone($timezone );
-			$date =  $date->format( 'Y-m-d H:i:s');
+			$date =  $date->format('Y-m-d H:i:s');
 			$data = array(
 				'customer_id' => $formData['customer_id'],
 				'firstname' => $formData['firstname'],
@@ -284,7 +291,6 @@ class My_account extends CI_Controller {
 
 		if($cust)
 		{
-
 			$formData = $this->input->post();
 			$packageid=$formData['package_id'];
 			$date=$formData['date1'];
