@@ -298,25 +298,25 @@ video::-webkit-media-controls-panel {
           <ul class="nav nav-tabs ">
          <?php if($workout[0]['reg_workout']=='NO') : ?>
             <li class="active"> 
-              <a href="#tab_default_B<?php echo $k; ?>" data-toggle="tab">
+              <a href="#tab_default_B<?php echo $i; ?><?php echo $k; ?>" data-toggle="tab">
               Basic </a> 
             </li>
          <?php endif; ?> 
             <li class="<?php echo ($workout[0]['reg_workout']=='YES') ? "active" : "" ?>">
-              <a href="#tab_default_R<?php echo $k; ?>" data-toggle="tab">
+              <a href="#tab_default_R<?php echo $i; ?><?php echo $k; ?>" data-toggle="tab">
               Regular </a>
             </li>
           </ul>
           <div class="tab-content">
           <?php if($workout[0]['reg_workout']=='NO') : ?> 
-            <div class="tab-pane active" id="tab_default_B<?php echo $k; ?>">
+            <div class="tab-pane <?php echo ($k < 1) ? "active" : "" ?>" id="tab_default_B<?php echo $i; ?><?php echo $k; ?>" onc>
               <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
                   <?php $video_cnt2=COUNT($basic_video[$i][$k]); ?>
                       <?php for ($v=0; $v < $video_cnt2; $v++) : ?>
                         <?php $path= base_url()."public/video/".$basic_video[$i][$k][$v]['video_path']; ?>
                     <li class="col-md-4">
 
-                      <image class="youtube-btn-training" type="button" onclick="basicvideo('<?php echo $i;?><?php echo $k;?><?php echo $v; ?>','<?php echo $path; ?>')" data-toggle="modal" src="<?php echo base_url()."public/images/video-buttonn.png"; ?>" style="background: url('<?php echo base_url()."public/images/vc.png"; ?>')"><?php echo $basic_video[$i][$k][$v]["video_name"];?></image>
+                      <image class="youtube-btn-training" type="button" onclick="basicvideo('<?php echo $i;?><?php echo $k;?><?php echo $v; ?>','<?php echo $path; ?>')" data-toggle="modal" src="<?php echo base_url()."public/images/video-buttonn.png"; ?>" style="background: url('<?php echo base_url()."public/images/vc.png"; ?>')"><b><?php echo $basic_video[$i][$k][$v]["video_name"];?></b></image>
                     
                     </li>     
                   <?php endfor; ?>
@@ -324,7 +324,7 @@ video::-webkit-media-controls-panel {
 
             </div>
            <?php endif; ?> 
-            <div class="tab-pane <?php echo ($workout[0]['reg_workout']=='YES') ? "active" : "" ?>" id="tab_default_R<?php echo $k; ?>">
+            <div class="tab-pane <?php echo ($workout[0]['reg_workout']=='YES') ? "active" : "" ?>" id="tab_default_R<?php echo $i; ?><?php echo $k; ?>">
                 <ul class="ul9_<?php echo $k; ?>" style="list-style-type: none;">
                   <?php $video_cnt3=COUNT($video[$i][$k]); ?>
                       <?php for ($r=0; $r < $video_cnt3; $r++) : ?>
@@ -346,16 +346,14 @@ video::-webkit-media-controls-panel {
                       //print_r($total_days);
                       $total  = $num_video * $total_days;
                       $show_cnt = ceil($total);
-                      print_r($show_cnt);
+                      //print_r($show_cnt);
 
                      
-                      //$id = $i;'.'$k;'.'$r;
-                      
-                       //print_r($id);
+                      //return false;
 
                      ?>
 
-                    <image type="button" onclick="<?php echo ($r < $show_cnt) ? "regularvideo('$i$k$r','$path')" : "return false" ?>" data-toggle="modal" src="<?php echo base_url()."public/images/video-buttonn.png"; ?>" class="youtube-btn-training" style="background: url('<?php echo base_url()."public/images/vc.png"; ?>')"><?php echo $video[$i][$k][$r]["video_name"];?></image>
+                    <image type="button" onclick="<?php echo ($r < $show_cnt) ? "regularvideo('$i$k$r','$path')" : "wanning_msg()" ?>" data-toggle="modal" src="<?php echo base_url()."public/images/video-buttonn.png"; ?>" class="youtube-btn-training" style="background: url('<?php echo base_url()."public/images/vc.png"; ?>')"><b><?php echo $video[$i][$k][$r]["video_name"];?></b></image>
                          
                     </li>
                    <?php endfor; ?>
@@ -371,7 +369,7 @@ video::-webkit-media-controls-panel {
           </div>
         </div>
 
-        <div>
+        <div><h3>Schedule Online Training Date Time</h3>
         <div class="alert_msg"></div>
            <table class="table table-bordered table-hover">
                 <thead>
@@ -381,7 +379,7 @@ video::-webkit-media-controls-panel {
                     <td class="text-center">Minutes</td>
                     <!-- <td class="text-center">AM/PM</td> -->
                     <td class="text-center">Status</td>
-                    <td class="text-center">Miss Session Video</td>
+                    <td class="text-center">Missed Session Video</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -653,21 +651,21 @@ video::-webkit-media-controls-panel {
 </div>
 </div>
 
-<script type="text/javascript">
-  // $(document).ready(function(){
-  //   var i;
+<!-- <script type="text/javascript">
+  $(document).ready(function(){
+    var i;
     
-  //   for( i=1;  i<10 ; i++)
-  //   {
-  //    $(".ul9_"+i).hide();
-  //   }
+    for( i=1;  i<10 ; i++)
+    {
+     $(".ul9_"+i).hide();
+    }
  
-  //   $("li.Training_type").click(function(){
-  //     $(this).find('ul').toggle();
-  //   });
-  // });
+    $("li.Training_type").click(function(){
+      $(this).find('ul').toggle();
+    });
+  });
 
-</script>
+</script> -->
 <!-- Basic video Modal-->
  <?php $pack_cnt=COUNT($packdata); ?>
     <?php for ($i=0; $i < $pack_cnt; $i++) : ?> 
@@ -805,4 +803,9 @@ function sessionvideo(pid,path)
         });
       }) 
   }
+</script>
+<script type="text/javascript">
+function wanning_msg(){
+  alert("Opps..! Please Complete your current Week training");
+}
 </script>

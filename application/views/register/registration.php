@@ -198,7 +198,7 @@
                                     <select name="city"  class="f1-first-name" id="city">
                                         <option>Select City</option>
                                         <?php foreach ($City as $key => $value): ?>
-                                            <option value="<?php echo $value['ID'];?>"><?php echo $value['Name'];?></option>
+                                            <option value="<?php echo $value['city_id'];?>"><?php echo $value['city_name'];?></option>
                                         <?php endforeach ?>
                                     </select> 
                                 </div>

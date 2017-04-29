@@ -27,9 +27,6 @@
     </div>
     <!-- **Slider Section - End** --> 
     
-   
-    
-    
     <!-- main-content starts here -->
     <div id="main-content" data-animation="fadeInLeft" data-delay="100">
       <section id="primary" class="content-full-width">

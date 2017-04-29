@@ -226,6 +226,7 @@ function verifyOtp()
                     document.getElementById("email").readOnly = true;
                     document.getElementById("mobile").readOnly = true;
                     $("#otp_div").show();
+                    $("#otp").focus();
                     $("#verify_otp_btn").show();
                     $("#verify_mob_btn").hide();
                     $("#otp").val(''); 
@@ -275,7 +276,7 @@ function registerUser()
             data:formData,
             success:function(resp)
             {
-                alert(resp);
+                //alert(resp);
                 console.log(resp);
                 if(resp == 1){
                     var msg = 'Registration Successfull...!';

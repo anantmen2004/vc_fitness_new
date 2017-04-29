@@ -15,7 +15,7 @@ class Auth extends CI_Controller {
     }
 	public function rgisterView()
 	{
-        $data['City'] = $this->helper_model->selectAll("",'city');
+        $data['City'] = $this->helper_model->selectAll("",'cities');
         $data['Country'] = $this->helper_model->selectAll("",'oc_country');
        //print_r($data['City']);exit();
 		$this->load->view('register/registration',$data);
