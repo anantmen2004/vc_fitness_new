@@ -8,30 +8,31 @@ class ModelOnetomanyOnetomany extends Model {
 	}
 
 
-	// public function getAllCustomer($data = array()) //multiple onetomanys
-	// {
+	public function getCallDetails($call_id)  // single onetomany
+	{
+		$sql = "SELECT *  FROM oc_call_schedule WHERE srno = $call_id" ;
+		// print_r($sql);exit;
+		$query = $this->db->query($sql);
+		return $query->rows;
+	}
 
-	// 	$sql = "SELECT pcm.*, cust.* FROM oc_package_customer_master pcm JOIN oc_customer cust ON(pcm.customer_id=cust.customer_id) GROUP BY(cust.customer_id)" ;
-
-	// 	if (isset($data['start']) || isset($data['limit'])) {
-	// 		if ($data['start'] < 0) {
-	// 			$data['start'] = 0;
-	// 		}
-
-	// 		if ($data['limit'] < 1) {
-	// 			$data['limit'] = 20;
-	// 		}
-
-	// 		$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
-	// 	}
-	// 	$query = $this->db->query($sql);
-	// 	return $query->rows;
-
-	// }
 	public function getAllCustomer($data = array()) //multiple onetomanys
 	{
 
 		$sql = "SELECT cs.*, cust.* FROM oc_call_schedule cs JOIN oc_customer cust ON(cs.customer_id=cust.customer_id) WHERE cs.status <> 2 AND cs.status <>4" ;
+
+		if (!empty($data['date_from'])) {
+			$sql .= " AND DATE(cs.date) >= DATE('" . $this->db->escape($data['date_from']) . "')";
+		}
+		if (!empty($data['date_to'])) {
+			$sql .= " AND DATE(cs.date) <= DATE('" . $this->db->escape($data['date_to']) . "')";
+		} 
+		if (!empty($data['time_from'])) {
+			$sql .= " AND DATE(cs.time) >= DATE('" . $this->db->escape($data['time_from']) . "')";
+		}
+		if (!empty($data['time_to'])) {
+			$sql .= " AND DATE(cs.time) <= DATE('" . $this->db->escape($data['time_to']) . "')";
+		} 
 
 		if (isset($data['start']) || isset($data['limit'])) {
 			if ($data['start'] < 0) {
@@ -44,6 +45,7 @@ class ModelOnetomanyOnetomany extends Model {
 
 			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 		}
+		//echo"<pre>";print_r($sql);exit;
 		$query = $this->db->query($sql);
 		//echo"<pre>";print_r($query->rows);exit;
 		return $query->rows;

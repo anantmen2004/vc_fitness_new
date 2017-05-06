@@ -17,6 +17,30 @@ class ControllerOnetomanyOnetomany extends Controller {
 
 	protected function getList() {
 
+		if (isset($this->request->get['date_from'])) {
+			$date_from = $this->request->get['date_from'];
+		} else {
+			$date_from = null;
+		}
+
+		if (isset($this->request->get['date_to'])) {
+			$date_to = $this->request->get['date_to'];
+		} else {
+			$date_to = null;
+		}
+
+		if (isset($this->request->get['time_to'])) {
+			$time_to = $this->request->get['time_to'];
+		} else {
+			$time_to = null;
+		}
+
+		if (isset($this->request->get['time_from'])) {
+			$time_from = $this->request->get['time_from'];
+		} else {
+			$time_from = null;
+		}
+
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
 		} else {
@@ -36,6 +60,14 @@ class ControllerOnetomanyOnetomany extends Controller {
 		}
 
 		$url = '';
+
+		if (isset($this->request->get['date_from'])) {
+			$url .= '&date_from=' . $this->request->get['date_from'];
+		}
+
+		if (isset($this->request->get['date_to'])) {
+			$url .= '&date_to=' . $this->request->get['date_to'];
+		}
 
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
@@ -66,9 +98,15 @@ class ControllerOnetomanyOnetomany extends Controller {
 
 		$data['repair'] = $this->url->link('onetomany/onetomany/repair', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
+		$data['call_session_start'] = $this->url->link('onetomany/onetomany/call_session_start', 'token=' . $this->session->data['token'] . $url, 'SSL');
+
 		$data['galleries'] = array();
 
 		$filter_data = array(
+			'date_from'  => $date_from,
+			'date_to'  => $date_to,
+			'time_from'  => $time_from,
+			'time_to'  => $time_to,
 			'sort'  => $sort,
 			'order' => $order,
 			'start' => ($page - 1) * $this->config->get('config_limit_admin'),
@@ -77,7 +115,7 @@ class ControllerOnetomanyOnetomany extends Controller {
 
 		$onetomany_total = $this->model_onetomany_onetomany->getTotalOnetomany();
 		$results = $this->model_onetomany_onetomany->getAllCustomer($filter_data);
-		// echo "<pre>"; print_r($results);exit;
+	 	//echo "<pre>"; print_r($results);exit;
 		foreach ($results as $result) {
 			if($result['status'] == '0'){
 				$status = "Active";
@@ -88,10 +126,13 @@ class ControllerOnetomanyOnetomany extends Controller {
 			}
 
 			$data['customer'][] = array(
-				'sr_no' => $result['sr_no'],
+				'sr_no' => $result['srno'],
 				'customer_id'        => $result['customer_id'],
 				'fname'        => $result['firstname'],
 				'lname'        => $result['lastname'],
+				'date'        => $result['date'],
+				'time'        => $result['time'],
+				'call_no'        => $result['call_no'],
 				'sort_order'  => "ASC",
 				'status'  => $status,
 				'edit'        => $this->url->link('onetomany/onetomany/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $result['customer_id'] . $url, 'SSL'),
@@ -158,6 +199,7 @@ class ControllerOnetomanyOnetomany extends Controller {
 		if (isset($this->request->get['order'])) {
 			$url .= '&order=' . $this->request->get['order'];
 		}
+		$data['token'] = $this->session->data['token'];
 
 		$pagination = new Pagination();
 		$pagination->total = $onetomany_total;
@@ -712,9 +754,9 @@ class ControllerOnetomanyOnetomany extends Controller {
 
 		$pack_id = $call_data['package_id'];
 
-		$this->load->model('onetomany/onetomany');
+		$this->load->model('scheduler/scheduler');
 
-		$data = $this->model_onetomany_onetomany->getCustomerDetails($customer_id,$pack_id);
+		$data = $this->model_scheduler_scheduler->getCustomerDetails($customer_id,$pack_id);
 
 		
 
@@ -736,573 +778,182 @@ class ControllerOnetomanyOnetomany extends Controller {
 		$subject="Call Sheduling Details";
 		$msg  = "";
 		$msg .='
-
-
-
 		<html xmlns="http://www.w3.org/1999/xhtml">
-
-
-
-		<head>
-
-
-
+			<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-
 			<title>VC Fitness</title>
-
-
-
 			<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-
 			<style type="text/css">    
-
-
-
 				body {
-
 					margin-left:100px;
-
 					margin-right:100px;
-
 				}
-
-
-
-	#main-div{
-
-				background-size: 100%;
-
-				background-image: url("../images/473025691.jpg");
-
-				background-repeat: no-repeat;
-
-				background-position: center center;
-
-				background-attachment: fixed;
-
-				opacity: 0.5;
-
-				filter: alpha(opacity=90);
-
-
-
-			}
-
-
-
 			.TextCss {
-
-
-
 				font-family: Arial, Helvetica, sans-serif;
-
-
-
 				font-size: 12px;
-
-
-
 				color:#333333 ;
-
-
-
 				padding:45px;
-
-
-
 			}    
-
-
-
 		</style>
-
-
-
 	</head>
-
-
-
 	<body>
-
 		<div class="container" style="width:700px;">
-
 			<div style="background:#fff; border: 1px solid #b3b3b3; width:650;">
-
 				<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">
-
 					<img src="http://demo.proxanttech.com/vc_fitness/public/images/logo.png"  style="align:center; height:150px width: 200px;" />
-
 				</div>
-
 				<br/>
-
 				<div style="background:#d9d9d9; padding:30px;height:auto; text-align:justify;" >
-
 					<b>Dear '.$firstname.',</b>
-
 					<br/>
-
 					<br/>
-
 					<p> Your call has been schedule on : '.$date.' at : '.$time.'</b></p>
-
 					<br/>
-
 					<footer>
-
 						<b>Thanks & Regards,</b>
-
 						<br/>
-
 						VC Fitness<br/>
-
 						<b>Mr. Vinod Channa</b><br/>
-
 						Conact no.: 022 65556512<br/>
-
 						ADD- 98/3446, <br/>
-
 						Mumbai 400024.
-
 					</footer> 
-
-
-
 				</div>
-
-
-
 			</div>
-
 		</div>
-
 	</div>
-
 </body>
-
-
-
 </html>';	
-
 	// print_r($msg);exit;
-
 $mailheaders  = 'MIME-Version: 1.0' . "\r\n";
-
-
-
 $mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-
-
 $mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
-
-
-
 mail($to,$subject,$msg,$mailheaders);
-
-
-
-
-
 // print_r($msg);exit;
+}
+public function call_start($call_id)
+{
+	// echo "111";print_r($call_data);exit;
+	$call_data = $this->model_onetomany_onetomany->getCallDetails($call_id);
+	//$call_data = $this->request->post;
+	//print_r($data);exit;
+	$pack_id = $call_data[0]['package_id'];
+	$customer_id = $call_data[0]['customer_id'];
+	//print_r($pack_id);exit;
+	$this->load->model('scheduler/scheduler');
+	$data = $this->model_scheduler_scheduler->getCustomerDetails($customer_id,$pack_id);
+	//echo "<pre>";print_r($data);exit;
+	$pack_name = $data['package'][0]['package_name'];
+	$firstname = $data['customer'][0]['firstname'];	
+	$lastname = $data['customer'][0]['lastname'];
+	$email = $data['customer'][0]['email'];	
+	$date = date("d-m-Y",strtotime($call_data[0]['date']));
+	$time = $call_data[0]['time'];
+	$link = 'http://demo.proxanttech.com/vc_fitness/';
+		// echo "<pre>";print_r($firstname);exit;
+	$from = 'info@vinodchanna.com';
+	$to = $email;
+	$subject="Call Sheduling Details";
+	$msg  = "";
+	$msg .='<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>VC Fitness</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<style type="text/css">    
+			body {
+				margin-left:100px;
+				margin-right:100px;
+			}
+	</style>
+</head>
+<body>
+	<div class="container" style="width:700px;">
+		<div style="background:#fff; border: 1px solid #b3b3b3; width:650;">
+			<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">
+				<img src="http://demo.proxanttech.com/vc_fitness/public/images/logo.png"  style="align:center; height:150px width: 200px;" />
+			</div>
+			<br/>
+			<div style="background:#d9d9d9; padding:30px;height:auto; text-align:justify;" >
+				<b>Dear '.$firstname.',</b>
+				<br/>
+				<br/>
+				<p><b> Your call has been schedule on : '.$date.' at : '.$time.'</b></p>
+				<br/>
+				<p>Click on Link For video Call : <a href="'.$link.'">Call Start</a></p> 
+				<footer>
+					<b>Thanks & Regards,</b>
+					<br/>
+					VC Fitness<br/>
+					<b>Mr. Vinod Channa</b><br/>
+					Conact no.: 022 65556512<br/>
+					ADD- 98/3446, <br/>
+					Mumbai 400024.
+				</footer> 
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>';	
+	print_r($msg);exit;
+$mailheaders  = 'MIME-Version: 1.0' . "\r\n";
+$mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+$mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
+//mail($to,$subject,$msg,$mailheaders);
 
+ $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$charactersLength = strlen($characters);
+$randomString = '';
+for ($i = 0; $i < 6; $i++) {
+    $randomString .= $characters[rand(0, $charactersLength - 1)];
+}
+echo $randomString;
 
+//echo mt_rand();
 
 }
 
 
-
-public function call_start()
-
-{
-
-	// echo "111";
-
-	$call_data = $this->request->post;
-
-	//print_r($data);exit;
-
-	$pack_id = $call_data['package_id'];
-
-	$customer_id = $call_data['customer_id'];
+	public function call_session_start() {
 
 
-
-	$this->load->model('onetomany/onetomany');
-
-	$data = $this->model_onetomany_onetomany->getCustomerDetails($customer_id,$pack_id);
-
-	//echo "<pre>";print_r($data);exit;
-
-	$pack_name = $data['package'][0]['package_name'];
-
-	$firstname = $data['customer'][0]['firstname'];	
-
-	$lastname = $data['customer'][0]['lastname'];
-
-	$email = $data['customer'][0]['email'];	
-
-	$date = date("d-m-Y",strtotime($call_data['date']));
-
-	$time = $call_data['time'];
-
-	$link = 'http://demo.proxanttech.com/vc_fitness/';
-
-		// echo "<pre>";print_r($firstname);exit;
-
-
-
-	$from = 'info@vinodchanna.com';
-
-
-
-	$to = $email;
-
-
-
-	$subject="Call Sheduling Details";
-
-
-
-
-
-	$msg  = "";
-
-
-
-	$msg .='
-
-
-
-	<html xmlns="http://www.w3.org/1999/xhtml">
-
-
-
-	<head>
-
-
-
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-
-		<title>VC Fitness</title>
-
-
-
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-
-		<style type="text/css">    
-
-
-
-			body {
-
-				margin-left:100px;
-
-				margin-right:100px;
-
+		$this->language->load('onetomany/onetomany');
+		$this->document->setTitle($this->language->get('heading_title'));
+		$this->load->model('onetomany/onetomany');
+		if (isset($this->request->post['selected']) && $this->validateSession()) {
+			foreach ($this->request->post['selected'] as $call_id) {
+				//print_r($call_id);
+				$this->call_start($call_id);
 			}
 
+			$this->session->data['success'] = $this->language->get('text_success');
 
+			$url = '';
 
-	#main-div{
+			if (isset($this->request->get['sort'])) {
+				$url .= '&sort=' . $this->request->get['sort'];
+			}
+			if (isset($this->request->get['order'])) {
+				$url .= '&order=' . $this->request->get['order'];
+			}
 
-			background-size: 100%;
-
-			background-image: url("../images/473025691.jpg");
-
-			background-repeat: no-repeat;
-
-			background-position: center center;
-
-			background-attachment: fixed;
-
-			opacity: 0.5;
-
-			filter: alpha(opacity=90);
-
-
-
+			if (isset($this->request->get['page'])) {
+				$url .= '&page=' . $this->request->get['page'];
+			}
+			$this->response->redirect($this->url->link('onetomany/onetomany', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
+		$this->getList();
 
+	}
 
 
-		.TextCss {
 
+	protected function validateSession() {
 
-
-			font-family: Arial, Helvetica, sans-serif;
-
-
-
-			font-size: 12px;
-
-
-
-			color:#333333 ;
-
-
-
-			padding:45px;
-
-
-
-		}    
-
-
-
-	</style>
-
-
-
-</head>
-
-
-
-<body>
-
-	<div class="container" style="width:700px;">
-
-		<div style="background:#fff; border: 1px solid #b3b3b3; width:650;">
-
-			<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">
-
-				<img src="http://demo.proxanttech.com/vc_fitness/public/images/logo.png"  style="align:center; height:150px width: 200px;" />
-
-			</div>
-
-			<br/>
-
-			<div style="background:#d9d9d9; padding:30px;height:auto; text-align:justify;" >
-
-				<b>Dear '.$firstname.',</b>
-
-				<br/>
-
-				<br/>
-
-				<p><b> Your call has been schedule on : '.$date.' at : '.$time.'</b></p>
-
-				<br/>
-
-				<p>Click on Link For video Call : <a href="'.$link.'">Call Start</a></p> 
-
-				<footer>
-
-					<b>Thanks & Regards,</b>
-
-					<br/>
-
-					VC Fitness<br/>
-
-					<b>Mr. Vinod Channa</b><br/>
-
-					Conact no.: 022 65556512<br/>
-
-					ADD- 98/3446, <br/>
-
-					Mumbai 400024.
-
-				</footer> 
-
-
-
-			</div>
-
-
-
-		</div>
-
-	</div>
-
-</div>
-
-</body>
-
-
-
-</html>';	
-
-	// print_r($msg);exit;
-
-$mailheaders  = 'MIME-Version: 1.0' . "\r\n";
-
-
-
-$mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-
-
-$mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
-
-
-
-mail($to,$subject,$msg,$mailheaders);
-
-}
-
-
-
-
-
-	// public function add() {
-
-	// 	$this->language->load('onetomany/onetomany');
-
-
-
-	// 	$this->document->setTitle($this->language->get('heading_title'));
-
-
-
-	// 	$this->load->model('onetomany/onetomany');
-
-
-
-	// 	if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-
-	// 		$this->model_onetomany_onetomany->addOnetomany($this->request->post);
-
-
-
-	// 		print_r(1233);exit;
-
-
-
-	// 		$this->session->data['success'] = $this->language->get('text_success');
-
-
-
-	// 		$url = '';
-
-
-
-	// 		if (isset($this->request->get['sort'])) {
-
-	// 			$url .= '&sort=' . $this->request->get['sort'];
-
-	// 		}
-
-
-
-	// 		if (isset($this->request->get['order'])) {
-
-	// 			$url .= '&order=' . $this->request->get['order'];
-
-	// 		}
-
-
-
-	// 		if (isset($this->request->get['page'])) {
-
-	// 			$url .= '&page=' . $this->request->get['page'];
-
-	// 		}
-
-
-
-	// 		$this->response->redirect($this->url->link('onetomany/onetomany', 'token=' . $this->session->data['token'] . $url, 'SSL'));
-
-	// 	}
-
-
-
-	// 	$this->getForm();
-
-	// }
-
-
-
-
-
-	// public function delete() {
-
-	// 	$this->language->load('onetomany/onetomany');
-
-
-
-	// 	$this->document->setTitle($this->language->get('heading_title'));
-
-
-
-	// 	$this->load->model('onetomany/onetomany');
-
-
-
-	// 	if (isset($this->request->post['selected']) && $this->validateDelete()) {
-
-	// 		foreach ($this->request->post['selected'] as $customer_id) {
-
-	// 			$this->model_onetomany_onetomany->deleteonetomany($customer_id);
-
-	// 		}
-
-
-
-	// 		$this->session->data['success'] = $this->language->get('text_success');
-
-
-
-	// 		$url = '';
-
-
-
-	// 		if (isset($this->request->get['sort'])) {
-
-	// 			$url .= '&sort=' . $this->request->get['sort'];
-
-	// 		}
-
-
-
-	// 		if (isset($this->request->get['order'])) {
-
-	// 			$url .= '&order=' . $this->request->get['order'];
-
-	// 		}
-
-
-
-	// 		if (isset($this->request->get['page'])) {
-
-	// 			$url .= '&page=' . $this->request->get['page'];
-
-	// 		}
-
-
-
-	// 		$this->response->redirect($this->url->link('onetomany/onetomany', 'token=' . $this->session->data['token'] . $url, 'SSL'));
-
-	// 	}
-
-
-
-	// 	$this->getList();
-
-	// }
-
-
-
-	// protected function validateDelete() {
-
-	// 	if (!$this->user->hasPermission('modify', 'onetomany/onetomany')) {
-
-	// 		$this->error['warning'] = $this->language->get('error_permission');
-
-	// 	}
-
-
-
-	// 	return !$this->error;
-
-	// }
-
+		if (!$this->user->hasPermission('modify', 'onetomany/onetomany')) {
+			$this->error['warning'] = $this->language->get('error_permission');
+		}
+		return !$this->error;
+	}
 }

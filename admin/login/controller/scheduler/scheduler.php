@@ -736,416 +736,137 @@ class ControllerSchedulerScheduler extends Controller {
 		$subject="Call Sheduling Details";
 		$msg  = "";
 		$msg .='
-
-
-
 		<html xmlns="http://www.w3.org/1999/xhtml">
-
-
-
-		<head>
-
-
-
+			<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-
 			<title>VC Fitness</title>
-
-
-
 			<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-
 			<style type="text/css">    
-
-
-
 				body {
-
 					margin-left:100px;
-
 					margin-right:100px;
-
 				}
-
-
-
-	#main-div{
-
-				background-size: 100%;
-
-				background-image: url("../images/473025691.jpg");
-
-				background-repeat: no-repeat;
-
-				background-position: center center;
-
-				background-attachment: fixed;
-
-				opacity: 0.5;
-
-				filter: alpha(opacity=90);
-
-
-
-			}
-
-
-
 			.TextCss {
-
-
-
 				font-family: Arial, Helvetica, sans-serif;
-
-
-
 				font-size: 12px;
-
-
-
 				color:#333333 ;
-
-
-
 				padding:45px;
-
-
-
 			}    
-
-
-
 		</style>
-
-
-
 	</head>
-
-
-
 	<body>
-
 		<div class="container" style="width:700px;">
-
 			<div style="background:#fff; border: 1px solid #b3b3b3; width:650;">
-
 				<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">
-
 					<img src="http://demo.proxanttech.com/vc_fitness/public/images/logo.png"  style="align:center; height:150px width: 200px;" />
-
 				</div>
-
 				<br/>
-
 				<div style="background:#d9d9d9; padding:30px;height:auto; text-align:justify;" >
-
 					<b>Dear '.$firstname.',</b>
-
 					<br/>
-
 					<br/>
-
 					<p> Your call has been schedule on : '.$date.' at : '.$time.'</b></p>
-
 					<br/>
-
 					<footer>
-
 						<b>Thanks & Regards,</b>
-
 						<br/>
-
 						VC Fitness<br/>
-
 						<b>Mr. Vinod Channa</b><br/>
-
 						Conact no.: 022 65556512<br/>
-
 						ADD- 98/3446, <br/>
-
 						Mumbai 400024.
-
 					</footer> 
-
-
-
 				</div>
-
-
-
 			</div>
-
 		</div>
-
 	</div>
-
 </body>
-
-
-
 </html>';	
-
 	// print_r($msg);exit;
-
 $mailheaders  = 'MIME-Version: 1.0' . "\r\n";
-
-
-
 $mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-
-
 $mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
-
-
-
 mail($to,$subject,$msg,$mailheaders);
-
-
-
-
-
 // print_r($msg);exit;
-
-
-
 }
-
-
-
 public function call_start()
-
 {
-
 	// echo "111";
-
 	$call_data = $this->request->post;
-
 	//print_r($data);exit;
-
 	$pack_id = $call_data['package_id'];
-
 	$customer_id = $call_data['customer_id'];
-
-
-
 	$this->load->model('scheduler/scheduler');
-
 	$data = $this->model_scheduler_scheduler->getCustomerDetails($customer_id,$pack_id);
-
 	//echo "<pre>";print_r($data);exit;
-
 	$pack_name = $data['package'][0]['package_name'];
-
 	$firstname = $data['customer'][0]['firstname'];	
-
 	$lastname = $data['customer'][0]['lastname'];
-
 	$email = $data['customer'][0]['email'];	
-
 	$date = date("d-m-Y",strtotime($call_data['date']));
-
 	$time = $call_data['time'];
-
 	$link = 'http://demo.proxanttech.com/vc_fitness/';
-
 		// echo "<pre>";print_r($firstname);exit;
-
-
-
 	$from = 'info@vinodchanna.com';
-
-
-
 	$to = $email;
-
-
-
 	$subject="Call Sheduling Details";
-
-
-
-
-
 	$msg  = "";
-
-
-
-	$msg .='
-
-
-
-	<html xmlns="http://www.w3.org/1999/xhtml">
-
-
-
+	$msg .='<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-
-
-
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-
 		<title>VC Fitness</title>
-
-
-
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-
 		<style type="text/css">    
-
-
-
 			body {
-
 				margin-left:100px;
-
 				margin-right:100px;
-
 			}
-
-
-
-	#main-div{
-
-			background-size: 100%;
-
-			background-image: url("../images/473025691.jpg");
-
-			background-repeat: no-repeat;
-
-			background-position: center center;
-
-			background-attachment: fixed;
-
-			opacity: 0.5;
-
-			filter: alpha(opacity=90);
-
-
-
-		}
-
-
-
-		.TextCss {
-
-
-
-			font-family: Arial, Helvetica, sans-serif;
-
-
-
-			font-size: 12px;
-
-
-
-			color:#333333 ;
-
-
-
-			padding:45px;
-
-
-
-		}    
-
-
-
 	</style>
-
-
-
 </head>
-
-
-
 <body>
-
 	<div class="container" style="width:700px;">
-
 		<div style="background:#fff; border: 1px solid #b3b3b3; width:650;">
-
 			<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">
-
 				<img src="http://demo.proxanttech.com/vc_fitness/public/images/logo.png"  style="align:center; height:150px width: 200px;" />
-
 			</div>
-
 			<br/>
-
 			<div style="background:#d9d9d9; padding:30px;height:auto; text-align:justify;" >
-
 				<b>Dear '.$firstname.',</b>
-
 				<br/>
-
 				<br/>
-
 				<p><b> Your call has been schedule on : '.$date.' at : '.$time.'</b></p>
-
 				<br/>
-
 				<p>Click on Link For video Call : <a href="'.$link.'">Call Start</a></p> 
-
 				<footer>
-
 					<b>Thanks & Regards,</b>
-
 					<br/>
-
 					VC Fitness<br/>
-
 					<b>Mr. Vinod Channa</b><br/>
-
 					Conact no.: 022 65556512<br/>
-
 					ADD- 98/3446, <br/>
-
 					Mumbai 400024.
-
 				</footer> 
-
-
-
 			</div>
-
-
-
 		</div>
-
 	</div>
-
 </div>
-
 </body>
-
-
-
 </html>';	
-
 	// print_r($msg);exit;
-
 $mailheaders  = 'MIME-Version: 1.0' . "\r\n";
-
-
-
 $mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-
-
 $mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
+//mail($to,$subject,$msg,$mailheaders);
 
+ $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$charactersLength = strlen($characters);
+$randomString = '';
+for ($i = 0; $i < 6; $i++) {
+    $randomString .= $characters[rand(0, $charactersLength - 1)];
+}
+echo $randomString;
 
-
-mail($to,$subject,$msg,$mailheaders);
+//echo mt_rand();
 
 }
 

@@ -236,7 +236,7 @@
                                 </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
-                                    <button type="submit" class="btn btn-submit" onclick="registerUser()">Submit</button>
+                                    <button type="button" class="btn btn-submit" onclick="registerUser()">Submit</button>
                                 </div>
                             </fieldset>
                         

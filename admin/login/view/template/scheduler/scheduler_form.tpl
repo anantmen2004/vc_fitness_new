@@ -302,7 +302,7 @@ $('#language a:first').tab('show');
     //alert(id);
     var formData = $("#"+id).serialize();
     //var path = '<?php echo $call_start;?>';
-    // alert(path);
+    //alert('index.php?route=scheduler/scheduler/call_start/autocomplete&token=<?php echo $token; ?>');
     $.ajax({
         type:'POST',
         url: 'index.php?route=scheduler/scheduler/call_start/autocomplete&token=<?php echo $token; ?>',
@@ -310,7 +310,15 @@ $('#language a:first').tab('show');
         data:formData,
         success:function(resp)
          {  
-            alert(resp);console.log(resp);
+          if(!empty(resp))
+          {
+            //window.location.href = 'index.php?route=scheduler/scheduler/call_start/autocomplete&token=<?php echo $token; ?>';
+            console.log(333);console.log(resp);
+          }
+          else
+          {
+            console.log(444);
+          }
         }   
         });
   }

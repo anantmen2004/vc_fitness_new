@@ -2,7 +2,8 @@
 <div id="content">
   <div class="page-header">
     <div class="container-fluid">
-      <div class="pull-right">
+      <div class="pull-right"><!-- <a href="<?php echo $add; ?>" data-toggle="tooltip" title="<?php echo $button_add; ?>" class="btn btn-primary"><i class="fa fa-plus"></i></a>  -->
+        <button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-primary" onclick="confirm('<?php echo $text_confirm; ?>') ? $('#form-category').submit() : false;">Start Session</button>
       </div>
       <h1><?php echo $heading_title; ?></h1>
       <ul class="breadcrumb">
@@ -31,11 +32,11 @@
       <div class="panel-body">
         <div class="well">
           <div class="row">
-            <div class="col-sm-4">
+           <div class="col-sm-6">
               <div class="form-group">
                 <label class="control-label" for="input-name"><?php echo "Date From"; ?></label>
                 <div class="input-group date">
-                  <input type="text" name="date" value="" placeholder="<?php echo '';?>" data-date-format="YYYY-MM-DD" id="input-date-available" class="form-control" />
+                  <input type="text" name="date_from" value="" placeholder="<?php echo '';?>" data-date-format="YYYY-MM-DD" id="input-date-available" class="form-control" />
                   <span class="input-group-btn">
                   <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
                   </span>
@@ -44,7 +45,7 @@
               <div class="form-group">
                 <label class="control-label" for="input-price"><?php echo "Time From"; ?></label>
                 <div class="input-group time">
-                  <input type="text" name="time" value="<?php echo 'Time From'?>" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
+                  <input type="text" name="time_from" value="<?php echo 'Time From'?>" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
                   <span class="input-group-btn">
                   <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                   </span>
@@ -53,11 +54,11 @@
               
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-6">
               <div class="form-group">
                 <label class="control-label" for="input-model"><?php echo "Date To"; ?></label>
                 <div class="input-group date">
-                  <input type="text" name="date" value="" placeholder="<?php echo '';?>" data-date-format="YYYY-MM-DD" id="input-date-available" class="form-control" />
+                  <input type="text" name="date_to" value="" placeholder="<?php echo '';?>" data-date-format="YYYY-MM-DD" id="input-date-available" class="form-control" />
                   <span class="input-group-btn">
                   <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
                   </span>
@@ -67,19 +68,19 @@
               <div class="form-group">
                 <label class="control-label" for="input-quantity"><?php echo "Time To"; ?></label>
                 <div class="input-group time">
-                  <input type="text" name="time" value="<?php echo 'Time To'?>" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
+                  <input type="text" name="time_to" value="<?php echo 'Time To'?>" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
                   <span class="input-group-btn">
                   <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                   </span>
                 </div>
               </div>
-            </div>
-            <div class="col-sm-4">
+            </div> 
+            <div class="col-sm-12">
               <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-search"></i> <?php echo "Filter"; ?></button>
             </div>
           </div>
         </div>
-        <form action="<?php echo $delete; ?>" method="post" enctype="multipart/form-data" id="form-category">
+        <form action="<?php echo $call_session_start; ?>" method="post" enctype="multipart/form-data" id="form-category">
           <div class="table-responsive">
             <table class="table table-bordered table-hover">
               <thead>
@@ -90,6 +91,16 @@
                     <?php } else { ?>
                     <a ><?php echo $column_name; ?></a>
                     <?php } ?></td>
+
+                  <td class="text-left">
+                    <a >Call No.</a>
+                  </td>
+                  <td class="text-left">
+                    <a >Date</a>
+                  </td>
+                  <td class="text-left">
+                   <a > Time</a>
+                  </td>
                     
                   <td class="text-right">
                     <a  class=""><?php echo "Status" ?></a>
@@ -107,6 +118,10 @@
                     <input type="checkbox" name="selected[]" value="<?php echo $customer['sr_no']; ?>" />
                     <?php } ?></td>
                   <td class="text-left"><?php echo $customer['fname']; ?> <?php echo $customer['lname']; ?></td>
+                  
+                  <td class="text-right"><?php echo $customer['call_no']; ?></td>
+                  <td class="text-right"><?php echo $customer['date']; ?></td>
+                  <td class="text-right"><?php echo $customer['time']; ?></td>
                   <td class="text-right"><?php echo $customer['status']; ?></td>
                   <td class="text-right"><a href="<?php echo $customer['edit']; ?>" data-toggle="tooltip" title="<?php echo "View Customer Call" ?>" class="btn btn-primary"><i class="fa fa-eye"></i></a></td>
                 </tr>
@@ -128,7 +143,6 @@
     </div>
   </div>
 </div>
-
 <script type="text/javascript">
    $('.date').datetimepicker({
       pickTime: false
@@ -143,5 +157,36 @@
       pickTime: true
     });
 </script>
+ <script type="text/javascript"><!--
+$('#button-filter').on('click', function() {
+  
+  url = 'index.php?route=onetomany/onetomany&token=<?php echo $token; ?>';
+// alert(url);
+  var date_from = $('input[name=\'date_from\']').val();
 
+  if (date_from) {
+    url += '&date_from=' + encodeURIComponent(date_from);
+  }
+
+  var date_to = $('input[name=\'date_to\']').val();
+
+  if (date_to) {
+    url += '&date_to=' + encodeURIComponent(date_to);
+  }
+
+  var time_from = $('input[name=\'time_from\']').val();
+
+  if (time_from) {
+    url += '&time_from=' + encodeURIComponent(time_from);
+  }
+
+  var date_to = $('input[name=\'date_to\']').val();
+
+  if (date_to) {
+    url += '&date_to=' + encodeURIComponent(date_to);
+  }
+
+  location = url;
+});
+//--></script>
 <?php echo $footer; ?>

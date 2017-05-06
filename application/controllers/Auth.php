@@ -100,8 +100,8 @@ class Auth extends CI_Controller {
         if(!empty($email) && !empty($mobile))
         {
 	        $fields = array(
-	                    'email' => strtolower($email),
-	                    'telephone' => $mobile
+                    'email' => strtolower($email),
+                    'telephone' => $mobile
 	                );
         	$userExist = $this->helper_model->select("",$tableName, $fields);
             if($userExist)
@@ -143,7 +143,10 @@ class Auth extends CI_Controller {
                         $updateId = $this->helper_model->update($tableName,$data,$updateId);
                         if($updateId)
                         {
-                           echo 1;
+                           
+                           $this->reg_mail_to_client($fields);
+                           //$this->reg_mail_to_admin($fields,$mobile);
+                           //echo 1;
                         }
                         else
                         {
@@ -161,7 +164,104 @@ class Auth extends CI_Controller {
             echo 2;
         }        
     }
-    /********/
+    /**************************/
+    public function reg_mail_to_client($data)
+    {
+        // print_r($data);exit;
+        $fname = $data['firstname'];
+        $lname = $data['lastname'];
+        $email = $data['email'];
+        //print_r($fname);print_r($lname);eprint_r($email);exit;
+        $config['mailtype'] = 'html';
+        $this->email->initialize($config);
+
+
+        $email_body ='<div style="background:#fff; border: 1px solid #b3b3b3; height:auto; width:650;">';
+        $email_body .='<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">';
+        $email_body .='<img src="'.base_url().'public/images/logo.png" style="align:center; height:150px width: 200px;" />';
+        $email_body .='</div>';
+        $email_body .='<br/>';
+        $email_body .='<div>';
+        $email_body .='<div style="background:#d9d9d9; padding:30px">';
+        $email_body .= "<b>Dear ".$fname." ".$lname."</b>";
+        $email_body .='<br/>';
+        $email_body .='<br/>';
+        $email_body .= "<span><b>Welcome to VC FITNESS. Your registration has been done successfully. </b></span>";
+        $email_body .='<br/>';
+        
+        $email_body .='</div>';
+        $email_body .='</div>';
+        $email_body .='</div>';
+
+        $this->load->library('email');
+        $this->email->from('info@vinodchanna.com');
+        //print_r($email_body);exit();
+        $this->email->to($email);
+        $this->email->subject("Registration successful");
+        $this->email->message($email_body);
+        if(!$this->email->send())
+        {
+            echo 0;
+        }
+        else
+        {
+
+        }   
+    }
+    /*************************/
+    public function reg_mail_to_admin($data)
+    {
+        // print_r($data);exit;
+        $fname = $data['firstname'];
+        $lname = $data['lastname'];
+        $email = $data['email'];
+        $mobile = $data['mobile'];
+        //print_r($fname);print_r($lname);eprint_r($email);exit;
+        $config['mailtype'] = 'html';
+        $this->email->initialize($config);
+
+
+        $email_body ='<div style="background:#fff; border: 1px solid #b3b3b3; height:auto; width:650;">';
+        $email_body .='<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">';
+        $email_body .='<img src="'.base_url().'public/images/logo.png" style="align:center; height:150px width: 200px;" />';
+        $email_body .='</div>';
+        $email_body .='<br/>';
+        $email_body .='<div>';
+        $email_body .='<div style="background:#d9d9d9; padding:30px">';
+        $email_body .= "<b>Dear Sir/Madam,";
+        $email_body .='<br/>';
+        $email_body .= "<b>Following registration has been done on our sites.</b>";
+        $email_body .='<br/>';
+        $email_body .='<br/>';
+        $email_body .= "<b> Name : ".$fname." ".$lname."</b>";
+        $email_body .='<br/>';
+        $email_body .= "<b> Email : ".$email."</b>";
+        $email_body .='<br/>';
+        $email_body .= "<b> Mobile : ".$mobile."</b>";
+        $email_body .='<br/>';
+        $email_body .='<br/>';
+        $email_body .='<br/>';
+        
+        $email_body .='</div>';
+        $email_body .='</div>';
+        $email_body .='</div>';
+
+        $this->load->library('email');
+        $this->email->from('info@vinodchanna.com');
+        //print_r($email_body);exit();
+        $this->email->to("dhananjaypingale2112@gmail.com");
+        $this->email->subject("Registration From sites");
+        $this->email->message($email_body);
+        if(!$this->email->send())
+        {
+            echo 0;
+        }
+        else
+        {
+
+        }   
+    }
+    /**************************/
     public function loginAction()
     {
         $email = $this->input->post('email');
@@ -271,12 +371,12 @@ class Auth extends CI_Controller {
                 $this->email->to($email);
                 $this->email->subject("OTP For Change Password");
                 $this->email->message($email_body);
-                // if(!$this->email->send())
-                // {
-                //     echo 0;
-                // }
-                // else
-                // {
+                if(!$this->email->send())
+                {
+                    echo 0;
+                }
+                else
+                {
                     $data = array(
                             'forgot_pass_otp' => $otp
                         );
@@ -286,7 +386,7 @@ class Auth extends CI_Controller {
                     
                     $ans = $this->helper_model->update($tableName,$data,$fields);
                     echo $id;
-                //}
+                }
         }else{
             echo 2;
         } 

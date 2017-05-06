@@ -276,20 +276,21 @@ function registerUser()
             data:formData,
             success:function(resp)
             {
-                //alert(resp);
+                alert(resp);
                 console.log(resp);
-                if(resp == 1){
-                    var msg = 'Registration Successfull...!';
-                    display_alert('succ',msg);
-                    setInterval(function(){
-                        window.location.href = base_url;
-                    }, 2000);
-                }
-                else
-                {
-                    var msg = 'Something goes wrong..!';
-                    display_alert('err',msg);
-                }
+                // console.log(resp);
+                // if(resp == 1){
+                //     var msg = 'Registration Successfull...!';
+                //     display_alert('succ',msg);
+                //     setInterval(function(){
+                //         window.location.href = base_url;
+                //     }, 2000);
+                // }
+                // else
+                // {
+                //     var msg = 'Something goes wrong..!';
+                //     display_alert('err',msg);
+                // }
                 
                
             }   
