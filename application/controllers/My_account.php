@@ -123,11 +123,10 @@ class My_account extends CI_Controller {
 				$video_data=$this->Packages_model->getVideoType($value1['training_id'],0);
 				array_push($data1['packageinfo1'], $video_data);
 			}
-				
 			array_push($data['video1'], $data1['packageinfo1']);
 		}
 		 array_push($data['call4'], $data['call3']);
-		 //echo "<pre>"; print_r($data['call4']); exit();
+		 // echo "<pre>"; print_r($data['call4']); exit();
 		 //history end
 		/**********************/
 			$condition = array('customer_id' => $data['customer_id']);
@@ -142,7 +141,7 @@ class My_account extends CI_Controller {
             $client_ip = $_SERVER['REMOTE_ADDR'];
 			$where = 'customer_id = '.$id.' AND ip = '."'$client_ip'";
             $data['checkIp'] = $this->Helper_model->select("ip",'oc_customer_ip', $where);
-			//echo "<pre>";print_r($data['video']); exit();
+			//echo "<pre>";print_r($data); exit();
 
 			$this->load->view('templates/header',$data);
 			$this->load->view('myAccount/my_account');
@@ -292,14 +291,16 @@ class My_account extends CI_Controller {
 		if($cust)
 		{
 			$formData = $this->input->post();
+			//echo "<pre>";print_r($formData);exit; 
 			$packageid=$formData['package_id'];
+			$pack_sub_id=$formData['pack_sub_id'];
 			$date=$formData['date1'];
 			$hour=$formData['hour'];
 			$minute=$formData['minute'];
 			// $pm=$formData['pm'];
 			$callstatus=$formData['call_status'];
 			$packcall=$formData['packcall'];
-			$package_call=$formData['package_call'];
+			// $package_call=$formData['package_call'];
 
 			$tableName ='oc_call_schedule';
 
@@ -320,6 +321,7 @@ class My_account extends CI_Controller {
 							$call=array(
 							'customer_id' => $cust,
 							'package_id' => $packageid,
+							'package_sub_id' => $pack_sub_id,
 							'date' => date("Y-m-d",strtotime($date[$key])),
 							'time' => $hour[$key].':'.$minute[$key], 
 							'status' => $callstatus[$key],
@@ -347,6 +349,7 @@ class My_account extends CI_Controller {
 							$where=array(
 								'customer_id' => $cust,
 								'package_id' => $packageid,
+								'package_sub_id' => $pack_sub_id,
 								'call_no' => $value
 								);
 							$updateid=$this->Helper_model->update($tableName,$call,$where);

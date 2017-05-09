@@ -125,12 +125,12 @@ class Packages extends CI_Controller {
 					'comment'=> $formData['package_comment'],
 					'date_added'=> $date
 					);
-				$result = 1;//$this->Helper_model->insert('oc_package_customer_master',$data);
+				$result = $this->Helper_model->insert('oc_package_customer_master',$data);
 				if(!empty($result))
 				{
 					// echo 1;
-					$this->send_package_mail_to_client($data);
-					$this->send_package_mail_to_admin($data);
+					//$this->send_package_mail_to_client($data);
+					//$this->send_package_mail_to_admin($data);
 					echo 1;
 				}
 			}

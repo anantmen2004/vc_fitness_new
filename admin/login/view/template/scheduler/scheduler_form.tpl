@@ -122,11 +122,10 @@
                           </tr>
                           <?php 
                               $form_id = 1;
+                              if(isset($call)){
                               foreach($call as $key => $value){
                               if($scheduler_description[$j]['package_id']==$value['package_id']){
-
-                          ?>
-                          
+                          ?>  
                           <tr>
                           <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="<?php echo $j;?><?php echo $form_id;?>">
                               <td style="width:100px;">
@@ -136,7 +135,7 @@
                               </td>
                               <td>
                                   <div class="input-group date">
-                                    <input type="text" name="date" value="<?php echo $value['date']?>" placeholder="<?php echo '';?>" data-date-format="YYYY-MM-DD" id="input-date-available" class="form-control" />
+                                    <input type="text" name="date" value="<?php echo $value['date']?>" placeholder="" data-date-format="YYYY-MM-DD" id="date" class="form-control" />
                                     <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
                                     </span>
@@ -144,7 +143,7 @@
                               </td>
                                <td>
                                   <div class="input-group time">
-                                    <input type="text" name="time" value="<?php echo $value['time']?>" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
+                                    <input type="text" name="time" value="<?php echo $value['time']?>" placeholder="" data-date-format="HH:mm" id="time" class="form-control" />
                                     <span class="input-group-btn">
                                     <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                                     </span>
@@ -158,7 +157,7 @@
                               <td>
                               
                                    <select class="form-control" name="video_id" id="stat">
-                                   <option value="0">Please Select Video</option> 
+                                   <option value="0">Select Video</option> 
                                    <?php foreach($video as $key => $value2){?>
                                       <option value="<?php echo $value2['video_id'];?>" <?php echo ($value2['video_id'] == $value['video_id'])? "selected":""?> ><?php echo $value2['video_name'];?></option>
                                       <<!-- option value="1" <?php echo ($value['status'] == "1")? "selected":""?> >Pending</option>
@@ -169,12 +168,12 @@
                                   </select>
                               </td>
                               <td>
-                                   <select class="form-control" name="status" id="stat">
-                                      <option value="" <?php echo ($value['status'] == "")? "selected":""?> >Status</option>
-                                      <option value="1" <?php echo ($value['status'] == "1")? "selected":""?> >Pending</option>
-                                      <option value="2" <?php echo ($value['status'] == "2")? "selected":""?>  >Complete</option>
-                                      <option value="3" <?php echo ($value['status'] == "3")? "selected":""?>>Reschedule</option>
-                                      <option value="4" <?php echo ($value['status'] == "4")? "selected":""?> >Cancel</option>
+                                  <select class="form-control" name="status" id="stat">
+                                    <option value="" <?php echo ($value['status'] == "")? "selected":""?> >Status</option>
+                                    <option value="1" <?php echo ($value['status'] == "1")? "selected":""?>>Pending</option>
+                                    <option value="2" <?php echo ($value['status'] == "2")? "selected":""?>>Complete</option>
+                                    <option value="3" <?php echo ($value['status'] == "3")? "selected":""?>>Reschedule</option>
+                                    <option value="4" <?php echo ($value['status'] == "4")? "selected":""?>>Cancel</option>
                                   </select>
                               </td>
                               <td>
@@ -187,7 +186,7 @@
                               </form>
                               <?php $form_id++; ?>
                               </tr>
-                              <?php }
+                              <?php } }
                               }?>
                           </tr>
                       </table>
@@ -227,7 +226,7 @@ $('#input-description<?php echo $language['language_id']; ?>').summernote({
 $('input[name=\'path\']').autocomplete({
   'source': function(request, response) {
     $.ajax({
-      url: 'index.php?route=catalog/category/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
+      url: 'index.php?route=scheduler/scheduler/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
       dataType: 'json',
       success: function(json) {
         json.unshift({
@@ -301,23 +300,28 @@ $('#language a:first').tab('show');
   function call_start(id){
     //alert(id);
     var formData = $("#"+id).serialize();
+    //alert(formData);
     //var path = '<?php echo $call_start;?>';
     //alert('index.php?route=scheduler/scheduler/call_start/autocomplete&token=<?php echo $token; ?>');
     $.ajax({
         type:'POST',
         url: 'index.php?route=scheduler/scheduler/call_start/autocomplete&token=<?php echo $token; ?>',
-        dataType: 'json',
+        //dataType: 'json',
         data:formData,
         success:function(resp)
-         {  
-          if(!empty(resp))
+         { 
+          // alert(resp);
+          // console.log(resp);
+          if(resp == 0)
           {
-            //window.location.href = 'index.php?route=scheduler/scheduler/call_start/autocomplete&token=<?php echo $token; ?>';
-            console.log(333);console.log(resp);
+            alert("Somthing goes wrong..!")
           }
           else
           {
-            console.log(444);
+            window.open(
+                  'http://www.pkfood.in:8443/'+resp+'',
+                  '_blank' // <- This is what makes it open in a new window.
+                );
           }
         }   
         });

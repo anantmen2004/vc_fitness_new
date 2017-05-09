@@ -24,7 +24,7 @@ class Packages_model extends CI_Model {
 
 	public function getPackageType($custid)
 	{
-		return $data = $this->db->query("SELECT p.package_id, p.package_name, p.package_details,pc.duration, pc.amount, p.package_call, pc.start_date, pc.end_date FROM oc_package_master p, oc_package_customer_master pc WHERE pc.package_id=p.package_id AND pc.status = 0 AND pc.customer_id = $custid ")->result_array();
+		return $data = $this->db->query("SELECT p.package_id, p.package_name, p.package_details,pc.sr_no,pc.duration, pc.amount, p.package_call, pc.start_date, pc.end_date FROM oc_package_master p, oc_package_customer_master pc WHERE pc.package_id=p.package_id AND pc.status = 0 AND pc.customer_id = $custid ")->result_array();
 	}
 
 	public function getTrainingType($pid)

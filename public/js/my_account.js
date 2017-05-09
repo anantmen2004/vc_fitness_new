@@ -5,7 +5,7 @@ $(document).ready(function(){
     });
 
 });
-function display_alert123(type,message)
+function display_alert123(type,message,div)
 {
     var alert_msg = '';
     if(type == 'err')
@@ -24,10 +24,10 @@ function display_alert123(type,message)
         alert_msg += '<span style="text-align:center"><strong>'+message+'</strong></span></div>';
     }
 
-    $(".alert_msg").html(alert_msg);
+    $("."+div).html(alert_msg);
 
     setTimeout(function(){
-        $(".alert_msg").html("");       
+        $("."+div).html("");       
     },3000);
 }
 function updatePassword()
@@ -177,22 +177,23 @@ function videocall(id)
         data:formData,
         success:function(resp)
          {  
-         //alert(resp);
-           if(resp==1)
-            {
-                var msg = 'Information inserted Successfuly..!';
-                display_alert123('succ',msg);
-            }
-           else if(resp==2)
-            {
-                var msg = 'Information Updated Successfuly..!';
-                display_alert123('succ',msg);
-            }
-            else
-            {
-                var msg = 'Information Updated Successfuly..!';
-                display_alert123('succ',msg);  
-            }
+         alert(resp);
+           // if(resp==1)
+           //  {
+           //      var msg = 'Information inserted Successfuly..!';
+           //      display_alert123('succ',msg,'alert_msg');
+           //      //window.location.href=base_url+'my_account/my_account';
+           //  }
+           // else if(resp==2)
+           //  {
+           //      var msg = 'Information Updated Successfuly..!';
+           //      display_alert123('succ',msg,'alert_msg');
+           //  }
+           //  else
+           //  {
+           //      var msg = 'Information Updated Successfuly..!';
+           //      display_alert123('err',msg,'alert_msg');  
+           //  }
         }   
         });
 }

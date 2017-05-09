@@ -12,9 +12,7 @@ class ControllerSchedulerScheduler extends Controller {
 		$this->load->model('scheduler/scheduler');
 		$this->getList();
 	}
-
-
-
+	
 	protected function getList() {
 
 		if (isset($this->request->get['sort'])) {
@@ -180,10 +178,7 @@ class ControllerSchedulerScheduler extends Controller {
 	}
 
 
-
 	/**************************************************************/
-
-
 
 	public function edit() {
 
@@ -222,11 +217,9 @@ class ControllerSchedulerScheduler extends Controller {
 
 	protected function getForm() {
 
-// 		 print_r($this->request->get['customer_id']);exit;
+		//print_r($this->request->get['customer_id']);exit;
 
 		$data['heading_title'] = $this->language->get('heading_title');
-
-
 
 		$data['text_form'] = !isset($this->request->get['customer_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 
@@ -309,14 +302,8 @@ class ControllerSchedulerScheduler extends Controller {
 		} else {
 
 			$data['action'] = $this->url->link('scheduler/scheduler/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $this->request->get['customer_id'] . $url, 'SSL');
-
-
-
 			$data['call_start'] = $this->url->link('scheduler/scheduler/call_start');
-
 		}
-
-
 
 		$data['cancel'] = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'] . $url, 'SSL');
 		$data['token'] = $this->session->data['token'];
@@ -336,7 +323,7 @@ class ControllerSchedulerScheduler extends Controller {
 		}
 		$cnt = count($scheduler_info);
 
-		// echo "<pre>";print_r($call_info);exit;
+		//echo "<pre>";print_r($scheduler_info);echo "<pre>";print_r($call_info);exit;
 		for ($i=0; $i <$cnt ; $i++) { 
 			if (isset($this->request->post['fname'])) {
 				$data['fname'] = $this->request->post['fname'];
@@ -354,22 +341,16 @@ class ControllerSchedulerScheduler extends Controller {
 				$data['lname'] = '';
 			}
 
-
 			if (isset($this->request->post['comment'])) {
 
 				$data['comment'] = $this->request->post['comment'];
 
 			} elseif (!empty($scheduler_info)) {
-
 				$data['comment'] = $scheduler_info[$i]['comment'];
 
 			} else {
-
 				$data['comment'] = '';
-
 			}
-
-
 
 			if (isset($this->request->post['package_name'])) {
 
@@ -384,8 +365,6 @@ class ControllerSchedulerScheduler extends Controller {
 				$data['package_name'] = '';
 
 			}
-
-
 
 			if (isset($this->request->post['package_id'])) {
 
@@ -417,8 +396,6 @@ class ControllerSchedulerScheduler extends Controller {
 
 			}
 
-
-
 			if (isset($this->request->post['package_call'])) {
 
 				$data['package_call'] = $this->request->post['package_call'];
@@ -432,8 +409,6 @@ class ControllerSchedulerScheduler extends Controller {
 				$data['package_call'] = '';
 
 			}
-
-
 
 			if (isset($this->request->post['start_date'])) {
 
@@ -683,21 +658,6 @@ class ControllerSchedulerScheduler extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 
 		}
-
-
-
-		// foreach ($this->request->post['scheduler_description'] as $language_id => $value) {
-
-		// 	if ((utf8_strlen($value['name']) < 2) || (utf8_strlen($value['name']) > 255)) {
-
-		// 		$this->error['name'][$language_id] = $this->language->get('error_name');
-
-		// 	}
-
-		// }
-
-
-
 		return !$this->error;
 
 	}
@@ -791,11 +751,15 @@ mail($to,$subject,$msg,$mailheaders);
 }
 public function call_start()
 {
-	// echo "111";
-	$call_data = $this->request->post;
-	//print_r($data);exit;
-	$pack_id = $call_data['package_id'];
-	$customer_id = $call_data['customer_id'];
+	 //echo "111";exit;
+	$pack_id = $this->request->post['package_id'];
+	$customer_id = $this->request->post['customer_id'];
+	$date = $this->request->post['date'];
+	$time = $this->request->post['time'];
+
+	// print_r($pack_id);print_r($customer_id);print_r($date);exit;print_r($time);
+	//$pack_id = $call_data['package_id'];
+	//$customer_id = $call_data['customer_id'];
 	$this->load->model('scheduler/scheduler');
 	$data = $this->model_scheduler_scheduler->getCustomerDetails($customer_id,$pack_id);
 	//echo "<pre>";print_r($data);exit;
@@ -803,8 +767,8 @@ public function call_start()
 	$firstname = $data['customer'][0]['firstname'];	
 	$lastname = $data['customer'][0]['lastname'];
 	$email = $data['customer'][0]['email'];	
-	$date = date("d-m-Y",strtotime($call_data['date']));
-	$time = $call_data['time'];
+	$date = date("d-m-Y",strtotime($date));
+	//$time = $call_data['time'];
 	$link = 'http://demo.proxanttech.com/vc_fitness/';
 		// echo "<pre>";print_r($firstname);exit;
 	$from = 'info@vinodchanna.com';
@@ -834,9 +798,9 @@ public function call_start()
 				<b>Dear '.$firstname.',</b>
 				<br/>
 				<br/>
-				<p><b> Your call has been schedule on : '.$date.' at : '.$time.'</b></p>
+				<p><b> Your call has been schedule Now.</b></p>
 				<br/>
-				<p>Click on Link For video Call : <a href="'.$link.'">Call Start</a></p> 
+				<p>Please Click on Link For video Call : <a href="'.$link.'">Call Start</a></p> 
 				<footer>
 					<b>Thanks & Regards,</b>
 					<br/>
@@ -852,19 +816,27 @@ public function call_start()
 </div>
 </body>
 </html>';	
-	// print_r($msg);exit;
+// print_r($msg);exit;
 $mailheaders  = 'MIME-Version: 1.0' . "\r\n";
 $mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
-//mail($to,$subject,$msg,$mailheaders);
+$resp = 1;//mail($to,$subject,$msg,$mailheaders);
 
  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 $charactersLength = strlen($characters);
 $randomString = '';
-for ($i = 0; $i < 6; $i++) {
+for ($i = 0; $i < 10; $i++) {
     $randomString .= $characters[rand(0, $charactersLength - 1)];
 }
-echo $randomString;
+if($resp)
+{
+	echo $randomString;
+}
+else
+{
+	echo 0;
+}
+
 
 //echo mt_rand();
 

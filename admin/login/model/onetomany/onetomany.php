@@ -18,7 +18,7 @@ class ModelOnetomanyOnetomany extends Model {
 
 	public function getAllCustomer($data = array()) //multiple onetomanys
 	{
-
+		//echo"<pre>";print_r($data);exit;
 		$sql = "SELECT cs.*, cust.* FROM oc_call_schedule cs JOIN oc_customer cust ON(cs.customer_id=cust.customer_id) WHERE cs.status <> 2 AND cs.status <>4" ;
 
 		if (!empty($data['date_from'])) {
@@ -65,10 +65,10 @@ class ModelOnetomanyOnetomany extends Model {
 		return $query->rows;
 	}
 
-	public function editOnetomany($cust_id, $data) {
-		// print_r($data);exit;
+	public function update_call_status($call_id) {
+		// print_r("UPDATE " . DB_PREFIX . "call_schedule SET status =  2,  WHERE srno = '" . (int)$call_id . "'");exit;
 		$this->event->trigger('pre.admin.onetomany.edit', $data);
-		$this->db->query("UPDATE " . DB_PREFIX . "call_schedule SET date = '" . $data['date']. "', time = '" . $data['time']. "', admin_comment = '" . $data['admin_comment'] . "', video_id = '" . $data['video_id'] . "', status = '" . $data['status'] . "', updated_on = NOW() WHERE customer_id = '" . (int)$cust_id . "' AND package_id = '" . (int)$data['package_id'] . "' AND call_no = '" . (int)$data['call_no'] . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "call_schedule SET status =  2 WHERE srno = '" . (int)$call_id . "'");
 
 		
 		$this->cache->delete('onetomany');

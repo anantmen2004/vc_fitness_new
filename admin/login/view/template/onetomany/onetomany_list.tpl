@@ -45,7 +45,7 @@
               <div class="form-group">
                 <label class="control-label" for="input-price"><?php echo "Time From"; ?></label>
                 <div class="input-group time">
-                  <input type="text" name="time_from" value="<?php echo 'Time From'?>" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
+                  <input type="text" name="time_from" value="" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
                   <span class="input-group-btn">
                   <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                   </span>
@@ -68,7 +68,7 @@
               <div class="form-group">
                 <label class="control-label" for="input-quantity"><?php echo "Time To"; ?></label>
                 <div class="input-group time">
-                  <input type="text" name="time_to" value="<?php echo 'Time To'?>" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
+                  <input type="text" name="time_to" value="" placeholder="" data-date-format="HH:mm" id="" class="form-control" />
                   <span class="input-group-btn">
                   <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                   </span>

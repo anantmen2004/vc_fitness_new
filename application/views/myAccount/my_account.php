@@ -115,11 +115,8 @@ video::-webkit-media-controls-panel {
                      <select name="zone_id" id="input-zone" class=""><option value=""> --- Please Select --- </option><option value="1475">Andaman and Nicobar Islands</option><option value="1476">Andhra Pradesh</option><option value="1477">Arunachal Pradesh</option><option value="1478">Assam</option><option value="1479">Bihar</option><option value="1480">Chandigarh</option><option value="1481">Dadra and Nagar Haveli</option><option value="1482">Daman and Diu</option><option value="1483">Delhi</option><option value="1484">Goa</option><option value="1485">Gujarat</option><option value="1486">Haryana</option><option value="1487">Himachal Pradesh</option><option value="1488">Jammu and Kashmir</option><option value="1489">Karnataka</option><option value="1490">Kerala</option><option value="1491">Lakshadweep Islands</option><option value="1492">Madhya Pradesh</option><option value="1493" selected="selected">Maharashtra</option><option value="1494">Manipur</option><option value="1495">Meghalaya</option><option value="1496">Mizoram</option><option value="1497">Nagaland</option><option value="1498">Orissa</option><option value="1499">Pondicherry</option><option value="1500">Punjab</option><option value="1501">Rajasthan</option><option value="1502">Sikkim</option><option value="1503">Tamil Nadu</option><option value="1504">Tripura</option><option value="1505">Uttar Pradesh</option><option value="1506">West Bengal</option></select>
                    </div>
                  </fieldset>
-
                  <a onclick="updateAddressinfo()" class="dt-sc-button small pull-right" data-hover="Read More">Update</a>
                </form>
-
-
              </div>
              <div>
               <h4>Your Password</h4>
@@ -386,7 +383,7 @@ video::-webkit-media-controls-panel {
                   <?php 
 
                     $val=$packdata[$i]['package_call'];
-                    $call_cnt = 1; for($p=0; $p<$val; $p++) : 
+                $call_cnt = 1; for($p=0; $p<$val; $p++) : 
 
                     if(!empty($call_data[$i][$p]['time'])){
                     $time = $call_data[$i][$p]['time'];
@@ -432,6 +429,8 @@ video::-webkit-media-controls-panel {
                     <td class="text-center">
 
                     <input type="hidden" name="packcall[]" value="<?php echo empty($call_data[$i][$p])? $call_cnt : $call_data[$i][$p]['call_no']; ?>" id="pack_call"  readonly> 
+
+                    <input type="text" name="pack_sub_id" value="<?php echo $packdata[$i]['package_id']; ?>" id="pack_sub_id"  readonly>
 
                     <input type="text" date-date-format=""   class="pickdate" id="packagecall" name="date1[]" placeholder="Select Date" value="<?php echo empty($call_data[$i][$p]['date'])? "" : $call_data[$i][$p]['date']; ?>" <?php echo (!empty($status) && $status== 2)?"disabled":"";?>/>
 
@@ -550,7 +549,7 @@ video::-webkit-media-controls-panel {
             <div class="form-group required">
             <label class="col-sm-3">No. of Call Sessions</label>
               <div class="col-sm-9">
-             <input type="text" name="package_call[]" value="<?php echo $packhistory[$i]['package_call']; ?>" placeholder="Video Call" id="package_call" class="form-control" readonly="" readonly>
+             <input type="text" name="package_call" value="<?php echo $packhistory[$i]['package_call']; ?>" placeholder="Video Call" id="package_call" class="form-control" readonly="" readonly>
              </div>
            </div>
 

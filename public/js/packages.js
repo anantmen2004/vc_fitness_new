@@ -97,26 +97,26 @@ function confirmPackage()
             data:formData,
             success:function(resp)
             {
-                alert(resp);
-                // if(resp == 1){
-                //     var msg = 'Your Package is confirm..!';
-                //     display_alert('succ',msg);
-                //     setInterval(function(){
-                //         window.location.href = base_url+'packages/packagesPayment';
-                //     }, 2000);
-                // }
-                // else if(resp == 2){
-                //     var msg = 'You already have this Package..! try another one..!';
-                //     display_alert('err',msg);
-                //     setInterval(function(){
-                //         //window.location.href = base_url+'packages/packagesPayment';
-                //     }, 2000);
-                // }
-                // else
-                // {
-                //     var msg = 'Something goes wrong..!';
-                //     display_alert('err',msg);
-                // }
+                //alert(resp);
+                if(resp == 1){
+                    var msg = 'Your Package is confirm..!';
+                    display_alert('succ',msg);
+                    setInterval(function(){
+                        window.location.href = base_url+'packages/packagesPayment';
+                    }, 2000);
+                }
+                else if(resp == 2){
+                    var msg = 'You already have this Package..! try another one..!';
+                    display_alert('err',msg);
+                    setInterval(function(){
+                        //window.location.href = base_url+'packages/packagesPayment';
+                    }, 2000);
+                }
+                else
+                {
+                    var msg = 'Something goes wrong..!';
+                    display_alert('err',msg);
+                }
                 
             }
         });
