@@ -177,23 +177,23 @@ function videocall(id)
         data:formData,
         success:function(resp)
          {  
-         alert(resp);
-           // if(resp==1)
-           //  {
-           //      var msg = 'Information inserted Successfuly..!';
-           //      display_alert123('succ',msg,'alert_msg');
-           //      //window.location.href=base_url+'my_account/my_account';
-           //  }
-           // else if(resp==2)
-           //  {
-           //      var msg = 'Information Updated Successfuly..!';
-           //      display_alert123('succ',msg,'alert_msg');
-           //  }
-           //  else
-           //  {
-           //      var msg = 'Information Updated Successfuly..!';
-           //      display_alert123('err',msg,'alert_msg');  
-           //  }
+         //alert(resp);
+           if(resp==1)
+            {
+                var msg = 'Information inserted Successfuly..!';
+                display_alert123('succ',msg,'alert_msg');
+                //window.location.href=base_url+'my_account/my_account';
+            }
+           else if(resp==2)
+            {
+                var msg = 'Information Updated Successfuly..!';
+                display_alert123('succ',msg,'alert_msg');
+            }
+            else
+            {
+                var msg = 'Information Updated Successfuly..!';
+                display_alert123('err',msg,'alert_msg');  
+            }
         }   
         });
 }

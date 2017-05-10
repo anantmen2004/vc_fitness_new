@@ -17,15 +17,20 @@
                       <fieldset id="account">
                         <legend>Details</legend>     
                         <div class="col-sm-12 col-sm-offset-0 alert_msg"></div>                   
-                        <div class="form-group col-sm-6">
+                        <div class="form-group col-sm-4">
                           <label class="control-label" for="input-payment-firstname">Customer Name</label>
                           <input type="text"  placeholder="First Name" id="input-payment-firstname" value="<?php echo (empty($name)?"":$name);?>" class="form-control" readonly>
                           <input type="hidden" name="package_customer_id" id="package_customer_id" value="<?php echo (empty($customer_id)?"":$customer_id);?>" class="form-control" readonly>
                         </div>
-                        <div class="form-group col-sm-6">
+                        <div class="form-group col-sm-4">
                           <label class="control-label" for="input-payment-lastname">Package Name</label>
                           <input type="text"  placeholder="First Name" id="package_name" value="<?php echo (empty($package)?"":$package[0]['package_name']);?>" class="form-control" readonly>
                           <input type="hidden" name="package_id" placeholder="First Name" id="package_id" value="<?php echo (empty($package)?"":$package[0]['package_id']);?>" >
+                        </div>
+                        <div class="form-group col-sm-4">
+                          <label class="control-label" for="input-payment-lastname">No. Video Call</label>
+                          <input type="text"  placeholder="" name="package_call" id="package_call" value="<?php echo (empty($package)?"":$package[0]['package_call']);?>" class="form-control" readonly>
+                          
                         </div>
                         <div class="row">
                           <div class="form-group col-sm-3">

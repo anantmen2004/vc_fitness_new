@@ -31,7 +31,7 @@ video::-webkit-media-controls-panel {
           <div id="parentHorizontalTab">
             <ul class="resp-tabs-list hor_1">
               <li>My Account Information</li>
-              <li>My Orders</li>
+              <!-- <li>My Orders</li> -->
               <li>My Packages</li>
               <li>My Package History</li>
             </ul>
@@ -42,7 +42,7 @@ video::-webkit-media-controls-panel {
                     <li>Edit your account information</li>                                
                     <li>Modify your address book entries</li>
                     <li>Change your password</li>
-                    <li>Modify your wish list</li>
+                    <!-- <li>Modify your wish list</li> -->
                   </ul>
                   <div class="resp-tabs-container ver_1">
                     <div>
@@ -135,7 +135,7 @@ video::-webkit-media-controls-panel {
               </form>
             </div>
 
-            <div>
+            <!-- <div>
               <h4>My Wish List</h4>
               <p> 
                 <div class="table-responsive">
@@ -145,7 +145,6 @@ video::-webkit-media-controls-panel {
                         <td class="text-center">Image</td>
                         <td class="text-left">Product Name</td>
                         <td class="text-left">Model</td>
-                        <!-- <td class="text-right">Stock</td> -->
                         <td class="text-right">Unit Price</td>
                         <td class="text-right">Action</td>
                       </tr>
@@ -153,7 +152,7 @@ video::-webkit-media-controls-panel {
                     <tbody>
                       <?php 
                       if($wishlist):
-                        foreach ($wishlist as $key => $items):  ?>
+                        foreach ($wishlist as $key => $items): ?>
                       <tr>
                         <td class="text-center"><a href="#"><img src="<?php echo base_url()."public/images/".$items[0]['image'];?>" alt=" " title=" "></a>
                         </td>
@@ -180,14 +179,14 @@ video::-webkit-media-controls-panel {
                 </div>
                 <a href="about.html" class="dt-sc-button small pull-right" data-hover="Read More">Continue</a>
               </p>
-            </div>
+            </div> -->
           </div>
         </div>
       </p>
     </div>
-    <div>
+    <!--<div>
      <p>
-      <div id="ChildVerticalTab_2">
+       <div id="ChildVerticalTab_2">
         <ul class="resp-tabs-list ver_2">
           <li>View your order history</li>
         </ul>
@@ -223,9 +222,9 @@ video::-webkit-media-controls-panel {
           <a href="about.html" class="dt-sc-button small pull-right" data-hover="Read More">Continue</a>
         </div>
       </div>
-    </div>
+    </div> 
   </p>
-</div>
+</div>-->
 <div>
  <p>
 
@@ -430,9 +429,9 @@ video::-webkit-media-controls-panel {
 
                     <input type="hidden" name="packcall[]" value="<?php echo empty($call_data[$i][$p])? $call_cnt : $call_data[$i][$p]['call_no']; ?>" id="pack_call"  readonly> 
 
-                    <input type="text" name="pack_sub_id" value="<?php echo $packdata[$i]['package_id']; ?>" id="pack_sub_id"  readonly>
+                    <input type="hidden" name="pack_sub_id" value="<?php echo $packdata[$i]['sr_no']; ?>" id="pack_sub_id"  readonly>
 
-                    <input type="text" date-date-format=""   class="pickdate" id="packagecall" name="date1[]" placeholder="Select Date" value="<?php echo empty($call_data[$i][$p]['date'])? "" : $call_data[$i][$p]['date']; ?>" <?php echo (!empty($status) && $status== 2)?"disabled":"";?>/>
+                    <input type="text" date-date-format=""   class="pickdate" id="packagecall" name="date1[]" placeholder="Select Date" value="<?php echo empty($call_data[$i][$p]['date'])? "" : date("d-m-Y",strtotime($call_data[$i][$p]['date'])); ?>" <?php echo (!empty($status) && $status== 2)?"disabled":"";?>/>
 
                     </td>
                     <td class="text-center">
@@ -619,6 +618,22 @@ video::-webkit-media-controls-panel {
                   else{
                     $date = "";
                   }
+                  if(!empty($status) && $status==2)
+                  {
+                    $status = "Complete";
+                  } 
+                  if(!empty($status) && $status==1)
+                  {
+                    $status = "Pending";
+                  } 
+                  if(!empty($status) && $status==3)
+                  {
+                    $status = "Reschedule";
+                  } 
+                  if(!empty($status) && $status==4)
+                  {
+                    $status = "Cancel";
+                  } 
            ?>
            <tr>
 
@@ -626,7 +641,7 @@ video::-webkit-media-controls-panel {
              </td>
 
              <td><input type="text"  id="time" value="<?php echo (!empty($hour))?"$hour":""; echo ":"; echo (!empty($min))?"$min":""; echo " "; echo (!empty($ampm))?"$ampm":""  ?>" disabled/></td>
-             <td><input type="text"  id="status" value="<?php if(!empty($status) && $status==2): echo "Complete"; endif; ?>" disabled/></td>
+             <td><input type="text"  id="status" value="<?php echo $status; ?>" disabled/></td>
            </tr>
 
            <?php $call_cnt++; endfor; ?>

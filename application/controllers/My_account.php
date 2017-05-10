@@ -60,7 +60,7 @@ class My_account extends CI_Controller {
 		{
 			$data['packdata']= $packages;
 			
-		   $calls = $this->Packages_model->getCallno($value2['package_id'],$cust);
+		   $calls = $this->Packages_model->getCallno($value2['package_id'],$cust,$value2['sr_no']);
 		   array_push($data['call_data'], $calls);
 		
 			$training_data=$this->Packages_model->getTrainingType($value2['package_id']);
@@ -105,7 +105,7 @@ class My_account extends CI_Controller {
 			{
 			$data['packhistory']= $packagehistory;
 			
-		    $callstatus=$this->Packages_model->getCallno($value2['package_id'],$cust);
+		    $callstatus=$this->Packages_model->getCallno($value2['package_id'],$cust,$value2['sr_no']);
 		    array_push($data['callnumber1'], $callstatus);
 
 		    $select = '*';
@@ -307,12 +307,12 @@ class My_account extends CI_Controller {
 			foreach ($packcall as $key => $value) 
 			{
 				//echo "date";print_r($value); 
-				if(!empty($date[$key]))
-				{
+				// if(!empty($date[$key]))
+				// {
 					$callcheck = array();
 					$select = '*';
 	    			$tableName = 'oc_call_schedule';
-	    			$where = array('customer_id' => $cust,'package_id' => $packageid, 'call_no' => $value);
+	    			$where = array('customer_id' => $cust,'package_id' => $packageid, 'package_sub_id' => $pack_sub_id, 'call_no' => $value);
 	   	 			$callcheck = $this->Helper_model->select($select, $tableName, $where);
 					if($callstatus[$key] != 2)
 					{
@@ -322,7 +322,7 @@ class My_account extends CI_Controller {
 							'customer_id' => $cust,
 							'package_id' => $packageid,
 							'package_sub_id' => $pack_sub_id,
-							'date' => date("Y-m-d",strtotime($date[$key])),
+							'date' => $date[$key],
 							'time' => $hour[$key].':'.$minute[$key], 
 							'status' => $callstatus[$key],
 							'complete_status' => 0,
@@ -335,12 +335,13 @@ class My_account extends CI_Controller {
 							if(!empty($callid))
 							{
 								$this->send_call_schedule_mail($call);
+								//echo 2;
 							}
 						}
 						else
 						{
 							$call=array(
-							'date' => date("Y-m-d",strtotime($date[$key])),
+							'date' => $date[$key],
 							'time' => $hour[$key].':'.$minute[$key], 
 							'status' => $callstatus[$key],
 							'updated_on' => date("Y-m-d h:i:s")
@@ -357,11 +358,12 @@ class My_account extends CI_Controller {
 							if(!empty($updateid))
 							{
 								$this->send_call_schedule_mail($where);
+								
 							}
 							$callcheck = array();
 						} 
 					}
-				}
+				// }
 			}
 		}
 		else
@@ -391,9 +393,7 @@ class My_account extends CI_Controller {
 	  		$pack_name = $call_data[0]['package_name'];
 	  		$date = date("d-m-Y",strtotime($call_data[0]['date']));
 	  		$time = $call_data[0]['time'];
-	  		
-
-			
+	  			
 	     	$config['mailtype'] = 'html';
 	    	$this->email->initialize($config);
 
@@ -440,7 +440,7 @@ class My_account extends CI_Controller {
 			}
 			 else
 			 {
-			echo 1;
+				echo 1;
 			}
 		}
 		else

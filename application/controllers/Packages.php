@@ -99,6 +99,7 @@ class Packages extends CI_Controller {
 					$select = "package_1y_amount";
 				}
 
+				$number_of_session = "package_call";
 				$check_pack_amt= $this->Helper_model->select($select,"oc_package_master",$condition);
 				if($check_pack_amt)
 				{
@@ -128,9 +129,20 @@ class Packages extends CI_Controller {
 				$result = $this->Helper_model->insert('oc_package_customer_master',$data);
 				if(!empty($result))
 				{
-					// echo 1;
-					//$this->send_package_mail_to_client($data);
-					//$this->send_package_mail_to_admin($data);
+					$cnt = $formData['package_call'];
+					for ($i=1; $i <=$cnt ; $i++) { 
+						$call_data = array(
+							'package_id'=> $formData['package_id'],
+							'customer_id'=> $formData['package_customer_id'],
+							'package_sub_id'=> $result,
+							'call_no'=> $i
+							);
+						$this->Helper_model->insert('oc_call_schedule',$call_data);
+					}
+					
+					$this->send_package_mail_to_client($data);
+					$this->send_package_mail_to_admin($data);
+					
 					echo 1;
 				}
 			}

@@ -213,8 +213,6 @@ class ControllerSchedulerScheduler extends Controller {
 		$this->getForm();
 	}
 
-
-
 	protected function getForm() {
 
 		//print_r($this->request->get['customer_id']);exit;
@@ -380,6 +378,20 @@ class ControllerSchedulerScheduler extends Controller {
 
 			}
 
+			if (isset($this->request->post['sr_no'])) {
+
+				$data['sr_no'] = $this->request->post['sr_no'];
+
+			} elseif (!empty($scheduler_info)) {
+
+				$data['sr_no'] = $scheduler_info[$i]['sr_no'];
+
+			} else {
+
+				$data['sr_no'] = '';
+
+			}
+
 
 
 			if (isset($this->request->post['customer_id'])) {
@@ -424,8 +436,6 @@ class ControllerSchedulerScheduler extends Controller {
 
 			}
 
-
-
 			if (isset($this->request->post['end_date'])) {
 
 				$data['end_date'] = $this->request->post['end_date'];
@@ -435,9 +445,7 @@ class ControllerSchedulerScheduler extends Controller {
 				$data['end_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['end_date']));
 
 			} else {
-
 				$data['end_date'] = '';
-
 			}
 
 
@@ -467,9 +475,7 @@ class ControllerSchedulerScheduler extends Controller {
 				$data['entry_date'] = date("d-m-Y",strtotime($scheduler_info[$i]['date_added']));
 
 			} else {
-
 				$data['entry_date'] = '';
-
 			}
 
 
@@ -477,7 +483,6 @@ class ControllerSchedulerScheduler extends Controller {
 
 
 			if (isset($this->request->post['status'])) {
-
 				$data['status'] = $this->request->post['pack_status'];
 
 			} elseif (!empty($scheduler_info)) {
@@ -495,27 +500,17 @@ class ControllerSchedulerScheduler extends Controller {
 			$data['scheduler_description'][$i]= array(
 
 				'fname' => $data['fname'],
-
 				'lname' => $data['lname'],
-
 				'package_id' => $data['package_id'],
-
+				'sr_no' => $data['sr_no'],
 				'customer_id' => $data['customer_id'],
-
 				'comment' => $data['comment'],
-
 				'duration' => $data['duration'],
-
 				'package_call' => $data['package_call'],
-
 				'package_name' => $data['package_name'],
-
 				'start_date' => $data['start_date'],
-
 				'end_date' => $data['end_date'],
-
 				'entry_date' => $data['entry_date'],
-
 				'status' => $data['status'],
 				);
 		}
@@ -531,6 +526,14 @@ class ControllerSchedulerScheduler extends Controller {
 				$data['package_id'] = $call_info[$j]['package_id'];
 			} else {
 				$data['package_id'] = true;
+			} 
+
+			if (isset($this->request->post['package_sub_id'])) {
+				$data['package_sub_id'] = $this->request->post['package_sub_id'];
+			} elseif (!empty($call_info)) {
+				$data['package_sub_id'] = $call_info[$j]['package_sub_id'];
+			} else {
+				$data['package_sub_id'] = true;
 			} 
 
 			if (isset($this->request->post['date'])) {
@@ -618,6 +621,7 @@ class ControllerSchedulerScheduler extends Controller {
 
 			$data['call'][$j]= array(
 				'package_id' => $data['package_id'],
+				'package_sub_id' => $data['package_sub_id'],
 				'call_no' => $data['call_no'],
 				'admin_comment' => $data['admin_comment'],
 				'video_id' => $data['video_id'],
@@ -671,23 +675,16 @@ class ControllerSchedulerScheduler extends Controller {
 		//print_r($call_data);exit;
 
 		$pack_id = $call_data['package_id'];
+		print_r($call_data);exit;
 
 		$this->load->model('scheduler/scheduler');
-
 		$data = $this->model_scheduler_scheduler->getCustomerDetails($customer_id,$pack_id);
 
-		
-
 		$pack_name = $data['package'][0]['package_name'];
-
 		$firstname = $data['customer'][0]['firstname'];	
-
 		$lastname = $data['customer'][0]['lastname'];
-
 		$email = $data['customer'][0]['email'];	
-
 		$date = date("d-m-Y",strtotime($call_data['date']));
-
 		$time = $call_data['time'];
 
 		//echo "<pre>";print_r($customer_name);exit;
@@ -830,6 +827,7 @@ for ($i = 0; $i < 10; $i++) {
 }
 if($resp)
 {
+
 	echo $randomString;
 }
 else

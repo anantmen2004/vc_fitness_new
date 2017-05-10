@@ -118,14 +118,14 @@ $totalItems = $this->cart->total_items();
               <ul>
               <?php if(!empty($customer_id)):?>
                 <li><a title="Login" href="<?php echo base_url('my_account');?>"><span class="fa fa-sign-in"></span>Hi..<?php echo $firstname; ?></a></li>
-                <li><a title="Wishlist" href="<?php echo base_url('product/wishlistView');?>"><span class="fa fa-cart-arrow-down"></span> Wishlist - <div id="wishListItems" style="float:right"><?php echo $wishCount; ?></a></li>
-                <li><a title="Register Now" href="<?php echo base_url('product/cartView');?>"><span class="fa fa-cart-arrow-down"></span> view Cart - <div id="totalItems" style="float:right"><?php echo $totalItems; ?></a></li>
+                <!-- <li><a title="Wishlist" href="<?php echo base_url('product/wishlistView');?>"><span class="fa fa-cart-arrow-down"></span> Wishlist - <div id="wishListItems" style="float:right"><?php echo $wishCount; ?></a></li>
+                <li><a title="Register Now" href="<?php echo base_url('product/cartView');?>"><span class="fa fa-cart-arrow-down"></span> view Cart - <div id="totalItems" style="float:right"><?php echo $totalItems; ?></a></li> -->
                 <li><a title="logout Now" href="<?php echo base_url('Auth/logout');?>"><span class="fa fa-user"></span> logout </a></li>
 
               <?php else: ?>
                 <li><a title="Login" href="<?php echo base_url('Auth/loginView');?>"><span class="fa fa-sign-in"></span>Member Login</a></li>
                 <li><a title="Register Now" href="<?php echo base_url('Auth/rgisterView');?>"><span class="fa fa-user"></span> Register </a></li>
-                <li><a title="Register Now" href="<?php echo base_url('product/cartView');?>"><span class="fa fa-cart-arrow-down"></span> view Cart - <div id="totalItems" style="float:right"><?php echo $totalItems; ?></div> </a></li>
+                <!-- <li><a title="Register Now" href="<?php echo base_url('product/cartView');?>"><span class="fa fa-cart-arrow-down"></span> view Cart - <div id="totalItems" style="float:right"><?php echo $totalItems; ?></div> </a></li> -->
               <?php endif; ?>
               </ul>
             </div>
@@ -348,7 +348,7 @@ $totalItems = $this->cart->total_items();
                     <a class="dt-menu-expand">+</a> 
                   </li> -->
 
-                  <li class="menu-item-megamenu-parent  megamenu-4-columns-group menu-item-depth-0 <?php echo ($page =='productspage')?"current_page_item":""?>"> <a href="<?php echo base_url();?>product/productView" title=""> Fitness Products </a>
+                  <!-- <li class="menu-item-megamenu-parent  megamenu-4-columns-group menu-item-depth-0 <?php echo ($page =='productspage')?"current_page_item":""?>"> <a href="<?php echo base_url();?>product/productView" title=""> Fitness Products </a>
                     <div class="megamenu-child-container">
                       <ul class="sub-menu">
                       <?php $catCnt = 1; foreach ($menu_cat as $key12 => $value) :
@@ -385,7 +385,7 @@ $totalItems = $this->cart->total_items();
                         </ul>
                     </div>
                     <a class="dt-menu-expand">+</a> 
-                  </li>
+                  </li> -->
                     
                     
                   <li class="menu-item-simple-parent menu-item-depth-0 <?php echo ($page =='successStories')?"current_page_item":""?>"><a href="<?php echo base_url('Testimonials/testimonialsView');?>">Success Stories </a>

@@ -37,15 +37,15 @@ class Packages_model extends CI_Model {
 		return $data = $this->db->query("SELECT DISTINCT v.video_id, v.video_path, v.video_name from oc_video_master v JOIN oc_training_video_master tv  ON (tv.video_id=v.video_id) WHERE tv.training_id= $tid AND v.video_type = $type")->result_array();
 	}
 
-	public function getCallno($pid, $custid)
+	public function getCallno($pid, $custid, $subs_id)
 	{
 		//print_r("SELECT * from oc_call_schedule where customer_id = $custid AND package_id= $pid");exit;
 		// return $this->db->query("SELECT * FROM oc_call_schedule WHERE customer_id = $custid AND package_id= $pid")->result_array();
-		return $data=$this->db->query("SELECT c.*, v.video_id, v.video_name, v.video_path FROM oc_call_schedule c LEFT JOIN oc_video_master v  ON (v.video_id=c.video_id) WHERE c.customer_id = $custid AND c.package_id = $pid")->result_array();
+		return $data=$this->db->query("SELECT c.*, v.video_id, v.video_name, v.video_path FROM oc_call_schedule c LEFT JOIN oc_video_master v  ON (v.video_id=c.video_id) WHERE c.customer_id = $custid AND c.package_id = $pid AND c.package_sub_id = $subs_id")->result_array();
 	}
 	public function getHistory($custid)
 	{
-		return $data = $this->db->query("SELECT p.package_id, p.package_name, p.package_details,pc.duration, pc.amount, p.package_call FROM oc_package_master p, oc_package_customer_master pc WHERE pc.package_id=p.package_id AND pc.status = 1 AND pc.customer_id = $custid ")->result_array();
+		return $data = $this->db->query("SELECT p.package_id, p.package_name, p.package_details,pc.duration, pc.amount, p.package_call,pc.sr_no FROM oc_package_master p, oc_package_customer_master pc WHERE pc.package_id=p.package_id AND pc.status = 1 AND pc.customer_id = $custid ")->result_array();
 	}
 
 	public function getWorkout($custid)

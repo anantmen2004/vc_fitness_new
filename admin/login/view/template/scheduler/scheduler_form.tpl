@@ -125,6 +125,7 @@
                               if(isset($call)){
                               foreach($call as $key => $value){
                               if($scheduler_description[$j]['package_id']==$value['package_id']){
+                              if($scheduler_description[$j]['sr_no']==$value['package_sub_id']){
                           ?>  
                           <tr>
                           <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="<?php echo $j;?><?php echo $form_id;?>">
@@ -132,10 +133,11 @@
                                  <input type="text" class="form-control" name="call_no" id="call_no" value="<?php echo $value['call_no']?>" readonly/>
                                  <input type="hidden" name="package_id" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['package_id'] : '';?>" placeholder="" id="" class="form-control" readonly/>
                                  <input type="hidden" name="customer_id" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['customer_id'] : '';?>" placeholder="" id="" class="form-control" readonly/>
+                                 <input type="hidden" name="package_sub_id" value="<?php echo isset($scheduler_description[$j]) ? $value['package_sub_id'] : '';?>" placeholder="" id="package_sub_id" class="form-control" readonly/>
                               </td>
                               <td>
                                   <div class="input-group date">
-                                    <input type="text" name="date" value="<?php echo $value['date']?>" placeholder="" data-date-format="YYYY-MM-DD" id="date" class="form-control" />
+                                    <input type="text" name="date" value="<?php echo $value['date']?>" placeholder="" data-date-format="YYYY-MM-DD"  class="form-control" />
                                     <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
                                     </span>
@@ -143,14 +145,14 @@
                               </td>
                                <td>
                                   <div class="input-group time">
-                                    <input type="text" name="time" value="<?php echo $value['time']?>" placeholder="" data-date-format="HH:mm" id="time" class="form-control" />
+                                    <input type="text" name="time" value="<?php echo $value['time']?>" placeholder="" data-date-format="HH:mm" class="form-control" />
                                     <span class="input-group-btn">
                                     <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
                                     </span>
                                   </div>
                               </td>
                               <td>
-                                  <div class="input-group time">
+                                  <div class="input-group">
                                     <textarea placeholder="comment for self understanding" id="" name="admin_comment" class="form-control" ><?php echo isset($value['admin_comment']) ? $value['admin_comment'] : '';?></textarea>
                                   </div>
                               </td>
@@ -186,7 +188,7 @@
                               </form>
                               <?php $form_id++; ?>
                               </tr>
-                              <?php } }
+                              <?php } } }
                               }?>
                           </tr>
                       </table>

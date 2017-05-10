@@ -42,9 +42,11 @@ class ModelSchedulerScheduler extends Model {
 	}
 
 	public function editScheduler($cust_id, $data) {
-		
+		//print_r($data);exit;
 		$this->event->trigger('pre.admin.scheduler.edit', $data);
-		$this->db->query("UPDATE " . DB_PREFIX . "call_schedule SET date = '" . $data['date']. "', time = '" . $data['time']. "', admin_comment = '" . $data['admin_comment'] . "', video_id = '" . $data['video_id'] . "', status = '" . $data['status'] . "', updated_on = NOW() WHERE customer_id = '" . (int)$cust_id . "' AND package_id = '" . (int)$data['package_id'] . "' AND call_no = '" . (int)$data['call_no'] . "' AND complete_status = '0'");
+		$this->db->query("UPDATE " . DB_PREFIX . "call_schedule SET date = '" . $data['date']. "', time = '" . $data['time']. "', admin_comment = '" . $data['admin_comment'] . "', video_id = '" . $data['video_id'] . "', status = '" . $data['status'] . "', updated_on = NOW() WHERE customer_id = '" . (int)$cust_id . "' AND package_id = '" . (int)$data['package_id'] . "' AND package_sub_id = '" . (int)$data['package_sub_id'] . "' AND call_no = '" . (int)$data['call_no'] . "'");
+
+
 
 		$this->cache->delete('scheduler');
 
