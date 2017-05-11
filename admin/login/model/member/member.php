@@ -8,13 +8,13 @@ class ModelMemberMember extends Model {
 	}
 
 
-	public function getCallDetails($call_id)  // single member
-	{
-		$sql = "SELECT *  FROM oc_customer WHERE srno = $call_id" ;
-		// print_r($sql);exit;
-		$query = $this->db->query($sql);
-		return $query->rows;
-	}
+	// public function getCustomerDetails($cust_id)  // single member
+	// {
+	// 	$sql = "SELECT *  FROM oc_customer WHERE customer_id = $cust_id" ;
+	// 	// print_r($sql);exit;
+	// 	$query = $this->db->query($sql);
+	// 	return $query->rows;
+	// }
 
 	public function getAllCustomer($data = array()) //multiple members
 	{
@@ -76,16 +76,16 @@ class ModelMemberMember extends Model {
 		$this->event->trigger('post.admin.member.edit', $member_id);
 	}
 
-	public function getCustomerDetails($cust_id,$package_id)  // single member
+	public function getCustomerDetails($cust_id)  // single member
 	{
 		$sql = "SELECT cust.* FROM oc_customer cust WHERE customer_id = $cust_id" ;
 		$query = $this->db->query($sql);
-		$data['customer'] = $query->rows;
+		$data = $query->rows;
 
-		$sql1 = "SELECT pm.package_name FROM oc_package_master pm WHERE package_id = $package_id" ;
-		$query1 = $this->db->query($sql1);
+		// $sql1 = "SELECT pm.package_name FROM oc_package_master pm WHERE package_id = $package_id" ;
+		// $query1 = $this->db->query($sql1);
 		
-		$data['package'] = $query1->rows;
+		// $data['package'] = $query1->rows;
 		return $data;
 
 	}

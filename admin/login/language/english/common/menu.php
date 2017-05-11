@@ -108,5 +108,5 @@ $_['text_gallery']               	   = 'Gallery';
 $_['text_gallery_types']               = 'Gallery Types';
 $_['text_package_training_video']      = 'Package Trainings Mapping';
 $_['text_call_scheduler']              = 'Subscribe Packages';
-$_['text_one_to_many']              = 'One to Many Session';
-$_['text_all_members']              = 'All Registered Members';
+$_['text_one_to_many']                 = 'One to Many Session';
+$_['text_all_members']                 = 'All Registered Members';

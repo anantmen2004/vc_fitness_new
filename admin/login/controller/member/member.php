@@ -223,92 +223,17 @@ class ControllerMemberMember extends Controller {
 
 
 
-public function call_start($call_id)
-{
-	$call_data = $this->model_member_member->getCallDetails($call_id);
-	$pack_id = $call_data[0]['package_id'];
-	$customer_id = $call_data[0]['customer_id'];
-	$this->load->model('scheduler/scheduler');
-	$data = $this->model_scheduler_scheduler->getCustomerDetails($customer_id,$pack_id);
 
-	$pack_name = $data['package'][0]['package_name'];
-	$firstname = $data['customer'][0]['firstname'];	
-	$lastname = $data['customer'][0]['lastname'];
-	$email = $data['customer'][0]['email'];
-
-	$link = 'http://demo.proxanttech.com/vc_fitness/';
-
-	$from = 'info@vinodchanna.com';
-	$to = $email;
-	$subject="Call Sheduling Details";
-	$msg  = "";
-	$msg .='<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>VC Fitness</title>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<style type="text/css">    
-			body {
-				margin-left:100px;
-				margin-right:100px;
-			}
-	</style>
-</head>
-<body>
-	<div class="container" style="width:700px;">
-		<div style="background:#fff; border: 1px solid #b3b3b3; width:650;">
-			<div style="margin-left:10px; margin-top: 10px; margin-bottom: 0px;">
-				<img src="http://demo.proxanttech.com/vc_fitness/public/images/logo.png"  style="align:center; height:150px width: 200px;" />
-			</div>
-			<br/>
-			<div style="background:#d9d9d9; padding:30px;height:auto; text-align:justify;" >
-				<b>Dear '.$firstname.',</b>
-				<br/>
-				<br/>
-				<p><b> Your call has been schedule Now.</b></p>
-				<br/>
-				<p>Please Click on Link For video Call : <a href="'.$link.'">Call Start</a></p> 
-				<footer>
-					<b>Thanks & Regards,</b>
-					<br/>
-					VC Fitness<br/>
-					<b>Mr. Vinod Channa</b><br/>
-					Conact no.: 022 65556512<br/>
-					ADD- 98/3446, <br/>
-					Mumbai 400024.
-				</footer> 
-			</div>
-		</div>
-	</div>
-</div>
-</body>
-</html>';	
-	//print_r($msg);exit;
-$mailheaders  = 'MIME-Version: 1.0' . "\r\n";
-$mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-$mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
-//$resp = mail($to,$subject,$msg,$mailheaders);
-$resp = 1;
-if($resp)
-{
-	 $call_data = $this->model_member_member->update_call_status($call_id);
-	 // print_r($call_data);exit;
-}
-
-}
-
-
-	public function call_session_start() {
-
-
+	public function edit() {
 		$this->language->load('member/member');
+
 		$this->document->setTitle($this->language->get('heading_title'));
+
 		$this->load->model('member/member');
-		if (isset($this->request->post['selected']) && $this->validateSession()) {
-			foreach ($this->request->post['selected'] as $call_id) {
-				//print_r($call_id);
-				$this->call_start($call_id);
-			}
+
+		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+
+			$this->model_member_member->editPackage($this->request->get['customer_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -317,6 +242,7 @@ if($resp)
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
 			}
+
 			if (isset($this->request->get['order'])) {
 				$url .= '&order=' . $this->request->get['order'];
 			}
@@ -324,40 +250,215 @@ if($resp)
 			if (isset($this->request->get['page'])) {
 				$url .= '&page=' . $this->request->get['page'];
 			}
-			//$this->response->redirect($this->url->link('member/member', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 
-			$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-			$charactersLength = strlen($characters);
-			$randomString = '';
-			for ($i = 0; $i < 10; $i++) {
-			    $randomString .= $characters[rand(0, $charactersLength - 1)];
-			}
-
-			?>
-			<script type="text/javascript">
-			var resp = '<?php echo $randomString; ?>';
-			// alert(resp);
-				window.open(
-                  'http://www.pkfood.in:8443/'+resp+'',
-                  '_blank' // <- This is what makes it open in a new window.
-                );
-			</script>
-
-<?php
-
-			//header("Location: http://www.pkfood.in:8443/$randomString");
+			$this->response->redirect($this->url->link('member/member', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
-		$this->getList();
 
+		$this->getForm();
 	}
 
+	protected function getForm() {
+// 		 print_r($this->request->get['member_id']);exit;
+		$data['heading_title'] = $this->language->get('heading_title');
 
+		$data['text_form'] = !isset($this->request->get['customer_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
+		$data['text_none'] = $this->language->get('text_none');
+		$data['text_default'] = $this->language->get('text_default');
+		$data['text_enabled'] = $this->language->get('text_enabled');
+		$data['text_disabled'] = $this->language->get('text_disabled');
 
-	protected function validateSession() {
+		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_description'] = $this->language->get('entry_description');
+		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
+		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
+		$data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
+		$data['entry_keyword'] = $this->language->get('entry_keyword');
+		$data['entry_parent'] = $this->language->get('entry_parent');
+		$data['entry_filter'] = $this->language->get('entry_filter');
+		$data['entry_store'] = $this->language->get('entry_store');
+		$data['entry_image'] = $this->language->get('entry_image');
+		$data['entry_hover_image'] = $this->language->get('entry_hover_image');
+		$data['entry_top'] = $this->language->get('entry_top');
+		$data['entry_column'] = $this->language->get('entry_column');
+		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
+		$data['entry_status'] = $this->language->get('entry_status');
+		$data['entry_layout'] = $this->language->get('entry_layout');
 
+		$data['help_filter'] = $this->language->get('help_filter');
+		$data['help_keyword'] = $this->language->get('help_keyword');
+		$data['help_top'] = $this->language->get('help_top');
+		$data['help_column'] = $this->language->get('help_column');
+
+		$data['button_save'] = $this->language->get('button_save');
+		$data['button_cancel'] = $this->language->get('button_cancel');
+
+		$data['tab_general'] = $this->language->get('tab_general');
+		$data['tab_data'] = $this->language->get('tab_data');
+		$data['tab_design'] = $this->language->get('tab_design');
+
+		$data['entry_1m_amount'] = $this->language->get('entry_1m_amount');
+		$data['entry_3m_amount'] = $this->language->get('entry_3m_amount');
+		$data['entry_6m_amount'] = $this->language->get('entry_6m_amount');
+		$data['entry_1y_amount'] = $this->language->get('entry_1y_amount');
+		// $data['entry_number_of_video'] = $this->language->get('number_of_video');
+		$data['entry_training_type'] = $this->language->get('training_type');
+		$data['entry_member_type'] = $this->language->get('member_type');
+
+		$data['text_normal'] = $this->language->get('text_normal');
+		$data['text_optional'] = $this->language->get('text_optional');
+
+		if (isset($this->error['warning'])) {
+			$data['error_warning'] = $this->error['warning'];
+		} else {
+			$data['error_warning'] = '';
+		}
+
+		if (isset($this->error['name'])) {
+			$data['error_name'] = $this->error['name'];
+		} else {
+			$data['error_name'] = array();
+		}
+
+		if (isset($this->error['amount'])) {
+			$data['error_amount'] = $this->error['amount'];
+		} else {
+			$data['error_amount'] = array();
+		}
+
+		if (isset($this->error['3m_amount'])) {
+			$data['error_3m_amount'] = $this->error['3m_amount'];
+		} else {
+			$data['error_3m_amount'] = '';
+		}
+
+		$url = '';
+
+		if (isset($this->request->get['sort'])) {
+			$url .= '&sort=' . $this->request->get['sort'];
+		}
+
+		if (isset($this->request->get['order'])) {
+			$url .= '&order=' . $this->request->get['order'];
+		}
+
+		if (isset($this->request->get['page'])) {
+			$url .= '&page=' . $this->request->get['page'];
+		}
+
+		$data['breadcrumbs'] = array();
+
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_home'),
+			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
+		);
+
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('heading_title'),
+			'href' => $this->url->link('member/member', 'token=' . $this->session->data['token'] . $url, 'SSL')
+		);
+
+		if (!isset($this->request->get['customer_id'])) {
+			$data['action'] = $this->url->link('member/member/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		} else {
+			$data['action'] = $this->url->link('member/member/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $this->request->get['customer_id'] . $url, 'SSL');
+		}
+
+		$data['cancel'] = $this->url->link('member/member', 'token=' . $this->session->data['token'] . $url, 'SSL');
+
+		if (isset($this->request->get['customer_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
+			$member_info = $this->model_member_member->getCustomerDetails($this->request->get['customer_id']);
+		}
+
+		//echo "<pre>";print_r($member_info);exit;
+		
+		$data['token'] = $this->session->data['token'];
+
+		$this->load->model('localisation/language');
+
+		$data['languages'] = $this->model_localisation_language->getLanguages();
+		
+		if (isset($this->request->post['customer_id'])) {
+			$data['customer_id'] = $this->request->post['customer_id'];
+		} elseif (!empty($member_info)) {
+			$data['customer_id'] = $member_info[0]['customer_id'];
+		} else {
+			$data['customer_id'] = '';
+		}
+
+		if (isset($this->request->post['name'])) {
+			$data['name'] = $this->request->post['name'];
+		} elseif (!empty($member_info)) {
+			$fname = $member_info[0]["firstname"];
+			$lname = $member_info[0]["lastname"];
+			$data['name'] = $fname.' '.$lname;	
+		} else {
+			$data['name'] = '';
+		}
+
+		if (isset($this->request->post['email'])) {
+			$data['email'] = $this->request->post['email'];
+		} elseif (!empty($member_info)) {
+			$data['email'] = $member_info[0]['email'];
+		} else {
+			$data['email'] = '';
+		}
+
+		if (isset($this->request->post['telephone'])) {
+			$data['telephone'] = $this->request->post['telephone'];
+		} elseif (!empty($member_info)) {
+			$data['telephone'] = $member_info[0]['telephone'];
+		} else {
+			$data['telephone'] = '';
+		}
+
+		
+        if (isset($this->request->post['status'])) {
+			$data['status'] = $this->request->post['status'];
+		} elseif (!empty($member_info)) {
+			$data['status'] = $member_info[0]['status'];
+		} else {
+			$data['status'] = true;
+		}
+		
+		//print_r($training_id);exit;
+		
+		 $data['member_details'][1] = array(
+			'customer_id' => $data['customer_id'],
+			'name' => $data['name'],
+			'email' => $data['email'],
+			'telephone' => $data['telephone'],
+			 );
+		 $data['member_description'] = $data['member_details'];
+		
+		//echo "<pre>";print_r($data['member_description']);exit;
+
+		$data['header'] = $this->load->controller('common/header');
+		$data['column_left'] = $this->load->controller('common/column_left');
+		$data['footer'] = $this->load->controller('common/footer');
+		// /echo "<pre>";print_r($data);exit;
+		$this->response->setOutput($this->load->view('member/member_form.tpl',$data));
+	}
+
+	protected function validateForm() {
 		if (!$this->user->hasPermission('modify', 'member/member')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
+
+		foreach ($this->request->post['member_description'] as $language_id => $value) {
+			//print_r($value);exit;
+			if ((utf8_strlen($value['name']) < 2) || (utf8_strlen($value['name']) > 255)) {
+				$this->error['name'][$language_id] = $this->language->get('error_name');
+			}
+
+			if ($value['member_amount'] == "")  {
+				$this->error['amount'][$language_id] = $this->language->get('error_amount');
+			}
+
+			
+		}
+
 		return !$this->error;
 	}
+
+	/******************/
 }
