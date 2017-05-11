@@ -47,7 +47,7 @@
                 </tr>
               </thead>
               <tbody>
-                <?php if ($customer) { ?>
+                <?php if (isset($customer)) { ?>
                 <?php foreach ($customer as $customer) { ?>
                 <tr>
                   <td class="text-center"><?php if (in_array($customer['sr_no'], $selected)) { ?>
