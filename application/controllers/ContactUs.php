@@ -22,7 +22,6 @@ class ContactUs extends CI_Controller {
 	public function contactUsView()
 	{
 		$data = $this->data;
-
 		$data['page'] = "contactpage";
 		$this->load->view('templates/header',$data);
 		$this->load->view('pages/contactUs');
@@ -31,7 +30,6 @@ class ContactUs extends CI_Controller {
 	public function sendContactUsEmail()
 	{
 		$formData = $this->input->post();
-
 		@$name = $formData['txtname'];
 		@$email = $formData['txtemail'];
 		@$subject = $formData['cmbsubject'];

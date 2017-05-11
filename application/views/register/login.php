@@ -80,7 +80,7 @@
 						
 					 <form id="loginForm">
 						<input type="text"  placeholder="Enter Email Id" name="email"  id="email" autocomplete="off"/>
-						<input type="password"  placeholder="Password" name="password" id="password" autocomplete="off"  />
+						<input type="password"  placeholder="Password" name="password" id="password" autocomplete="off" onkeyup="set_focus();" />
 						<div class="remember">
 			             <!-- <span class="checkbox1">
 							   <label class="checkbox"><input type="checkbox" name="rememberMe" checked=""><i> 
@@ -125,6 +125,7 @@
     $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
 })
      </script>
+    
 
     </body>
 

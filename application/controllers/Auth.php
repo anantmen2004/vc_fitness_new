@@ -42,7 +42,7 @@ class Auth extends CI_Controller {
         $mobile = $this->input->post('mobile');
         $fields = array(
                         'email' => strtolower($email),
-                        'telephone' => $mobile
+                        // 'telephone' => $mobile
                     );
         $userExist = $this->helper_model->select("",$tableName, $fields);
         if($userExist)
@@ -100,8 +100,8 @@ class Auth extends CI_Controller {
         if(!empty($email) && !empty($mobile))
         {
 	        $fields = array(
-                    'email' => strtolower($email),
-                    'telephone' => $mobile
+                    'email' => strtolower($email)
+                    // 'telephone' => $mobile
 	                );
         	$userExist = $this->helper_model->select("",$tableName, $fields);
             if($userExist)
@@ -143,10 +143,9 @@ class Auth extends CI_Controller {
                         $updateId = $this->helper_model->update($tableName,$data,$updateId);
                         if($updateId)
                         {
-                           
                            $this->reg_mail_to_client($fields);
-                           //$this->reg_mail_to_admin($fields,$mobile);
-                           //echo 1;
+                           $this->reg_mail_to_admin($fields,$mobile);
+                           echo 1;
                         }
                         else
                         {
@@ -211,11 +210,11 @@ class Auth extends CI_Controller {
     /*************************/
     public function reg_mail_to_admin($data)
     {
-        // print_r($data);exit;
+        //print_r($data);exit;
         $fname = $data['firstname'];
         $lname = $data['lastname'];
         $email = $data['email'];
-        $mobile = $data['mobile'];
+        $mobile = $data['telephone'];
         //print_r($fname);print_r($lname);eprint_r($email);exit;
         $config['mailtype'] = 'html';
         $this->email->initialize($config);

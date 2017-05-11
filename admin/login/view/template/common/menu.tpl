@@ -213,6 +213,7 @@ s<ul id="menu">
     <li><a href="<?php echo $packages; ?>"><?php echo $text_packages; ?></a></li>
     <li><a href="<?php echo $scheduler; ?>"><?php echo $text_call_scheduler; ?></a></li>
     <li><a href="<?php echo $onetomany; ?>"><?php echo $text_one_to_many; ?></a></li>
+    <li><a href="<?php echo $members; ?>"><?php echo $text_all_members; ?></a></li>
   </ul>
   </li>
 

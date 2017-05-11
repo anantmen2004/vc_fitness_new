@@ -80,6 +80,7 @@ class ControllerCommonMenu extends Controller {
 		$data['text_package_training_video'] = $this->language->get('text_package_training_video');
 		$data['text_call_scheduler'] = $this->language->get('text_call_scheduler');
 		$data['text_one_to_many'] = $this->language->get('text_one_to_many');
+		$data['text_all_members'] = $this->language->get('text_all_members');
 
 
 
@@ -238,6 +239,7 @@ class ControllerCommonMenu extends Controller {
 
 		$data['scheduler'] = $this->url->link('scheduler/scheduler', 'token=' . $this->session->data['token'], 'SSL');
 		$data['onetomany'] = $this->url->link('onetomany/onetomany', 'token=' . $this->session->data['token'], 'SSL');
+		$data['members'] = $this->url->link('member/member', 'token=' . $this->session->data['token'], 'SSL');
 
 		return $this->load->view('common/menu.tpl', $data);
 	}

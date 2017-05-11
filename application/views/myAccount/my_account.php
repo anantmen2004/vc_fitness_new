@@ -98,22 +98,34 @@ video::-webkit-media-controls-panel {
                        <input type="text" name="address_2" value="<?php echo empty($userData)?"":$userData[0]['address_2']?>" placeholder="Address 2" id="input-address-2" class="form-control">
                      </div>
                      <div class="form-group required">
-                       <input type="text" name="city" value="<?php echo empty($userData)?"":$userData[0]['city']?>" placeholder="City" id="input-city" class="form-control">
+                       <!-- <input type="text" name="city" value="<?php echo empty($userData)?"":$userData[0]['city']?>" placeholder="City" id="input-city" class="form-control"> -->
+                       <select name="city" id="input-city" class="">
+                       <?php foreach ($cities as $key => $value): ?>
+                          <option value="<?php echo $value['city_id'] ?> " <?php echo ($userData[0]['city'] == $value['city_id'])?"selected":"" ?>><?php echo $value['city_name'] ?></option>
+                        <?php endforeach ?>
+                         </select> 
                      </div>
-                     <div class="form-group">
-                      <input type="text" name="postcode" value="<?php echo empty($userData)?"":$userData[0]['postcode']?>" placeholder="Post Code" id="input-postcode" class="form-control">
-                    </div>
+                    
 
-                    <div class="form-group required">
-                      <select name="country_id" id="input-country" class="">
-                        <option value=""> --- Please Select --- </option>
-                        <option value="99" selected="selected">India</option>
-                      </select> 
-                    </div>
+                    
 
                     <div class="form-group">
                      <select name="zone_id" id="input-zone" class=""><option value=""> --- Please Select --- </option><option value="1475">Andaman and Nicobar Islands</option><option value="1476">Andhra Pradesh</option><option value="1477">Arunachal Pradesh</option><option value="1478">Assam</option><option value="1479">Bihar</option><option value="1480">Chandigarh</option><option value="1481">Dadra and Nagar Haveli</option><option value="1482">Daman and Diu</option><option value="1483">Delhi</option><option value="1484">Goa</option><option value="1485">Gujarat</option><option value="1486">Haryana</option><option value="1487">Himachal Pradesh</option><option value="1488">Jammu and Kashmir</option><option value="1489">Karnataka</option><option value="1490">Kerala</option><option value="1491">Lakshadweep Islands</option><option value="1492">Madhya Pradesh</option><option value="1493" selected="selected">Maharashtra</option><option value="1494">Manipur</option><option value="1495">Meghalaya</option><option value="1496">Mizoram</option><option value="1497">Nagaland</option><option value="1498">Orissa</option><option value="1499">Pondicherry</option><option value="1500">Punjab</option><option value="1501">Rajasthan</option><option value="1502">Sikkim</option><option value="1503">Tamil Nadu</option><option value="1504">Tripura</option><option value="1505">Uttar Pradesh</option><option value="1506">West Bengal</option></select>
                    </div>
+
+                   <div class="form-group required">
+                      <select name="country_id" id="input-country" class="">
+                        <!-- <option value=""> --- Please Select --- </option> -->
+                        <?php foreach ($country as $key => $value): ?>
+                          <option value="<?php echo $value['country_id'] ?> " <?php echo ($userData[0]['country_id'] == $value['country_id'])?"selected":"" ?>><?php echo $value['name'] ?></option>
+                        <?php endforeach ?>
+                        
+                      </select> 
+                    </div>
+
+                  <div class="form-group">
+                    <input type="text" name="postcode" value="<?php echo empty($userData)?"":$userData[0]['postcode']?>" placeholder="Post Code" id="input-postcode" class="form-control">
+                  </div>
                  </fieldset>
                  <a onclick="updateAddressinfo()" class="dt-sc-button small pull-right" data-hover="Read More">Update</a>
                </form>

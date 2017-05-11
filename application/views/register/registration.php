@@ -182,16 +182,16 @@
                                  <div class="form-group">
                                     <label class="sr-only" for="f1-facebook">First Name</label>
                                     <input type="text" name="fname" placeholder="First Name" class="f1-facebook form-control mandatory-field" id="fname">
-                                    <span class="help-inline col-xs-12 col-sm-7">
+                                    <!-- <span class="help-inline col-xs-12 col-sm-7">
                                         <span class="middle input-text-error" id="fname_errorlabel"></span>
-                                    </span>
+                                    </span> -->
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-twitter">Last Name</label>
                                     <input type="text" name="lname" placeholder="Last Name" class="f1-twitter form-control mandatory-field" id="lname">
-                                    <span class="help-inline col-xs-12 col-sm-7">
+                                    <!-- <span class="help-inline col-xs-12 col-sm-7">
                                         <span class="middle input-text-error" id="lname_errorlabel"></span>
-                                    </span>
+                                    </span> -->
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-google-plus">City</label>
@@ -218,7 +218,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-facebook">Alternate Mobile No.</label>
-                                    <input type="text" name="mobile2" placeholder="Alternate Mobile No." class="f1-facebook form-control" id="mobile2">
+                                    <input type="text" name="mobile2" placeholder="Alternate Mobile No." class="f1-facebook form-control" id="mobile2" onkeyup="validate_telephone()">
                                 </div>
                                 
                                  <div class="form-group">

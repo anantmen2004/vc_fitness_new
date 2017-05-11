@@ -42,6 +42,9 @@ class My_account extends CI_Controller {
 			
 			$data['myOrders']=$this->Helper_model->selectallWhereOrder($select1, $tableName1, $where1, $order_id,$order);
 
+			$data['cities'] = $this->Helper_model->selectAll("*", "cities");
+			$data['country'] = $this->Helper_model->selectAll("*", "oc_country");
+
 		// Package details 
 			$packages=$this->Packages_model->getPackageType($cust);
 
@@ -83,10 +86,10 @@ class My_account extends CI_Controller {
 			}
 				
 			array_push($data['basic_video'], $data1['b_video']);
-			//echo "<pre>";
-			//print_r($data['basic_video']); 
-			//print_r($data['video']);
-			//exit();
+			// echo "<pre>";
+			// print_r($data['country']); 
+			// // print_r($data['video']);
+			// exit();
 		}
 		//echo "<pre>"; print_r($data['call_data']); exit();
 		

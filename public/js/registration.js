@@ -83,8 +83,11 @@ function isEmail() {
 /***************/
 function validate_mobile()
 {
-    $("#mobile").val($("#mobile").val().replace(/[^\d]/ig, ''));
-     
+    $("#mobile").val($("#mobile").val().replace(/[^\d]/ig, ''));  
+}
+function validate_telephone()
+{  
+    $("#mobile2").val($("#mobile2").val().replace(/[^\d]/ig, ''));   
 }
 /********************/
 function verifyMobile()
@@ -157,6 +160,7 @@ function verifyMobile()
                     $("#verify_mob_btn").hide();
                     var msg = 'Enter OTP Which you received on your mobile !';
                     display_fix_alert('succ',msg);
+                    $( "#otp" ).focus();
                     $("#otp").css({'border-color':'green'});
                 }
                 else if(resp == 0)
@@ -216,6 +220,7 @@ function verifyOtp()
                     $("#verify_otp_btn").hide();
                     $("#verify_mob_btn").hide();
                     $("#nxtBtn").show();
+                    $("#nxtBtn").focus();
                     // var msg = 'Enter OTP  !';
                     // display_alert('succ',msg);
                 }
@@ -276,21 +281,21 @@ function registerUser()
             data:formData,
             success:function(resp)
             {
-                alert(resp);
+                //alert(resp);
                 console.log(resp);
-                // console.log(resp);
-                // if(resp == 1){
-                //     var msg = 'Registration Successfull...!';
-                //     display_alert('succ',msg);
-                //     setInterval(function(){
-                //         window.location.href = base_url;
-                //     }, 2000);
-                // }
-                // else
-                // {
-                //     var msg = 'Something goes wrong..!';
-                //     display_alert('err',msg);
-                // }
+                console.log(resp);
+                if(resp == 1){
+                    var msg = 'Registration Successfull...!';
+                    display_alert('succ',msg);
+                    setInterval(function(){
+                        window.location.href = base_url;
+                    }, 2000);
+                }
+                else
+                {
+                    var msg = 'Something goes wrong..!';
+                    display_alert('err',msg);
+                }
                 
                
             }   
