@@ -1,2 +1,2 @@
-<footer id="footer"><?php echo $text_footer; ?><br /><?php echo $text_version; ?></footer></div>
+<footer id="footer"><p>&copy; 2017 - FitnessIndia. By <a href="http://proxanttech.com/" target="_blank">Proxant</a></p><br /></footer></div>
 </body></html>

@@ -6,10 +6,12 @@ class Programs extends CI_Controller {
 	function __construct()
     {
         parent::__construct();
+        $this->load->helper('utf8');
         $this->load->model('Program_model');
         $this->load->model('Helper_model');
         $this->load->model('Packages_model');
         $this->load->model('Product_model');
+
 
         $this->data['menu_programs'] = $this->Helper_model->selectAll("","oc_program_master");
 		$this->data['menu_trainings'] = $this->Helper_model->selectAll("","oc_training_type");
@@ -41,6 +43,6 @@ class Programs extends CI_Controller {
 		$trainingId = $this->input->post('trainingId');
 		$data = $this->Program_model->getTrainingContent($trainingId);
 		//echo "<pre>";print_r($data[0]['content']);exit;
-		echo $data[0]['content'];
+		echo html_entity_decode($data[0]['content'], ENT_QUOTES, 'UTF-8');
 	}
 }

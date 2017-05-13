@@ -28,10 +28,10 @@ class ModelOnetomanyOnetomany extends Model {
 			$sql .= " AND DATE(cs.date) <= DATE('" . $this->db->escape($data['date_to']) . "')";
 		} 
 		if (!empty($data['time_from'])) {
-			$sql .= " AND DATE(cs.time) >= DATE('" . $this->db->escape($data['time_from']) . "')";
+			$sql .= " AND cs.time >= '" . $this->db->escape($data['time_from']) . "'";
 		}
 		if (!empty($data['time_to'])) {
-			$sql .= " AND DATE(cs.time) <= DATE('" . $this->db->escape($data['time_to']) . "')";
+			$sql .= " AND cs.time <= '" . $this->db->escape($data['time_to']) . "'";
 		} 
 
 		if (isset($data['start']) || isset($data['limit'])) {

@@ -52,6 +52,16 @@ class ModelSchedulerScheduler extends Model {
 
 		$this->event->trigger('post.admin.scheduler.edit', $scheduler_id);
 	}
+	
+	public function updateCallStatus($data) {
+		//print_r($data);exit;
+		$this->event->trigger('pre.admin.scheduler.edit', $data);
+		$this->db->query("UPDATE " . DB_PREFIX . "call_schedule SET status = '" . $data['status'] . "', updated_on = NOW() WHERE customer_id = '" . (int)$data['customer_id'] . "' AND package_id = '" . (int)$data['package_id'] . "' AND package_sub_id = '" . (int)$data['package_sub_id'] . "' AND call_no = '" . (int)$data['call_no'] . "'");
+
+		$this->cache->delete('scheduler');
+
+		$this->event->trigger('post.admin.scheduler.edit', $scheduler_id);
+	}
 
 	public function getCustomerDetails($cust_id,$package_id)  // single scheduler
 	{

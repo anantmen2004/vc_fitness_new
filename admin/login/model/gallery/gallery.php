@@ -10,7 +10,7 @@ class ModelGalleryGallery extends Model {
 
 	public function getGalleries($data = array()) //multiple gallerys
 	{
-		$sql = "SELECT gal.*, type.name FROM oc_gallery gal JOIN oc_gallery_type type ON(gal.gallery_type_id=type.gallery_type_id)" ;
+		$sql = "SELECT gal.*, type.name FROM oc_gallery gal LEFT JOIN oc_gallery_type type ON(gal.gallery_type_id=type.gallery_type_id)" ;
 
 		if (isset($data['start']) || isset($data['limit'])) {
 			if ($data['start'] < 0) {
@@ -30,6 +30,7 @@ class ModelGalleryGallery extends Model {
 	}
 	public function getGallery($gallery_id)  // single gallery
 	{
+		// print_r($gallery_id);exit;
 		$query = $this->db->query("SELECT * FROM oc_gallery WHERE gallery_id = $gallery_id AND status = 1");
 
 		return $query->row;

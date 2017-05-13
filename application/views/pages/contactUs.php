@@ -72,8 +72,8 @@
                                 <div class="welcome-txt type2">
                                     <h3>Want to Be strong &amp; beautiful? You have come to the Right Place.</h3>
                                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore <br>veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-                                    <a class="dt-sc-button medium" href="programs.html" data-hover="View Programs">View Programs</a>
-                                    <a class="dt-sc-button medium" href="register.html" data-hover="Sign Up Now">Sign Up Now</a>
+                                    <a class="dt-sc-button medium" href="<?php echo base_url('programs/programView');?>" data-hover="View Programs">View Programs</a>
+                                    <a class="dt-sc-button medium" href="<?php echo base_url('Auth/rgisterView');?>" data-hover="Sign Up Now">Sign Up Now</a>
                                 </div>
                             </div>
                         </div>

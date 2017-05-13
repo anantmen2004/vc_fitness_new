@@ -117,12 +117,20 @@ class ControllerOnetomanyOnetomany extends Controller {
 		$results = $this->model_onetomany_onetomany->getAllCustomer($filter_data);
 	 	//echo "<pre>"; print_r($results);exit;
 		foreach ($results as $result) {
-			if($result['status'] == '0'){
-				$status = "Active";
+			if($result['status'] == '1'){
+				$status = "Pending";
 			}
-
+			else if($result['status'] == '2'){
+				$status = "Complete";
+			}
+			else if($result['status'] == '3'){
+				$status = "Rescheduled";
+			}
+			else if($result['status'] == '4'){
+				$status = "Cancel";
+			}
 			else{
-				$status = "Inactive";
+				$status = "";
 			}
 
 			$data['customer'][] = array(
@@ -188,6 +196,8 @@ class ControllerOnetomanyOnetomany extends Controller {
 		$data['sort_name'] = $this->url->link('onetomany/onetomany', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
 
 		$data['sort_sort_order'] = $this->url->link('onetomany/onetomany', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
+
+		$data['reset'] = $this->url->link('onetomany/onetomany', 'token=' . $this->session->data['token'] , 'SSL');
 
 
 

@@ -89,7 +89,7 @@
 </div>
  <p> Don't have account yet?  <a href="register.html">Sign Up </a> </p>
  <div class="copyright">
-	<p>© 2016 Fitness India. All rights reserved | by Proxant  <a href="https://www.proxanttech.com/" target="_blank">  Proxant </a></p>
+	<p>© 2017 Fitness India. All rights reserved | by Proxant  <a href="https://www.proxanttech.com/" target="_blank">  Proxant </a></p>
 </div>      
 
         <!-- Javascript -->

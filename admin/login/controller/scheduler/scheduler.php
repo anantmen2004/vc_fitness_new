@@ -675,7 +675,7 @@ class ControllerSchedulerScheduler extends Controller {
 		//print_r($call_data);exit;
 
 		$pack_id = $call_data['package_id'];
-		print_r($call_data);exit;
+		// print_r($call_data);exit;
 
 		$this->load->model('scheduler/scheduler');
 		$data = $this->model_scheduler_scheduler->getCustomerDetails($customer_id,$pack_id);
@@ -750,26 +750,34 @@ public function call_start()
 {
 	 //echo "111";exit;
 	$pack_id = $this->request->post['package_id'];
+	$package_sub_id = $this->request->post['package_sub_id'];
 	$customer_id = $this->request->post['customer_id'];
+	$call_no = $this->request->post['call_no'];
 	$date = $this->request->post['date'];
 	$time = $this->request->post['time'];
-
-	// print_r($pack_id);print_r($customer_id);print_r($date);exit;print_r($time);
-	//$pack_id = $call_data['package_id'];
-	//$customer_id = $call_data['customer_id'];
 	$this->load->model('scheduler/scheduler');
 	$data = $this->model_scheduler_scheduler->getCustomerDetails($customer_id,$pack_id);
-	//echo "<pre>";print_r($data);exit;
 	$pack_name = $data['package'][0]['package_name'];
 	$firstname = $data['customer'][0]['firstname'];	
 	$lastname = $data['customer'][0]['lastname'];
 	$email = $data['customer'][0]['email'];	
 	$date = date("d-m-Y",strtotime($date));
-	//$time = $call_data['time'];
-	$link = 'http://demo.proxanttech.com/vc_fitness/';
-		// echo "<pre>";print_r($firstname);exit;
+	
 	$from = 'info@vinodchanna.com';
 	$to = $email;
+
+	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$charactersLength = strlen($characters);
+	$randomString = '';
+	for ($i = 0; $i < 10; $i++) {
+	    $randomString .= $characters[rand(0, $charactersLength - 1)];
+	}
+
+	$link = 'http://www.pkfood.in:8443/'.$randomString;
+
+	//print_r($link);exit;
+
+
 	$subject="Call Sheduling Details";
 	$msg  = "";
 	$msg .='<html xmlns="http://www.w3.org/1999/xhtml">
@@ -798,6 +806,8 @@ public function call_start()
 				<p><b> Your call has been schedule Now.</b></p>
 				<br/>
 				<p>Please Click on Link For video Call : <a href="'.$link.'">Call Start</a></p> 
+				<br/>
+				<p>Or Open this link : '.$link.'</p>
 				<footer>
 					<b>Thanks & Regards,</b>
 					<br/>
@@ -817,17 +827,19 @@ public function call_start()
 $mailheaders  = 'MIME-Version: 1.0' . "\r\n";
 $mailheaders .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $mailheaders .= 'From: VC Fitness <info@vinodchanna.com>' . "\r\n";
-$resp = 1;//mail($to,$subject,$msg,$mailheaders);
+$resp = mail($to,$subject,$msg,$mailheaders);
 
- $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-$charactersLength = strlen($characters);
-$randomString = '';
-for ($i = 0; $i < 10; $i++) {
-    $randomString .= $characters[rand(0, $charactersLength - 1)];
-}
+ 
 if($resp)
 {
-
+	$data = array(
+			'package_id' => $pack_id,
+			'status' => 2,
+			'customer_id' => $customer_id,
+			'call_no' => $call_no,
+			'package_sub_id' => $package_sub_id
+	 );
+	$this->model_scheduler_scheduler->updateCallStatus($data);
 	echo $randomString;
 }
 else
@@ -839,6 +851,7 @@ else
 //echo mt_rand();
 
 }
+
 
 
 

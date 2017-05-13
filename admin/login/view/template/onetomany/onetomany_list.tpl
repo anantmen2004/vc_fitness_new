@@ -75,7 +75,11 @@
                 </div>
               </div>
             </div> 
-            <div class="col-sm-12">
+            <div class="col-sm-1 col-sm-offset-9 ">
+              <!-- <button type="button" id="button-filter" class="btn btn-danger pull-right"><i class="fa fa-search"></i> <?php echo "Reset"; ?></button> -->
+              <a href="<?php echo $reset; ?>" data-toggle="tooltip" title="Reset" class="btn btn-default"><i class="fa fa-reply"></i></a>
+            </div>
+            <div class="col-sm-2">
               <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-search"></i> <?php echo "Filter"; ?></button>
             </div>
           </div>
@@ -103,9 +107,9 @@
                   </td>
                     
                   <td class="text-right">
-                    <a  class=""><?php echo "Status" ?></a>
+                    <a  class=""><?php echo "Call Status" ?></a>
                     </td>
-                  <td class="text-right"><?php echo $column_action; ?></td>
+                  <!-- <td class="text-right"><?php echo $column_action; ?></td> -->
                 </tr>
               </thead>
               <tbody>
@@ -123,7 +127,7 @@
                   <td class="text-right"><?php echo $customer['date']; ?></td>
                   <td class="text-right"><?php echo $customer['time']; ?></td>
                   <td class="text-right"><?php echo $customer['status']; ?></td>
-                  <td class="text-right"><a href="<?php echo $customer['edit']; ?>" data-toggle="tooltip" title="<?php echo "View Customer Call" ?>" class="btn btn-primary"><i class="fa fa-eye"></i></a></td>
+                  <!-- <td class="text-right"><a href="<?php echo $customer['edit']; ?>" data-toggle="tooltip" title="<?php echo "View Customer Call" ?>" class="btn btn-primary"><i class="fa fa-eye"></i></a></td> -->
                 </tr>
                 <?php } ?>
                 <?php } else { ?>
@@ -180,10 +184,10 @@ $('#button-filter').on('click', function() {
     url += '&time_from=' + encodeURIComponent(time_from);
   }
 
-  var date_to = $('input[name=\'date_to\']').val();
+  var time_to = $('input[name=\'time_to\']').val();
 
-  if (date_to) {
-    url += '&date_to=' + encodeURIComponent(date_to);
+  if (time_to) {
+    url += '&time_to=' + encodeURIComponent(time_to);
   }
 
   location = url;

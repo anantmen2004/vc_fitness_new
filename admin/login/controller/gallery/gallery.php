@@ -307,7 +307,7 @@ class ControllerGalleryGallery extends Controller {
 
 		$data['gallery_types'] = $this->model_gallery_gallery->getGalleryTypes();
 
-		// print_r($data['gallery_types']);exit;
+	 // print_r($gallery_info);exit;
 
 		
 		if (isset($this->request->post['name'])) {

@@ -97,6 +97,11 @@ class Auth extends CI_Controller {
         $otp = rand(1000,9999);
         $tableName = CUSTOMER_TABLE;
         $tableName1 = ADDRESS_TABLE;
+        $timezone = new DateTimeZone("Asia/Kolkata" );
+        $date = new DateTime();
+        $date->setTimezone($timezone );
+        $date =  $date->format( 'Y-m-d H:i:s');
+
         if(!empty($email) && !empty($mobile))
         {
 	        $fields = array(
@@ -118,7 +123,11 @@ class Auth extends CI_Controller {
                         'lastname' => $lname,
                         'telephone2' => $mobile2,
                         'reg_workout' => $regWorkout,
-                        'gender' => $regWorkout
+                        'gender' => $regWorkout,
+                        'customer_group_id' => 1,
+                        'status' => 1,
+                        'approved' =>1,
+                        'date_added' => $date
                     );
                 //print_r($fields);exit;
                 $userInserId = $this->helper_model->insert($tableName, $fields);
@@ -149,7 +158,7 @@ class Auth extends CI_Controller {
                         }
                         else
                         {
-                            echo 0;
+                           echo 0;
                         }
                     }
                     else{

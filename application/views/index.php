@@ -55,6 +55,7 @@
                 </div>
               </div></a>
               <?php $cnt++; endif; endforeach; ?> -->
+              <a href="<?php echo base_url()."Programs/programView/1"?>">
                <div class="col-br-5" data-animation="fadeInLeft" data-delay="100">
                 <div class="row">
                   <div class="teaser teaser-style-3 text-center">
@@ -71,6 +72,8 @@
                   </div>
                 </div>
               </div>
+              </a>
+              <a href="<?php echo base_url()."Programs/programView/2"?>">
               <div class="col-br-5" data-animation="fadeInLeft" data-delay="100">
                 <div class="row">
                   <div class="teaser teaser-style-3 text-center">
@@ -87,6 +90,8 @@
                   </div>
                 </div>
               </div>
+              </a>
+              <a href="<?php echo base_url()."Programs/programView/3"?>">
               <div class="col-br-5" data-animation="fadeInLeft" data-delay="100">
                 <div class="row">
                   <div class="teaser teaser-style-3 text-center">
@@ -103,6 +108,8 @@
                   </div>
                 </div>
               </div>
+              </a>
+              <a href="<?php echo base_url()."Programs/programView/4"?>">
               <div class="col-br-5" data-animation="fadeInRight" data-delay="100">
                 <div class="row">
                   <div class="teaser teaser-style-3 text-center">
@@ -119,6 +126,8 @@
                   </div>
                 </div>
               </div>
+              </a>
+              <a href="<?php echo base_url()."Programs/programView/5"?>">
               <div class="col-br-5" data-animation="fadeInRight" data-delay="100">
                 <div class="row">
                   <div class="teaser teaser-style-3 text-center">
@@ -135,6 +144,8 @@
                   </div>
                 </div>
               </div>
+              </a>
+              <a href="<?php echo base_url()."Programs/programView/6"?>">
               <div class="col-br-5" data-animation="fadeInRight" data-delay="100">
                 <div class="row">
                   <div class="teaser teaser-style-3 text-center">
@@ -151,6 +162,7 @@
                   </div>
                 </div>
               </div>
+              </a>
             </div>
           </div>
         </div>
@@ -446,8 +458,8 @@
                                                 </p>-->
                                                 <h1>Being <span>Body</span></h1>
                                                 <p>Builder</p>
-                                                <a href="#" class="dt-sc-button small" data-hover="Sign Up">Sign Up</a>
-                                                <a href="#" class="dt-sc-button small" data-hover="View Programs">View Programs</a>
+                                                <a href="<?php echo base_url('Auth/rgisterView');?>" class="dt-sc-button small" data-hover="Sign Up">Sign Up</a>
+                                                <a href="<?php echo base_url('programs/programView');?>" class="dt-sc-button small" data-hover="View Programs">View Programs</a>
                                             </div>
                                         </div>
                                     </div>
@@ -526,7 +538,7 @@
 
          
           
-        <div class="dt-sc-hr-invisible-medium"></div>
+        <!-- <div class="dt-sc-hr-invisible-medium"></div>
         <div class="fullwidth-section animate" data-animation="fadeInRight" data-delay="100">
           <div class="container">
             <h2 class="border-title aligncenter"><span> Products </span></h2>
@@ -546,7 +558,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="dt-sc-hr-invisible-large"></div>
         <div class="fullwidth-section full-paralax4">
           <div class="container">

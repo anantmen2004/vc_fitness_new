@@ -40,7 +40,9 @@
 
                       </ul>
                       <div id="myTabContent" class="tab-content">
-                          <?php echo $trainings[0]['content']; ?>
+                      <!-- <?php echo utf8_substr(strip_tags(html_entity_decode($trainings[0]['content'], ENT_QUOTES, 'UTF-8')), 0,555555) ?> -->
+                      <?php echo html_entity_decode($trainings[0]['content'], ENT_QUOTES, 'UTF-8'); ?>
+                          <!-- <?php echo $trainings[0]['content']; ?> -->
                       </div>
                     <?php endif; ?>
                     </div>

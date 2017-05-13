@@ -39,7 +39,7 @@
                 <li><a href="<?php echo base_url('aboutus');?>">About us</a></li>
                 <li><a href="<?php echo base_url('programs/programView');?>">Programs</a></li>
                 <li><a href="<?php echo base_url('packages/packagesView');?>">Packages</a></li>
-                <li><a href="<?php echo base_url();?>product/productView">Products</a></li>
+                <!-- <li><a href="<?php echo base_url();?>product/productView">Products</a></li> -->
                 <li><a href="<?php echo base_url('Testimonials/testimonialsView');?>">Success Stories </a></li>
                 <li><a href="<?php echo base_url('gallery');?>"> Gallery </a></li>
                 <li><a href="<?php echo base_url('contactUs/contactUsView');?>">Contact</a></li>
@@ -95,11 +95,11 @@
     <div class="copyright">
       <div class="container">
         <ul class="footer-links">
-          <li><a href="#"> About Us </a></li>
+          <li><a href="<?php echo base_url('aboutus');?>">About us</a></li>
           <li><a href="#"> Help Centre </a></li>
           <li><a href="#"> Site Map </a></li>
         </ul>
-        <p>&copy; 2016 - FitnessIndia. By <a href="http://proxanttech.com/" target="_blank">Proxant</a></p>
+        <p>&copy; 2017 - FitnessIndia. By <a href="http://proxanttech.com/" target="_blank">Proxant</a></p>
       </div>
     </div>
   </footer>

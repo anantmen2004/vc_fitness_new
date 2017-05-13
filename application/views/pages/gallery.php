@@ -24,12 +24,12 @@
                             ?>
                               <div class="portfolio dt-sc-one-third column flexibility agility">
                                     <div class="portfolio-thumb">
-                                        <img src="<?php echo base_url()."public/images/".$value['img_path'];?>" alt="" title="">
+                                        <img src="<?php echo base_url().'admin/image/'.$value['img_path']?>" alt="" title="">
                                         <div class="image-overlay">
                                             <div class="fig-content-wrapper">
                                                 <div class="fig-overlay">
                                                   <p>
-                                                      <a href="<?php echo base_url().'public/images/'.$value['img_path']?>" data-gal="prettyPhoto[gallery]" class="zoom"><span class="fa fa-plus"> </span></a>
+                                                      <a href="<?php echo base_url().'admin/image/'.$value['img_path']?>" data-gal="prettyPhoto[gallery]" class="zoom"><span class="fa fa-plus"> </span></a>
                                                       
                                                   </p>
                                                 </div>

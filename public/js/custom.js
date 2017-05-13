@@ -630,14 +630,14 @@ jQuery(document).ready(function($){
 			var inc = $('input[name="txtinches1"]').val();
 			var tinc = ( parseInt(fet) * 12 ) + parseInt(inc);
 
-			//alert(fet);alert(inc);alert(tinc);
+			// alert(fet);alert(inc);alert(tinc);
 			
 			var lbs = $('input[name="txtlbs1"]').val();
 			
-			//alert(lbs);
+			// alert(lbs);
 			var bmi = ( parseFloat(lbs) / (tinc * tinc) ) * 703;
-			//alert(bmi);
-			$('input[name="txtbmi1"]').val(parseFloat( ).toFixed(1));
+			// alert(bmi);
+			$('input[name="txtbmi1"]').val(parseFloat(bmi).toFixed(1));
 		}
 		return false;
 	});

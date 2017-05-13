@@ -56,7 +56,7 @@ class ModelTrainingTraining extends Model {
 	public function editTraining($training_id, $data) {
 		$this->event->trigger('pre.admin.training.edit', $data);
 
-		$this->db->query("UPDATE " . DB_PREFIX . "training_type SET program_id = '" . $data['training_description'][1]['program_id'] . "', training_name = '" . $data['training_description'][1]['name'] . "', training_description = '" . $data['training_description'][1]['description'] . "', content = '" . $data['training_description'][1]['content'] . "', status = '" . (int)$data['status'] . "', date_modified = NOW() WHERE training_id = '" . (int)$training_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "training_type SET program_id = '" . $data['training_description'][1]['program_id'] . "', training_name = '" . $data['training_description'][1]['name'] . "', training_description = '" . $this->db->escape($data['training_description'][1]['description']) . "', content = '" . $this->db->escape($data['training_description'][1]['content']) . "', status = '" . (int)$data['status'] . "', date_modified = NOW() WHERE training_id = '" . (int)$training_id . "'");
 
 		if(!empty($training_id))
 		{

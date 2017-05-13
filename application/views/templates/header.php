@@ -54,7 +54,7 @@ $totalItems = $this->cart->total_items();
 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
-<link id="default-css" href="<?php echo base_url();?>public/css/jwbox.js" rel="stylesheet" media="all" />
+<!-- <link id="default-css" href="<?php echo base_url();?>public/css/jwbox.js" rel="stylesheet" media="all" /> -->
 <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="<?php echo base_url();?>public/js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>public/js/jquery-migrate.min.js"></script>
