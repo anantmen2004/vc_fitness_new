@@ -101,7 +101,7 @@
 </div>
  <p> Don't have account yet?  <a href="<?php echo base_url('Auth/rgisterView');?>">Sign Up </a> </p>
  <div class="copyright">
-	<p>© 2016 Fitness India. All rights reserved | by Proxant  <a href="https://www.proxanttech.com/" target="_blank">  Proxant </a></p>
+	<p>© 2017 Fitness India. All rights reserved | by Proxant  <a href="https://www.proxanttech.com/" target="_blank">  Proxant </a></p>
                 </div>
 
 

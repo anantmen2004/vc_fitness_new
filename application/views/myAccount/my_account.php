@@ -241,7 +241,8 @@ video::-webkit-media-controls-panel {
  <p>
 
   <div id="ChildVerticalTab_3">
-    <ul class="resp-tabs-list ver_3">    
+    <ul class="resp-tabs-list ver_3">  
+<?php if(!empty($packdata)){ ?>
     <?php $pack_cnt=COUNT($packdata); ?>
     <?php for ($i=0; $i < $pack_cnt; $i++) : ?>     
       <?php if($i==0) {for ($j=0; $j < $pack_cnt; $j++) : ?> 
@@ -504,17 +505,52 @@ video::-webkit-media-controls-panel {
       </p>
     </div>
   </div>
-<?php endfor; ?>
+<?php endfor; }
+      else
+      {
+  ?>
+        <h4 style="width: 100%;">Your do not have any package, Please subscribe Your package</h4>
+<?php } ?>
 </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
 <!-- **********************************package history starts**************************-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div>
  <p>
 
   <div id="ChildVerticalTab_4">
-    <ul class="resp-tabs-list ver_4">    
+    <ul class="resp-tabs-list ver_4">   
+
+    <?php if(!empty($packhistory)) { ?>
     <?php $cnt=COUNT($packhistory); ?>
     <?php for ($i=0; $i < $cnt; $i++) : ?>     
       <?php if($i==0) {for ($j=0; $j < $cnt; $j++) : ?> 
@@ -665,7 +701,12 @@ video::-webkit-media-controls-panel {
       </p>
     </div>
   </div>
-<?php endfor; ?>
+<?php endfor; }
+      else
+      {
+  ?>
+        <h4 style="width: 100%;">Your do not have any package History, Please subscribe Your package</h4>
+<?php } ?>
 </div>
 </div>
 <!-- history end-->

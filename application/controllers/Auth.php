@@ -9,6 +9,21 @@ class Auth extends CI_Controller {
         parent::__construct();
         $this->load->model('helper_model');
     }
+    public function send_sms($mob,$msg)
+    {
+        //print_r($msg);exit;
+        $url = "http://bulkpush.mytoday.com/BulkSms/SingleMsgApi?";
+        $post_string = "feedid=361581&username=9833262277&password=gmjwp&To=$mob&Text=$msg";
+        //print_r($url);print_r($post_string);exit;
+        $curl_connection = curl_init($url);
+        curl_setopt($curl_connection, CURLOPT_POSTFIELDS, $post_string); 
+        $result = curl_exec($curl_connection); //run the whole process and return the response
+        // $ans = simplexml_load_file($result);
+        // print_r($ans);exit;
+        curl_close($curl_connection);  //close the curl handle 
+        //return 1;
+        /*********************************/  
+    }
     public function logout(){
         $this->session->sess_destroy();
         redirect(base_url());
@@ -57,6 +72,10 @@ class Auth extends CI_Controller {
                     'otp' => $otp
                 );
             $this->session->set_userdata($session_data); 
+
+            $msg = "Dear%20Member,%20Your%20OTP%20is%20$otp.%20Please%20enter%20your%20OTP%20to%20verify%20your%20mobile%20no.";
+            $ans = $this->send_sms($mobile,$msg);
+            
             echo $otp;
         }
 

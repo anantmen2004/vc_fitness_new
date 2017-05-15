@@ -44,10 +44,15 @@ function showDate()
     {
         $(".durationDate").hide();
     }
+
+    var package_stratDate = $("#package_stratDate").val();
+        //alert(birth_date);
+    get_packageEndDate(package_stratDate);
     
 }
 function get_packageEndDate(strat_date)
 {
+    // alert(123);
     var duration = parseInt($("#package_duration").val());
     var path = base_url+'packages/get_packageEndDate';
    $.ajax({
@@ -97,7 +102,7 @@ function confirmPackage()
             data:formData,
             success:function(resp)
             {
-                //alert(resp);
+                // alert(resp);
                 if(resp == 1){
                     var msg = 'Your Package is confirm..!';
                     display_alert('succ',msg);

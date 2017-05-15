@@ -756,6 +756,7 @@ public function call_start()
 	$date = $this->request->post['date'];
 	$time = $this->request->post['time'];
 	$this->load->model('scheduler/scheduler');
+	//$this->model_scheduler_scheduler->update_call_log($customer_id,$pack_id,$package_sub_id,$call_no,$date,$time);
 	$data = $this->model_scheduler_scheduler->getCustomerDetails($customer_id,$pack_id);
 	$pack_name = $data['package'][0]['package_name'];
 	$firstname = $data['customer'][0]['firstname'];	

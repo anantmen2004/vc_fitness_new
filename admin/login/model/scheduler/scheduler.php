@@ -85,5 +85,10 @@ class ModelSchedulerScheduler extends Model {
 		return $query->rows;
 	}
 
+	// public function update_call_log($customer_id,$pack_id,$package_sub_id,$call_no,$date,$time)
+	// {
+	// 	$this->db->query("INSERT INTO " . DB_PREFIX . "call_log SET customer_id = '" . (int)$customer_id . "', package_id = '" . (int)$pack_id . "',package_sub_id = '" . (int)$package_sub_id . "', call_no = '" . (int)$call_no . "', date = '" . date($date) . "', time = '" . time($time) . "', create_date = NOW()");
+	// }
+
 
 }

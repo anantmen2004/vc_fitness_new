@@ -63,7 +63,7 @@
                         <div class="form-group required col-sm-3 durationDate" style="display: none;">
                           <label class="control-label" for="input-payment-lastname">Start Date</label>
                           
-                          <input type="text" data-date-format="dd-mm-yyyy" id="package_stratDate" name="package_stratDate" value="" class="date-picker"/>
+                          <input type="text" data-date-format="dd-mm-yyyy" id="package_stratDate" name="package_stratDate" value="<?php echo date("d-m-Y") ?>" class="date-picker"/>
                        
                         </div>
                         <div class="form-group required col-sm-3 durationDate" style="display: none;">

@@ -27,7 +27,7 @@
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-category" class="form-horizontal">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $tab_general; ?></a></li>
-            <li><a href="#tab-data" data-toggle="tab"><?php echo $tab_data; ?></a></li>
+            <!-- <li><a href="#tab-data" data-toggle="tab"><?php echo $tab_data; ?></a></li> -->
             <!-- <li><a href="#tab-design" data-toggle="tab"><?php echo $tab_design; ?></a></li> -->
           </ul>
           <div class="tab-content">
@@ -232,10 +232,11 @@ $('#language a:first').tab('show');
 
 
 <script type="text/javascript">
-  var data = '';
+  var data1 = '';
   var cnt = "<?php echo $video_cnt ?>";
   
   function add_new_video_row(){
+
     var id = $("#video_id").val();
     if(id != 0)
     {
@@ -248,10 +249,10 @@ $('#language a:first').tab('show');
         {
           // alert(resp);
           // console.log(resp);
-          data += '<div class="form-group" id="row_id_'+cnt+'"><div class="col-sm-4 col-sm-offset-2"><input class="form-control" type="text" value="'+resp.video_name+'" readonly/><input class="form-control" type="hidden" name="video_id[]" value="'+resp.video_id+'" readonly/></div>';
+          data1 += '<div class="form-group" id="row_id_'+cnt+'"><div class="col-sm-4 col-sm-offset-2"><input class="form-control" type="text" value="'+resp.video_name+'" readonly/><input class="form-control" type="hidden" name="video_id[]" value="'+resp.video_id+'" readonly/></div>';
           // data += '<div class="col-sm-2"><button class="btn btn-danger">Remove</div></div>';
-          data += '<div class="col-sm-1" style="background-color:#f56b6b;padding:0.8%" onclick="remove_new_video('+cnt+')"> <a style="color:white;text-align: center; padding-left: 20px;">Remove</a></div></div>';
-           $("#video_div").html(data);
+          data1 += '<div class="col-sm-1" style="background-color:#f56b6b;padding:0.8%" onclick="remove_new_video('+cnt+')"> <a style="color:white;text-align: center; padding-left: 20px;">Remove</a></div></div>';
+           $("#video_div").html(data1);
            cnt++;
 
            $("#video_id").val(0);

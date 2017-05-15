@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="<?php echo base_url();?>public/assets/css/form-elements.css">
         <link rel="stylesheet" href="<?php echo base_url();?>public/assets/css/style.css">
         <link rel="stylesheet" href="<?php echo base_url();?>public/css/register.css">
+
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/js/datepicker/datepicker.css" />
  
         <script type="text/javascript">
             var base_url = '<?php echo base_url();?>';
@@ -94,8 +96,8 @@
                             </div>
                              <fieldset>
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-email">Email or Username</label>
-                                    <input type="text" name="email" placeholder=" Email or Username" class="f1-email form-control mandatory-field" id="email" onchange="isEmail()" autocomplete="off">
+                                    <label class="sr-only" for="f1-email">Email </label>
+                                    <input type="text" name="email" placeholder=" Email" class="f1-email form-control mandatory-field" id="email" onchange="isEmail()" autocomplete="off">
                                     <span class="help-inline col-xs-12 col-sm-7">
                                         <span class="middle input-text-error" id="email_errorlabel"></span>
                                     </span>
@@ -213,8 +215,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-about-yourself">Address</label>
-                                    <textarea name="address" placeholder="Address" 
-                                                         class="f1-about-yourself form-control" id="address"></textarea>
+                                    <textarea name="address" placeholder="Address" class="f1-about-yourself form-control" id="address"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-facebook">Alternate Mobile No.</label>
@@ -223,7 +224,7 @@
                                 
                                  <div class="form-group">
                                     <label class="sr-only" for="f1-facebook">DOB</label>
-                                     <input type="date" class="f1-facebook form-control" id="dob" name="dob" placeholder=""  style="height:44px;"/>
+                                     <input type="text" class="f1-facebook form-control" id="dob" name="dob" placeholder=""  style="height:44px;"/>
                                 </div>
                                 
                                 <div class="form-group">
@@ -257,6 +258,7 @@
         <script src="<?php echo base_url();?>public/js/registration.js"></script>
         <script type="text/javascript" src="<?php echo base_url();?>public/js/custom_mapping.js"></script>
         <script type="text/javascript" src="<?php echo base_url();?>public/js/form-validation.js"></script> 
+        <script src="<?php echo base_url();?>public/js/datepicker/bootstrap-datepicker.js"></script>
 
         
      <script>

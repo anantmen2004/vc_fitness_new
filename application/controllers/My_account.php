@@ -334,11 +334,11 @@ class My_account extends CI_Controller {
 							);
 							//echo "date";print_r($call);exit;
 							$callid=$this->Helper_model->insert($tableName, $call);
-							$callcheck = array();
-							if(!empty($callid))
+							
+							if(!empty($callid) && !empty($date[$key]))
 							{
 								$this->send_call_schedule_mail($call);
-								//echo 2;
+								echo 0;
 							}
 						}
 						else
@@ -357,13 +357,13 @@ class My_account extends CI_Controller {
 								'call_no' => $value
 								);
 							$updateid=$this->Helper_model->update($tableName,$call,$where);
-							$callcheck = array();
-							if(!empty($updateid))
+							
+							if(!empty($updateid) && !empty($date[$key]))
 							{
 								$this->send_call_schedule_mail($where);
+								echo 0;
 								
 							}
-							$callcheck = array();
 						} 
 					}
 				// }
@@ -443,7 +443,7 @@ class My_account extends CI_Controller {
 			}
 			 else
 			 {
-				echo 1;
+				//echo 1;
 			}
 		}
 		else

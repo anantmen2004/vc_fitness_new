@@ -10,6 +10,10 @@ $(document).ready(function() {
 
     $('#password').change(function(e) {
     $('#login_btn').focus();
+
+    $("#dob").datepicker({
+        format: 'dd-mm-yyyy'
+    });
 });
     
 });

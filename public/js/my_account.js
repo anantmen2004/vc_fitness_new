@@ -178,20 +178,15 @@ function videocall(id)
         success:function(resp)
          {  
          //alert(resp);
-           if(resp==1)
+           if(resp==0)
             {
-                var msg = 'Information inserted Successfuly..!';
+                var msg = 'Information added Successfuly..!';
                 display_alert123('succ',msg,'alert_msg');
                 //window.location.href=base_url+'my_account/my_account';
             }
-           else if(resp==2)
-            {
-                var msg = 'Information Updated Successfuly..!';
-                display_alert123('succ',msg,'alert_msg');
-            }
             else
             {
-                var msg = 'Information Updated Successfuly..!';
+                var msg = 'Somthing goes wrong..!';
                 display_alert123('err',msg,'alert_msg');  
             }
         }   

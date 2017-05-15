@@ -201,29 +201,66 @@ s<ul id="menu">
   </li>
 
 
-  <li><a class="parent"><?php echo "Fitness Menu" ?></a>
+
+
+
+
+
+
+  <li id="reports"><a class="parent"><i class="fa fa-share-alt fa-fw"></i> <span><?php echo "Fitness Menu" ?></span></a>
+    <ul>
+      <li><a href="<?php echo $programs; ?>"><?php echo $text_programs; ?></a></li>
+      <li><a href="<?php echo $trainings; ?>"><?php echo $text_trainings; ?></a></li>
+    </ul>
+  </li>
+
+
+  <li id="reports"><a class="parent"><i class="fa fa-share-alt fa-fw"></i> <span><?php echo "Packages"?></span></a>
+    <ul>
+      <li><a href="<?php echo $packages; ?>"><?php echo $text_packages; ?></a></li>
+      <li><a href="<?php echo $scheduler; ?>"><?php echo $text_call_scheduler; ?></a></li>
+      <!-- <li><a href="<?php echo $onetomany; ?>"><?php echo $text_one_to_many; ?></a></li> -->
+    </ul>
+  </li>
+
+
+  <li id="reports"><a class="parent"><i class="fa fa-share-alt fa-fw"></i> <span><?php echo "Gallery/Video" ?></span></a>
+    <ul>
+      <li><a href="<?php echo $gallery_types; ?>"><?php echo $text_gallery_types; ?></a></li>
+      <li><a href="<?php echo $gallery; ?>"><?php echo $text_gallery; ?></a></li>
+      <li><a href="<?php echo $videos; ?>"><?php echo $text_videos; ?></a></li>
+    </ul>
+  </li>
+
+
+
+
+
+
+
+
+ <!--  <li><a class="parent"><i class="fa fa-share-alt fa-fw"></i><?php echo "Fitness Menu" ?></a>
   <ul>
     <li><a href="<?php echo $programs; ?>"><?php echo $text_programs; ?></a></li>
     <li><a href="<?php echo $trainings; ?>"><?php echo $text_trainings; ?></a></li>
   </ul>
   </li>
 
-  <li><a class="parent"><?php echo "Packages" ?></a>
+  <li><a class="parent"><i class="fa fa-share-alt fa-fw"></i><?php echo "Packages" ?></a>
   <ul>
     <li><a href="<?php echo $packages; ?>"><?php echo $text_packages; ?></a></li>
     <li><a href="<?php echo $scheduler; ?>"><?php echo $text_call_scheduler; ?></a></li>
     <li><a href="<?php echo $onetomany; ?>"><?php echo $text_one_to_many; ?></a></li>
-    <li><a href="<?php echo $members; ?>"><?php echo $text_all_members; ?></a></li>
   </ul>
   </li>
 
-   <li><a class="parent"><?php echo "Gallery/Video" ?></a>
+   <li><a class="parent"><i class="fa fa-share-alt fa-fw"></i><?php echo "Gallery/Video" ?></a>
   <ul>
     <li><a href="<?php echo $gallery_types; ?>"><?php echo $text_gallery_types; ?></a></li>
     <li><a href="<?php echo $gallery; ?>"><?php echo $text_gallery; ?></a></li>
     <li><a href="<?php echo $videos; ?>"><?php echo $text_videos; ?></a></li>
   </ul>
-  </li>
+  </li> -->
 
 
  <!-- <li id="programs"><a class="parent" href="<?php echo $programs; ?>"><i class="fa fa-bar-chart-o fa-fw"></i> <span><?php echo $text_programs; ?></span></a>

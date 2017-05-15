@@ -126,10 +126,11 @@
                               foreach($call as $key => $value){
                               if($scheduler_description[$j]['package_id']==$value['package_id']){
                               if($scheduler_description[$j]['sr_no']==$value['package_sub_id']){
+                              $call_status = $value['status'];
                           ?>  
                           <tr>
                           <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="<?php echo $j;?><?php echo $form_id;?>">
-                              <td style="width:100px;">
+                              <td style="width:100px;" >
                                  <input type="text" class="form-control" name="call_no" id="call_no" value="<?php echo $value['call_no']?>" readonly/>
                                  <input type="hidden" name="package_id" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['package_id'] : '';?>" placeholder="" id="" class="form-control" readonly/>
                                  <input type="hidden" name="customer_id" value="<?php echo isset($scheduler_description[$j]) ? $scheduler_description[$j]['customer_id'] : '';?>" placeholder="" id="" class="form-control" readonly/>
@@ -137,7 +138,7 @@
                               </td>
                               <td>
                                   <div class="input-group date">
-                                    <input type="text" name="date" value="<?php echo $value['date']?>" placeholder="" data-date-format="YYYY-MM-DD"  class="form-control" />
+                                    <input type="text" name="date" value="<?php echo $value['date']?>" placeholder="" data-date-format="DD-MM-YYYY"  class="form-control" />
                                     <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
                                     </span>
@@ -170,7 +171,7 @@
                                   </select>
                               </td>
                               <td>
-                                  <select class="form-control" name="status" id="stat">
+                                  <select class="form-control" name="status" id="status<?php echo $j;?><?php echo $form_id; ?>">
                                     <option value="" <?php echo ($value['status'] == "")? "selected":""?> >Status</option>
                                     <option value="1" <?php echo ($value['status'] == "1")? "selected":""?>>Pending</option>
                                     <option value="2" <?php echo ($value['status'] == "2")? "selected":""?>>Complete</option>
@@ -181,7 +182,7 @@
                               <td>
                                 <button type="submit" form="<?php echo $j;?><?php echo $form_id; ?>" data-toggle="tooltip" title="Submit New dates" class="btn btn-primary">Submit</button>
 
-                                <button type="button" form="<?php echo $j;?><?php echo $form_id; ?>" data-toggle="tooltip" onclick="call_start('<?php echo $j;?><?php echo $form_id; ?>')" title="Call Start" class="btn btn-primary">Start</button>
+                                <button type="button" form="<?php echo $j;?><?php echo $form_id; ?>" data-toggle="tooltip" onclick="call_start('<?php echo $j;?><?php echo $form_id; ?>','<?php echo $call_status; ?>')" title="Call Start" class="btn btn-primary">Start</button>
 
                               
                               </td>
@@ -299,27 +300,34 @@ $('#language a:first').tab('show');
     });
 </script>
 <script type="text/javascript">
-  function call_start(id){
-    //alert(id);
+  function call_start(id,call_status){
+    // alert(id);
+    //var status = $("#status"+id).val();
+    //alert(call_status);
+    if(call_status == 2)
+    {
+      alert("This call is already Completed..")
+    }
+    else
+    {
+    var ans = confirm("Are you sure? You want to Start call.");
+    if(ans == true)
+    {
     var formData = $("#"+id).serialize();
-    //alert(formData);
-    //var path = '<?php echo $call_start;?>';
-    //alert('index.php?route=scheduler/scheduler/call_start/autocomplete&token=<?php echo $token; ?>');
     $.ajax({
         type:'POST',
         url: 'index.php?route=scheduler/scheduler/call_start/autocomplete&token=<?php echo $token; ?>',
-        //dataType: 'json',
         data:formData,
         success:function(resp)
          { 
-          // alert(resp);
-          // console.log(resp);
+          //alert(resp);
           if(resp == 0)
           {
             alert("Somthing goes wrong..!")
           }
           else
           {
+            location.reload();
             window.open(
                   'http://www.pkfood.in:8443/'+resp+'',
                   '_blank' // <- This is what makes it open in a new window.
@@ -327,6 +335,8 @@ $('#language a:first').tab('show');
           }
         }   
         });
+    }
+    }
   }
 </script>
 <?php echo $footer; ?>

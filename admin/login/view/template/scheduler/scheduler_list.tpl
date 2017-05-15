@@ -40,9 +40,7 @@
                     <a ><?php echo $column_name; ?></a>
                     <?php } ?></td>
                     
-                  <td class="text-right">
-                    <a  class=""><?php echo "Status" ?></a>
-                    </td>
+                  
                   <td class="text-right"><?php echo $column_action; ?></td>
                 </tr>
               </thead>
@@ -56,7 +54,7 @@
                     <input type="checkbox" name="selected[]" value="<?php echo $customer['sr_no']; ?>" />
                     <?php } ?></td>
                   <td class="text-left"><?php echo $customer['fname']; ?> <?php echo $customer['lname']; ?></td>
-                  <td class="text-right"><?php echo $customer['status']; ?></td>
+                  <!-- <td class="text-right"><?php echo $customer['status']; ?></td> -->
                   <td class="text-right"><a href="<?php echo $customer['edit']; ?>" data-toggle="tooltip" title="<?php echo "View Customer Call" ?>" class="btn btn-primary"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <?php } ?>
