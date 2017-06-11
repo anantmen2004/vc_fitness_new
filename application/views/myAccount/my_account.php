@@ -872,6 +872,11 @@ function sessionvideo(pid,path)
   }
 </script>
 <script type="text/javascript">
+
+$(document).ready(function(){
+   $('.modal-content').bind('contextmenu',function() { return false; });
+});
+
 function wanning_msg(){
   alert("Opps..! Please Complete your current Week training");
 }
